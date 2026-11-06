@@ -1,0 +1,262 @@
+{
+  "generated_from": {
+    "path": "datasets/experiment_inputs/D2_online_retail/Online Retail.xlsx",
+    "sha256": "43465A06F2CCF7C8B5BD2892BC7DEFB52F97487934FE93B16AE4C3936424676D"
+  },
+  "structure": {
+    "rows": 541909,
+    "columns": 8,
+    "column_names": [
+      "InvoiceNo",
+      "StockCode",
+      "Description",
+      "Quantity",
+      "InvoiceDate",
+      "UnitPrice",
+      "CustomerID",
+      "Country"
+    ],
+    "date_min": "2010-12-01T08:26:00",
+    "date_max": "2011-12-09T12:50:00",
+    "distinct_calendar_dates": 305,
+    "distinct_timestamps": 23260,
+    "distinct_month_periods": 13,
+    "first_month": "2010-12",
+    "last_month": "2011-12",
+    "last_month_is_partial": true
+  },
+  "missingness": {
+    "missing_cells_total": 136534,
+    "by_column": {
+      "InvoiceNo": 0,
+      "StockCode": 0,
+      "Description": 1454,
+      "Quantity": 0,
+      "InvoiceDate": 0,
+      "UnitPrice": 0,
+      "CustomerID": 135080,
+      "Country": 0
+    },
+    "customer_id_rows": 135080,
+    "customer_id_share": 0.249266943,
+    "description_rows": 1454,
+    "description_share": 0.002683107,
+    "both_customer_and_description_rows": 1454
+  },
+  "identifiers_and_cardinality": {
+    "unique_invoices": 25900,
+    "unique_stock_codes": 4070,
+    "unique_descriptions": 4223,
+    "unique_customers_non_null": 4372,
+    "unique_countries": 38,
+    "invoice_lines": {
+      "sum": 541909.0,
+      "mean": 20.923127,
+      "median": 10.0,
+      "std_sample": 43.031334,
+      "min": 1.0,
+      "q1": 2.0,
+      "q3": 23.0,
+      "max": 1114.0
+    },
+    "stock_codes_with_multiple_normalized_descriptions": 647,
+    "max_normalized_descriptions_for_one_stock_code": 7
+  },
+  "duplicates": {
+    "duplicate_rows_after_first": 5268,
+    "duplicate_share": 0.009721189,
+    "rows_after_drop_duplicates": 536641,
+    "raw_value_removed_if_deduplicated": 21740.98,
+    "raw_value_after_deduplication": 9726006.954
+  },
+  "quantities_and_prices": {
+    "quantity": {
+      "sum": 5176450.0,
+      "mean": 9.55225,
+      "median": 3.0,
+      "std_sample": 218.081158,
+      "min": -80995.0,
+      "q1": 1.0,
+      "q3": 10.0,
+      "max": 80995.0
+    },
+    "unit_price": {
+      "sum": 2498803.974,
+      "mean": 4.611114,
+      "median": 2.08,
+      "std_sample": 96.759853,
+      "min": -11062.06,
+      "q1": 1.25,
+      "q3": 4.13,
+      "max": 38970.0
+    },
+    "negative_quantity_rows": 10624,
+    "negative_quantity_share": 0.019604768,
+    "zero_quantity_rows": 0,
+    "zero_price_rows": 2515,
+    "zero_price_share": 0.004641001,
+    "negative_price_rows": 2,
+    "negative_price_share": 3.691e-06
+  },
+  "cancellations_and_adjustments": {
+    "cancellation_rows": 9288,
+    "cancellation_row_share": 0.017139409,
+    "cancellation_invoices": 3836,
+    "cancellation_invoice_share": 0.148108108,
+    "cancellation_rows_with_negative_quantity": 9288,
+    "cancellation_rows_without_negative_quantity": 0,
+    "negative_quantity_rows_without_c_prefix": 1336,
+    "adjustment_invoice_rows_a_prefix": 3,
+    "adjustment_invoices_a_prefix": 3
+  },
+  "values_sterling": {
+    "raw_line_total": {
+      "sum": 9747747.934,
+      "mean": 17.987795,
+      "median": 9.75,
+      "std_sample": 378.810824,
+      "min": -168469.6,
+      "q1": 3.4,
+      "q3": 17.4,
+      "max": 168469.6
+    },
+    "raw_net_value_all_rows": 9747747.934,
+    "positive_sale_rows": 530104,
+    "positive_sale_value": 10666684.544,
+    "cancellation_value": -896812.49,
+    "negative_quantity_non_cancel_value": 0.0,
+    "negative_price_value": -22124.12,
+    "zero_price_value": 0.0
+  },
+  "country_concentration": {
+    "uk_rows": 495478,
+    "uk_row_share": 0.914319563,
+    "uk_positive_value": 9025222.084,
+    "uk_positive_value_share": 0.846113152,
+    "top_countries_by_positive_value": [
+      {
+        "country": "United Kingdom",
+        "rows": 495478,
+        "positive_value": 9025222.084
+      },
+      {
+        "country": "Netherlands",
+        "rows": 2371,
+        "positive_value": 285446.34
+      },
+      {
+        "country": "EIRE",
+        "rows": 8196,
+        "positive_value": 283453.96
+      },
+      {
+        "country": "Germany",
+        "rows": 9495,
+        "positive_value": 228867.14
+      },
+      {
+        "country": "France",
+        "rows": 8557,
+        "positive_value": 209715.11
+      }
+    ]
+  },
+  "temporal": {
+    "monthly": {
+      "2010-12": {
+        "rows": 42481,
+        "raw_value": 748957.02,
+        "positive_value": 823746.14,
+        "cancellation_value": -74789.12
+      },
+      "2011-01": {
+        "rows": 35147,
+        "raw_value": 560000.26,
+        "positive_value": 691364.56,
+        "cancellation_value": -131364.3
+      },
+      "2011-02": {
+        "rows": 27707,
+        "raw_value": 498062.65,
+        "positive_value": 523631.89,
+        "cancellation_value": -25569.24
+      },
+      "2011-03": {
+        "rows": 36748,
+        "raw_value": 683267.08,
+        "positive_value": 717639.36,
+        "cancellation_value": -34372.28
+      },
+      "2011-04": {
+        "rows": 29916,
+        "raw_value": 493207.121,
+        "positive_value": 537808.621,
+        "cancellation_value": -44601.5
+      },
+      "2011-05": {
+        "rows": 37030,
+        "raw_value": 723333.51,
+        "positive_value": 770536.02,
+        "cancellation_value": -47202.51
+      },
+      "2011-06": {
+        "rows": 36874,
+        "raw_value": 691123.12,
+        "positive_value": 761739.9,
+        "cancellation_value": -70616.78
+      },
+      "2011-07": {
+        "rows": 39518,
+        "raw_value": 681300.111,
+        "positive_value": 719221.191,
+        "cancellation_value": -37921.08
+      },
+      "2011-08": {
+        "rows": 35284,
+        "raw_value": 682680.51,
+        "positive_value": 759138.38,
+        "cancellation_value": -54333.75
+      },
+      "2011-09": {
+        "rows": 50226,
+        "raw_value": 1019687.622,
+        "positive_value": 1058590.172,
+        "cancellation_value": -38902.55
+      },
+      "2011-10": {
+        "rows": 60742,
+        "raw_value": 1070704.67,
+        "positive_value": 1154979.3,
+        "cancellation_value": -84274.63
+      },
+      "2011-11": {
+        "rows": 84711,
+        "raw_value": 1461756.25,
+        "positive_value": 1509496.33,
+        "cancellation_value": -47740.08
+      },
+      "2011-12": {
+        "rows": 25525,
+        "raw_value": 433668.01,
+        "positive_value": 638792.68,
+        "cancellation_value": -205124.67
+      }
+    },
+    "highest_complete_month_by_positive_value": {
+      "period": "2011-11",
+      "value": 1509496.33
+    }
+  },
+  "products_positive_sales": {
+    "top_stock_code_by_quantity": {
+      "stock_code": "23843",
+      "representative_description": "PAPER CRAFT , LITTLE BIRDIE",
+      "quantity": 80995
+    },
+    "top_stock_code_by_value": {
+      "stock_code": "DOT",
+      "representative_description": "DOTCOM POSTAGE",
+      "value": 206248.77
+    }
+  }
+}

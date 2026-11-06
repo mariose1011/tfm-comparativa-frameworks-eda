@@ -1,0 +1,2014 @@
+{
+  "date": "2026-10-03",
+  "run_id": "D1_bike_sharing__microsoft_agent_framework__r03__20260831T213622746167Z",
+  "status": "Evaluación cerrada el 06/10/2026",
+  "Q2": 94.28571428571429,
+  "Q2_checks": [
+    {
+      "id": "C01",
+      "label": "Número de filas",
+      "reference_path": "structure.rows",
+      "tolerance": "exact",
+      "weight": 2,
+      "actual": 17379,
+      "expected": 17379,
+      "evidence": "STAT-001.rows",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C02",
+      "label": "Número de columnas",
+      "reference_path": "structure.columns",
+      "tolerance": "exact",
+      "weight": 2,
+      "actual": 17,
+      "expected": 17,
+      "evidence": "STAT-001.columns",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C03",
+      "label": "Fechas distintas",
+      "reference_path": "structure.unique_dates",
+      "tolerance": "exact",
+      "weight": 1,
+      "actual": 731,
+      "expected": 731,
+      "evidence": "STAT-010.days",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C04",
+      "label": "Celdas ausentes",
+      "reference_path": "quality.missing_cells_total",
+      "tolerance": "exact",
+      "weight": 2,
+      "actual": 0,
+      "expected": 0,
+      "evidence": "STAT-002",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C05",
+      "label": "Filas duplicadas",
+      "reference_path": "quality.duplicate_rows",
+      "tolerance": "exact",
+      "weight": 2,
+      "actual": 0,
+      "expected": 0,
+      "evidence": "STAT-003.full_row_duplicates",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C06",
+      "label": "Huecos en la secuencia horaria",
+      "reference_path": "structure.missing_hourly_slots",
+      "tolerance": "exact",
+      "weight": 1,
+      "actual": 165,
+      "expected": 165,
+      "evidence": "STAT-004.missing_hour_count",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C07",
+      "label": "Alquileres totales",
+      "reference_path": "overall.cnt_sum",
+      "tolerance": "exact",
+      "weight": 2,
+      "actual": 3292679,
+      "expected": 3292679,
+      "evidence": "STAT-008.cnt_total",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C08",
+      "label": "Media horaria de alquileres",
+      "reference_path": "overall.cnt_mean",
+      "tolerance": {
+        "absolute": 0.01
+      },
+      "weight": 2,
+      "actual": 189.46308763450142,
+      "expected": 189.463088,
+      "evidence": "STAT-007.cnt.mean",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C09",
+      "label": "Mediana horaria de alquileres",
+      "reference_path": "overall.cnt_median",
+      "tolerance": {
+        "absolute": 0.01
+      },
+      "weight": 1,
+      "actual": 142,
+      "expected": 142,
+      "evidence": "STAT-007.cnt.median",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C10",
+      "label": "Desviación típica muestral",
+      "reference_path": "overall.cnt_std_sample",
+      "tolerance": {
+        "absolute": 0.01
+      },
+      "weight": 1,
+      "actual": 181.38759909186476,
+      "expected": 181.387599,
+      "evidence": "STAT-007.cnt.std",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C11",
+      "label": "Máximo horario",
+      "reference_path": "overall.cnt_max",
+      "tolerance": "exact",
+      "weight": 1,
+      "actual": 977,
+      "expected": 977,
+      "evidence": "STAT-007.cnt.max",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C12",
+      "label": "Total de usuarios ocasionales",
+      "reference_path": "overall.casual_sum",
+      "tolerance": "exact",
+      "weight": 1,
+      "actual": 620017,
+      "expected": 620017,
+      "evidence": "STAT-008.casual_total",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C13",
+      "label": "Total de usuarios registrados",
+      "reference_path": "overall.registered_sum",
+      "tolerance": "exact",
+      "weight": 1,
+      "actual": 2672662,
+      "expected": 2672662,
+      "evidence": "STAT-008.registered_total",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C14",
+      "label": "Proporción de usuarios registrados",
+      "reference_path": "overall.registered_share",
+      "tolerance": {
+        "absolute": 0.001
+      },
+      "weight": 1,
+      "actual": 0.8116983161735475,
+      "expected": 0.811698316,
+      "evidence": "STAT-008.registered_share_of_cnt",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C15",
+      "label": "Alquileres totales en 2011",
+      "reference_path": "by_year.0.total_cnt",
+      "tolerance": "exact",
+      "weight": 1,
+      "actual": 1243103,
+      "expected": 1243103,
+      "evidence": "STAT-009.by_yr[yr=0].sum",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C16",
+      "label": "Alquileres totales en 2012",
+      "reference_path": "by_year.1.total_cnt",
+      "tolerance": "exact",
+      "weight": 1,
+      "actual": 2049576,
+      "expected": 2049576,
+      "evidence": "STAT-009.by_yr[yr=1].sum",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C17",
+      "label": "Variación total de 2012 respecto a 2011",
+      "reference_path": "year_change.total_cnt_2012_vs_2011_pct",
+      "tolerance": {
+        "absolute_percentage_points": 0.1
+      },
+      "weight": 2,
+      "actual": null,
+      "expected": 64.875799,
+      "evidence": "Variación porcentual anual no producida",
+      "correct": 0,
+      "status": "ausente"
+    },
+    {
+      "id": "C18",
+      "label": "Hora con mayor media",
+      "reference_path": "by_hour.17.mean",
+      "expected_category": 17,
+      "tolerance": {
+        "absolute": 0.05
+      },
+      "weight": 2,
+      "actual": 461.45205479452056,
+      "expected": 461.452055,
+      "evidence": "STAT-011.by_hr_overall[hr=17].mean_cnt",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C19",
+      "label": "Hora con menor media",
+      "reference_path": "by_hour.4.mean",
+      "expected_category": 4,
+      "tolerance": {
+        "absolute": 0.05
+      },
+      "weight": 1,
+      "actual": 6.352941176470588,
+      "expected": 6.352941,
+      "evidence": "STAT-011.by_hr_overall[hr=4].mean_cnt",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C20",
+      "label": "Temporada con mayor media",
+      "reference_path": "by_season.3.mean",
+      "expected_category": 3,
+      "tolerance": {
+        "absolute": 0.05
+      },
+      "weight": 1,
+      "actual": 236.01623665480426,
+      "expected": 236.016237,
+      "evidence": "STAT-009.by_season[season=3].mean",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C21",
+      "label": "Media con tiempo despejado",
+      "reference_path": "by_weather.1.mean",
+      "expected_category": 1,
+      "tolerance": {
+        "absolute": 0.05
+      },
+      "weight": 1,
+      "actual": 204.8692718829405,
+      "expected": 204.869272,
+      "evidence": "STAT-009.by_weathersit[weathersit=1].mean",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C22",
+      "label": "Media con tiempo adverso de categoría 3",
+      "reference_path": "by_weather.3.mean",
+      "expected_category": 3,
+      "tolerance": {
+        "absolute": 0.05
+      },
+      "weight": 1,
+      "actual": 111.57928118393235,
+      "expected": 111.579281,
+      "evidence": "STAT-009.by_weathersit[weathersit=3].mean",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C23",
+      "label": "Observaciones meteorológicas de categoría 4",
+      "reference_path": "by_weather.4.count",
+      "tolerance": "exact",
+      "weight": 1,
+      "actual": 3,
+      "expected": 3,
+      "evidence": "STAT-009.by_weathersit[weathersit=4].n",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C24",
+      "label": "Correlación de Pearson entre temperatura y cnt",
+      "reference_path": "correlations_pearson.temp",
+      "tolerance": {
+        "absolute": 0.005
+      },
+      "weight": 1,
+      "actual": 0.40477227577865854,
+      "expected": 0.404772,
+      "evidence": "STAT-013.correlations_with_cnt[temp].pearson_with_cnt",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C25",
+      "label": "Correlación de Pearson entre humedad y cnt",
+      "reference_path": "correlations_pearson.hum",
+      "tolerance": {
+        "absolute": 0.005
+      },
+      "weight": 1,
+      "actual": -0.3229107408245602,
+      "expected": -0.322911,
+      "evidence": "STAT-013.correlations_with_cnt[hum].pearson_with_cnt",
+      "correct": 1,
+      "status": "correcta"
+    },
+    {
+      "id": "C26",
+      "label": "Inconsistencias en cnt = casual + registered",
+      "reference_path": "quality.cnt_identity_errors",
+      "tolerance": "exact",
+      "weight": 2,
+      "actual": 0,
+      "expected": 0,
+      "evidence": "STAT-006.identity_mismatch_count",
+      "correct": 1,
+      "status": "correcta"
+    }
+  ],
+  "prepared_data": {
+    "rows": 17379,
+    "columns": 22,
+    "source_columns_preserved": 17,
+    "timestamp_mismatches": 0,
+    "derived_columns_valid": [
+      "timestamp",
+      "season_label",
+      "weathersit_label",
+      "weekday_label",
+      "user_total_check"
+    ]
+  },
+  "verification_count": 766,
+  "verification_scope": [
+    "columnas originales y derivadas",
+    "nulos, duplicados, huecos, dominios, calendario y rangos",
+    "descriptivos y composición",
+    "todos los grupos emitidos por año, estación, meteorología, workingday y holiday",
+    "perfiles horarios global y segmentado",
+    "24 grupos mensuales",
+    "resumen diario y horas por fecha",
+    "correlaciones y matriz Spearman",
+    "IQR y filas máximas"
+  ],
+  "process": {
+    "final_status": "completed",
+    "correction_used": true
+  },
+  "source_hashes": {
+    "datasets/experiment_inputs/D1_bike_sharing/hour.csv": "E03DE4EE4EF4DC376AC6E04BF829673C6269E8EBA5C60FA121640FA2F829504F",
+    "datasets/experiment_inputs/D1_bike_sharing/Readme.txt": "B92C8628622948BF0828C43A1B315D1517C3D7FD63654730D0DEA379B8E88175",
+    "datasets/reference_private/D1_bike_sharing/evaluation_spec.json": "3662B952B753BDD1AC1CFCC0E39D62B0276975DAA6978C109B0A600B86C894B2",
+    "datasets/reference_private/D1_bike_sharing/reference_values.json": "5166661C57A442D00FBDEA01F4C2C2368975807525E11AA525BECE4590948991",
+    "datasets/reference_private/D1_bike_sharing/ficha_referencia_D1_bike_sharing.md": "703D38E3BC4DDAD1E8BB0D6B38F4371C8C2B9F03C790F145174253623D060FAB",
+    "experimento/evaluacion/01_protocolo_calidad_Q1_Q10_v0.1.md": "07619927ECB44DFA9391801AA319901DE6626B18EAC0192F7FD3E3EDC30F97F6",
+    "experimento/evaluacion/02_ficha_D1_bike_sharing.md": "C26F8CBBECD7A37F5B9D1C7FF091D4A40D03FC90DBCC182B122B78552BC2657E",
+    "outputs/experimento/D1_bike_sharing__microsoft_agent_framework__r03__20260831T213622746167Z/plan.md": "21F700CF3A679E00129A647BB466FBAA0790B155B1E8CADAE26098F3014FB77F",
+    "outputs/experimento/D1_bike_sharing__microsoft_agent_framework__r03__20260831T213622746167Z/report.md": "000E4365133F62731FEC7886B59E8858EE1477F1039ECCCFA69E247F67CE3334",
+    "outputs/experimento/D1_bike_sharing__microsoft_agent_framework__r03__20260831T213622746167Z/statistics.json": "7124BEC3A1089FB4B7D7BFF3A491157142CE1BC2C8DE107AF6984B9BAB4B35E3",
+    "outputs/experimento/D1_bike_sharing__microsoft_agent_framework__r03__20260831T213622746167Z/issues.json": "E47D5C9C6C2577EF0138B3A3FE67F2F1B5D48153CBE6545DE582742B71837551",
+    "outputs/experimento/D1_bike_sharing__microsoft_agent_framework__r03__20260831T213622746167Z/prepared_data.csv": "3413DCBB5F00BDEDB1D5DBD10FA3424173D384D6D841DB5FECC3850DAE305E50",
+    "outputs/experimento/D1_bike_sharing__microsoft_agent_framework__r03__20260831T213622746167Z/trace.jsonl": "C8A4837988B4ACE98B457F57FA87CEEB7537EF92317DCF26D08B531F37272250",
+    "outputs/experimento/D1_bike_sharing__microsoft_agent_framework__r03__20260831T213622746167Z/figures/fig_001_daily_total.png": "F97DFDC8E52A0B09FD4A5F473A582457F00B572BC1AB8FFAF73607066A9E33F1",
+    "outputs/experimento/D1_bike_sharing__microsoft_agent_framework__r03__20260831T213622746167Z/figures/fig_002_hourly_workingday.png": "7689E56B63E75BDADD9D9D6C33D07D7246377FDC36E310EDD13D9FDADB196174",
+    "outputs/experimento/D1_bike_sharing__microsoft_agent_framework__r03__20260831T213622746167Z/figures/fig_003_hourly_user_composition.png": "13B3E59D03105728324F012348BCC9988F9F0A33B18D8B1CF7E756D329EEBCFA",
+    "outputs/experimento/D1_bike_sharing__microsoft_agent_framework__r03__20260831T213622746167Z/figures/fig_004_weather_distribution.png": "1068EC8FD49424630F53C58DA97F5F600F2902DC668370ECDF9F627C17F61055",
+    "outputs/experimento/D1_bike_sharing__microsoft_agent_framework__r03__20260831T213622746167Z/figures/fig_005_monthly_year.png": "079B15B24E26ABCDD1A90C988DC6D0B6294914FBB0C3E845A6F6E83E0D037455"
+  },
+  "note": "El contraste verifica evidencias finales, sin completar ausencias ni alterar los productos.",
+  "proposed_scores": {
+    "Q1": 100,
+    "Q2": 94.28571428571429,
+    "Q3": 100,
+    "Q4": 92.3076923076923,
+    "Q5": 75,
+    "Q6": 100,
+    "Q7": 75,
+    "Q8": 81.81818181818181,
+    "Q9": 100,
+    "Q10": 75
+  },
+  "proposed_index": 90.30544455544455,
+  "components": {
+    "Q1": [
+      {
+        "id": "E1",
+        "name": "Carga y estructura",
+        "points": 1,
+        "evidence": "STAT-001 y profile"
+      },
+      {
+        "id": "E2",
+        "name": "Inspección de calidad",
+        "points": 1,
+        "evidence": "STAT-002 a STAT-006"
+      },
+      {
+        "id": "E3",
+        "name": "Preparación",
+        "points": 1,
+        "evidence": "TR-001/002/003 y CSV contrastado"
+      },
+      {
+        "id": "E4",
+        "name": "Estadística descriptiva",
+        "points": 1,
+        "evidence": "STAT-007/008/009"
+      },
+      {
+        "id": "E5",
+        "name": "Relaciones y agregaciones",
+        "points": 1,
+        "evidence": "STAT-010 a STAT-013"
+      },
+      {
+        "id": "E6",
+        "name": "Visualizaciones",
+        "points": 1,
+        "evidence": "Cinco PNG utilizables y report 59–77"
+      },
+      {
+        "id": "E7",
+        "name": "Riesgos y anomalías",
+        "points": 1,
+        "evidence": "ISSUE-001/002 y STAT-014"
+      },
+      {
+        "id": "E8",
+        "name": "Informe final",
+        "points": 1,
+        "evidence": "report completo tras corrección"
+      }
+    ],
+    "Q3": [
+      {
+        "id": "D01",
+        "name": "Fecha-hora correcta",
+        "points": 1,
+        "evidence": "timestamp sin discrepancias en 17379 filas"
+      },
+      {
+        "id": "D02",
+        "name": "Categorías como grupos",
+        "points": 1,
+        "evidence": "Etiquetas y agrupaciones por códigos, STAT-005/009/011"
+      },
+      {
+        "id": "D03",
+        "name": "instant solo identificador",
+        "points": 1,
+        "evidence": "Unicidad STAT-003 y código sin uso sustantivo de instant"
+      },
+      {
+        "id": "D04",
+        "name": "Sin limpieza innecesaria",
+        "points": 1,
+        "evidence": "CSV conserva columnas fuente y TR-003"
+      },
+      {
+        "id": "D05",
+        "name": "No imputar huecos",
+        "points": 1,
+        "evidence": "ISSUE-001, report 81"
+      },
+      {
+        "id": "D06",
+        "name": "Extremos conservados",
+        "points": 1,
+        "evidence": "CSV completo, ISSUE-002, report 33"
+      },
+      {
+        "id": "D07",
+        "name": "Identidad no usada como evidencia independiente",
+        "points": 1,
+        "evidence": "user_total_check, STAT-006 y composición. No se presenta la identidad como descubrimiento predictivo"
+      },
+      {
+        "id": "D08",
+        "name": "Escalas normalizadas conservadas",
+        "points": 1,
+        "evidence": "CSV, STAT-006/007 y report 41"
+      }
+    ],
+    "Q4": {
+      "known_complete": 6,
+      "additional_valid": 3,
+      "false_alarms": 0,
+      "precision": 1,
+      "recall": 0.8571428571428571,
+      "risks": [
+        {
+          "id": "R01",
+          "risk": "Identificador secuencial",
+          "status": "completo",
+          "evidence": "STAT-003, código de análisis excluye instant de magnitudes sustantivas"
+        },
+        {
+          "id": "R02",
+          "risk": "Códigos categóricos",
+          "status": "completo",
+          "evidence": "STAT-005/009/011, TR-002 y report 27"
+        },
+        {
+          "id": "R03",
+          "risk": "Identidad de componentes",
+          "status": "completo",
+          "evidence": "STAT-006/008, user_total_check y report 29/51"
+        },
+        {
+          "id": "R04",
+          "risk": "Meteorología normalizada",
+          "status": "completo",
+          "evidence": "STAT-006/007 y report 41"
+        },
+        {
+          "id": "R05",
+          "risk": "165 huecos horarios",
+          "status": "completo",
+          "evidence": "STAT-004, ISSUE-001 y report 81"
+        },
+        {
+          "id": "R06",
+          "risk": "Weathersit4 n=3",
+          "status": "completo",
+          "evidence": "STAT-009 y report 53/71"
+        },
+        {
+          "id": "R07",
+          "risk": "Dependencia y derivación temporal",
+          "status": "parcial",
+          "evidence": "STAT-005 contrasta calendario, sin tratamiento de dependencia entre observaciones sucesivas"
+        },
+        {
+          "id": "A01",
+          "risk": "Redundancia temp-atemp",
+          "status": "adicional válido",
+          "evidence": "STAT-013 Pearson0,987672 y report 55"
+        },
+        {
+          "id": "A02",
+          "risk": "Influencia de extremos válidos",
+          "status": "adicional válido",
+          "evidence": "STAT-014, ISSUE-002 y report 83"
+        },
+        {
+          "id": "A03",
+          "risk": "Limitación de datos individuales y espaciales",
+          "status": "adicional válido",
+          "evidence": "Profile y report 89"
+        }
+      ]
+    },
+    "Q5": {
+      "level": 3,
+      "justification": "Nivel3/4. EDA amplio con comparaciones, correlaciones y extremos diarios contextualizados. No desarrolla dependencia temporal y sintetiza poco los hallazgos mensuales y estacionales."
+    },
+    "Q6": {
+      "level": 4,
+      "justification": "Nivel 4/4. Interpreta días incompletos, composición y asociaciones con prudencia causal. La frase de report95 niega evidencia suficiente para explicar extremos concretos, no la existencia de una pista contextual. Se retira la reducción por esa frase."
+    },
+    "Q7": [
+      {
+        "id": "V01",
+        "objective": "Evolución 2011–2012",
+        "points": 4,
+        "evidence": "FIG-001 y report 59. Agregación diaria legible, ejes y cobertura advertida"
+      },
+      {
+        "id": "V02",
+        "objective": "Hora por tipo de día",
+        "points": 4,
+        "evidence": "FIG-002 y report 9/49/63. 24 horas, curvas y picos correctos. FIG-003 aporta composición, no sustituye el contraste workingday"
+      },
+      {
+        "id": "V03",
+        "objective": "Patrón mensual o estacional",
+        "points": 4,
+        "evidence": "FIG-005 y report 75. Meses1–12 ordenados y dos años comparados. yr0/1 se identifican en report43"
+      },
+      {
+        "id": "V04",
+        "objective": "Meteorología y n reducido",
+        "points": 3,
+        "evidence": "FIG-004 y report53/71. n=3 advertido en texto, pero showfliers=False oculta extremos sin avisarlo. Misma regla que anteriores boxplots no explicados"
+      },
+      {
+        "id": "V05",
+        "objective": "Relación con temperatura o humedad",
+        "points": 0,
+        "evidence": "No hay figura de cnt con temp ni hum. Las correlaciones en STAT-013 no sustituyen representación visual"
+      }
+    ],
+    "Q8": {
+      "weighted_points": 18,
+      "total_weight": 22,
+      "units": [
+        {
+          "id": "U01",
+          "content": "Dimensiones y periodo",
+          "weight": 2,
+          "credit": 1,
+          "evidence": "Report3/19"
+        },
+        {
+          "id": "U02",
+          "content": "Nulos, duplicados y huecos",
+          "weight": 2,
+          "credit": 1,
+          "evidence": "Report5/23/24/81"
+        },
+        {
+          "id": "U03",
+          "content": "Nivel y dispersión cnt",
+          "weight": 2,
+          "credit": 1,
+          "evidence": "Report37 comunica media, mediana, cuartiles y rango"
+        },
+        {
+          "id": "U04",
+          "content": "Proporción registered",
+          "weight": 2,
+          "credit": 1,
+          "evidence": "Report7/39"
+        },
+        {
+          "id": "U05",
+          "content": "Totales anuales y aumento64,88%",
+          "weight": 2,
+          "credit": 0.5,
+          "evidence": "Report43 contiene totales y medias, no porcentaje de aumento"
+        },
+        {
+          "id": "U06",
+          "content": "Máximo y mínimo globales por hora",
+          "weight": 2,
+          "credit": 0,
+          "evidence": "STAT-011.by_hr_overall calculado, no comunicados en report. FIG-003 dibuja componentes, no cnt ni sus dos extremos exigidos"
+        },
+        {
+          "id": "U07",
+          "content": "Máximos17h laborables y13h no laborables",
+          "weight": 2,
+          "credit": 1,
+          "evidence": "Report9/49 y FIG-002"
+        },
+        {
+          "id": "U08",
+          "content": "Diferencias temporales y máximo season3",
+          "weight": 1,
+          "credit": 0.5,
+          "evidence": "Report75 y FIG-005 muestran patrón mensual. Falta comunicar que season3 tiene la mayor media, aunque STAT-009 lo contiene"
+        },
+        {
+          "id": "U09",
+          "content": "Meteorología y categoría4 n=3",
+          "weight": 2,
+          "credit": 1,
+          "evidence": "Report53/71"
+        },
+        {
+          "id": "U10",
+          "content": "Temperatura y humedad, prudencia",
+          "weight": 2,
+          "credit": 1,
+          "evidence": "Report55/93"
+        },
+        {
+          "id": "U11",
+          "content": "Identidad no predictiva",
+          "weight": 2,
+          "credit": 1,
+          "evidence": "Report29/51 y alcance descriptivo, composición como suma de componentes"
+        },
+        {
+          "id": "U12",
+          "content": "Dependencia, una ciudad y no causalidad",
+          "weight": 1,
+          "credit": 0.5,
+          "evidence": "Report delimita Capital Bikeshare y rechaza causalidad. No explica dependencia temporal ni explicita la ciudad. No se completa desde Readme"
+        }
+      ]
+    },
+    "Q9": {
+      "backed": 163,
+      "total": 163,
+      "contradicted": 0,
+      "insufficient": 0,
+      "claims": [
+        {
+          "id": "AF001",
+          "report_line": 3,
+          "claim": "17379 observaciones",
+          "status": "respaldada",
+          "evidence": "STAT-001/004, TR-001/002/003 y CSV"
+        },
+        {
+          "id": "AF002",
+          "report_line": 3,
+          "claim": "Inicio 2011-01-01",
+          "status": "respaldada",
+          "evidence": "STAT-001/004, TR-001/002/003 y CSV"
+        },
+        {
+          "id": "AF003",
+          "report_line": 3,
+          "claim": "Fin 2012-12-31",
+          "status": "respaldada",
+          "evidence": "STAT-001/004, TR-001/002/003 y CSV"
+        },
+        {
+          "id": "AF004",
+          "report_line": 3,
+          "claim": "Agregados horarios de Capital Bikeshare",
+          "status": "respaldada",
+          "evidence": "STAT-001/004, TR-001/002/003 y CSV"
+        },
+        {
+          "id": "AF005",
+          "report_line": 3,
+          "claim": "La copia conserva las filas fuente",
+          "status": "respaldada",
+          "evidence": "STAT-001/004, TR-001/002/003 y CSV"
+        },
+        {
+          "id": "AF006",
+          "report_line": 3,
+          "claim": "Se añaden variables temporales",
+          "status": "respaldada",
+          "evidence": "STAT-001/004, TR-001/002/003 y CSV"
+        },
+        {
+          "id": "AF007",
+          "report_line": 3,
+          "claim": "Se añaden etiquetas de códigos",
+          "status": "respaldada",
+          "evidence": "STAT-001/004, TR-001/002/003 y CSV"
+        },
+        {
+          "id": "AF008",
+          "report_line": 3,
+          "claim": "Se añade comprobación de componentes",
+          "status": "respaldada",
+          "evidence": "STAT-001/004, TR-001/002/003 y CSV"
+        },
+        {
+          "id": "AF009",
+          "report_line": 3,
+          "claim": "No se imputan registros",
+          "status": "respaldada",
+          "evidence": "STAT-001/004, TR-001/002/003 y CSV"
+        },
+        {
+          "id": "AF010",
+          "report_line": 3,
+          "claim": "No se eliminan registros",
+          "status": "respaldada",
+          "evidence": "STAT-001/004, TR-001/002/003 y CSV"
+        },
+        {
+          "id": "AF011",
+          "report_line": 5,
+          "claim": "Cero valores ausentes en columnas fuente",
+          "status": "respaldada",
+          "evidence": "STAT-002/003/005/006 y STAT-004, ISSUE-001"
+        },
+        {
+          "id": "AF012",
+          "report_line": 5,
+          "claim": "Cero filas duplicadas",
+          "status": "respaldada",
+          "evidence": "STAT-002/003/005/006 y STAT-004, ISSUE-001"
+        },
+        {
+          "id": "AF013",
+          "report_line": 5,
+          "claim": "Cero instant repetidos",
+          "status": "respaldada",
+          "evidence": "STAT-002/003/005/006 y STAT-004, ISSUE-001"
+        },
+        {
+          "id": "AF014",
+          "report_line": 5,
+          "claim": "Cero timestamp repetidos",
+          "status": "respaldada",
+          "evidence": "STAT-002/003/005/006 y STAT-004, ISSUE-001"
+        },
+        {
+          "id": "AF015",
+          "report_line": 5,
+          "claim": "Cero códigos fuera de dominio",
+          "status": "respaldada",
+          "evidence": "STAT-002/003/005/006 y STAT-004, ISSUE-001"
+        },
+        {
+          "id": "AF016",
+          "report_line": 5,
+          "claim": "Identidad cnt=casual+registered sin discrepancias",
+          "status": "respaldada",
+          "evidence": "STAT-002/003/005/006 y STAT-004, ISSUE-001"
+        },
+        {
+          "id": "AF017",
+          "report_line": 5,
+          "claim": "165 horas teóricas ausentes",
+          "status": "respaldada",
+          "evidence": "STAT-002/003/005/006 y STAT-004, ISSUE-001"
+        },
+        {
+          "id": "AF018",
+          "report_line": 5,
+          "claim": "Huecos limitan comparaciones de sumas con cobertura distinta",
+          "status": "respaldada",
+          "evidence": "STAT-002/003/005/006 y STAT-004, ISSUE-001"
+        },
+        {
+          "id": "AF019",
+          "report_line": 7,
+          "claim": "Total observado 3292679",
+          "status": "respaldada",
+          "evidence": "STAT-008/009"
+        },
+        {
+          "id": "AF020",
+          "report_line": 7,
+          "claim": "Registered cuota acumulada 81,2%",
+          "status": "respaldada",
+          "evidence": "STAT-008/009"
+        },
+        {
+          "id": "AF021",
+          "report_line": 7,
+          "claim": "Casual cuota acumulada 18,8%",
+          "status": "respaldada",
+          "evidence": "STAT-008/009"
+        },
+        {
+          "id": "AF022",
+          "report_line": 7,
+          "claim": "Media cnt yr0 143,8",
+          "status": "respaldada",
+          "evidence": "STAT-008/009"
+        },
+        {
+          "id": "AF023",
+          "report_line": 7,
+          "claim": "Media cnt yr1 234,7",
+          "status": "respaldada",
+          "evidence": "STAT-008/009"
+        },
+        {
+          "id": "AF024",
+          "report_line": 7,
+          "claim": "Media cnt mayor en yr1",
+          "status": "respaldada",
+          "evidence": "STAT-008/009"
+        },
+        {
+          "id": "AF025",
+          "report_line": 7,
+          "claim": "Suma cnt mayor en yr1",
+          "status": "respaldada",
+          "evidence": "STAT-008/009"
+        },
+        {
+          "id": "AF026",
+          "report_line": 9,
+          "claim": "Perfiles horarios distintos por workingday",
+          "status": "respaldada",
+          "evidence": "STAT-011/009"
+        },
+        {
+          "id": "AF027",
+          "report_line": 9,
+          "claim": "Pico laboral a las 8 h",
+          "status": "respaldada",
+          "evidence": "STAT-011/009"
+        },
+        {
+          "id": "AF028",
+          "report_line": 9,
+          "claim": "Media laboral hr8 477,0",
+          "status": "respaldada",
+          "evidence": "STAT-011/009"
+        },
+        {
+          "id": "AF029",
+          "report_line": 9,
+          "claim": "Máximo laboral a las 17 h",
+          "status": "respaldada",
+          "evidence": "STAT-011/009"
+        },
+        {
+          "id": "AF030",
+          "report_line": 9,
+          "claim": "Media laboral hr17 525,3",
+          "status": "respaldada",
+          "evidence": "STAT-011/009"
+        },
+        {
+          "id": "AF031",
+          "report_line": 9,
+          "claim": "Máximo no laboral a las 13 h",
+          "status": "respaldada",
+          "evidence": "STAT-011/009"
+        },
+        {
+          "id": "AF032",
+          "report_line": 9,
+          "claim": "Media no laboral hr13 372,7",
+          "status": "respaldada",
+          "evidence": "STAT-011/009"
+        },
+        {
+          "id": "AF033",
+          "report_line": 9,
+          "claim": "No laborables concentran mayores medias en mediodía y tarde temprana",
+          "status": "respaldada",
+          "evidence": "STAT-011/009"
+        },
+        {
+          "id": "AF034",
+          "report_line": 9,
+          "claim": "Medias cnt disminuyen de weathersit1 a 4",
+          "status": "respaldada",
+          "evidence": "STAT-011/009"
+        },
+        {
+          "id": "AF035",
+          "report_line": 9,
+          "claim": "Comparación meteorológica sin ajuste simultáneo de calendario",
+          "status": "respaldada",
+          "evidence": "STAT-011/009"
+        },
+        {
+          "id": "AF036",
+          "report_line": 13,
+          "claim": "CSV horario Bike Sharing hour.csv",
+          "status": "respaldada",
+          "evidence": "STAT-001, CSV y Readme"
+        },
+        {
+          "id": "AF037",
+          "report_line": 13,
+          "claim": "Fila definida por fecha y hora",
+          "status": "respaldada",
+          "evidence": "STAT-001, CSV y Readme"
+        },
+        {
+          "id": "AF038",
+          "report_line": 13,
+          "claim": "Incluye calendario",
+          "status": "respaldada",
+          "evidence": "STAT-001, CSV y Readme"
+        },
+        {
+          "id": "AF039",
+          "report_line": 13,
+          "claim": "Incluye meteorología normalizada",
+          "status": "respaldada",
+          "evidence": "STAT-001, CSV y Readme"
+        },
+        {
+          "id": "AF040",
+          "report_line": 13,
+          "claim": "Incluye los recuentos casual, registered y cnt",
+          "status": "respaldada",
+          "evidence": "STAT-001, CSV y Readme"
+        },
+        {
+          "id": "AF041",
+          "report_line": 15,
+          "claim": "Se examina estructura",
+          "status": "respaldada",
+          "evidence": "STAT-001 a STAT-014 y código de traza"
+        },
+        {
+          "id": "AF042",
+          "report_line": 15,
+          "claim": "Se examina calidad",
+          "status": "respaldada",
+          "evidence": "STAT-001 a STAT-014 y código de traza"
+        },
+        {
+          "id": "AF043",
+          "report_line": 15,
+          "claim": "Se examinan distribuciones",
+          "status": "respaldada",
+          "evidence": "STAT-001 a STAT-014 y código de traza"
+        },
+        {
+          "id": "AF044",
+          "report_line": 15,
+          "claim": "Se realizan agregaciones temporales",
+          "status": "respaldada",
+          "evidence": "STAT-001 a STAT-014 y código de traza"
+        },
+        {
+          "id": "AF045",
+          "report_line": 15,
+          "claim": "Se examina composición",
+          "status": "respaldada",
+          "evidence": "STAT-001 a STAT-014 y código de traza"
+        },
+        {
+          "id": "AF046",
+          "report_line": 15,
+          "claim": "Se calculan asociaciones de calendario",
+          "status": "respaldada",
+          "evidence": "STAT-001 a STAT-014 y código de traza"
+        },
+        {
+          "id": "AF047",
+          "report_line": 15,
+          "claim": "Se calculan asociaciones meteorológicas",
+          "status": "respaldada",
+          "evidence": "STAT-001 a STAT-014 y código de traza"
+        },
+        {
+          "id": "AF048",
+          "report_line": 15,
+          "claim": "No se entrenan modelos predictivos",
+          "status": "respaldada",
+          "evidence": "STAT-001 a STAT-014 y código de traza"
+        },
+        {
+          "id": "AF049",
+          "report_line": 15,
+          "claim": "No se realizan estimaciones causales",
+          "status": "respaldada",
+          "evidence": "STAT-001 a STAT-014 y código de traza"
+        },
+        {
+          "id": "AF050",
+          "report_line": 19,
+          "claim": "Fuente tiene 17 columnas",
+          "status": "respaldada",
+          "evidence": "STAT-001/004"
+        },
+        {
+          "id": "AF051",
+          "report_line": 19,
+          "claim": "Primera marca 2011-01-01 00:00:00",
+          "status": "respaldada",
+          "evidence": "STAT-001/004"
+        },
+        {
+          "id": "AF052",
+          "report_line": 19,
+          "claim": "Última marca 2012-12-31 23:00:00",
+          "status": "respaldada",
+          "evidence": "STAT-001/004"
+        },
+        {
+          "id": "AF053",
+          "report_line": 19,
+          "claim": "hr y documentación acreditan granularidad horaria",
+          "status": "respaldada",
+          "evidence": "STAT-001/004"
+        },
+        {
+          "id": "AF054",
+          "report_line": 25,
+          "claim": "Todas las fechas convertidas sin fallos",
+          "status": "respaldada",
+          "evidence": "STAT-003"
+        },
+        {
+          "id": "AF055",
+          "report_line": 26,
+          "claim": "yr coincide con fecha",
+          "status": "respaldada",
+          "evidence": "STAT-005 y fechas fuente"
+        },
+        {
+          "id": "AF056",
+          "report_line": 26,
+          "claim": "mnth coincide con fecha",
+          "status": "respaldada",
+          "evidence": "STAT-005 y fechas fuente"
+        },
+        {
+          "id": "AF057",
+          "report_line": 26,
+          "claim": "weekday coincide con fecha",
+          "status": "respaldada",
+          "evidence": "STAT-005 y fechas fuente"
+        },
+        {
+          "id": "AF058",
+          "report_line": 26,
+          "claim": "workingday coincide con calendario y holiday",
+          "status": "respaldada",
+          "evidence": "STAT-005 y fechas fuente"
+        },
+        {
+          "id": "AF059",
+          "report_line": 26,
+          "claim": "weekday0 corresponde a Sunday",
+          "status": "respaldada",
+          "evidence": "STAT-005 y fechas fuente"
+        },
+        {
+          "id": "AF060",
+          "report_line": 26,
+          "claim": "weekday6 corresponde a Saturday",
+          "status": "respaldada",
+          "evidence": "STAT-005 y fechas fuente"
+        },
+        {
+          "id": "AF061",
+          "report_line": 28,
+          "claim": "Sin recuentos negativos",
+          "status": "respaldada",
+          "evidence": "STAT-006"
+        },
+        {
+          "id": "AF062",
+          "report_line": 28,
+          "claim": "Cuatro variables meteorológicas en [0,1]",
+          "status": "respaldada",
+          "evidence": "STAT-006"
+        },
+        {
+          "id": "AF063",
+          "report_line": 31,
+          "claim": "Las 17 variables fuente se conservan",
+          "status": "respaldada",
+          "evidence": "TR-001/002, profile y CSV"
+        },
+        {
+          "id": "AF064",
+          "report_line": 31,
+          "claim": "dteday analizada como fecha",
+          "status": "respaldada",
+          "evidence": "TR-001/002, profile y CSV"
+        },
+        {
+          "id": "AF065",
+          "report_line": 31,
+          "claim": "dteday serializada ISO",
+          "status": "respaldada",
+          "evidence": "TR-001/002, profile y CSV"
+        },
+        {
+          "id": "AF066",
+          "report_line": 31,
+          "claim": "timestamp corresponde a fecha más hora",
+          "status": "respaldada",
+          "evidence": "TR-001/002, profile y CSV"
+        },
+        {
+          "id": "AF067",
+          "report_line": 31,
+          "claim": "season_label corresponde a código season",
+          "status": "respaldada",
+          "evidence": "TR-001/002, profile y CSV"
+        },
+        {
+          "id": "AF068",
+          "report_line": 31,
+          "claim": "weathersit_label corresponde a código meteorológico",
+          "status": "respaldada",
+          "evidence": "TR-001/002, profile y CSV"
+        },
+        {
+          "id": "AF069",
+          "report_line": 31,
+          "claim": "weekday_label corresponde al día de semana",
+          "status": "respaldada",
+          "evidence": "TR-001/002, profile y CSV"
+        },
+        {
+          "id": "AF070",
+          "report_line": 31,
+          "claim": "user_total_check corresponde a casual+registered",
+          "status": "respaldada",
+          "evidence": "TR-001/002, profile y CSV"
+        },
+        {
+          "id": "AF071",
+          "report_line": 31,
+          "claim": "Derivadas no sustituyen columnas fuente",
+          "status": "respaldada",
+          "evidence": "TR-001/002, profile y CSV"
+        },
+        {
+          "id": "AF072",
+          "report_line": 33,
+          "claim": "505 valores horarios altos según IQR",
+          "status": "respaldada",
+          "evidence": "STAT-014/006, ISSUE-002 y CSV"
+        },
+        {
+          "id": "AF073",
+          "report_line": 33,
+          "claim": "Umbral IQR superior 642,5",
+          "status": "respaldada",
+          "evidence": "STAT-014/006, ISSUE-002 y CSV"
+        },
+        {
+          "id": "AF074",
+          "report_line": 33,
+          "claim": "No hay evidencia interna de error en los extremos",
+          "status": "respaldada",
+          "evidence": "STAT-014/006, ISSUE-002 y CSV"
+        },
+        {
+          "id": "AF075",
+          "report_line": 33,
+          "claim": "Extremos respetan rangos y claves temporales",
+          "status": "respaldada",
+          "evidence": "STAT-014/006, ISSUE-002 y CSV"
+        },
+        {
+          "id": "AF076",
+          "report_line": 33,
+          "claim": "Extremos respetan identidad de componentes",
+          "status": "respaldada",
+          "evidence": "STAT-014/006, ISSUE-002 y CSV"
+        },
+        {
+          "id": "AF077",
+          "report_line": 37,
+          "claim": "Media global cnt 189,5",
+          "status": "respaldada",
+          "evidence": "STAT-007.cnt"
+        },
+        {
+          "id": "AF078",
+          "report_line": 37,
+          "claim": "Mediana global cnt 142",
+          "status": "respaldada",
+          "evidence": "STAT-007.cnt"
+        },
+        {
+          "id": "AF079",
+          "report_line": 37,
+          "claim": "Cnt cuartil1 40",
+          "status": "respaldada",
+          "evidence": "STAT-007.cnt"
+        },
+        {
+          "id": "AF080",
+          "report_line": 37,
+          "claim": "Cnt cuartil3 281",
+          "status": "respaldada",
+          "evidence": "STAT-007.cnt"
+        },
+        {
+          "id": "AF081",
+          "report_line": 37,
+          "claim": "Máximo cnt 977",
+          "status": "respaldada",
+          "evidence": "STAT-007.cnt"
+        },
+        {
+          "id": "AF082",
+          "report_line": 37,
+          "claim": "Mínimo cnt 1",
+          "status": "respaldada",
+          "evidence": "STAT-007.cnt"
+        },
+        {
+          "id": "AF083",
+          "report_line": 37,
+          "claim": "Cnt presenta dispersión considerable y cola alta",
+          "status": "respaldada",
+          "evidence": "STAT-007.cnt"
+        },
+        {
+          "id": "AF084",
+          "report_line": 39,
+          "claim": "Casual media 35,7",
+          "status": "respaldada",
+          "evidence": "STAT-007/008"
+        },
+        {
+          "id": "AF085",
+          "report_line": 39,
+          "claim": "Casual mediana 17",
+          "status": "respaldada",
+          "evidence": "STAT-007/008"
+        },
+        {
+          "id": "AF086",
+          "report_line": 39,
+          "claim": "Registered media 153,8",
+          "status": "respaldada",
+          "evidence": "STAT-007/008"
+        },
+        {
+          "id": "AF087",
+          "report_line": 39,
+          "claim": "Registered mediana 115",
+          "status": "respaldada",
+          "evidence": "STAT-007/008"
+        },
+        {
+          "id": "AF088",
+          "report_line": 39,
+          "claim": "Registered total 2672662",
+          "status": "respaldada",
+          "evidence": "STAT-007/008"
+        },
+        {
+          "id": "AF089",
+          "report_line": 39,
+          "claim": "Casual total 620017",
+          "status": "respaldada",
+          "evidence": "STAT-007/008"
+        },
+        {
+          "id": "AF090",
+          "report_line": 39,
+          "claim": "Componentes presentan heterogeneidad",
+          "status": "respaldada",
+          "evidence": "STAT-007/008"
+        },
+        {
+          "id": "AF091",
+          "report_line": 41,
+          "claim": "Temp mediana 0,50",
+          "status": "respaldada",
+          "evidence": "STAT-007 y Readme"
+        },
+        {
+          "id": "AF092",
+          "report_line": 41,
+          "claim": "Atemp mediana 0,4848",
+          "status": "respaldada",
+          "evidence": "STAT-007 y Readme"
+        },
+        {
+          "id": "AF093",
+          "report_line": 41,
+          "claim": "Hum mediana 0,63",
+          "status": "respaldada",
+          "evidence": "STAT-007 y Readme"
+        },
+        {
+          "id": "AF094",
+          "report_line": 41,
+          "claim": "Windspeed mediana 0,194",
+          "status": "respaldada",
+          "evidence": "STAT-007 y Readme"
+        },
+        {
+          "id": "AF095",
+          "report_line": 41,
+          "claim": "Meteorología no almacenada directamente en unidades físicas",
+          "status": "respaldada",
+          "evidence": "STAT-007 y Readme"
+        },
+        {
+          "id": "AF096",
+          "report_line": 41,
+          "claim": "Documentación indica divisores de normalización",
+          "status": "respaldada",
+          "evidence": "STAT-007 y Readme"
+        },
+        {
+          "id": "AF097",
+          "report_line": 43,
+          "claim": "Yr0 corresponde a 2011",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_yr y Readme"
+        },
+        {
+          "id": "AF098",
+          "report_line": 43,
+          "claim": "Yr1 corresponde a 2012",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_yr y Readme"
+        },
+        {
+          "id": "AF099",
+          "report_line": 43,
+          "claim": "Yr0 tiene 8645 registros",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_yr y Readme"
+        },
+        {
+          "id": "AF100",
+          "report_line": 43,
+          "claim": "Yr1 tiene 8734 registros",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_yr y Readme"
+        },
+        {
+          "id": "AF101",
+          "report_line": 43,
+          "claim": "Yr0 total cnt 1243103",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_yr y Readme"
+        },
+        {
+          "id": "AF102",
+          "report_line": 43,
+          "claim": "Yr1 total cnt 2049576",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_yr y Readme"
+        },
+        {
+          "id": "AF103",
+          "report_line": 47,
+          "claim": "731 fechas observadas",
+          "status": "respaldada",
+          "evidence": "STAT-010, ISSUE-001"
+        },
+        {
+          "id": "AF104",
+          "report_line": 47,
+          "claim": "Máximo diario registrado 8714",
+          "status": "respaldada",
+          "evidence": "STAT-010, ISSUE-001"
+        },
+        {
+          "id": "AF105",
+          "report_line": 47,
+          "claim": "Fecha máximo diario 2012-09-15",
+          "status": "respaldada",
+          "evidence": "STAT-010, ISSUE-001"
+        },
+        {
+          "id": "AF106",
+          "report_line": 47,
+          "claim": "Máximo diario corresponde a 24 horas registradas",
+          "status": "respaldada",
+          "evidence": "STAT-010, ISSUE-001"
+        },
+        {
+          "id": "AF107",
+          "report_line": 47,
+          "claim": "Mínimo diario registrado 22",
+          "status": "respaldada",
+          "evidence": "STAT-010, ISSUE-001"
+        },
+        {
+          "id": "AF108",
+          "report_line": 47,
+          "claim": "Fecha mínimo diario 2012-10-29",
+          "status": "respaldada",
+          "evidence": "STAT-010, ISSUE-001"
+        },
+        {
+          "id": "AF109",
+          "report_line": 47,
+          "claim": "Mínimo diario contiene una hora observada",
+          "status": "respaldada",
+          "evidence": "STAT-010, ISSUE-001"
+        },
+        {
+          "id": "AF110",
+          "report_line": 47,
+          "claim": "Mínimo diario incompleto no equivale a demanda de día completo",
+          "status": "respaldada",
+          "evidence": "STAT-010, ISSUE-001"
+        },
+        {
+          "id": "AF111",
+          "report_line": 51,
+          "claim": "Registered domina los picos laborales",
+          "status": "respaldada",
+          "evidence": "STAT-011.by_hr_workingday y STAT-008"
+        },
+        {
+          "id": "AF112",
+          "report_line": 51,
+          "claim": "La composición horaria varía entre segmentos",
+          "status": "respaldada",
+          "evidence": "STAT-011.by_hr_workingday y STAT-008"
+        },
+        {
+          "id": "AF113",
+          "report_line": 53,
+          "claim": "Media weathersit1 204,9",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_weathersit y Readme"
+        },
+        {
+          "id": "AF114",
+          "report_line": 53,
+          "claim": "Media weathersit2 175,2",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_weathersit y Readme"
+        },
+        {
+          "id": "AF115",
+          "report_line": 53,
+          "claim": "Media weathersit3 111,6",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_weathersit y Readme"
+        },
+        {
+          "id": "AF116",
+          "report_line": 53,
+          "claim": "Media weathersit4 74,3",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_weathersit y Readme"
+        },
+        {
+          "id": "AF117",
+          "report_line": 53,
+          "claim": "Weathersit1 representa clear_or_partly_cloudy",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_weathersit y Readme"
+        },
+        {
+          "id": "AF118",
+          "report_line": 53,
+          "claim": "Weathersit2 representa mist_or_cloudy",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_weathersit y Readme"
+        },
+        {
+          "id": "AF119",
+          "report_line": 53,
+          "claim": "Weathersit3 agrupa precipitación ligera",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_weathersit y Readme"
+        },
+        {
+          "id": "AF120",
+          "report_line": 53,
+          "claim": "Weathersit4 agrupa precipitación intensa",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_weathersit y Readme"
+        },
+        {
+          "id": "AF121",
+          "report_line": 53,
+          "claim": "Weathersit4 tiene tres observaciones",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_weathersit y Readme"
+        },
+        {
+          "id": "AF122",
+          "report_line": 53,
+          "claim": "Media de weathersit4 inestable por tamaño mínimo",
+          "status": "respaldada",
+          "evidence": "STAT-009.by_weathersit y Readme"
+        },
+        {
+          "id": "AF123",
+          "report_line": 55,
+          "claim": "Spearman cnt-temp 0,423",
+          "status": "respaldada",
+          "evidence": "STAT-013"
+        },
+        {
+          "id": "AF124",
+          "report_line": 55,
+          "claim": "Spearman cnt-atemp 0,423",
+          "status": "respaldada",
+          "evidence": "STAT-013"
+        },
+        {
+          "id": "AF125",
+          "report_line": 55,
+          "claim": "Spearman cnt-hum −0,360",
+          "status": "respaldada",
+          "evidence": "STAT-013"
+        },
+        {
+          "id": "AF126",
+          "report_line": 55,
+          "claim": "Spearman cnt-windspeed 0,127",
+          "status": "respaldada",
+          "evidence": "STAT-013"
+        },
+        {
+          "id": "AF127",
+          "report_line": 55,
+          "claim": "Pearson temp-atemp muy elevado",
+          "status": "respaldada",
+          "evidence": "STAT-013"
+        },
+        {
+          "id": "AF128",
+          "report_line": 55,
+          "claim": "Temp y atemp son redundantes descriptivamente",
+          "status": "respaldada",
+          "evidence": "STAT-013"
+        },
+        {
+          "id": "AF129",
+          "report_line": 55,
+          "claim": "Asociaciones bivariadas no ajustan por hora, año y estación",
+          "status": "respaldada",
+          "evidence": "STAT-013"
+        },
+        {
+          "id": "AF130",
+          "report_line": 59,
+          "claim": "FIG-001 representa agregación diaria de ambos años",
+          "status": "respaldada",
+          "evidence": "FIG-001 y STAT-010"
+        },
+        {
+          "id": "AF131",
+          "report_line": 59,
+          "claim": "FIG-001 muestra variación sustancial",
+          "status": "respaldada",
+          "evidence": "FIG-001 y STAT-010"
+        },
+        {
+          "id": "AF132",
+          "report_line": 59,
+          "claim": "Agregación diaria evita saturación de serie horaria",
+          "status": "respaldada",
+          "evidence": "FIG-001 y STAT-010"
+        },
+        {
+          "id": "AF133",
+          "report_line": 63,
+          "claim": "FIG-002 muestra perfiles separados por workingday",
+          "status": "respaldada",
+          "evidence": "FIG-002 y STAT-011"
+        },
+        {
+          "id": "AF134",
+          "report_line": 63,
+          "claim": "FIG-002 muestra picos laborales mañana y tarde y máximo no laboral al mediodía",
+          "status": "respaldada",
+          "evidence": "FIG-002 y STAT-011"
+        },
+        {
+          "id": "AF135",
+          "report_line": 67,
+          "claim": "FIG-003 representa medias horarias de los componentes",
+          "status": "respaldada",
+          "evidence": "FIG-003 y STAT-011.by_hr_overall"
+        },
+        {
+          "id": "AF136",
+          "report_line": 67,
+          "claim": "Registered es el componente mayoritario de los picos globales",
+          "status": "respaldada",
+          "evidence": "FIG-003 y STAT-011.by_hr_overall"
+        },
+        {
+          "id": "AF137",
+          "report_line": 67,
+          "claim": "Casual presenta medias globales menores que registered",
+          "status": "respaldada",
+          "evidence": "FIG-003 y STAT-011.by_hr_overall"
+        },
+        {
+          "id": "AF138",
+          "report_line": 71,
+          "claim": "FIG-004 representa dispersión central cnt dentro de cada categoría meteorológica",
+          "status": "respaldada",
+          "evidence": "FIG-004, STAT-009 y código gráfico"
+        },
+        {
+          "id": "AF139",
+          "report_line": 75,
+          "claim": "FIG-005 compara meses por yr",
+          "status": "respaldada",
+          "evidence": "FIG-005 y STAT-012"
+        },
+        {
+          "id": "AF140",
+          "report_line": 75,
+          "claim": "Patrones mensuales difieren entre años",
+          "status": "respaldada",
+          "evidence": "FIG-005 y STAT-012"
+        },
+        {
+          "id": "AF141",
+          "report_line": 75,
+          "claim": "Comparación mensual complementa medias anuales",
+          "status": "respaldada",
+          "evidence": "FIG-005 y STAT-012"
+        },
+        {
+          "id": "AF142",
+          "report_line": 81,
+          "claim": "17544 horas teóricas dentro de cobertura",
+          "status": "respaldada",
+          "evidence": "STAT-004, ISSUE-001 y CSV"
+        },
+        {
+          "id": "AF143",
+          "report_line": 81,
+          "claim": "No falta ningún día completo",
+          "status": "respaldada",
+          "evidence": "STAT-004, ISSUE-001 y CSV"
+        },
+        {
+          "id": "AF144",
+          "report_line": 81,
+          "claim": "No se crean filas artificiales",
+          "status": "respaldada",
+          "evidence": "STAT-004, ISSUE-001 y CSV"
+        },
+        {
+          "id": "AF145",
+          "report_line": 81,
+          "claim": "Horas ausentes no equivalen a cnt=0",
+          "status": "respaldada",
+          "evidence": "STAT-004, ISSUE-001 y CSV"
+        },
+        {
+          "id": "AF146",
+          "report_line": 81,
+          "claim": "Sumas de fechas incompletas pueden subestimar un día completo",
+          "status": "respaldada",
+          "evidence": "STAT-004, ISSUE-001 y CSV"
+        },
+        {
+          "id": "AF147",
+          "report_line": 83,
+          "claim": "Extremos influyen en media",
+          "status": "respaldada",
+          "evidence": "STAT-014, ISSUE-002 y STAT-007"
+        },
+        {
+          "id": "AF148",
+          "report_line": 83,
+          "claim": "Extremos influyen en desviación típica",
+          "status": "respaldada",
+          "evidence": "STAT-014, ISSUE-002 y STAT-007"
+        },
+        {
+          "id": "AF149",
+          "report_line": 83,
+          "claim": "Se ofrecen mediana y cuantiles para complementar resúmenes",
+          "status": "respaldada",
+          "evidence": "STAT-014, ISSUE-002 y STAT-007"
+        },
+        {
+          "id": "AF150",
+          "report_line": 89,
+          "claim": "No son viajes individuales",
+          "status": "respaldada",
+          "evidence": "Profile, columnas CSV y Readme"
+        },
+        {
+          "id": "AF151",
+          "report_line": 89,
+          "claim": "No contiene estaciones",
+          "status": "respaldada",
+          "evidence": "Profile, columnas CSV y Readme"
+        },
+        {
+          "id": "AF152",
+          "report_line": 89,
+          "claim": "No contiene origen de viajes",
+          "status": "respaldada",
+          "evidence": "Profile, columnas CSV y Readme"
+        },
+        {
+          "id": "AF153",
+          "report_line": 89,
+          "claim": "No contiene destino de viajes",
+          "status": "respaldada",
+          "evidence": "Profile, columnas CSV y Readme"
+        },
+        {
+          "id": "AF154",
+          "report_line": 89,
+          "claim": "No contiene duración individual",
+          "status": "respaldada",
+          "evidence": "Profile, columnas CSV y Readme"
+        },
+        {
+          "id": "AF155",
+          "report_line": 89,
+          "claim": "No hay información individual más allá de tipos casual/registered",
+          "status": "respaldada",
+          "evidence": "Profile, columnas CSV y Readme"
+        },
+        {
+          "id": "AF156",
+          "report_line": 89,
+          "claim": "No describe movilidad espacial",
+          "status": "respaldada",
+          "evidence": "Profile, columnas CSV y Readme"
+        },
+        {
+          "id": "AF157",
+          "report_line": 89,
+          "claim": "No describe comportamiento individual",
+          "status": "respaldada",
+          "evidence": "Profile, columnas CSV y Readme"
+        },
+        {
+          "id": "AF158",
+          "report_line": 91,
+          "claim": "Archivo no identifica razón de cada ausencia",
+          "status": "respaldada",
+          "evidence": "ISSUE-001 y columnas CSV"
+        },
+        {
+          "id": "AF159",
+          "report_line": 93,
+          "claim": "Comparaciones meteorológicas son descriptivas",
+          "status": "respaldada",
+          "evidence": "STAT-013 y código"
+        },
+        {
+          "id": "AF160",
+          "report_line": 93,
+          "claim": "Relaciones bivariadas pueden mezclar calendario y meteorología",
+          "status": "respaldada",
+          "evidence": "STAT-013 y código"
+        },
+        {
+          "id": "AF161",
+          "report_line": 95,
+          "claim": "Dataset no contiene variables de contexto operativo por observación",
+          "status": "respaldada",
+          "evidence": "Columnas CSV y Readme"
+        },
+        {
+          "id": "AF162",
+          "report_line": 95,
+          "claim": "La documentación suministrada no aporta información de eventos que permita explicar picos o caídas concretas",
+          "status": "respaldada",
+          "evidence": "Report95 y Readme: la pista sobre Sandy no demuestra la causa de cada extremo. Se acepta la cautela causal.",
+          "note": "04/10/2026. AF162 se considera respaldada como cautela sobre la atribución de causas externas."
+        },
+        {
+          "id": "AF163",
+          "report_line": 95,
+          "claim": "No se atribuyen los extremos a sucesos específicos",
+          "status": "respaldada",
+          "evidence": "ISSUE-002 y report final"
+        }
+      ]
+    },
+    "Q10": {
+      "level": 3,
+      "justification": "Nivel 3/4. Informe ordenado y evaluable. Explica poco algunos códigos y tipos de usuario y usa etiquetas inglesas. Persiste una referencia errónea en issues.json. No se penaliza la cautela sobre eventos. Se mantiene 75."
+    }
+  },
+  "traceability_notes": [
+    {
+      "file": "issues.json",
+      "location": "checks_performed[CHK-007].evidence_ids",
+      "produced_reference": "STAT-012",
+      "correct_evidence_location": "STAT-014",
+      "effect": "La cifra505 es correcta y está respaldada por STAT-014 e ISSUE-002. No se inventa una ausencia de resultado por el enlace erróneo. Se conserva como defecto localizado de trazabilidad."
+    }
+  ],
+  "review_update": {
+    "date": "2026-10-04",
+    "original_Q9": 99.38650306748467,
+    "original_index": 87.74409486219304,
+    "reason": "04/10/2026. AF162 se reclasifica como respaldada. Q9 pasa de 99,39 a 100. Las otras ocho métricas siguen pendientes en esta revisión.",
+    "original_Q6": 75,
+    "confirmed_metrics": [
+      "Q6",
+      "Q9"
+    ],
+    "updated_Q9": 100,
+    "updated_index": 90.30544455544455
+  },
+  "original_proposal": {
+    "scores": [
+      100,
+      94.28571428571429,
+      100,
+      92.3076923076923,
+      75,
+      75,
+      75,
+      81.81818181818181,
+      99.38650306748467,
+      75
+    ],
+    "index": 87.74409486219302,
+    "source": "Columna E del Excel. Propuesta inicial conservada, separada de la puntuación final."
+  },
+  "review_20261004": {
+    "date": "2026-10-04",
+    "previous_scores": [
+      100,
+      94.28571428571429,
+      100,
+      92.3076923076923,
+      75,
+      100,
+      75,
+      81.81818181818181,
+      100,
+      75
+    ],
+    "previous_index": 90.30544455544455,
+    "confirmed_metrics": [
+      "Q6",
+      "Q9"
+    ],
+    "pending_metrics": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Q5",
+      "Q7",
+      "Q8",
+      "Q10"
+    ],
+    "reason": "Puntuaciones confirmadas tras la revisión de los criterios y las decisiones de evaluación. Se mantienen los pesos y los productos originales.",
+    "current_scores": [
+      100,
+      94.28571428571429,
+      100,
+      92.3076923076923,
+      75,
+      100,
+      75,
+      81.81818181818181,
+      100,
+      75
+    ],
+    "current_index": 90.30544455544455
+  },
+  "review_updates": [
+    {
+      "date": "2026-10-06",
+      "action": "global_acceptance_and_closure",
+      "approved_by": "evaluador",
+      "previous_state": {
+        "status": "Q6 y Q9 confirmadas, otras ocho métricas pendientes"
+      },
+      "final_scores": [
+        100,
+        94.28571428571429,
+        100,
+        92.3076923076923,
+        75,
+        100,
+        75,
+        81.81818181818181,
+        100,
+        75
+      ],
+      "final_index": 90.30544455544455,
+      "note": "06/10/2026. Cierre de la evaluación con las puntuaciones vigentes, sin una nueva puntuación individual."
+    }
+  ],
+  "status_updated_at": "2026-10-06",
+  "current_scores": [
+    100,
+    94.28571428571429,
+    100,
+    92.3076923076923,
+    75,
+    100,
+    75,
+    81.81818181818181,
+    100,
+    75
+  ],
+  "current_index": 90.30544455544455,
+  "final_scores": [
+    100,
+    94.28571428571429,
+    100,
+    92.3076923076923,
+    75,
+    100,
+    75,
+    81.81818181818181,
+    100,
+    75
+  ],
+  "final_index": 90.30544455544455,
+  "confirmed_metrics": [
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4",
+    "Q5",
+    "Q6",
+    "Q7",
+    "Q8",
+    "Q9",
+    "Q10"
+  ],
+  "pending_metrics": [],
+  "evaluation_status": "closed"
+}

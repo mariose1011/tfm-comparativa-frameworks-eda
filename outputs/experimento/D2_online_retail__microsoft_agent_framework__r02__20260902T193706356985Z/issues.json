@@ -1,0 +1,264 @@
+{
+  "schema_version": "1.0",
+  "run_id": "D2_online_retail__microsoft_agent_framework__r02__20260902T193706356985Z",
+  "dataset_id": "D2_online_retail",
+  "checks_performed": [
+    {
+      "id": "CHK-001",
+      "category": "missingness",
+      "description": "Conteo de ausencias y porcentajes por columna original.",
+      "outcome": "Se detectaron ausencias en Description y CustomerID; el resto no presenta ausencias.",
+      "evidence_ids": [
+        "STAT-002",
+        "STAT-017"
+      ]
+    },
+    {
+      "id": "CHK-002",
+      "category": "duplicate",
+      "description": "Detección de filas idénticas en las ocho columnas de origen.",
+      "outcome": "Existen filas idénticas; se conservaron por falta de prueba de que sean duplicación errónea.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "CHK-003",
+      "category": "range",
+      "description": "Revisión de signos, ceros, cuantiles y extremos de Quantity, UnitPrice y line_amount.",
+      "outcome": "Hay cantidades negativas, precios cero y cola alta de importes positivos.",
+      "evidence_ids": [
+        "STAT-005",
+        "STAT-016"
+      ]
+    },
+    {
+      "id": "CHK-004",
+      "category": "temporal",
+      "description": "Revisión de mínimo, máximo y agregación mensual de InvoiceDate.",
+      "outcome": "La cobertura empieza y termina dentro de diciembre, con meses de borde parciales.",
+      "evidence_ids": [
+        "STAT-004",
+        "STAT-011"
+      ]
+    },
+    {
+      "id": "CHK-005",
+      "category": "category",
+      "description": "Revisión de espacios periféricos en Country y de multiplicidad Description por StockCode.",
+      "outcome": "No quedaron espacios periféricos en Country; hay códigos con varias descripciones recortadas.",
+      "evidence_ids": [
+        "STAT-006"
+      ]
+    },
+    {
+      "id": "CHK-006",
+      "category": "identity",
+      "description": "Cálculo determinista de line_amount como Quantity por UnitPrice.",
+      "outcome": "La derivada se obtuvo para todas las líneas sin ausencias en los operandos.",
+      "evidence_ids": [
+        "STAT-007"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "id": "ISSUE-001",
+      "category": "missing",
+      "status": "retained",
+      "severity": "high",
+      "title": "CustomerID ausente en numerosas líneas",
+      "description": "CustomerID está ausente en una parte sustancial de las líneas y no se imputó.",
+      "evidence": "El conteo y porcentaje por columna se documentan en STAT-002; la concentración por Country en STAT-017.",
+      "affected_columns": [
+        "CustomerID"
+      ],
+      "affected_row_count": 135080,
+      "sample_row_ids": [
+        622,
+        1443,
+        1444,
+        1445,
+        1446
+      ],
+      "decision": "Conservar las líneas y restringir análisis por cliente a CustomerID no ausente.",
+      "action": "No imputar; declarar la población del análisis de clientes.",
+      "potential_effect": "Las métricas por cliente no representan necesariamente todas las líneas ni son directamente comparables con el total.",
+      "uncertainty": "No se conoce el mecanismo de ausencia con la documentación disponible.",
+      "evidence_ids": [
+        "STAT-002",
+        "STAT-017",
+        "STAT-014"
+      ]
+    },
+    {
+      "id": "ISSUE-002",
+      "category": "missing",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Description ausente",
+      "description": "Algunas líneas carecen de Description.",
+      "evidence": "Recuento de ausencias de Description en STAT-002.",
+      "affected_columns": [
+        "Description"
+      ],
+      "affected_row_count": 1454,
+      "sample_row_ids": [
+        622,
+        1970,
+        1971,
+        1972,
+        1987
+      ],
+      "decision": "Conservar las líneas; los análisis basados en descripción declaran su población o agrupan con el valor ausente.",
+      "action": "No imputar descripciones desde StockCode.",
+      "potential_effect": "Los rankings y agrupaciones por descripción pueden fragmentarse o incluir faltantes.",
+      "uncertainty": "No hay diccionario para reconstruir de modo fiable la descripción faltante.",
+      "evidence_ids": [
+        "STAT-002",
+        "STAT-006"
+      ]
+    },
+    {
+      "id": "ISSUE-003",
+      "category": "duplicate",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Filas completamente idénticas",
+      "description": "Se hallaron repeticiones exactas de los ocho campos de origen.",
+      "evidence": "STAT-003 cuantifica las filas y muestra posiciones de ejemplo.",
+      "affected_columns": [
+        "InvoiceNo",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "UnitPrice",
+        "CustomerID",
+        "Country"
+      ],
+      "affected_row_count": 5268,
+      "sample_row_ids": [
+        485,
+        489,
+        494,
+        517,
+        521
+      ],
+      "decision": "No eliminar. Una repetición puede ser una línea transaccional legítima sin un identificador de línea independiente.",
+      "action": "Conservar en la copia preparada y advertir posible sobreconteo si fueran duplicados de carga.",
+      "potential_effect": "Los conteos, unidades e importes podrían inflarse si alguna repetición fuese un duplicado técnico.",
+      "uncertainty": "No puede resolverse con los campos disponibles.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "ISSUE-004",
+      "category": "range",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Cantidades negativas y precios cero",
+      "description": "Se observan cantidades negativas y líneas con UnitPrice igual a cero.",
+      "evidence": "STAT-005 cuantifica signos y ceros; STAT-009 los separa por condición de cancelación.",
+      "affected_columns": [
+        "Quantity",
+        "UnitPrice",
+        "line_amount",
+        "InvoiceNo"
+      ],
+      "affected_row_count": 11803,
+      "sample_row_ids": [
+        141,
+        154,
+        235,
+        236,
+        237
+      ],
+      "decision": "Conservar y separar poblaciones de líneas comerciales positivas cuando el objetivo es un ranking o distribución de ventas.",
+      "action": "No reclasificar automáticamente como error; usar is_cancelled y filtros explícitos.",
+      "potential_effect": "Mezclar estos registros con líneas positivas altera medias, sumas netas y rankings.",
+      "uncertainty": "Pueden corresponder a cancelaciones, ajustes o conceptos especiales; no hay evidencia suficiente para decidir fila por fila.",
+      "evidence_ids": [
+        "STAT-005",
+        "STAT-009"
+      ]
+    },
+    {
+      "id": "ISSUE-005",
+      "category": "category",
+      "status": "unresolved",
+      "severity": "low",
+      "title": "StockCode asociado a múltiples descripciones",
+      "description": "Tras recortar espacios solo para comprobación, algunos StockCode tienen más de una Description.",
+      "evidence": "STAT-006 cuantifica los códigos afectados.",
+      "affected_columns": [
+        "StockCode",
+        "Description"
+      ],
+      "affected_row_count": 647,
+      "sample_row_ids": [],
+      "decision": "Mantener los textos originales y no forzar una correspondencia única.",
+      "action": "Agrupar por ambos campos en el ranking de conceptos.",
+      "potential_effect": "Agregar solo por StockCode o solo por Description puede producir resultados distintos.",
+      "uncertainty": "No se dispone de un catálogo que determine qué variante es correcta.",
+      "evidence_ids": [
+        "STAT-006",
+        "STAT-013"
+      ]
+    },
+    {
+      "id": "ISSUE-006",
+      "category": "temporal",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Meses de borde incompletos",
+      "description": "El intervalo observado inicia el 1 de diciembre de 2010 y termina el 9 de diciembre de 2011.",
+      "evidence": "Fechas mínima y máxima en STAT-004 y serie mensual en STAT-011.",
+      "affected_columns": [
+        "InvoiceDate",
+        "invoice_month"
+      ],
+      "affected_row_count": null,
+      "sample_row_ids": [],
+      "decision": "Conservar y marcar los meses de borde como parciales.",
+      "action": "Evitar comparaciones directas de sus totales con meses completos.",
+      "potential_effect": "Las agregaciones mensuales de diciembre pueden subestimar actividad mensual completa.",
+      "uncertainty": "Se desconoce si la ventana responde a un corte de extracción o a ausencia de transacciones.",
+      "evidence_ids": [
+        "STAT-004",
+        "STAT-011"
+      ]
+    },
+    {
+      "id": "ISSUE-007",
+      "category": "outlier",
+      "status": "suspected",
+      "severity": "low",
+      "title": "Cola alta de importes de línea positivos",
+      "description": "Una fracción de líneas positivas supera el percentil 99 de line_amount.",
+      "evidence": "El umbral, conteo y máximo se cuantifican en STAT-016.",
+      "affected_columns": [
+        "Quantity",
+        "UnitPrice",
+        "line_amount"
+      ],
+      "affected_row_count": 5279,
+      "sample_row_ids": [
+        46,
+        65,
+        178,
+        179,
+        180
+      ],
+      "decision": "Retener; usar cuantiles y escala logarítmica para su visualización.",
+      "action": "No eliminar ni etiquetar como error sin verificación externa.",
+      "potential_effect": "Las medias y escalas lineales son sensibles a estas observaciones.",
+      "uncertainty": "Los importes altos pueden ser pedidos mayoristas válidos, coherentes con la descripción general del dataset.",
+      "evidence_ids": [
+        "STAT-008",
+        "STAT-016"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0",
+  "run_id": "D1_bike_sharing__crewai__r03__20260831T214619590910Z",
+  "dataset_id": "D1_bike_sharing",
+  "checks_performed": [
+    {
+      "id": "CHK-001",
+      "category": "missing",
+      "description": "Conteo de valores ausentes por columna.",
+      "outcome": "0 ausencias en 17 columnas.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-002",
+      "category": "duplicate",
+      "description": "Filas idénticas, unicidad de instant y duplicidad date-hour.",
+      "outcome": "0 filas duplicadas, 0 instant duplicados y 0 combinaciones date-hour duplicadas.",
+      "evidence_ids": [
+        "STAT-002",
+        "STAT-004"
+      ]
+    },
+    {
+      "id": "CHK-003",
+      "category": "category_range",
+      "description": "Códigos de calendario, clima, signos y rangos normalizados.",
+      "outcome": "Códigos dentro de los dominios documentados; sin negativos ni valores meteorológicos fuera de [0,1].",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "CHK-004",
+      "category": "temporal",
+      "description": "Cobertura, componentes de calendario y registros por fecha.",
+      "outcome": "731 fechas, componentes consistentes, pero 76 fechas con número de registros distinto de 24 y 165 marcas horarias ausentes.",
+      "evidence_ids": [
+        "STAT-004"
+      ]
+    },
+    {
+      "id": "CHK-005",
+      "category": "identity",
+      "description": "Verificación de cnt = casual + registered.",
+      "outcome": "La identidad se cumple en las 17,379 filas.",
+      "evidence_ids": [
+        "STAT-005"
+      ]
+    },
+    {
+      "id": "CHK-006",
+      "category": "outlier",
+      "description": "Cribado IQR de cnt sin eliminación automática.",
+      "outcome": "Se identificaron valores altos estadísticamente; se retuvieron por falta de evidencia de error.",
+      "evidence_ids": [
+        "STAT-013"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "id": "ISSUE-001",
+      "category": "temporal",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Cobertura intradía incompleta en parte de las fechas",
+      "description": "76 de 731 fechas no tienen 24 registros y la secuencia entre inicio y fin contiene 165 marcas horarias ausentes.",
+      "evidence": "STAT-004 cuantifica 76 días con registros distintos de 24 y 165 marcas horarias ausentes en la secuencia completa.",
+      "affected_columns": [
+        "dteday",
+        "hr",
+        "cnt",
+        "casual",
+        "registered"
+      ],
+      "affected_row_count": 165,
+      "sample_row_ids": [],
+      "decision": "Conservar todos los registros observados y no imputar alquileres horarios.",
+      "action": "Las agregaciones diarias y mensuales incluyen registros disponibles; se advierte al comparar días.",
+      "potential_effect": "Los totales de fechas incompletas pueden subestimar su demanda diaria respecto de días de 24 horas.",
+      "uncertainty": "La tabla no especifica el motivo de cada hora ausente.",
+      "evidence_ids": [
+        "STAT-004",
+        "STAT-010"
+      ]
+    },
+    {
+      "id": "ISSUE-002",
+      "category": "outlier",
+      "status": "retained",
+      "severity": "low",
+      "title": "Conteos horarios altos según regla IQR",
+      "description": "Una regla IQR marca observaciones de cnt por encima del umbral superior, sin contradicción de rango o identidad.",
+      "evidence": "STAT-013 informa el umbral, el número marcado y la observación máxima.",
+      "affected_columns": [
+        "cnt",
+        "casual",
+        "registered"
+      ],
+      "affected_row_count": 505,
+      "sample_row_ids": [
+        5537,
+        10359,
+        10360,
+        10383,
+        10384
+      ],
+      "decision": "Tratar como extremos estadísticos potencialmente válidos, no como errores.",
+      "action": "No se eliminó ni recodificó ninguna fila.",
+      "potential_effect": "Pueden influir en medias y correlaciones; por ello se reportan medianas y cuantiles junto con medias.",
+      "uncertainty": "No hay contexto operacional por hora para decidir si reflejan eventos específicos.",
+      "evidence_ids": [
+        "STAT-006",
+        "STAT-013"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1259 @@
+{
+  "schema_version": "1.0",
+  "run_id": "D2_online_retail__crewai__r03__20260902T212422402094Z",
+  "dataset_id": "D2_online_retail",
+  "generated_at_utc": "2026-09-02T21:27:47.254954+00:00",
+  "profile": {
+    "original_rows": 541909,
+    "original_columns": 8,
+    "prepared_rows": 541909,
+    "prepared_columns": 11,
+    "unit_of_analysis": "Una fila representa una línea de factura, no necesariamente una factura o compra completa.",
+    "columns": [
+      {
+        "name": "InvoiceNo",
+        "origin": "source",
+        "source_name": "InvoiceNo",
+        "original_type": "object",
+        "prepared_type": "string",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 25900
+      },
+      {
+        "name": "StockCode",
+        "origin": "source",
+        "source_name": "StockCode",
+        "original_type": "object",
+        "prepared_type": "string",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 4070
+      },
+      {
+        "name": "Description",
+        "origin": "source",
+        "source_name": "Description",
+        "original_type": "object",
+        "prepared_type": "string",
+        "missing_original": 1454,
+        "missing_prepared": 1454,
+        "unique_prepared": 4223
+      },
+      {
+        "name": "Quantity",
+        "origin": "source",
+        "source_name": "Quantity",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 722
+      },
+      {
+        "name": "InvoiceDate",
+        "origin": "source",
+        "source_name": "InvoiceDate",
+        "original_type": "datetime64[us]",
+        "prepared_type": "datetime64[us]",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 23260
+      },
+      {
+        "name": "UnitPrice",
+        "origin": "source",
+        "source_name": "UnitPrice",
+        "original_type": "float64",
+        "prepared_type": "float64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 1630
+      },
+      {
+        "name": "CustomerID",
+        "origin": "source",
+        "source_name": "CustomerID",
+        "original_type": "float64",
+        "prepared_type": "string",
+        "missing_original": 135080,
+        "missing_prepared": 135080,
+        "unique_prepared": 4372
+      },
+      {
+        "name": "Country",
+        "origin": "source",
+        "source_name": "Country",
+        "original_type": "str",
+        "prepared_type": "string",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 38
+      },
+      {
+        "name": "IsCancellation",
+        "origin": "derived",
+        "source_name": null,
+        "original_type": null,
+        "prepared_type": "boolean",
+        "missing_original": null,
+        "missing_prepared": 0,
+        "unique_prepared": 2
+      },
+      {
+        "name": "LineAmount",
+        "origin": "derived",
+        "source_name": null,
+        "original_type": null,
+        "prepared_type": "float64",
+        "missing_original": null,
+        "missing_prepared": 0,
+        "unique_prepared": 6204
+      },
+      {
+        "name": "YearMonth",
+        "origin": "derived",
+        "source_name": null,
+        "original_type": null,
+        "prepared_type": "string",
+        "missing_original": null,
+        "missing_prepared": 0,
+        "unique_prepared": 13
+      }
+    ]
+  },
+  "preparation": {
+    "summary": "Se preservaron las 541909 líneas; se normalizaron identificadores nominales para su representación textual, no se imputaron ausencias ni se eliminaron duplicados/extremos, y se añadieron derivadas reproducibles.",
+    "changes": [
+      {
+        "id": "TR-001",
+        "action": "type_normalization",
+        "description": "InvoiceNo, StockCode y CustomerID se serializaron como identificadores textuales; CustomerID ausente permanece vacío.",
+        "justification": "Son identificadores nominales y la conversión evita interpretar valores como magnitudes o mostrar sufijos .0.",
+        "affected_columns": [
+          "InvoiceNo",
+          "StockCode",
+          "CustomerID"
+        ],
+        "rows_affected": 541909,
+        "before": {
+          "InvoiceNo": "object",
+          "StockCode": "object",
+          "CustomerID": "float64"
+        },
+        "after": {
+          "InvoiceNo": "string",
+          "StockCode": "string",
+          "CustomerID": "string"
+        }
+      },
+      {
+        "id": "TR-002",
+        "action": "datetime_serialization",
+        "description": "InvoiceDate se mantuvo como fecha-hora y se exportó en ISO 8601.",
+        "justification": "Permite agregación temporal no ambigua.",
+        "affected_columns": [
+          "InvoiceDate"
+        ],
+        "rows_affected": 541909,
+        "before": "datetime64[us]",
+        "after": "datetime64[ns] / ISO 8601 en CSV"
+      },
+      {
+        "id": "TR-003",
+        "action": "derived_variables",
+        "description": "Se añadieron IsCancellation (prefijo C), LineAmount (Quantity × UnitPrice) y YearMonth.",
+        "justification": "Facilitan estratificación documental, valoración por línea y agregación temporal trazable.",
+        "affected_columns": [
+          "IsCancellation",
+          "LineAmount",
+          "YearMonth"
+        ],
+        "rows_affected": 541909,
+        "before": null,
+        "after": [
+          "IsCancellation",
+          "LineAmount",
+          "YearMonth"
+        ]
+      },
+      {
+        "id": "TR-004",
+        "action": "deliberate_retention",
+        "description": "Se conservaron ausencias, 5268 filas exactamente iguales, cantidades/precios/importes cero y valores extremos.",
+        "justification": "No hay regla de negocio suficiente para tratarlos como errores; las repeticiones pueden ser líneas comerciales legítimas.",
+        "affected_columns": [
+          "Description",
+          "CustomerID",
+          "Quantity",
+          "UnitPrice",
+          "InvoiceNo"
+        ],
+        "rows_affected": 0,
+        "before": {
+          "rows": 541909
+        },
+        "after": {
+          "rows": 541909
+        }
+      }
+    ]
+  },
+  "analyses": [
+    {
+      "id": "STAT-001",
+      "stage": "E1",
+      "analysis_type": "load_and_structure",
+      "title": "Carga, estructura y unidad de análisis",
+      "variables": [
+        "InvoiceNo",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "UnitPrice",
+        "CustomerID",
+        "Country"
+      ],
+      "population": "Archivo XLSX, hoja Online Retail; todas las filas originales",
+      "method": "Lectura con pandas.read_excel sin sobrescribir fuente",
+      "result": {
+        "sheet": "Online Retail",
+        "rows": 541909,
+        "columns": [
+          "InvoiceNo",
+          "StockCode",
+          "Description",
+          "Quantity",
+          "InvoiceDate",
+          "UnitPrice",
+          "CustomerID",
+          "Country"
+        ],
+        "date_min": "2010-12-01T08:26:00",
+        "date_max": "2011-12-09T12:50:00"
+      },
+      "interpretation": "La documentación indica que cada fila es una línea de factura; no equivale necesariamente a una factura completa."
+    },
+    {
+      "id": "STAT-002",
+      "stage": "E2",
+      "analysis_type": "missingness",
+      "title": "Ausencias por variable",
+      "variables": [
+        "InvoiceNo",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "UnitPrice",
+        "CustomerID",
+        "Country"
+      ],
+      "population": "Archivo original",
+      "method": "Conteo isna por columna",
+      "result": {
+        "missing": {
+          "InvoiceNo": 0,
+          "StockCode": 0,
+          "Description": 1454,
+          "Quantity": 0,
+          "InvoiceDate": 0,
+          "UnitPrice": 0,
+          "CustomerID": 135080,
+          "Country": 0
+        },
+        "missing_pct": {
+          "InvoiceNo": 0.0,
+          "StockCode": 0.0,
+          "Description": 0.268,
+          "Quantity": 0.0,
+          "InvoiceDate": 0.0,
+          "UnitPrice": 0.0,
+          "CustomerID": 24.927,
+          "Country": 0.0
+        }
+      },
+      "interpretation": "Las ausencias se concentran en CustomerID y, en menor medida, Description."
+    },
+    {
+      "id": "STAT-003",
+      "stage": "E2",
+      "analysis_type": "duplicates",
+      "title": "Filas exactamente repetidas y facturas",
+      "variables": [
+        "InvoiceNo",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "UnitPrice",
+        "CustomerID",
+        "Country"
+      ],
+      "population": "Archivo original",
+      "method": "duplicated sobre las ocho columnas; nunique de InvoiceNo",
+      "result": {
+        "exact_duplicate_rows": 5268,
+        "duplicate_pct": 0.9721189350979592,
+        "distinct_invoices": 25900,
+        "distinct_cancellation_invoices": 3836,
+        "cancellation_rows": 9288,
+        "cancellation_row_pct": 1.7139409015166756
+      },
+      "interpretation": "Una fila idéntica puede ser una línea comercial repetida; no se deduplicó automáticamente."
+    },
+    {
+      "id": "STAT-004",
+      "stage": "E2",
+      "analysis_type": "numeric_quality",
+      "title": "Rangos, signos y cuantiles numéricos",
+      "variables": [
+        "Quantity",
+        "UnitPrice",
+        "LineAmount"
+      ],
+      "population": "Todas las líneas retenidas",
+      "method": "Resumen de distribución y conteo por signo/cero",
+      "result": {
+        "Quantity": {
+          "n": 541909,
+          "min": -80995.0,
+          "p01": -2.0,
+          "p25": 1.0,
+          "median": 3.0,
+          "mean": 9.55224954743324,
+          "p75": 10.0,
+          "p99": 100.0,
+          "max": 80995.0,
+          "std": 218.08115785023386
+        },
+        "UnitPrice": {
+          "n": 541909,
+          "min": -11062.06,
+          "p01": 0.19,
+          "p25": 1.25,
+          "median": 2.08,
+          "mean": 4.611113626088514,
+          "p75": 4.13,
+          "p99": 18.0,
+          "max": 38970.0,
+          "std": 96.75985306117937
+        },
+        "LineAmount": {
+          "n": 541909,
+          "min": -168469.6,
+          "p01": -6.58,
+          "p25": 3.4,
+          "median": 9.75,
+          "mean": 17.987794876999644,
+          "p75": 17.4,
+          "p99": 180.0,
+          "max": 168469.6,
+          "std": 378.8108235059747
+        },
+        "negative_quantity_rows": 10624,
+        "zero_quantity_rows": 0,
+        "negative_unitprice_rows": 2,
+        "zero_unitprice_rows": 2515,
+        "negative_lineamount_rows": 9290,
+        "zero_lineamount_rows": 2515
+      },
+      "interpretation": "Existen cantidades, importes y 2 precios negativos; los valores cero se conservan para no asumir que son errores. La naturaleza de los precios negativos no puede determinarse con la documentación disponible."
+    },
+    {
+      "id": "STAT-005",
+      "stage": "E2",
+      "analysis_type": "category_temporal_quality",
+      "title": "Categorías, consistencia producto-descripción y cobertura temporal",
+      "variables": [
+        "Country",
+        "StockCode",
+        "Description",
+        "InvoiceDate"
+      ],
+      "population": "Todas las líneas retenidas",
+      "method": "Cardinalidad, frecuencia, descripciones distintas por StockCode y fechas extremas",
+      "result": {
+        "country_cardinality": 38,
+        "top_countries_by_rows": {
+          "United Kingdom": 495478,
+          "Germany": 9495,
+          "France": 8557,
+          "EIRE": 8196,
+          "Spain": 2533,
+          "Netherlands": 2371,
+          "Belgium": 2069,
+          "Switzerland": 2002,
+          "Portugal": 1519,
+          "Australia": 1259
+        },
+        "stockcode_cardinality": 4070,
+        "description_cardinality": 4223,
+        "stockcodes_with_more_than_one_nonmissing_description": 650,
+        "date_min": "2010-12-01T08:26:00",
+        "date_max": "2011-12-09T12:50:00",
+        "days_covered": 305,
+        "first_month_rows": 42481,
+        "last_month_rows": 25525
+      },
+      "interpretation": "Los meses de diciembre de 2010 y 2011 son parciales por los límites de cobertura; un código puede aparecer con varias descripciones."
+    },
+    {
+      "id": "STAT-006",
+      "stage": "E3",
+      "analysis_type": "preparation_comparison",
+      "title": "Comparación antes y después de la preparación",
+      "variables": [
+        "InvoiceNo",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "UnitPrice",
+        "CustomerID",
+        "Country",
+        "IsCancellation",
+        "LineAmount",
+        "YearMonth"
+      ],
+      "population": "Todas las filas",
+      "method": "Conservación de filas, conversiones de tipo y derivación determinista",
+      "result": {
+        "original_shape": [
+          541909,
+          8
+        ],
+        "prepared_shape": [
+          541909,
+          11
+        ],
+        "rows_removed": 0,
+        "derived_columns": [
+          "IsCancellation",
+          "LineAmount",
+          "YearMonth"
+        ],
+        "missing_prepared": {
+          "InvoiceNo": 0,
+          "StockCode": 0,
+          "Description": 1454,
+          "Quantity": 0,
+          "InvoiceDate": 0,
+          "UnitPrice": 0,
+          "CustomerID": 135080,
+          "Country": 0,
+          "IsCancellation": 0,
+          "LineAmount": 0,
+          "YearMonth": 0
+        }
+      },
+      "interpretation": "Se retuvieron todas las líneas; las ausencias no se imputaron y los indicadores permiten análisis estratificados."
+    },
+    {
+      "id": "STAT-007",
+      "stage": "E4",
+      "analysis_type": "descriptive_statistics",
+      "title": "Resumen descriptivo de cantidades, precios e importes",
+      "variables": [
+        "Quantity",
+        "UnitPrice",
+        "LineAmount"
+      ],
+      "population": "Todas las líneas retenidas",
+      "method": "Media, dispersión y cuantiles",
+      "result": {
+        "Quantity": {
+          "n": 541909,
+          "min": -80995.0,
+          "p01": -2.0,
+          "p25": 1.0,
+          "median": 3.0,
+          "mean": 9.55224954743324,
+          "p75": 10.0,
+          "p99": 100.0,
+          "max": 80995.0,
+          "std": 218.08115785023386
+        },
+        "UnitPrice": {
+          "n": 541909,
+          "min": -11062.06,
+          "p01": 0.19,
+          "p25": 1.25,
+          "median": 2.08,
+          "mean": 4.611113626088514,
+          "p75": 4.13,
+          "p99": 18.0,
+          "max": 38970.0,
+          "std": 96.75985306117937
+        },
+        "LineAmount": {
+          "n": 541909,
+          "min": -168469.6,
+          "p01": -6.58,
+          "p25": 3.4,
+          "median": 9.75,
+          "mean": 17.987794876999644,
+          "p75": 17.4,
+          "p99": 180.0,
+          "max": 168469.6,
+          "std": 378.8108235059747
+        },
+        "total_line_amount": 9747747.934,
+        "total_units": 5176450,
+        "identified_customer_rows": 406829,
+        "identified_customer_count": 4372
+      },
+      "interpretation": "Los cuantiles complementan las medias debido a la amplitud de los rangos."
+    },
+    {
+      "id": "STAT-008",
+      "stage": "E4",
+      "analysis_type": "group_comparison",
+      "title": "Operaciones por estado de cancelación",
+      "variables": [
+        "IsCancellation",
+        "InvoiceNo",
+        "Quantity",
+        "LineAmount"
+      ],
+      "population": "Todas las líneas, agrupadas por prefijo C",
+      "method": "Agregación por IsCancellation derivado",
+      "result": [
+        {
+          "Operation": "cancelación",
+          "lines": 9288,
+          "invoices": 3836,
+          "units": -277574,
+          "amount": -896812.49,
+          "median_amount": -8.5,
+          "median_quantity": -2.0
+        },
+        {
+          "Operation": "no cancelación",
+          "lines": 532621,
+          "invoices": 22064,
+          "units": 5454024,
+          "amount": 10644560.424,
+          "median_amount": 9.9,
+          "median_quantity": 3.0
+        }
+      ],
+      "interpretation": "La clasificación sigue exclusivamente la regla documental del prefijo C; describe las líneas, no empareja devoluciones con ventas originales."
+    },
+    {
+      "id": "STAT-009",
+      "stage": "E5",
+      "analysis_type": "temporal_aggregation",
+      "title": "Actividad mensual y valor neto de líneas",
+      "variables": [
+        "YearMonth",
+        "InvoiceNo",
+        "Quantity",
+        "LineAmount",
+        "IsCancellation"
+      ],
+      "population": "Todas las líneas; agregado calendario mensual",
+      "method": "groupby YearMonth: recuento de líneas/facturas, suma de unidades e importe con signo",
+      "result": [
+        {
+          "YearMonth": "2010-12",
+          "lines": 42481,
+          "invoices": 2025,
+          "units": 342228,
+          "net_amount": 748957.02,
+          "cancellations": 728
+        },
+        {
+          "YearMonth": "2011-01",
+          "lines": 35147,
+          "invoices": 1476,
+          "units": 308966,
+          "net_amount": 560000.26,
+          "cancellations": 701
+        },
+        {
+          "YearMonth": "2011-02",
+          "lines": 27707,
+          "invoices": 1393,
+          "units": 277989,
+          "net_amount": 498062.65,
+          "cancellations": 475
+        },
+        {
+          "YearMonth": "2011-03",
+          "lines": 36748,
+          "invoices": 1983,
+          "units": 351872,
+          "net_amount": 683267.08,
+          "cancellations": 699
+        },
+        {
+          "YearMonth": "2011-04",
+          "lines": 29916,
+          "invoices": 1744,
+          "units": 289098,
+          "net_amount": 493207.121,
+          "cancellations": 559
+        },
+        {
+          "YearMonth": "2011-05",
+          "lines": 37030,
+          "invoices": 2162,
+          "units": 380391,
+          "net_amount": 723333.51,
+          "cancellations": 621
+        },
+        {
+          "YearMonth": "2011-06",
+          "lines": 36874,
+          "invoices": 2012,
+          "units": 341623,
+          "net_amount": 691123.12,
+          "cancellations": 711
+        },
+        {
+          "YearMonth": "2011-07",
+          "lines": 39518,
+          "invoices": 1927,
+          "units": 391116,
+          "net_amount": 681300.111,
+          "cancellations": 685
+        },
+        {
+          "YearMonth": "2011-08",
+          "lines": 35284,
+          "invoices": 1737,
+          "units": 406199,
+          "net_amount": 682680.51,
+          "cancellations": 668
+        },
+        {
+          "YearMonth": "2011-09",
+          "lines": 50226,
+          "invoices": 2327,
+          "units": 549817,
+          "net_amount": 1019687.622,
+          "cancellations": 805
+        },
+        {
+          "YearMonth": "2011-10",
+          "lines": 60742,
+          "invoices": 2637,
+          "units": 570532,
+          "net_amount": 1070704.67,
+          "cancellations": 1200
+        },
+        {
+          "YearMonth": "2011-11",
+          "lines": 84711,
+          "invoices": 3462,
+          "units": 740286,
+          "net_amount": 1461756.25,
+          "cancellations": 1076
+        },
+        {
+          "YearMonth": "2011-12",
+          "lines": 25525,
+          "invoices": 1015,
+          "units": 226333,
+          "net_amount": 433668.01,
+          "cancellations": 360
+        }
+      ],
+      "interpretation": "El importe es neto de líneas, incluidas cancelaciones; los extremos temporales son meses parciales."
+    },
+    {
+      "id": "STAT-010",
+      "stage": "E5",
+      "analysis_type": "geographic_aggregation",
+      "title": "Actividad por país",
+      "variables": [
+        "Country",
+        "InvoiceNo",
+        "Quantity",
+        "LineAmount"
+      ],
+      "population": "Todas las líneas; agrupadas por Country",
+      "method": "Agregación por país y orden descendente de importe neto",
+      "result": {
+        "all_countries": [
+          {
+            "Country": "United Kingdom",
+            "lines": 495478,
+            "invoices": 23494,
+            "units": 4263829,
+            "net_amount": 8187806.364
+          },
+          {
+            "Country": "Netherlands",
+            "lines": 2371,
+            "invoices": 101,
+            "units": 200128,
+            "net_amount": 284661.54
+          },
+          {
+            "Country": "EIRE",
+            "lines": 8196,
+            "invoices": 360,
+            "units": 142637,
+            "net_amount": 263276.82
+          },
+          {
+            "Country": "Germany",
+            "lines": 9495,
+            "invoices": 603,
+            "units": 117448,
+            "net_amount": 221698.21
+          },
+          {
+            "Country": "France",
+            "lines": 8557,
+            "invoices": 461,
+            "units": 110480,
+            "net_amount": 197403.9
+          },
+          {
+            "Country": "Australia",
+            "lines": 1259,
+            "invoices": 69,
+            "units": 83653,
+            "net_amount": 137077.27
+          },
+          {
+            "Country": "Switzerland",
+            "lines": 2002,
+            "invoices": 74,
+            "units": 30325,
+            "net_amount": 56385.35
+          },
+          {
+            "Country": "Spain",
+            "lines": 2533,
+            "invoices": 105,
+            "units": 26824,
+            "net_amount": 54774.58
+          },
+          {
+            "Country": "Belgium",
+            "lines": 2069,
+            "invoices": 119,
+            "units": 23152,
+            "net_amount": 40910.96
+          },
+          {
+            "Country": "Sweden",
+            "lines": 462,
+            "invoices": 46,
+            "units": 35637,
+            "net_amount": 36595.91
+          },
+          {
+            "Country": "Japan",
+            "lines": 358,
+            "invoices": 28,
+            "units": 25218,
+            "net_amount": 35340.62
+          },
+          {
+            "Country": "Norway",
+            "lines": 1086,
+            "invoices": 40,
+            "units": 19247,
+            "net_amount": 35163.46
+          },
+          {
+            "Country": "Portugal",
+            "lines": 1519,
+            "invoices": 71,
+            "units": 16180,
+            "net_amount": 29367.02
+          },
+          {
+            "Country": "Finland",
+            "lines": 695,
+            "invoices": 48,
+            "units": 10666,
+            "net_amount": 22326.74
+          },
+          {
+            "Country": "Channel Islands",
+            "lines": 758,
+            "invoices": 33,
+            "units": 9479,
+            "net_amount": 20086.29
+          },
+          {
+            "Country": "Denmark",
+            "lines": 389,
+            "invoices": 21,
+            "units": 8188,
+            "net_amount": 18768.14
+          },
+          {
+            "Country": "Italy",
+            "lines": 803,
+            "invoices": 55,
+            "units": 7999,
+            "net_amount": 16890.51
+          },
+          {
+            "Country": "Cyprus",
+            "lines": 622,
+            "invoices": 20,
+            "units": 6317,
+            "net_amount": 12946.29
+          },
+          {
+            "Country": "Austria",
+            "lines": 401,
+            "invoices": 19,
+            "units": 4827,
+            "net_amount": 10154.32
+          },
+          {
+            "Country": "Hong Kong",
+            "lines": 288,
+            "invoices": 15,
+            "units": 4769,
+            "net_amount": 10117.04
+          },
+          {
+            "Country": "Singapore",
+            "lines": 229,
+            "invoices": 10,
+            "units": 5234,
+            "net_amount": 9120.39
+          },
+          {
+            "Country": "Israel",
+            "lines": 297,
+            "invoices": 9,
+            "units": 4353,
+            "net_amount": 7907.82
+          },
+          {
+            "Country": "Poland",
+            "lines": 341,
+            "invoices": 24,
+            "units": 3653,
+            "net_amount": 7213.14
+          },
+          {
+            "Country": "Unspecified",
+            "lines": 446,
+            "invoices": 13,
+            "units": 3300,
+            "net_amount": 4749.79
+          },
+          {
+            "Country": "Greece",
+            "lines": 146,
+            "invoices": 6,
+            "units": 1556,
+            "net_amount": 4710.52
+          },
+          {
+            "Country": "Iceland",
+            "lines": 182,
+            "invoices": 7,
+            "units": 2458,
+            "net_amount": 4310.0
+          },
+          {
+            "Country": "Canada",
+            "lines": 151,
+            "invoices": 6,
+            "units": 2763,
+            "net_amount": 3666.38
+          },
+          {
+            "Country": "Malta",
+            "lines": 127,
+            "invoices": 10,
+            "units": 944,
+            "net_amount": 2505.47
+          },
+          {
+            "Country": "United Arab Emirates",
+            "lines": 68,
+            "invoices": 3,
+            "units": 982,
+            "net_amount": 1902.28
+          },
+          {
+            "Country": "USA",
+            "lines": 291,
+            "invoices": 7,
+            "units": 1034,
+            "net_amount": 1730.92
+          },
+          {
+            "Country": "Lebanon",
+            "lines": 45,
+            "invoices": 1,
+            "units": 386,
+            "net_amount": 1693.88
+          },
+          {
+            "Country": "Lithuania",
+            "lines": 35,
+            "invoices": 4,
+            "units": 652,
+            "net_amount": 1661.06
+          },
+          {
+            "Country": "European Community",
+            "lines": 61,
+            "invoices": 5,
+            "units": 497,
+            "net_amount": 1291.75
+          },
+          {
+            "Country": "Brazil",
+            "lines": 32,
+            "invoices": 1,
+            "units": 356,
+            "net_amount": 1143.6
+          },
+          {
+            "Country": "RSA",
+            "lines": 58,
+            "invoices": 1,
+            "units": 352,
+            "net_amount": 1002.3100000000001
+          },
+          {
+            "Country": "Czech Republic",
+            "lines": 30,
+            "invoices": 5,
+            "units": 592,
+            "net_amount": 707.72
+          },
+          {
+            "Country": "Bahrain",
+            "lines": 19,
+            "invoices": 4,
+            "units": 260,
+            "net_amount": 548.4
+          },
+          {
+            "Country": "Saudi Arabia",
+            "lines": 10,
+            "invoices": 2,
+            "units": 75,
+            "net_amount": 131.17
+          }
+        ],
+        "uk_amount_share_pct": 83.99690286862109
+      },
+      "interpretation": "Las comparaciones reflejan el país asociado al cliente y tamaños de grupo muy desiguales."
+    },
+    {
+      "id": "STAT-011",
+      "stage": "E5",
+      "analysis_type": "product_aggregation",
+      "title": "Principales conceptos por importe en líneas no canceladas",
+      "variables": [
+        "StockCode",
+        "Description",
+        "Quantity",
+        "LineAmount",
+        "IsCancellation"
+      ],
+      "population": "Solo líneas cuyo InvoiceNo no comienza por C",
+      "method": "Agregación por StockCode y Description; orden por suma de LineAmount",
+      "result": [
+        {
+          "StockCode": "DOT",
+          "Description": "DOTCOM POSTAGE",
+          "lines": 708,
+          "units": 708,
+          "amount": 206248.77
+        },
+        {
+          "StockCode": "22423",
+          "Description": "REGENCY CAKESTAND 3 TIER",
+          "lines": 2019,
+          "units": 13890,
+          "amount": 174484.74
+        },
+        {
+          "StockCode": "23843",
+          "Description": "PAPER CRAFT , LITTLE BIRDIE",
+          "lines": 1,
+          "units": 80995,
+          "amount": 168469.6
+        },
+        {
+          "StockCode": "85123A",
+          "Description": "WHITE HANGING HEART T-LIGHT HOLDER",
+          "lines": 2260,
+          "units": 37603,
+          "amount": 104340.29000000001
+        },
+        {
+          "StockCode": "47566",
+          "Description": "PARTY BUNTING",
+          "lines": 1707,
+          "units": 18299,
+          "amount": 99504.33
+        },
+        {
+          "StockCode": "85099B",
+          "Description": "JUMBO BAG RED RETROSPOT",
+          "lines": 2115,
+          "units": 48478,
+          "amount": 94340.05
+        },
+        {
+          "StockCode": "23166",
+          "Description": "MEDIUM CERAMIC TOP STORAGE JAR",
+          "lines": 250,
+          "units": 78033,
+          "amount": 81700.92000000001
+        },
+        {
+          "StockCode": "M",
+          "Description": "Manual",
+          "lines": 327,
+          "units": 7230,
+          "amount": 78110.27
+        },
+        {
+          "StockCode": "POST",
+          "Description": "POSTAGE",
+          "lines": 1126,
+          "units": 3150,
+          "amount": 78101.88
+        },
+        {
+          "StockCode": "23084",
+          "Description": "RABBIT NIGHT LIGHT",
+          "lines": 1036,
+          "units": 30788,
+          "amount": 66964.99
+        },
+        {
+          "StockCode": "22086",
+          "Description": "PAPER CHAIN KIT 50'S CHRISTMAS ",
+          "lines": 1200,
+          "units": 19355,
+          "amount": 64952.29
+        },
+        {
+          "StockCode": "84879",
+          "Description": "ASSORTED COLOUR BIRD ORNAMENT",
+          "lines": 1489,
+          "units": 36461,
+          "amount": 59094.93
+        }
+      ],
+      "interpretation": "Es un ranking de conceptos facturados no cancelados; códigos especiales y múltiples descripciones limitan la equivalencia con productos físicos."
+    },
+    {
+      "id": "STAT-012",
+      "stage": "E5",
+      "analysis_type": "customer_aggregation",
+      "title": "Clientes identificados con mayor importe neto",
+      "variables": [
+        "CustomerID",
+        "InvoiceNo",
+        "LineAmount"
+      ],
+      "population": "Solo filas con CustomerID no ausente",
+      "method": "Agregación nominal por CustomerID; orden por importe neto",
+      "result": [
+        {
+          "CustomerID": "14646",
+          "lines": 2085,
+          "invoices": 77,
+          "net_amount": 279489.02
+        },
+        {
+          "CustomerID": "18102",
+          "lines": 433,
+          "invoices": 62,
+          "net_amount": 256438.49
+        },
+        {
+          "CustomerID": "17450",
+          "lines": 351,
+          "invoices": 55,
+          "net_amount": 187482.17
+        },
+        {
+          "CustomerID": "14911",
+          "lines": 5903,
+          "invoices": 248,
+          "net_amount": 132572.62
+        },
+        {
+          "CustomerID": "12415",
+          "lines": 778,
+          "invoices": 26,
+          "net_amount": 123725.45
+        },
+        {
+          "CustomerID": "14156",
+          "lines": 1420,
+          "invoices": 66,
+          "net_amount": 113384.14
+        },
+        {
+          "CustomerID": "17511",
+          "lines": 1076,
+          "invoices": 46,
+          "net_amount": 88125.38
+        },
+        {
+          "CustomerID": "16684",
+          "lines": 281,
+          "invoices": 31,
+          "net_amount": 65892.08
+        },
+        {
+          "CustomerID": "13694",
+          "lines": 585,
+          "invoices": 60,
+          "net_amount": 62653.1
+        },
+        {
+          "CustomerID": "15311",
+          "lines": 2491,
+          "invoices": 118,
+          "net_amount": 59419.340000000004
+        }
+      ],
+      "interpretation": "El resultado excluye las líneas sin CustomerID y no convierte el identificador en una medida numérica."
+    },
+    {
+      "id": "STAT-013",
+      "stage": "E5",
+      "analysis_type": "numeric_relationship",
+      "title": "Relación descriptiva entre cantidad y precio",
+      "variables": [
+        "Quantity",
+        "UnitPrice",
+        "LineAmount"
+      ],
+      "population": "Líneas no canceladas con Quantity y UnitPrice positivos",
+      "method": "Correlación de Spearman; identidad LineAmount = Quantity × UnitPrice",
+      "result": {
+        "population_rows": 530104,
+        "spearman_quantity_unitprice": -0.40323728164115463,
+        "identity_max_abs_difference": 0.0,
+        "amount_formula": "LineAmount = Quantity × UnitPrice"
+      },
+      "interpretation": "La correlación resume asociación monotónica dentro de la población definida; no implica causalidad."
+    },
+    {
+      "id": "STAT-014",
+      "stage": "E7",
+      "analysis_type": "outlier_screen",
+      "title": "Cribado de extremos por regla IQR",
+      "variables": [
+        "Quantity",
+        "UnitPrice",
+        "LineAmount"
+      ],
+      "population": "Todas las líneas retenidas",
+      "method": "Vallas de 1.5×IQR; cribado descriptivo, no regla de eliminación",
+      "result": [
+        {
+          "variable": "Quantity",
+          "q1": 1.0,
+          "q3": 10.0,
+          "iqr": 9.0,
+          "lower_fence": -12.5,
+          "upper_fence": 23.5,
+          "outside_fence_rows": 58619
+        },
+        {
+          "variable": "UnitPrice",
+          "q1": 1.25,
+          "q3": 4.13,
+          "iqr": 2.88,
+          "lower_fence": -3.0700000000000003,
+          "upper_fence": 8.45,
+          "outside_fence_rows": 39627
+        },
+        {
+          "variable": "LineAmount",
+          "q1": 3.4,
+          "q3": 17.4,
+          "iqr": 13.999999999999998,
+          "lower_fence": -17.599999999999998,
+          "upper_fence": 38.39999999999999,
+          "outside_fence_rows": 44997
+        }
+      ],
+      "interpretation": "Hay numerosos valores fuera de vallas; la regla no permite distinguir por sí sola error de operación comercial válida."
+    }
+  ],
+  "figures": [
+    {
+      "id": "FIG-001",
+      "file": "figures/fig_001_importe_mensual.png",
+      "title": "Importe neto mensual (incluye cancelaciones)",
+      "objective": "Mostrar la evolución mensual del valor neto de líneas y contextualizar meses parciales.",
+      "variables": [
+        "YearMonth",
+        "LineAmount"
+      ],
+      "source_analysis_ids": [
+        "STAT-009"
+      ]
+    },
+    {
+      "id": "FIG-002",
+      "file": "figures/fig_002_paises_importe.png",
+      "title": "Diez países con mayor importe neto",
+      "objective": "Comparar la concentración geográfica del importe neto.",
+      "variables": [
+        "Country",
+        "LineAmount"
+      ],
+      "source_analysis_ids": [
+        "STAT-010"
+      ]
+    },
+    {
+      "id": "FIG-003",
+      "file": "figures/fig_003_distribuciones_ventas.png",
+      "title": "Distribuciones de Quantity y UnitPrice en ventas no canceladas",
+      "objective": "Mostrar la concentración de cantidades y precios positivos sin ocultar asimetría mediante escala logarítmica de precio.",
+      "variables": [
+        "Quantity",
+        "UnitPrice",
+        "IsCancellation"
+      ],
+      "source_analysis_ids": [
+        "STAT-004",
+        "STAT-013"
+      ]
+    },
+    {
+      "id": "FIG-004",
+      "file": "figures/fig_004_top_conceptos.png",
+      "title": "Conceptos principales por importe no cancelado",
+      "objective": "Mostrar la concentración por conceptos facturados no cancelados.",
+      "variables": [
+        "StockCode",
+        "Description",
+        "LineAmount",
+        "IsCancellation"
+      ],
+      "source_analysis_ids": [
+        "STAT-011"
+      ]
+    }
+  ],
+  "limitations": [
+    "Cada observación es una línea, por lo que los recuentos de filas no son compras completas.",
+    "CustomerID falta en parte importante de las líneas; los análisis de clientes se restringen a identificadores disponibles.",
+    "Los límites de diciembre de 2010 y diciembre de 2011 son meses parciales.",
+    "La documentación no permite confirmar si cada extremo, código especial o fila idéntica es un error o una operación válida.",
+    "LineAmount es un importe de línea calculado y no incorpora información externa sobre impuestos, portes o emparejamiento de devoluciones."
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "run_id": "D1_bike_sharing__langgraph__r01__20260831T172857425785Z",
+  "dataset_id": "D1_bike_sharing",
+  "checks_performed": [
+    {
+      "id": "CHK-001",
+      "category": "missing",
+      "description": "Ausencias en columnas fuente.",
+      "outcome": "0 ausencias en 17 columnas.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-002",
+      "category": "duplicate",
+      "description": "Duplicados, instant y fecha-hora.",
+      "outcome": "0 duplicados; 17,379 instant únicos y 0 fecha-hora duplicadas.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-003",
+      "category": "domain_and_range",
+      "description": "Dominios, rangos, no negatividad e identidad.",
+      "outcome": "Sin códigos inválidos, negativos ni fallos de identidad.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-004",
+      "category": "temporal",
+      "description": "Secuencia y recuento por fecha.",
+      "outcome": "165 horas faltantes y 76 fechas incompletas.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "CHK-005",
+      "category": "outlier",
+      "description": "Cribado IQR.",
+      "outcome": "Extremos retenidos sin evidencia de error.",
+      "evidence_ids": [
+        "STAT-012"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "id": "ISSUE-001",
+      "category": "temporal",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Cobertura horaria incompleta",
+      "description": "La serie no contiene todas las horas entre sus límites y hay fechas con menos de 24 registros.",
+      "evidence": {
+        "missing_hourly_timestamps": 165,
+        "incomplete_days": 76,
+        "hours_distribution": {
+          "1": 1,
+          "8": 1,
+          "11": 1,
+          "12": 1,
+          "16": 1,
+          "17": 1,
+          "18": 2,
+          "22": 6,
+          "23": 62
+        }
+      },
+      "affected_columns": [
+        "dteday",
+        "hr",
+        "timestamp",
+        "cnt"
+      ],
+      "affected_row_count": 165,
+      "sample_row_ids": [],
+      "decision": "Conservar registros disponibles sin imputar.",
+      "action": "Etiquetar agregaciones por cobertura; cribado diario solo en días completos.",
+      "potential_effect": "Sumas y medias temporales pueden no ser comparables si varía cobertura.",
+      "uncertainty": "La documentación no explica las ausencias.",
+      "evidence_ids": [
+        "STAT-003",
+        "STAT-010"
+      ]
+    },
+    {
+      "id": "ISSUE-002",
+      "category": "outlier",
+      "status": "retained",
+      "severity": "low",
+      "title": "Extremos estadísticos de alquileres retenidos",
+      "description": "IQR señala conteos extremos sin evidencia de invalidez.",
+      "evidence": {
+        "flagged_hourly_rows": 505,
+        "flagged_complete_days": 0,
+        "daily_fences": [
+          -273.75,
+          10092.25
+        ]
+      },
+      "affected_columns": [
+        "cnt",
+        "casual",
+        "registered",
+        "dteday"
+      ],
+      "affected_row_count": 505,
+      "sample_row_ids": [
+        5537,
+        10359,
+        10360,
+        10383,
+        10384,
+        10398,
+        10407,
+        10408,
+        10431,
+        10432
+      ],
+      "decision": "Retener extremos.",
+      "action": "No corregir ni eliminar; reportar estadísticos robustos.",
+      "potential_effect": "Pueden influir en medias y correlaciones.",
+      "uncertainty": "No es posible distinguir actividad excepcional de error.",
+      "evidence_ids": [
+        "STAT-005",
+        "STAT-012"
+      ]
+    }
+  ]
+}

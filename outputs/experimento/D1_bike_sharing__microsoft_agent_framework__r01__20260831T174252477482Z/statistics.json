@@ -1,0 +1,2471 @@
+{
+  "schema_version": "1.0",
+  "run_id": "D1_bike_sharing__microsoft_agent_framework__r01__20260831T174252477482Z",
+  "dataset_id": "D1_bike_sharing",
+  "generated_at_utc": "2026-08-31T17:45:52.469695+00:00",
+  "profile": {
+    "original_rows": 17379,
+    "original_columns": 17,
+    "prepared_rows": 17379,
+    "prepared_columns": 22,
+    "unit_of_analysis": "Una hora observada y agregada de Capital Bikeshare en Washington, D.C., con recuentos y atributos de calendario y meteorología.",
+    "columns": [
+      {
+        "name": "instant",
+        "origin": "source",
+        "source_name": "instant",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 17379
+      },
+      {
+        "name": "dteday",
+        "origin": "source",
+        "source_name": "dteday",
+        "original_type": "str",
+        "prepared_type": "datetime64[ns]",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 731
+      },
+      {
+        "name": "season",
+        "origin": "source",
+        "source_name": "season",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 4
+      },
+      {
+        "name": "yr",
+        "origin": "source",
+        "source_name": "yr",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 2
+      },
+      {
+        "name": "mnth",
+        "origin": "source",
+        "source_name": "mnth",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 12
+      },
+      {
+        "name": "hr",
+        "origin": "source",
+        "source_name": "hr",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 24
+      },
+      {
+        "name": "holiday",
+        "origin": "source",
+        "source_name": "holiday",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 2
+      },
+      {
+        "name": "weekday",
+        "origin": "source",
+        "source_name": "weekday",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 7
+      },
+      {
+        "name": "workingday",
+        "origin": "source",
+        "source_name": "workingday",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 2
+      },
+      {
+        "name": "weathersit",
+        "origin": "source",
+        "source_name": "weathersit",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 4
+      },
+      {
+        "name": "temp",
+        "origin": "source",
+        "source_name": "temp",
+        "original_type": "float64",
+        "prepared_type": "float64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 50
+      },
+      {
+        "name": "atemp",
+        "origin": "source",
+        "source_name": "atemp",
+        "original_type": "float64",
+        "prepared_type": "float64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 65
+      },
+      {
+        "name": "hum",
+        "origin": "source",
+        "source_name": "hum",
+        "original_type": "float64",
+        "prepared_type": "float64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 89
+      },
+      {
+        "name": "windspeed",
+        "origin": "source",
+        "source_name": "windspeed",
+        "original_type": "float64",
+        "prepared_type": "float64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 30
+      },
+      {
+        "name": "casual",
+        "origin": "source",
+        "source_name": "casual",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 322
+      },
+      {
+        "name": "registered",
+        "origin": "source",
+        "source_name": "registered",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 776
+      },
+      {
+        "name": "cnt",
+        "origin": "source",
+        "source_name": "cnt",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 869
+      },
+      {
+        "name": "calendar_year",
+        "origin": "derived",
+        "source_name": null,
+        "original_type": null,
+        "prepared_type": "int32",
+        "missing_original": null,
+        "missing_prepared": 0,
+        "unique_prepared": 2
+      },
+      {
+        "name": "season_label",
+        "origin": "derived",
+        "source_name": null,
+        "original_type": null,
+        "prepared_type": "str",
+        "missing_original": null,
+        "missing_prepared": 0,
+        "unique_prepared": 4
+      },
+      {
+        "name": "weathersit_label",
+        "origin": "derived",
+        "source_name": null,
+        "original_type": null,
+        "prepared_type": "str",
+        "missing_original": null,
+        "missing_prepared": 0,
+        "unique_prepared": 4
+      },
+      {
+        "name": "casual_share",
+        "origin": "derived",
+        "source_name": null,
+        "original_type": null,
+        "prepared_type": "float64",
+        "missing_original": null,
+        "missing_prepared": 0,
+        "unique_prepared": 7376
+      },
+      {
+        "name": "registered_share",
+        "origin": "derived",
+        "source_name": null,
+        "original_type": null,
+        "prepared_type": "float64",
+        "missing_original": null,
+        "missing_prepared": 0,
+        "unique_prepared": 7376
+      }
+    ]
+  },
+  "preparation": {
+    "summary": "Sin exclusiones: se convirtió dteday para análisis y se añadieron cinco variables derivadas, preservando las fuentes.",
+    "changes": [
+      {
+        "id": "TR-001",
+        "action": "type_conversion",
+        "description": "Conversión analítica de dteday; salida ISO YYYY-MM-DD.",
+        "justification": "Validación y agregación temporal no ambigua.",
+        "affected_columns": [
+          "dteday"
+        ],
+        "rows_affected": 17379,
+        "before": "object",
+        "after": "datetime64[ns] en análisis"
+      },
+      {
+        "id": "TR-002",
+        "action": "derived_variables",
+        "description": "calendar_year, etiquetas de season/weathersit y participaciones de usuario.",
+        "justification": "Legibilidad y composición respaldada por identidad.",
+        "affected_columns": [
+          "calendar_year",
+          "season_label",
+          "weathersit_label",
+          "casual_share",
+          "registered_share"
+        ],
+        "rows_affected": 17379,
+        "before": null,
+        "after": "5 columnas; 0 ausencias en participaciones"
+      },
+      {
+        "id": "TR-003",
+        "action": "retention",
+        "description": "Sin eliminación, imputación ni modificación de valores fuente.",
+        "justification": "No hay evidencia de invalidez.",
+        "affected_columns": [
+          "instant",
+          "dteday",
+          "season",
+          "yr",
+          "mnth",
+          "hr",
+          "holiday",
+          "weekday",
+          "workingday",
+          "weathersit",
+          "temp",
+          "atemp",
+          "hum",
+          "windspeed",
+          "casual",
+          "registered",
+          "cnt"
+        ],
+        "rows_affected": 0,
+        "before": 17379,
+        "after": 17379
+      }
+    ]
+  },
+  "analyses": [
+    {
+      "id": "STAT-001",
+      "stage": "E1",
+      "analysis_type": "structural_profile",
+      "title": "Carga y estructura inicial",
+      "variables": [
+        "instant",
+        "dteday",
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed",
+        "casual",
+        "registered",
+        "cnt"
+      ],
+      "population": "CSV original completo",
+      "method": "Lectura CSV",
+      "result": {
+        "rows": 17379,
+        "columns": 17,
+        "column_order": [
+          "instant",
+          "dteday",
+          "season",
+          "yr",
+          "mnth",
+          "hr",
+          "holiday",
+          "weekday",
+          "workingday",
+          "weathersit",
+          "temp",
+          "atemp",
+          "hum",
+          "windspeed",
+          "casual",
+          "registered",
+          "cnt"
+        ],
+        "source_sha256": "E03DE4EE4EF4DC376AC6E04BF829673C6269E8EBA5C60FA121640FA2F829504F"
+      },
+      "interpretation": "La estructura corresponde al conjunto horario documentado."
+    },
+    {
+      "id": "STAT-002",
+      "stage": "E2",
+      "analysis_type": "missing_duplicates",
+      "title": "Ausencias, duplicados e identificadores",
+      "variables": [
+        "instant",
+        "dteday",
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed",
+        "casual",
+        "registered",
+        "cnt"
+      ],
+      "population": "17.379 filas",
+      "method": "Conteo de nulos y duplicados",
+      "result": {
+        "missing_by_column": {
+          "instant": 0,
+          "dteday": 0,
+          "season": 0,
+          "yr": 0,
+          "mnth": 0,
+          "hr": 0,
+          "holiday": 0,
+          "weekday": 0,
+          "workingday": 0,
+          "weathersit": 0,
+          "temp": 0,
+          "atemp": 0,
+          "hum": 0,
+          "windspeed": 0,
+          "casual": 0,
+          "registered": 0,
+          "cnt": 0
+        },
+        "full_row_duplicates": 0,
+        "duplicate_instant": 0,
+        "duplicate_dteday_hr": 0,
+        "instant_values_matching_1_to_n": 17379
+      },
+      "interpretation": "No hay ausencias ni duplicados en las definiciones comprobadas."
+    },
+    {
+      "id": "STAT-003",
+      "stage": "E2",
+      "analysis_type": "category_and_range_validation",
+      "title": "Códigos, rangos e identidades documentadas",
+      "variables": [
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed",
+        "casual",
+        "registered",
+        "cnt"
+      ],
+      "population": "Población completa",
+      "method": "Reglas documentadas y coherencia con fecha",
+      "result": {
+        "observed_codes": {
+          "season": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "yr": [
+            0,
+            1
+          ],
+          "mnth": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "hr": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "holiday": [
+            0,
+            1
+          ],
+          "weekday": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "workingday": [
+            0,
+            1
+          ],
+          "weathersit": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "out_of_documented_range": {
+          "temp": 0,
+          "atemp": 0,
+          "hum": 0,
+          "windspeed": 0,
+          "casual": 0,
+          "registered": 0,
+          "cnt": 0
+        },
+        "cnt_identity_failures": 0,
+        "yr_date_mismatches": 0,
+        "month_date_mismatches": 0,
+        "season_date_mismatches": 3922,
+        "weekday_date_mismatches": 0,
+        "workingday_rule_mismatches": 0
+      },
+      "interpretation": "Códigos, rangos, identidad y coherencia temporal comprobada se cumplen."
+    },
+    {
+      "id": "STAT-004",
+      "stage": "E2",
+      "analysis_type": "temporal_coverage",
+      "title": "Cobertura y completitud horaria",
+      "variables": [
+        "dteday",
+        "hr"
+      ],
+      "population": "2011-01-01 a 2012-12-31",
+      "method": "Calendario inclusivo y conteo diario",
+      "result": {
+        "date_min": "2011-01-01",
+        "date_max": "2012-12-31",
+        "unique_dates": 731,
+        "calendar_days": 731,
+        "dates_absent": 0,
+        "expected_24h_slots": 17544,
+        "observed_rows": 17379,
+        "slots_not_represented": 165,
+        "daily_hour_count_distribution": {
+          "1": 1,
+          "8": 1,
+          "11": 1,
+          "12": 1,
+          "16": 1,
+          "17": 1,
+          "18": 2,
+          "22": 6,
+          "23": 62,
+          "24": 655
+        },
+        "incomplete_dates": 76,
+        "sample_incomplete_dates": [
+          {
+            "dteday": "2011-01-02",
+            "n_hours": 23
+          },
+          {
+            "dteday": "2011-01-03",
+            "n_hours": 22
+          },
+          {
+            "dteday": "2011-01-04",
+            "n_hours": 23
+          },
+          {
+            "dteday": "2011-01-05",
+            "n_hours": 23
+          },
+          {
+            "dteday": "2011-01-06",
+            "n_hours": 23
+          }
+        ]
+      },
+      "interpretation": "No faltan fechas; faltan franjas respecto de una malla de 24 horas."
+    },
+    {
+      "id": "STAT-005",
+      "stage": "E3",
+      "analysis_type": "preparation_comparison",
+      "title": "Comparación antes-después y variables derivadas",
+      "variables": [
+        "instant",
+        "dteday",
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed",
+        "casual",
+        "registered",
+        "cnt",
+        "calendar_year",
+        "season_label",
+        "weathersit_label",
+        "casual_share",
+        "registered_share"
+      ],
+      "population": "Copia preparada",
+      "method": "Conversión y derivación sin exclusiones",
+      "result": {
+        "original_shape": [
+          17379,
+          17
+        ],
+        "prepared_shape": [
+          17379,
+          22
+        ],
+        "rows_removed": 0,
+        "derived_columns": [
+          "calendar_year",
+          "season_label",
+          "weathersit_label",
+          "casual_share",
+          "registered_share"
+        ],
+        "share_missing_due_to_zero_cnt": 0
+      },
+      "interpretation": "Se mantienen todas las fuentes y filas."
+    },
+    {
+      "id": "STAT-006",
+      "stage": "E4",
+      "analysis_type": "numeric_descriptives",
+      "title": "Resumen numérico de demanda y clima",
+      "variables": [
+        "cnt",
+        "casual",
+        "registered",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed"
+      ],
+      "population": "17.379 observaciones",
+      "method": "Estadísticos descriptivos",
+      "result": {
+        "cnt": {
+          "n": 17379,
+          "mean": 189.4631,
+          "median": 142.0,
+          "std": 181.3876,
+          "min": 1,
+          "q1": 40.0,
+          "q3": 281.0,
+          "max": 977
+        },
+        "casual": {
+          "n": 17379,
+          "mean": 35.6762,
+          "median": 17.0,
+          "std": 49.305,
+          "min": 0,
+          "q1": 4.0,
+          "q3": 48.0,
+          "max": 367
+        },
+        "registered": {
+          "n": 17379,
+          "mean": 153.7869,
+          "median": 115.0,
+          "std": 151.3573,
+          "min": 0,
+          "q1": 34.0,
+          "q3": 220.0,
+          "max": 886
+        },
+        "temp": {
+          "n": 17379,
+          "mean": 0.497,
+          "median": 0.5,
+          "std": 0.1926,
+          "min": 0.02,
+          "q1": 0.34,
+          "q3": 0.66,
+          "max": 1.0
+        },
+        "atemp": {
+          "n": 17379,
+          "mean": 0.4758,
+          "median": 0.4848,
+          "std": 0.1719,
+          "min": 0.0,
+          "q1": 0.3333,
+          "q3": 0.6212,
+          "max": 1.0
+        },
+        "hum": {
+          "n": 17379,
+          "mean": 0.6272,
+          "median": 0.63,
+          "std": 0.1929,
+          "min": 0.0,
+          "q1": 0.48,
+          "q3": 0.78,
+          "max": 1.0
+        },
+        "windspeed": {
+          "n": 17379,
+          "mean": 0.1901,
+          "median": 0.194,
+          "std": 0.1223,
+          "min": 0.0,
+          "q1": 0.1045,
+          "q3": 0.2537,
+          "max": 0.8507
+        }
+      },
+      "interpretation": "Incluye medidas centrales y robustas."
+    },
+    {
+      "id": "STAT-007",
+      "stage": "E4",
+      "analysis_type": "category_frequencies",
+      "title": "Frecuencias de estación y tiempo",
+      "variables": [
+        "season",
+        "weathersit"
+      ],
+      "population": "17.379 observaciones",
+      "method": "Conteos y proporciones",
+      "result": {
+        "season": [
+          {
+            "season": 1,
+            "season_label": "Spring",
+            "n_hours": 4242,
+            "proportion": 0.2440876920421198
+          },
+          {
+            "season": 2,
+            "season_label": "Summer",
+            "n_hours": 4409,
+            "proportion": 0.25369699062086426
+          },
+          {
+            "season": 3,
+            "season_label": "Fall",
+            "n_hours": 4496,
+            "proportion": 0.25870303239541975
+          },
+          {
+            "season": 4,
+            "season_label": "Winter",
+            "n_hours": 4232,
+            "proportion": 0.24351228494159619
+          }
+        ],
+        "weathersit": [
+          {
+            "weathersit": 1,
+            "weathersit_label": "Clear/partly cloudy",
+            "n_hours": 11413,
+            "proportion": 0.656712123827608
+          },
+          {
+            "weathersit": 2,
+            "weathersit_label": "Mist/cloudy",
+            "n_hours": 4544,
+            "proportion": 0.26146498647793315
+          },
+          {
+            "weathersit": 3,
+            "weathersit_label": "Light precipitation",
+            "n_hours": 1419,
+            "proportion": 0.08165026756430174
+          },
+          {
+            "weathersit": 4,
+            "weathersit_label": "Heavy precipitation",
+            "n_hours": 3,
+            "proportion": 0.00017262213015708613
+          }
+        ]
+      },
+      "interpretation": "Los tamaños por categoría difieren."
+    },
+    {
+      "id": "STAT-008",
+      "stage": "E4",
+      "analysis_type": "grouped_descriptives",
+      "title": "Demanda por grupos temporales",
+      "variables": [
+        "calendar_year",
+        "season",
+        "mnth",
+        "hr",
+        "weekday",
+        "workingday",
+        "holiday",
+        "cnt"
+      ],
+      "population": "17.379 observaciones",
+      "method": "Media, mediana y suma por grupo",
+      "result": {
+        "by_year": [
+          {
+            "calendar_year": 2011,
+            "n_hours": 8645,
+            "cnt_mean": 143.7944,
+            "cnt_median": 109.0,
+            "cnt_sum": 1243103.0,
+            "casual_mean": 28.6006,
+            "casual_median": 14.0,
+            "casual_sum": 247252.0,
+            "registered_mean": 115.1939,
+            "registered_median": 90.0,
+            "registered_sum": 995851.0
+          },
+          {
+            "calendar_year": 2012,
+            "n_hours": 8734,
+            "cnt_mean": 234.6664,
+            "cnt_median": 191.0,
+            "cnt_sum": 2049576.0,
+            "casual_mean": 42.6798,
+            "casual_median": 20.0,
+            "casual_sum": 372765.0,
+            "registered_mean": 191.9866,
+            "registered_median": 156.0,
+            "registered_sum": 1676811.0
+          }
+        ],
+        "by_season": [
+          {
+            "season": 1,
+            "n_hours": 4242,
+            "cnt_mean": 111.1146,
+            "cnt_median": 76.0,
+            "cnt_sum": 471348.0,
+            "casual_mean": 14.2909,
+            "casual_median": 5.0,
+            "casual_sum": 60622.0,
+            "registered_mean": 96.8237,
+            "registered_median": 66.0,
+            "registered_sum": 410726.0
+          },
+          {
+            "season": 2,
+            "n_hours": 4409,
+            "cnt_mean": 208.3441,
+            "cnt_median": 165.0,
+            "cnt_sum": 918589.0,
+            "casual_mean": 46.1606,
+            "casual_median": 27.0,
+            "casual_sum": 203522.0,
+            "registered_mean": 162.1835,
+            "registered_median": 128.0,
+            "registered_sum": 715067.0
+          },
+          {
+            "season": 3,
+            "n_hours": 4496,
+            "cnt_mean": 236.0162,
+            "cnt_median": 199.0,
+            "cnt_sum": 1061129.0,
+            "casual_mean": 50.2871,
+            "casual_median": 36.0,
+            "casual_sum": 226091.0,
+            "registered_mean": 185.7291,
+            "registered_median": 153.0,
+            "registered_sum": 835038.0
+          },
+          {
+            "season": 4,
+            "n_hours": 4232,
+            "cnt_mean": 198.8689,
+            "cnt_median": 155.5,
+            "cnt_sum": 841613.0,
+            "casual_mean": 30.6668,
+            "casual_median": 14.0,
+            "casual_sum": 129782.0,
+            "registered_mean": 168.202,
+            "registered_median": 134.0,
+            "registered_sum": 711831.0
+          }
+        ],
+        "by_month": [
+          {
+            "mnth": 1,
+            "n_hours": 1429,
+            "cnt_mean": 94.4248,
+            "cnt_median": 66.0,
+            "cnt_sum": 134933.0,
+            "casual_mean": 8.4269,
+            "casual_median": 4.0,
+            "casual_sum": 12042.0,
+            "registered_mean": 85.9979,
+            "registered_median": 59.0,
+            "registered_sum": 122891.0
+          },
+          {
+            "mnth": 2,
+            "n_hours": 1341,
+            "cnt_mean": 112.865,
+            "cnt_median": 82.0,
+            "cnt_sum": 151352.0,
+            "casual_mean": 11.1581,
+            "casual_median": 5.0,
+            "casual_sum": 14963.0,
+            "registered_mean": 101.7069,
+            "registered_median": 73.0,
+            "registered_sum": 136389.0
+          },
+          {
+            "mnth": 3,
+            "n_hours": 1473,
+            "cnt_mean": 155.4107,
+            "cnt_median": 104.0,
+            "cnt_sum": 228920.0,
+            "casual_mean": 30.1724,
+            "casual_median": 13.0,
+            "casual_sum": 44444.0,
+            "registered_mean": 125.2383,
+            "registered_median": 86.0,
+            "registered_sum": 184476.0
+          },
+          {
+            "mnth": 4,
+            "n_hours": 1437,
+            "cnt_mean": 187.261,
+            "cnt_median": 136.0,
+            "cnt_sum": 269094.0,
+            "casual_mean": 42.3118,
+            "casual_median": 20.0,
+            "casual_sum": 60802.0,
+            "registered_mean": 144.9492,
+            "registered_median": 105.0,
+            "registered_sum": 208292.0
+          },
+          {
+            "mnth": 5,
+            "n_hours": 1488,
+            "cnt_mean": 222.9073,
+            "cnt_median": 188.5,
+            "cnt_sum": 331686.0,
+            "casual_mean": 50.5948,
+            "casual_median": 33.0,
+            "casual_sum": 75285.0,
+            "registered_mean": 172.3125,
+            "registered_median": 144.5,
+            "registered_sum": 256401.0
+          },
+          {
+            "mnth": 6,
+            "n_hours": 1440,
+            "cnt_mean": 240.5153,
+            "cnt_median": 203.0,
+            "cnt_sum": 346342.0,
+            "casual_mean": 51.3236,
+            "casual_median": 37.0,
+            "casual_sum": 73906.0,
+            "registered_mean": 189.1917,
+            "registered_median": 159.0,
+            "registered_sum": 272436.0
+          },
+          {
+            "mnth": 7,
+            "n_hours": 1488,
+            "cnt_mean": 231.8199,
+            "cnt_median": 202.0,
+            "cnt_sum": 344948.0,
+            "casual_mean": 52.5249,
+            "casual_median": 40.0,
+            "casual_sum": 78157.0,
+            "registered_mean": 179.295,
+            "registered_median": 152.0,
+            "registered_sum": 266791.0
+          },
+          {
+            "mnth": 8,
+            "n_hours": 1475,
+            "cnt_mean": 238.0976,
+            "cnt_median": 204.0,
+            "cnt_sum": 351194.0,
+            "casual_mean": 48.84,
+            "casual_median": 38.0,
+            "casual_sum": 72039.0,
+            "registered_mean": 189.2576,
+            "registered_median": 155.0,
+            "registered_sum": 279155.0
+          },
+          {
+            "mnth": 9,
+            "n_hours": 1437,
+            "cnt_mean": 240.7731,
+            "cnt_median": 190.0,
+            "cnt_sum": 345991.0,
+            "casual_mean": 48.9374,
+            "casual_median": 28.0,
+            "casual_sum": 70323.0,
+            "registered_mean": 191.8358,
+            "registered_median": 151.0,
+            "registered_sum": 275668.0
+          },
+          {
+            "mnth": 10,
+            "n_hours": 1451,
+            "cnt_mean": 222.1585,
+            "cnt_median": 174.0,
+            "cnt_sum": 322352.0,
+            "casual_mean": 41.1854,
+            "casual_median": 22.0,
+            "casual_sum": 59760.0,
+            "registered_mean": 180.9731,
+            "registered_median": 143.0,
+            "registered_sum": 262592.0
+          },
+          {
+            "mnth": 11,
+            "n_hours": 1437,
+            "cnt_mean": 177.3354,
+            "cnt_median": 145.0,
+            "cnt_sum": 254831.0,
+            "casual_mean": 25.4718,
+            "casual_median": 12.0,
+            "casual_sum": 36603.0,
+            "registered_mean": 151.8636,
+            "registered_median": 123.0,
+            "registered_sum": 218228.0
+          },
+          {
+            "mnth": 12,
+            "n_hours": 1483,
+            "cnt_mean": 142.3034,
+            "cnt_median": 106.0,
+            "cnt_sum": 211036.0,
+            "casual_mean": 14.6278,
+            "casual_median": 8.0,
+            "casual_sum": 21693.0,
+            "registered_mean": 127.6757,
+            "registered_median": 94.0,
+            "registered_sum": 189343.0
+          }
+        ],
+        "by_hour": [
+          {
+            "hr": 0,
+            "n_hours": 726,
+            "cnt_mean": 53.8981,
+            "cnt_median": 40.0,
+            "cnt_sum": 39130.0,
+            "casual_mean": 10.1584,
+            "casual_median": 7.0,
+            "casual_sum": 7375.0,
+            "registered_mean": 43.7397,
+            "registered_median": 32.0,
+            "registered_sum": 31755.0
+          },
+          {
+            "hr": 1,
+            "n_hours": 724,
+            "cnt_mean": 33.3757,
+            "cnt_median": 20.0,
+            "cnt_sum": 24164.0,
+            "casual_mean": 6.5041,
+            "casual_median": 4.0,
+            "casual_sum": 4709.0,
+            "registered_mean": 26.8715,
+            "registered_median": 15.0,
+            "registered_sum": 19455.0
+          },
+          {
+            "hr": 2,
+            "n_hours": 715,
+            "cnt_mean": 22.8699,
+            "cnt_median": 11.0,
+            "cnt_sum": 16352.0,
+            "casual_mean": 4.772,
+            "casual_median": 2.0,
+            "casual_sum": 3412.0,
+            "registered_mean": 18.0979,
+            "registered_median": 8.0,
+            "registered_sum": 12940.0
+          },
+          {
+            "hr": 3,
+            "n_hours": 697,
+            "cnt_mean": 11.7274,
+            "cnt_median": 6.0,
+            "cnt_sum": 8174.0,
+            "casual_mean": 2.7159,
+            "casual_median": 1.0,
+            "casual_sum": 1893.0,
+            "registered_mean": 9.0115,
+            "registered_median": 5.0,
+            "registered_sum": 6281.0
+          },
+          {
+            "hr": 4,
+            "n_hours": 697,
+            "cnt_mean": 6.3529,
+            "cnt_median": 6.0,
+            "cnt_sum": 4428.0,
+            "casual_mean": 1.2539,
+            "casual_median": 1.0,
+            "casual_sum": 874.0,
+            "registered_mean": 5.099,
+            "registered_median": 5.0,
+            "registered_sum": 3554.0
+          },
+          {
+            "hr": 5,
+            "n_hours": 717,
+            "cnt_mean": 19.8898,
+            "cnt_median": 19.0,
+            "cnt_sum": 14261.0,
+            "casual_mean": 1.4114,
+            "casual_median": 1.0,
+            "casual_sum": 1012.0,
+            "registered_mean": 18.4784,
+            "registered_median": 17.0,
+            "registered_sum": 13249.0
+          },
+          {
+            "hr": 6,
+            "n_hours": 725,
+            "cnt_mean": 76.0441,
+            "cnt_median": 76.0,
+            "cnt_sum": 55132.0,
+            "casual_mean": 4.1614,
+            "casual_median": 3.0,
+            "casual_sum": 3017.0,
+            "registered_mean": 71.8828,
+            "registered_median": 73.0,
+            "registered_sum": 52115.0
+          },
+          {
+            "hr": 7,
+            "n_hours": 727,
+            "cnt_mean": 212.0646,
+            "cnt_median": 208.0,
+            "cnt_sum": 154171.0,
+            "casual_mean": 11.055,
+            "casual_median": 10.0,
+            "casual_sum": 8037.0,
+            "registered_mean": 201.0096,
+            "registered_median": 202.0,
+            "registered_sum": 146134.0
+          },
+          {
+            "hr": 8,
+            "n_hours": 727,
+            "cnt_mean": 359.011,
+            "cnt_median": 385.0,
+            "cnt_sum": 261001.0,
+            "casual_mean": 21.6795,
+            "casual_median": 21.0,
+            "casual_sum": 15761.0,
+            "registered_mean": 337.3315,
+            "registered_median": 361.0,
+            "registered_sum": 245240.0
+          },
+          {
+            "hr": 9,
+            "n_hours": 727,
+            "cnt_mean": 219.3095,
+            "cnt_median": 216.0,
+            "cnt_sum": 159438.0,
+            "casual_mean": 30.8913,
+            "casual_median": 26.0,
+            "casual_sum": 22458.0,
+            "registered_mean": 188.4182,
+            "registered_median": 180.0,
+            "registered_sum": 136980.0
+          },
+          {
+            "hr": 10,
+            "n_hours": 727,
+            "cnt_mean": 173.6685,
+            "cnt_median": 147.0,
+            "cnt_sum": 126257.0,
+            "casual_mean": 46.4773,
+            "casual_median": 34.0,
+            "casual_sum": 33789.0,
+            "registered_mean": 127.1912,
+            "registered_median": 115.0,
+            "registered_sum": 92468.0
+          },
+          {
+            "hr": 11,
+            "n_hours": 727,
+            "cnt_mean": 208.1431,
+            "cnt_median": 180.0,
+            "cnt_sum": 151320.0,
+            "casual_mean": 59.5406,
+            "casual_median": 44.0,
+            "casual_sum": 43286.0,
+            "registered_mean": 148.6025,
+            "registered_median": 136.0,
+            "registered_sum": 108034.0
+          },
+          {
+            "hr": 12,
+            "n_hours": 728,
+            "cnt_mean": 253.3159,
+            "cnt_median": 229.0,
+            "cnt_sum": 184414.0,
+            "casual_mean": 68.294,
+            "casual_median": 49.0,
+            "casual_sum": 49718.0,
+            "registered_mean": 185.022,
+            "registered_median": 180.0,
+            "registered_sum": 134696.0
+          },
+          {
+            "hr": 13,
+            "n_hours": 729,
+            "cnt_mean": 253.6612,
+            "cnt_median": 224.0,
+            "cnt_sum": 184919.0,
+            "casual_mean": 72.3086,
+            "casual_median": 50.0,
+            "casual_sum": 52713.0,
+            "registered_mean": 181.3525,
+            "registered_median": 175.0,
+            "registered_sum": 132206.0
+          },
+          {
+            "hr": 14,
+            "n_hours": 729,
+            "cnt_mean": 240.9492,
+            "cnt_median": 212.0,
+            "cnt_sum": 175652.0,
+            "casual_mean": 75.5679,
+            "casual_median": 53.0,
+            "casual_sum": 55089.0,
+            "registered_mean": 165.3813,
+            "registered_median": 155.0,
+            "registered_sum": 120563.0
+          },
+          {
+            "hr": 15,
+            "n_hours": 729,
+            "cnt_mean": 251.2332,
+            "cnt_median": 227.0,
+            "cnt_sum": 183149.0,
+            "casual_mean": 74.9053,
+            "casual_median": 54.0,
+            "casual_sum": 54606.0,
+            "registered_mean": 176.3278,
+            "registered_median": 170.0,
+            "registered_sum": 128543.0
+          },
+          {
+            "hr": 16,
+            "n_hours": 730,
+            "cnt_mean": 311.9836,
+            "cnt_median": 304.5,
+            "cnt_sum": 227748.0,
+            "casual_mean": 73.7452,
+            "casual_median": 55.0,
+            "casual_sum": 53834.0,
+            "registered_mean": 238.2384,
+            "registered_median": 241.5,
+            "registered_sum": 173914.0
+          },
+          {
+            "hr": 17,
+            "n_hours": 730,
+            "cnt_mean": 461.4521,
+            "cnt_median": 475.0,
+            "cnt_sum": 336860.0,
+            "casual_mean": 74.274,
+            "casual_median": 63.5,
+            "casual_sum": 54220.0,
+            "registered_mean": 387.1781,
+            "registered_median": 372.5,
+            "registered_sum": 282640.0
+          },
+          {
+            "hr": 18,
+            "n_hours": 728,
+            "cnt_mean": 425.511,
+            "cnt_median": 418.5,
+            "cnt_sum": 309772.0,
+            "casual_mean": 61.1209,
+            "casual_median": 55.0,
+            "casual_sum": 44496.0,
+            "registered_mean": 364.3901,
+            "registered_median": 348.5,
+            "registered_sum": 265276.0
+          },
+          {
+            "hr": 19,
+            "n_hours": 728,
+            "cnt_mean": 311.5234,
+            "cnt_median": 309.5,
+            "cnt_sum": 226789.0,
+            "casual_mean": 48.7706,
+            "casual_median": 40.0,
+            "casual_sum": 35505.0,
+            "registered_mean": 262.7527,
+            "registered_median": 255.0,
+            "registered_sum": 191284.0
+          },
+          {
+            "hr": 20,
+            "n_hours": 728,
+            "cnt_mean": 226.0302,
+            "cnt_median": 223.5,
+            "cnt_sum": 164550.0,
+            "casual_mean": 36.2335,
+            "casual_median": 29.0,
+            "casual_sum": 26378.0,
+            "registered_mean": 189.7967,
+            "registered_median": 186.5,
+            "registered_sum": 138172.0
+          },
+          {
+            "hr": 21,
+            "n_hours": 728,
+            "cnt_mean": 172.3146,
+            "cnt_median": 173.5,
+            "cnt_sum": 125445.0,
+            "casual_mean": 28.2555,
+            "casual_median": 22.0,
+            "casual_sum": 20570.0,
+            "registered_mean": 144.0591,
+            "registered_median": 145.0,
+            "registered_sum": 104875.0
+          },
+          {
+            "hr": 22,
+            "n_hours": 728,
+            "cnt_mean": 131.3352,
+            "cnt_median": 129.0,
+            "cnt_sum": 95612.0,
+            "casual_mean": 22.2527,
+            "casual_median": 17.5,
+            "casual_sum": 16200.0,
+            "registered_mean": 109.0824,
+            "registered_median": 106.0,
+            "registered_sum": 79412.0
+          },
+          {
+            "hr": 23,
+            "n_hours": 728,
+            "cnt_mean": 87.831,
+            "cnt_median": 80.0,
+            "cnt_sum": 63941.0,
+            "casual_mean": 15.1992,
+            "casual_median": 12.0,
+            "casual_sum": 11065.0,
+            "registered_mean": 72.6319,
+            "registered_median": 66.0,
+            "registered_sum": 52876.0
+          }
+        ],
+        "by_weekday": [
+          {
+            "weekday": 0,
+            "n_hours": 2502,
+            "cnt_mean": 177.4688,
+            "cnt_median": 116.0,
+            "cnt_sum": 444027.0,
+            "casual_mean": 56.1635,
+            "casual_median": 24.0,
+            "casual_sum": 140521.0,
+            "registered_mean": 121.3054,
+            "registered_median": 89.0,
+            "registered_sum": 303506.0
+          },
+          {
+            "weekday": 1,
+            "n_hours": 2479,
+            "cnt_mean": 183.7447,
+            "cnt_median": 139.0,
+            "cnt_sum": 455503.0,
+            "casual_mean": 28.5534,
+            "casual_median": 15.0,
+            "casual_sum": 70784.0,
+            "registered_mean": 155.1912,
+            "registered_median": 112.0,
+            "registered_sum": 384719.0
+          },
+          {
+            "weekday": 2,
+            "n_hours": 2453,
+            "cnt_mean": 191.2389,
+            "cnt_median": 147.0,
+            "cnt_sum": 469109.0,
+            "casual_mean": 23.5805,
+            "casual_median": 13.0,
+            "casual_sum": 57843.0,
+            "registered_mean": 167.6584,
+            "registered_median": 121.0,
+            "registered_sum": 411266.0
+          },
+          {
+            "weekday": 3,
+            "n_hours": 2475,
+            "cnt_mean": 191.1305,
+            "cnt_median": 143.0,
+            "cnt_sum": 473048.0,
+            "casual_mean": 23.1592,
+            "casual_median": 12.0,
+            "casual_sum": 57319.0,
+            "registered_mean": 167.9713,
+            "registered_median": 122.0,
+            "registered_sum": 415729.0
+          },
+          {
+            "weekday": 4,
+            "n_hours": 2471,
+            "cnt_mean": 196.4367,
+            "cnt_median": 154.0,
+            "cnt_sum": 485395.0,
+            "casual_mean": 24.8725,
+            "casual_median": 14.0,
+            "casual_sum": 61460.0,
+            "registered_mean": 171.5641,
+            "registered_median": 130.0,
+            "registered_sum": 423935.0
+          },
+          {
+            "weekday": 5,
+            "n_hours": 2487,
+            "cnt_mean": 196.1359,
+            "cnt_median": 165.0,
+            "cnt_sum": 487790.0,
+            "casual_mean": 31.4588,
+            "casual_median": 17.0,
+            "casual_sum": 78238.0,
+            "registered_mean": 164.6771,
+            "registered_median": 136.0,
+            "registered_sum": 409552.0
+          },
+          {
+            "weekday": 6,
+            "n_hours": 2512,
+            "cnt_mean": 190.2098,
+            "cnt_median": 129.0,
+            "cnt_sum": 477807.0,
+            "casual_mean": 61.2468,
+            "casual_median": 25.0,
+            "casual_sum": 153852.0,
+            "registered_mean": 128.963,
+            "registered_median": 100.5,
+            "registered_sum": 323955.0
+          }
+        ],
+        "by_workingday": [
+          {
+            "workingday": 0,
+            "n_hours": 5514,
+            "cnt_mean": 181.4053,
+            "cnt_median": 119.0,
+            "cnt_sum": 1000269.0,
+            "casual_mean": 57.4414,
+            "casual_median": 24.0,
+            "casual_sum": 316732.0,
+            "registered_mean": 123.9639,
+            "registered_median": 93.0,
+            "registered_sum": 683537.0
+          },
+          {
+            "workingday": 1,
+            "n_hours": 11865,
+            "cnt_mean": 193.2078,
+            "cnt_median": 151.0,
+            "cnt_sum": 2292410.0,
+            "casual_mean": 25.5613,
+            "casual_median": 14.0,
+            "casual_sum": 303285.0,
+            "registered_mean": 167.6464,
+            "registered_median": 127.0,
+            "registered_sum": 1989125.0
+          }
+        ],
+        "by_holiday": [
+          {
+            "holiday": 0,
+            "n_hours": 16879,
+            "cnt_mean": 190.4286,
+            "cnt_median": 144.0,
+            "cnt_sum": 3214244.0,
+            "casual_mean": 35.4084,
+            "casual_median": 17.0,
+            "casual_sum": 597658.0,
+            "registered_mean": 155.0202,
+            "registered_median": 117.0,
+            "registered_sum": 2616586.0
+          },
+          {
+            "holiday": 1,
+            "n_hours": 500,
+            "cnt_mean": 156.87,
+            "cnt_median": 97.0,
+            "cnt_sum": 78435.0,
+            "casual_mean": 44.718,
+            "casual_median": 17.0,
+            "casual_sum": 22359.0,
+            "registered_mean": 112.152,
+            "registered_median": 70.5,
+            "registered_sum": 56076.0
+          }
+        ]
+      },
+      "interpretation": "Comparaciones descriptivas sin ajuste."
+    },
+    {
+      "id": "STAT-009",
+      "stage": "E5",
+      "analysis_type": "monthly_aggregation",
+      "title": "Totales mensuales por año",
+      "variables": [
+        "calendar_year",
+        "mnth",
+        "cnt",
+        "casual",
+        "registered"
+      ],
+      "population": "Año-mes",
+      "method": "Suma de horas",
+      "result": {
+        "monthly_totals": [
+          {
+            "calendar_year": 2011,
+            "mnth": 1,
+            "cnt": 38189,
+            "casual": 3073,
+            "registered": 35116,
+            "month_start": "2011-01"
+          },
+          {
+            "calendar_year": 2011,
+            "mnth": 2,
+            "cnt": 48215,
+            "casual": 6242,
+            "registered": 41973,
+            "month_start": "2011-02"
+          },
+          {
+            "calendar_year": 2011,
+            "mnth": 3,
+            "cnt": 64045,
+            "casual": 12826,
+            "registered": 51219,
+            "month_start": "2011-03"
+          },
+          {
+            "calendar_year": 2011,
+            "mnth": 4,
+            "cnt": 94870,
+            "casual": 22346,
+            "registered": 72524,
+            "month_start": "2011-04"
+          },
+          {
+            "calendar_year": 2011,
+            "mnth": 5,
+            "cnt": 135821,
+            "casual": 31050,
+            "registered": 104771,
+            "month_start": "2011-05"
+          },
+          {
+            "calendar_year": 2011,
+            "mnth": 6,
+            "cnt": 143512,
+            "casual": 30612,
+            "registered": 112900,
+            "month_start": "2011-06"
+          },
+          {
+            "calendar_year": 2011,
+            "mnth": 7,
+            "cnt": 141341,
+            "casual": 36452,
+            "registered": 104889,
+            "month_start": "2011-07"
+          },
+          {
+            "calendar_year": 2011,
+            "mnth": 8,
+            "cnt": 136691,
+            "casual": 28842,
+            "registered": 107849,
+            "month_start": "2011-08"
+          },
+          {
+            "calendar_year": 2011,
+            "mnth": 9,
+            "cnt": 127418,
+            "casual": 26545,
+            "registered": 100873,
+            "month_start": "2011-09"
+          },
+          {
+            "calendar_year": 2011,
+            "mnth": 10,
+            "cnt": 123511,
+            "casual": 25222,
+            "registered": 98289,
+            "month_start": "2011-10"
+          },
+          {
+            "calendar_year": 2011,
+            "mnth": 11,
+            "cnt": 102167,
+            "casual": 15594,
+            "registered": 86573,
+            "month_start": "2011-11"
+          },
+          {
+            "calendar_year": 2011,
+            "mnth": 12,
+            "cnt": 87323,
+            "casual": 8448,
+            "registered": 78875,
+            "month_start": "2011-12"
+          },
+          {
+            "calendar_year": 2012,
+            "mnth": 1,
+            "cnt": 96744,
+            "casual": 8969,
+            "registered": 87775,
+            "month_start": "2012-01"
+          },
+          {
+            "calendar_year": 2012,
+            "mnth": 2,
+            "cnt": 103137,
+            "casual": 8721,
+            "registered": 94416,
+            "month_start": "2012-02"
+          },
+          {
+            "calendar_year": 2012,
+            "mnth": 3,
+            "cnt": 164875,
+            "casual": 31618,
+            "registered": 133257,
+            "month_start": "2012-03"
+          },
+          {
+            "calendar_year": 2012,
+            "mnth": 4,
+            "cnt": 174224,
+            "casual": 38456,
+            "registered": 135768,
+            "month_start": "2012-04"
+          },
+          {
+            "calendar_year": 2012,
+            "mnth": 5,
+            "cnt": 195865,
+            "casual": 44235,
+            "registered": 151630,
+            "month_start": "2012-05"
+          },
+          {
+            "calendar_year": 2012,
+            "mnth": 6,
+            "cnt": 202830,
+            "casual": 43294,
+            "registered": 159536,
+            "month_start": "2012-06"
+          },
+          {
+            "calendar_year": 2012,
+            "mnth": 7,
+            "cnt": 203607,
+            "casual": 41705,
+            "registered": 161902,
+            "month_start": "2012-07"
+          },
+          {
+            "calendar_year": 2012,
+            "mnth": 8,
+            "cnt": 214503,
+            "casual": 43197,
+            "registered": 171306,
+            "month_start": "2012-08"
+          },
+          {
+            "calendar_year": 2012,
+            "mnth": 9,
+            "cnt": 218573,
+            "casual": 43778,
+            "registered": 174795,
+            "month_start": "2012-09"
+          },
+          {
+            "calendar_year": 2012,
+            "mnth": 10,
+            "cnt": 198841,
+            "casual": 34538,
+            "registered": 164303,
+            "month_start": "2012-10"
+          },
+          {
+            "calendar_year": 2012,
+            "mnth": 11,
+            "cnt": 152664,
+            "casual": 21009,
+            "registered": 131655,
+            "month_start": "2012-11"
+          },
+          {
+            "calendar_year": 2012,
+            "mnth": 12,
+            "cnt": 123713,
+            "casual": 13245,
+            "registered": 110468,
+            "month_start": "2012-12"
+          }
+        ]
+      },
+      "interpretation": "Agregación legible de la evolución."
+    },
+    {
+      "id": "STAT-010",
+      "stage": "E5",
+      "analysis_type": "hour_workingday_profile",
+      "title": "Perfil horario y composición",
+      "variables": [
+        "hr",
+        "workingday",
+        "cnt",
+        "casual",
+        "registered"
+      ],
+      "population": "Hora por condición",
+      "method": "Medias y razón de sumas",
+      "result": {
+        "profile": [
+          {
+            "hr": 0,
+            "workingday": 0,
+            "cnt": 90.8,
+            "casual": 16.64782608695652,
+            "registered": 74.15217391304348,
+            "casual_share": 0.18334610227925685,
+            "registered_share": 0.8166538977207431
+          },
+          {
+            "hr": 0,
+            "workingday": 1,
+            "cnt": 36.78629032258065,
+            "casual": 7.149193548387097,
+            "registered": 29.637096774193548,
+            "casual_share": 0.19434396580072344,
+            "registered_share": 0.8056560341992766
+          },
+          {
+            "hr": 1,
+            "workingday": 0,
+            "cnt": 69.50869565217391,
+            "casual": 12.504347826086956,
+            "registered": 57.004347826086956,
+            "casual_share": 0.17989616563457808,
+            "registered_share": 0.8201038343654219
+          },
+          {
+            "hr": 1,
+            "workingday": 1,
+            "cnt": 16.55263157894737,
+            "casual": 3.710526315789474,
+            "registered": 12.842105263157896,
+            "casual_share": 0.22416534181240064,
+            "registered_share": 0.7758346581875993
+          },
+          {
+            "hr": 2,
+            "workingday": 0,
+            "cnt": 53.171052631578945,
+            "casual": 10.399122807017545,
+            "registered": 42.771929824561404,
+            "casual_share": 0.19557865214880804,
+            "registered_share": 0.8044213478511919
+          },
+          {
+            "hr": 2,
+            "workingday": 1,
+            "cnt": 8.683778234086242,
+            "casual": 2.137577002053388,
+            "registered": 6.546201232032854,
+            "casual_share": 0.24615748403877985,
+            "registered_share": 0.7538425159612201
+          },
+          {
+            "hr": 3,
+            "workingday": 0,
+            "cnt": 25.77533039647577,
+            "casual": 6.453744493392071,
+            "registered": 19.3215859030837,
+            "casual_share": 0.2503845496496325,
+            "registered_share": 0.7496154503503675
+          },
+          {
+            "hr": 3,
+            "workingday": 1,
+            "cnt": 4.9425531914893615,
+            "casual": 0.9106382978723404,
+            "registered": 4.031914893617022,
+            "casual_share": 0.18424451140766251,
+            "registered_share": 0.8157554885923375
+          },
+          {
+            "hr": 4,
+            "workingday": 0,
+            "cnt": 8.26431718061674,
+            "casual": 2.26431718061674,
+            "registered": 6.0,
+            "casual_share": 0.27398720682302774,
+            "registered_share": 0.7260127931769723
+          },
+          {
+            "hr": 4,
+            "workingday": 1,
+            "cnt": 5.4297872340425535,
+            "casual": 0.7659574468085106,
+            "registered": 4.663829787234042,
+            "casual_share": 0.14106583072100312,
+            "registered_share": 0.8589341692789969
+          },
+          {
+            "hr": 5,
+            "workingday": 0,
+            "cnt": 8.68918918918919,
+            "casual": 1.7252252252252251,
+            "registered": 6.963963963963964,
+            "casual_share": 0.19854847071021253,
+            "registered_share": 0.8014515292897875
+          },
+          {
+            "hr": 5,
+            "workingday": 1,
+            "cnt": 24.913131313131313,
+            "casual": 1.2707070707070707,
+            "registered": 23.64242424242424,
+            "casual_share": 0.05100551410963347,
+            "registered_share": 0.9489944858903665
+          },
+          {
+            "hr": 6,
+            "workingday": 0,
+            "cnt": 18.74235807860262,
+            "casual": 3.8209606986899565,
+            "registered": 14.921397379912664,
+            "casual_share": 0.20386766076421248,
+            "registered_share": 0.7961323392357875
+          },
+          {
+            "hr": 6,
+            "workingday": 1,
+            "cnt": 102.5,
+            "casual": 4.318548387096774,
+            "registered": 98.18145161290323,
+            "casual_share": 0.04213217938630999,
+            "registered_share": 0.95786782061369
+          },
+          {
+            "hr": 7,
+            "workingday": 0,
+            "cnt": 43.40692640692641,
+            "casual": 8.606060606060606,
+            "registered": 34.8008658008658,
+            "casual_share": 0.19826468534955619,
+            "registered_share": 0.8017353146504438
+          },
+          {
+            "hr": 7,
+            "workingday": 1,
+            "cnt": 290.61290322580646,
+            "casual": 12.195564516129032,
+            "registered": 278.41733870967744,
+            "casual_share": 0.041964979464979464,
+            "registered_share": 0.9580350205350205
+          },
+          {
+            "hr": 8,
+            "workingday": 0,
+            "cnt": 105.65367965367966,
+            "casual": 20.424242424242426,
+            "registered": 85.22943722943722,
+            "casual_share": 0.19331311972465787,
+            "registered_share": 0.8066868802753421
+          },
+          {
+            "hr": 8,
+            "workingday": 1,
+            "cnt": 477.00604838709677,
+            "casual": 22.264112903225808,
+            "registered": 454.741935483871,
+            "casual_share": 0.046674697267482405,
+            "registered_share": 0.9533253027325176
+          },
+          {
+            "hr": 9,
+            "workingday": 0,
+            "cnt": 171.62337662337663,
+            "casual": 45.01731601731602,
+            "registered": 126.60606060606061,
+            "casual_share": 0.26230293857989656,
+            "registered_share": 0.7376970614201034
+          },
+          {
+            "hr": 9,
+            "workingday": 1,
+            "cnt": 241.51814516129033,
+            "casual": 24.3125,
+            "registered": 217.20564516129033,
+            "casual_share": 0.10066531433389263,
+            "registered_share": 0.8993346856661074
+          },
+          {
+            "hr": 10,
+            "workingday": 0,
+            "cnt": 255.9090909090909,
+            "casual": 79.26839826839827,
+            "registered": 176.64069264069263,
+            "casual_share": 0.309752177958217,
+            "registered_share": 0.6902478220417829
+          },
+          {
+            "hr": 10,
+            "workingday": 1,
+            "cnt": 135.36693548387098,
+            "casual": 31.205645161290324,
+            "registered": 104.16129032258064,
+            "casual_share": 0.23052634714485717,
+            "registered_share": 0.7694736528551428
+          },
+          {
+            "hr": 11,
+            "workingday": 0,
+            "cnt": 315.31601731601734,
+            "casual": 106.65367965367966,
+            "registered": 208.66233766233765,
+            "casual_share": 0.3382437738543068,
+            "registered_share": 0.6617562261456932
+          },
+          {
+            "hr": 11,
+            "workingday": 1,
+            "cnt": 158.2298387096774,
+            "casual": 37.59879032258065,
+            "registered": 120.63104838709677,
+            "casual_share": 0.23762136540862874,
+            "registered_share": 0.7623786345913712
+          },
+          {
+            "hr": 12,
+            "workingday": 0,
+            "cnt": 366.2597402597403,
+            "casual": 126.24675324675324,
+            "registered": 240.01298701298703,
+            "casual_share": 0.3446918658251188,
+            "registered_share": 0.6553081341748812
+          },
+          {
+            "hr": 12,
+            "workingday": 1,
+            "cnt": 200.8209255533199,
+            "casual": 41.35814889336016,
+            "registered": 159.46277665995976,
+            "casual_share": 0.20594541519717857,
+            "registered_share": 0.7940545848028214
+          },
+          {
+            "hr": 13,
+            "workingday": 0,
+            "cnt": 372.73160173160176,
+            "casual": 136.42424242424244,
+            "registered": 236.30735930735932,
+            "casual_share": 0.36601200915204235,
+            "registered_share": 0.6339879908479576
+          },
+          {
+            "hr": 13,
+            "workingday": 1,
+            "cnt": 198.429718875502,
+            "casual": 42.56827309236948,
+            "registered": 155.86144578313252,
+            "casual_share": 0.21452569369952842,
+            "registered_share": 0.7854743063004715
+          },
+          {
+            "hr": 14,
+            "workingday": 0,
+            "cnt": 364.64502164502164,
+            "casual": 139.5930735930736,
+            "registered": 225.05194805194805,
+            "casual_share": 0.3828190851566488,
+            "registered_share": 0.6171809148433511
+          },
+          {
+            "hr": 14,
+            "workingday": 1,
+            "cnt": 183.5722891566265,
+            "casual": 45.869477911646584,
+            "registered": 137.70281124497993,
+            "casual_share": 0.2498714709196119,
+            "registered_share": 0.7501285290803881
+          },
+          {
+            "hr": 15,
+            "workingday": 0,
+            "cnt": 358.8138528138528,
+            "casual": 136.5021645021645,
+            "registered": 222.3116883116883,
+            "casual_share": 0.3804261274521632,
+            "registered_share": 0.6195738725478368
+          },
+          {
+            "hr": 15,
+            "workingday": 1,
+            "cnt": 201.33132530120483,
+            "casual": 46.333333333333336,
+            "registered": 154.99799196787149,
+            "casual_share": 0.23013474561902197,
+            "registered_share": 0.7698652543809781
+          },
+          {
+            "hr": 16,
+            "workingday": 0,
+            "cnt": 352.72727272727275,
+            "casual": 128.6147186147186,
+            "registered": 224.1125541125541,
+            "casual_share": 0.3646293568973981,
+            "registered_share": 0.6353706431026018
+          },
+          {
+            "hr": 16,
+            "workingday": 1,
+            "cnt": 293.12224448897797,
+            "casual": 48.344689378757515,
+            "registered": 244.77755511022045,
+            "casual_share": 0.16493012825771872,
+            "registered_share": 0.8350698717422813
+          },
+          {
+            "hr": 17,
+            "workingday": 0,
+            "cnt": 323.54978354978357,
+            "casual": 111.81385281385282,
+            "registered": 211.73593073593074,
+            "casual_share": 0.34558469360449556,
+            "registered_share": 0.6544153063955044
+          },
+          {
+            "hr": 17,
+            "workingday": 1,
+            "cnt": 525.2905811623247,
+            "casual": 56.895791583166336,
+            "registered": 468.3947895791583,
+            "casual_share": 0.1083129864184343,
+            "registered_share": 0.8916870135815657
+          },
+          {
+            "hr": 18,
+            "workingday": 0,
+            "cnt": 281.05652173913046,
+            "casual": 84.22173913043478,
+            "registered": 196.83478260869566,
+            "casual_share": 0.2996612162183067,
+            "registered_share": 0.7003387837816933
+          },
+          {
+            "hr": 18,
+            "workingday": 1,
+            "cnt": 492.2269076305221,
+            "casual": 50.45180722891566,
+            "registered": 441.77510040160644,
+            "casual_share": 0.10249705257231906,
+            "registered_share": 0.8975029474276809
+          },
+          {
+            "hr": 19,
+            "workingday": 0,
+            "cnt": 231.67391304347825,
+            "casual": 65.54782608695652,
+            "registered": 166.12608695652173,
+            "casual_share": 0.28293140658721966,
+            "registered_share": 0.7170685934127803
+          },
+          {
+            "hr": 19,
+            "workingday": 1,
+            "cnt": 348.4016064257028,
+            "casual": 41.02208835341366,
+            "registered": 307.37951807228916,
+            "casual_share": 0.11774368314275176,
+            "registered_share": 0.8822563168572483
+          },
+          {
+            "hr": 20,
+            "workingday": 0,
+            "cnt": 174.7391304347826,
+            "casual": 46.76521739130435,
+            "registered": 127.97391304347826,
+            "casual_share": 0.2676287633739736,
+            "registered_share": 0.7323712366260263
+          },
+          {
+            "hr": 20,
+            "workingday": 1,
+            "cnt": 249.71887550200802,
+            "casual": 31.369477911646587,
+            "registered": 218.34939759036143,
+            "casual_share": 0.12561917015117402,
+            "registered_share": 0.874380829848826
+          },
+          {
+            "hr": 21,
+            "workingday": 0,
+            "cnt": 142.0608695652174,
+            "casual": 36.14782608695652,
+            "registered": 105.91304347826087,
+            "casual_share": 0.2544530819611924,
+            "registered_share": 0.7455469180388076
+          },
+          {
+            "hr": 21,
+            "workingday": 1,
+            "cnt": 186.2871485943775,
+            "casual": 24.610441767068274,
+            "registered": 161.67670682730923,
+            "casual_share": 0.1321102499703571,
+            "registered_share": 0.8678897500296429
+          },
+          {
+            "hr": 22,
+            "workingday": 0,
+            "cnt": 116.06086956521739,
+            "casual": 28.056521739130435,
+            "registered": 88.00434782608696,
+            "casual_share": 0.24173971679028997,
+            "registered_share": 0.7582602832097101
+          },
+          {
+            "hr": 22,
+            "workingday": 1,
+            "cnt": 138.38955823293173,
+            "casual": 19.572289156626507,
+            "registered": 118.81726907630522,
+            "casual_share": 0.14142894454278998,
+            "registered_share": 0.85857105545721
+          },
+          {
+            "hr": 23,
+            "workingday": 0,
+            "cnt": 85.9304347826087,
+            "casual": 19.139130434782608,
+            "registered": 66.79130434782608,
+            "casual_share": 0.22272819267354788,
+            "registered_share": 0.7772718073264522
+          },
+          {
+            "hr": 23,
+            "workingday": 1,
+            "cnt": 88.70883534136546,
+            "casual": 13.379518072289157,
+            "registered": 75.3293172690763,
+            "casual_share": 0.15082508997894833,
+            "registered_share": 0.8491749100210517
+          }
+        ]
+      },
+      "interpretation": "Describe formas horarias y composición."
+    },
+    {
+      "id": "STAT-011",
+      "stage": "E5",
+      "analysis_type": "weather_comparison",
+      "title": "Alquileres por condición meteorológica",
+      "variables": [
+        "weathersit",
+        "cnt"
+      ],
+      "population": "Todas las horas",
+      "method": "n, media, mediana y suma",
+      "result": {
+        "by_weathersit": [
+          {
+            "weathersit": 1,
+            "weathersit_label": "Clear/partly cloudy",
+            "n_hours": 11413,
+            "cnt_mean": 204.8692718829405,
+            "cnt_median": 159.0,
+            "cnt_sum": 2338173
+          },
+          {
+            "weathersit": 2,
+            "weathersit_label": "Mist/cloudy",
+            "n_hours": 4544,
+            "cnt_mean": 175.16549295774647,
+            "cnt_median": 133.0,
+            "cnt_sum": 795952
+          },
+          {
+            "weathersit": 3,
+            "weathersit_label": "Light precipitation",
+            "n_hours": 1419,
+            "cnt_mean": 111.57928118393235,
+            "cnt_median": 63.0,
+            "cnt_sum": 158331
+          },
+          {
+            "weathersit": 4,
+            "weathersit_label": "Heavy precipitation",
+            "n_hours": 3,
+            "cnt_mean": 74.33333333333333,
+            "cnt_median": 36.0,
+            "cnt_sum": 223
+          }
+        ]
+      },
+      "interpretation": "No aísla otros factores."
+    },
+    {
+      "id": "STAT-012",
+      "stage": "E5",
+      "analysis_type": "weather_association",
+      "title": "Asociación con clima",
+      "variables": [
+        "cnt",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed"
+      ],
+      "population": "Todas las horas",
+      "method": "Spearman y medias por intervalos",
+      "result": {
+        "spearman_with_cnt": {
+          "temp": 0.4233295244770643,
+          "atemp": 0.4232578060379264,
+          "hum": -0.3596141883990311,
+          "windspeed": 0.12662883138376593
+        },
+        "temp_bins": [
+          {
+            "n_hours": 1070,
+            "cnt_mean": 65.06915887850467,
+            "cnt_median": 41.0,
+            "temp_bin": "(-0.002, 0.2]"
+          },
+          {
+            "n_hours": 5357,
+            "cnt_mean": 123.06682844875863,
+            "cnt_median": 86.0,
+            "temp_bin": "(0.2, 0.4]"
+          },
+          {
+            "n_hours": 5117,
+            "cnt_mean": 194.67109634551494,
+            "cnt_median": 154.0,
+            "temp_bin": "(0.4, 0.6]"
+          },
+          {
+            "n_hours": 5126,
+            "cnt_mean": 260.6952789699571,
+            "cnt_median": 225.0,
+            "temp_bin": "(0.6, 0.8]"
+          },
+          {
+            "n_hours": 709,
+            "cnt_mean": 326.2764456981664,
+            "cnt_median": 295.0,
+            "temp_bin": "(0.8, 1.0]"
+          }
+        ]
+      },
+      "interpretation": "Asociación bivariada, no causal."
+    },
+    {
+      "id": "STAT-013",
+      "stage": "E5",
+      "analysis_type": "redundancy",
+      "title": "Redundancia temp-atemp",
+      "variables": [
+        "temp",
+        "atemp"
+      ],
+      "population": "Todas las horas",
+      "method": "Spearman",
+      "result": {
+        "spearman_temp_atemp": 0.9896
+      },
+      "interpretation": "Información parcialmente redundante."
+    },
+    {
+      "id": "STAT-014",
+      "stage": "E7",
+      "analysis_type": "outlier_screening",
+      "title": "Cribado de extremos y días extremos",
+      "variables": [
+        "cnt",
+        "dteday"
+      ],
+      "population": "Horas y días",
+      "method": "Tukey 1,5 IQR y top/bottom diarios",
+      "result": {
+        "cnt_q1": 40.0,
+        "cnt_q3": 281.0,
+        "iqr": 241.0,
+        "lower_fence": -321.5,
+        "upper_fence": 642.5,
+        "hourly_outlier_count": 505,
+        "daily_lowest_5": [
+          {
+            "dteday": "2012-10-29",
+            "cnt": 22,
+            "casual": 2,
+            "registered": 20
+          },
+          {
+            "dteday": "2011-01-27",
+            "cnt": 431,
+            "casual": 15,
+            "registered": 416
+          },
+          {
+            "dteday": "2012-12-26",
+            "cnt": 441,
+            "casual": 9,
+            "registered": 432
+          },
+          {
+            "dteday": "2011-01-26",
+            "cnt": 506,
+            "casual": 34,
+            "registered": 472
+          },
+          {
+            "dteday": "2011-03-06",
+            "cnt": 605,
+            "casual": 114,
+            "registered": 491
+          }
+        ],
+        "daily_highest_5": [
+          {
+            "dteday": "2012-09-15",
+            "cnt": 8714,
+            "casual": 3160,
+            "registered": 5554
+          },
+          {
+            "dteday": "2012-09-29",
+            "cnt": 8555,
+            "casual": 2589,
+            "registered": 5966
+          },
+          {
+            "dteday": "2012-09-22",
+            "cnt": 8395,
+            "casual": 2512,
+            "registered": 5883
+          },
+          {
+            "dteday": "2012-03-23",
+            "cnt": 8362,
+            "casual": 2469,
+            "registered": 5893
+          },
+          {
+            "dteday": "2012-05-19",
+            "cnt": 8294,
+            "casual": 3410,
+            "registered": 4884
+          }
+        ]
+      },
+      "interpretation": "Extremo estadístico no equivale a error."
+    }
+  ],
+  "figures": [
+    {
+      "id": "FIG-001",
+      "file": "figures/fig_001_totales_mensuales.png",
+      "title": "Total mensual de alquileres por año",
+      "objective": "Evolución mensual",
+      "variables": [
+        "calendar_year",
+        "mnth",
+        "cnt"
+      ],
+      "source_analysis_ids": [
+        "STAT-009"
+      ]
+    },
+    {
+      "id": "FIG-002",
+      "file": "figures/fig_002_perfil_horario_laborable.png",
+      "title": "Perfil horario medio de alquileres",
+      "objective": "Comparar perfil laboral",
+      "variables": [
+        "hr",
+        "workingday",
+        "cnt"
+      ],
+      "source_analysis_ids": [
+        "STAT-010"
+      ]
+    },
+    {
+      "id": "FIG-003",
+      "file": "figures/fig_003_composicion_registrados.png",
+      "title": "Participación registrada por hora",
+      "objective": "Composición usuarios",
+      "variables": [
+        "hr",
+        "workingday",
+        "registered_share"
+      ],
+      "source_analysis_ids": [
+        "STAT-010"
+      ]
+    },
+    {
+      "id": "FIG-004",
+      "file": "figures/fig_004_distribucion_cnt.png",
+      "title": "Distribución de alquileres horarios",
+      "objective": "Distribución cnt",
+      "variables": [
+        "cnt"
+      ],
+      "source_analysis_ids": [
+        "STAT-006",
+        "STAT-014"
+      ]
+    },
+    {
+      "id": "FIG-005",
+      "file": "figures/fig_005_cnt_por_tiempo.png",
+      "title": "Distribución de cnt por condición meteorológica",
+      "objective": "Comparar tiempo",
+      "variables": [
+        "weathersit",
+        "cnt"
+      ],
+      "source_analysis_ids": [
+        "STAT-011"
+      ]
+    },
+    {
+      "id": "FIG-006",
+      "file": "figures/fig_006_cnt_intervalos_temp.png",
+      "title": "Media cnt por intervalos temp",
+      "objective": "Asociación temp",
+      "variables": [
+        "temp",
+        "cnt"
+      ],
+      "source_analysis_ids": [
+        "STAT-012"
+      ]
+    }
+  ],
+  "limitations": [
+    "Datos agregados por hora sin estación, trayecto, capacidad o disponibilidad.",
+    "Variables meteorológicas normalizadas sin interpretación directa como unidades físicas.",
+    "Hay franjas fecha-hora no representadas y su mecanismo no es identificable aquí.",
+    "Asociaciones descriptivas observacionales, sin inferencia causal."
+  ]
+}

@@ -1,0 +1,528 @@
+{
+  "schema_version": "1.0",
+  "run_id": "D1_bike_sharing__microsoft_agent_framework__r02__20260831T175750234109Z",
+  "dataset_id": "D1_bike_sharing",
+  "checks_performed": [
+    {
+      "id": "CHK-001",
+      "category": "missing",
+      "description": "Ausencias y conversión de dteday.",
+      "outcome": "Cero ausencias y cero fechas no convertibles.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-002",
+      "category": "duplicate",
+      "description": "Duplicados completos, instant y fecha-hora.",
+      "outcome": "No se detectaron duplicados.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-003",
+      "category": "range",
+      "description": "Dominios, rangos normalizados y conteos.",
+      "outcome": "Sin valores fuera de dominios o rangos comprobados.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "CHK-004",
+      "category": "identity",
+      "description": "Identidad de componentes y coherencia calendaria.",
+      "outcome": "Identidad y coherencias verificadas en todas las filas.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "CHK-005",
+      "category": "temporal",
+      "description": "Rejilla horaria y registros por fecha.",
+      "outcome": "Se detectaron horas faltantes y días incompletos.",
+      "evidence_ids": [
+        "STAT-004"
+      ]
+    },
+    {
+      "id": "CHK-006",
+      "category": "outlier",
+      "description": "Extremos diarios por z dentro de mes-año.",
+      "outcome": "Hay señales estadísticas sin confirmación de error.",
+      "evidence_ids": [
+        "STAT-012"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "id": "ISSUE-001",
+      "category": "temporal",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Cobertura horaria incompleta frente a rejilla continua",
+      "description": "Hay posiciones horarias sin registro y fechas con número de registros distinto de 24.",
+      "evidence": {
+        "missing_hour_slots": 165,
+        "days_with_not_24_records": 76,
+        "examples_missing": [
+          "2011-01-02T05:00:00",
+          "2011-01-03T02:00:00",
+          "2011-01-03T03:00:00",
+          "2011-01-04T03:00:00",
+          "2011-01-05T03:00:00",
+          "2011-01-06T03:00:00",
+          "2011-01-07T03:00:00",
+          "2011-01-11T03:00:00",
+          "2011-01-11T04:00:00",
+          "2011-01-12T03:00:00"
+        ],
+        "incomplete_days": [
+          {
+            "dteday": "2011-01-02",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-03",
+            "records": 22
+          },
+          {
+            "dteday": "2011-01-04",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-05",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-06",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-07",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-11",
+            "records": 22
+          },
+          {
+            "dteday": "2011-01-12",
+            "records": 22
+          },
+          {
+            "dteday": "2011-01-14",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-18",
+            "records": 12
+          },
+          {
+            "dteday": "2011-01-19",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-22",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-23",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-24",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-25",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-26",
+            "records": 16
+          },
+          {
+            "dteday": "2011-01-27",
+            "records": 8
+          },
+          {
+            "dteday": "2011-01-28",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-29",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-30",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-01",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-03",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-04",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-09",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-10",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-11",
+            "records": 22
+          },
+          {
+            "dteday": "2011-02-13",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-15",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-16",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-20",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-22",
+            "records": 18
+          },
+          {
+            "dteday": "2011-02-23",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-24",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-25",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-27",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-28",
+            "records": 22
+          },
+          {
+            "dteday": "2011-03-06",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-07",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-10",
+            "records": 22
+          },
+          {
+            "dteday": "2011-03-11",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-13",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-14",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-15",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-16",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-18",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-21",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-23",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-27",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-28",
+            "records": 23
+          },
+          {
+            "dteday": "2011-04-11",
+            "records": 23
+          },
+          {
+            "dteday": "2011-08-27",
+            "records": 18
+          },
+          {
+            "dteday": "2011-08-28",
+            "records": 17
+          },
+          {
+            "dteday": "2011-09-06",
+            "records": 23
+          },
+          {
+            "dteday": "2011-09-08",
+            "records": 23
+          },
+          {
+            "dteday": "2011-09-12",
+            "records": 23
+          },
+          {
+            "dteday": "2011-10-19",
+            "records": 23
+          },
+          {
+            "dteday": "2011-11-28",
+            "records": 23
+          },
+          {
+            "dteday": "2011-12-25",
+            "records": 23
+          },
+          {
+            "dteday": "2011-12-26",
+            "records": 23
+          },
+          {
+            "dteday": "2011-12-28",
+            "records": 23
+          },
+          {
+            "dteday": "2012-01-02",
+            "records": 23
+          },
+          {
+            "dteday": "2012-01-10",
+            "records": 23
+          },
+          {
+            "dteday": "2012-01-17",
+            "records": 23
+          },
+          {
+            "dteday": "2012-02-06",
+            "records": 23
+          },
+          {
+            "dteday": "2012-02-20",
+            "records": 23
+          },
+          {
+            "dteday": "2012-02-21",
+            "records": 23
+          },
+          {
+            "dteday": "2012-02-29",
+            "records": 23
+          },
+          {
+            "dteday": "2012-03-11",
+            "records": 23
+          },
+          {
+            "dteday": "2012-04-02",
+            "records": 23
+          },
+          {
+            "dteday": "2012-04-11",
+            "records": 23
+          },
+          {
+            "dteday": "2012-10-29",
+            "records": 1
+          },
+          {
+            "dteday": "2012-10-30",
+            "records": 11
+          },
+          {
+            "dteday": "2012-11-08",
+            "records": 23
+          },
+          {
+            "dteday": "2012-11-29",
+            "records": 23
+          },
+          {
+            "dteday": "2012-12-24",
+            "records": 23
+          },
+          {
+            "dteday": "2012-12-25",
+            "records": 23
+          }
+        ]
+      },
+      "affected_columns": [
+        "dteday",
+        "hr",
+        "date_hour",
+        "cnt"
+      ],
+      "affected_row_count": 165,
+      "sample_row_ids": [],
+      "decision": "Retener observaciones disponibles y no imputar.",
+      "action": "Advertir posible subestimación en agregados con días incompletos.",
+      "potential_effect": "Menor comparabilidad y posible sesgo descendente localizado en totales temporales.",
+      "uncertainty": "No se puede atribuir la causa de las ausencias con las fuentes disponibles.",
+      "evidence_ids": [
+        "STAT-004",
+        "STAT-010"
+      ]
+    },
+    {
+      "id": "ISSUE-002",
+      "category": "outlier",
+      "status": "retained",
+      "severity": "low",
+      "title": "Días extremos frente a su mes-año",
+      "description": "Algunos totales diarios tienen |z|>=3 dentro de su mes-año; no son errores confirmados.",
+      "evidence": {
+        "n_days_flagged": 8,
+        "threshold_abs_z": 3,
+        "days": [
+          {
+            "dteday": "2011-08-27T00:00:00",
+            "cnt": 1115,
+            "records": 18,
+            "ym": "2011-08",
+            "z": -4.06788581677997
+          },
+          {
+            "dteday": "2012-04-22T00:00:00",
+            "cnt": 1027,
+            "records": 24,
+            "ym": "2012-04",
+            "z": -3.652169409354945
+          },
+          {
+            "dteday": "2012-10-29T00:00:00",
+            "cnt": 22,
+            "records": 1,
+            "ym": "2012-10",
+            "z": -3.291874521278036
+          },
+          {
+            "dteday": "2012-09-18T00:00:00",
+            "cnt": 4073,
+            "records": 24,
+            "ym": "2012-09",
+            "z": -3.2811426459512685
+          },
+          {
+            "dteday": "2012-05-14T00:00:00",
+            "cnt": 2843,
+            "records": 24,
+            "ym": "2012-05",
+            "z": -3.22256391507203
+          },
+          {
+            "dteday": "2011-05-04T00:00:00",
+            "cnt": 2633,
+            "records": 24,
+            "ym": "2011-05",
+            "z": -3.0515578530316336
+          },
+          {
+            "dteday": "2011-10-29T00:00:00",
+            "cnt": 627,
+            "records": 24,
+            "ym": "2011-10",
+            "z": -3.0423933333099042
+          },
+          {
+            "dteday": "2011-02-18T00:00:00",
+            "cnt": 2927,
+            "records": 24,
+            "ym": "2011-02",
+            "z": 3.023861946208451
+          }
+        ]
+      },
+      "affected_columns": [
+        "dteday",
+        "cnt"
+      ],
+      "affected_row_count": 8,
+      "sample_row_ids": [
+        5619,
+        11324,
+        15884,
+        14900,
+        11852,
+        2859,
+        7114,
+        1087
+      ],
+      "decision": "Conservar sin winsorización ni exclusión.",
+      "action": "Interpretar en contexto; no atribuir causa externa.",
+      "potential_effect": "Puede influir en medias, series y correlaciones.",
+      "uncertainty": "No se puede diferenciar evento real, factor no observado o error.",
+      "evidence_ids": [
+        "STAT-005",
+        "STAT-012"
+      ]
+    },
+    {
+      "id": "ISSUE-003",
+      "category": "category",
+      "status": "retained",
+      "severity": "low",
+      "title": "season no equivale siempre a bloques rígidos de meses",
+      "description": "Aunque season usa únicamente los códigos documentados 1–4, 3.922 filas difieren de la regla simplificada diciembre–febrero=1, marzo–mayo=2, junio–agosto=3, septiembre–noviembre=4.",
+      "evidence": {
+        "season_month_rule_mismatches": 3922,
+        "out_of_domain_season": 0
+      },
+      "affected_columns": [
+        "season",
+        "mnth",
+        "dteday"
+      ],
+      "affected_row_count": 3922,
+      "sample_row_ids": [],
+      "decision": "Conservar el código season original y no reemplazarlo por una derivación mensual.",
+      "action": "Interpretar season como categoría de fuente; usar mnth o dteday cuando se requiera calendario exacto.",
+      "potential_effect": "Etiquetar season con bloques mensuales rígidos puede clasificar erróneamente parte de las observaciones en análisis estacionales.",
+      "uncertainty": "La documentación disponible no detalla las fechas exactas de cambio de estación.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    }
+  ]
+}

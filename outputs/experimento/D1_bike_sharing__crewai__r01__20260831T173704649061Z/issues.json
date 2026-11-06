@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "run_id": "D1_bike_sharing__crewai__r01__20260831T173704649061Z",
+  "dataset_id": "D1_bike_sharing",
+  "checks_performed": [
+    {
+      "id": "CHK-001",
+      "category": "missing",
+      "description": "Conteo de valores ausentes por columna fuente.",
+      "outcome": "0 ausencias en las 17 columnas fuente.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-002",
+      "category": "duplicate",
+      "description": "Duplicados exactos, de instant y de clave dteday-hr.",
+      "outcome": "No se encontraron duplicados en las tres comprobaciones.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-003",
+      "category": "range",
+      "description": "Dominios documentados, escalas normalizadas y conteos no negativos.",
+      "outcome": "0 valores fuera de los dominios/rangos comprobados.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "CHK-004",
+      "category": "identity",
+      "description": "Validación de cnt = casual + registered.",
+      "outcome": "0 incumplimientos.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "CHK-005",
+      "category": "temporal",
+      "description": "Cobertura, retícula de horas, registros diarios y coherencia con fecha.",
+      "outcome": "731 fechas y 165 franjas ausentes frente a la retícula continua; códigos mensuales/anuales y weekday coherentes.",
+      "evidence_ids": [
+        "STAT-003",
+        "STAT-004"
+      ]
+    },
+    {
+      "id": "CHK-006",
+      "category": "outlier",
+      "description": "Cribado IQR de cnt y revisión de coherencia de máximos.",
+      "outcome": "Se identificaron valores altos por criterio estadístico; no se clasificaron como errores.",
+      "evidence_ids": [
+        "STAT-009"
+      ]
+    },
+    {
+      "id": "CHK-007",
+      "category": "category",
+      "description": "Comparación descriptiva de season con trimestres de calendario basados en mnth.",
+      "outcome": "1.911 filas no coinciden con esa simplificación; se interpreta como límites estacionales no equivalentes a trimestres, no como código inválido.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "id": "ISSUE-001",
+      "category": "temporal",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Franjas horarias ausentes en la cobertura temporal",
+      "description": "La tabla no cubre todas las horas de la retícula continua entre la primera y última fecha observadas.",
+      "evidence": "17.379 registros observados frente a 17.544 franjas esperadas; faltan 165. Hay días con menos de 24 registros.",
+      "affected_columns": [
+        "dteday",
+        "hr",
+        "cnt"
+      ],
+      "affected_row_count": 165,
+      "sample_row_ids": [],
+      "decision": "Conservar registros disponibles y no imputar conteos.",
+      "action": "Etiquetar sumas como observadas y advertir que la exposición varía.",
+      "potential_effect": "Los totales diarios/mensuales y comparaciones de sumas pueden subestimar periodos con horas faltantes.",
+      "uncertainty": "No se puede determinar la causa de las ausencias con este archivo.",
+      "evidence_ids": [
+        "STAT-004"
+      ]
+    },
+    {
+      "id": "ISSUE-002",
+      "category": "outlier",
+      "status": "retained",
+      "severity": "low",
+      "title": "Extremos altos de alquileres según regla IQR",
+      "description": "Algunas observaciones de cnt superan la cerca superior basada en IQR.",
+      "evidence": "El cribado IQR identificó los registros cuantificados en STAT-009; el máximo cumple la identidad de componentes y los dominios revisados.",
+      "affected_columns": [
+        "cnt",
+        "casual",
+        "registered"
+      ],
+      "affected_row_count": 505,
+      "sample_row_ids": [
+        14774
+      ],
+      "decision": "No se asumen errores ni se excluyen extremos.",
+      "action": "Conservar y usar mediana/cuantiles junto con media.",
+      "potential_effect": "La media de cnt puede ser sensible a estos valores.",
+      "uncertainty": "Sin información externa no puede distinguirse demanda excepcional de un valor de registro inusual.",
+      "evidence_ids": [
+        "STAT-009",
+        "STAT-003"
+      ]
+    }
+  ]
+}

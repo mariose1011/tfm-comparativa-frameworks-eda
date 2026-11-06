@@ -1,0 +1,3 @@
+# Conservar los bytes originales, incluidos los saltos de línea.
+# Evita alterar los hashes de los datos y las evidencias del experimento.
+* -text

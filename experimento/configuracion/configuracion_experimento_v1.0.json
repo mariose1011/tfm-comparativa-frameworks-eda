@@ -1,0 +1,377 @@
+{
+  "config_schema_version": "1.0",
+  "config_version": "1.0",
+  "status": "frozen_for_definitive_runs",
+  "versions": {
+    "contract": "1.0",
+    "prompts": "1.0",
+    "tools": "1.0",
+    "limits": "1.0",
+    "output_schemas": "1.0",
+    "trace_schema": "1.0",
+    "dataset_manifest": "1.2"
+  },
+  "paths": {
+    "base": "workspace_root",
+    "contract_index": "experimento/contrato_comun_v1.0.md",
+    "dataset_manifest": "datasets/manifest.json",
+    "common_requirements": "experimento/capa_comun/requirements.txt",
+    "output_root": "outputs/experimento",
+    "framework_requirements": {
+      "langgraph": "frameworks/langgraph/requirements.txt",
+      "crewai": "frameworks/crewai/requirements.txt",
+      "microsoft_agent_framework": "frameworks/microsoft_agent_framework/requirements.txt"
+    }
+  },
+  "frameworks": {
+    "allowed": [
+      "langgraph",
+      "crewai",
+      "microsoft_agent_framework"
+    ],
+    "execution_mode": "sequential",
+    "clean_processes_per_run": true,
+    "fresh_output_directory_per_run": true,
+    "native_memory_allowed": false,
+    "native_retries_allowed": false,
+    "model_fallback_allowed": false,
+    "dynamic_agent_creation_allowed": false
+  },
+  "datasets": {
+    "allowed_ids": [
+      "D0_piloto",
+      "D1_bike_sharing",
+      "D2_online_retail"
+    ],
+    "pilot_id": "D0_piloto",
+    "definitive_ids": [
+      "D1_bike_sharing",
+      "D2_online_retail"
+    ],
+    "validate_manifest_version": true,
+    "validate_input_hash_before_run": true,
+    "input_read_only": true,
+    "public_documentation_only": true
+  },
+  "model": {
+    "provider": "openai",
+    "api": "responses",
+    "api_key_environment_variable": "OPENAI_API_KEY",
+    "requested_model": "gpt-5.6-terra",
+    "request_parameters": {
+      "service_tier": "default",
+      "reasoning": {
+        "effort": "medium"
+      },
+      "tool_choice": "auto",
+      "parallel_tool_calls": false,
+      "truncation": "disabled",
+      "background": false,
+      "stream": false,
+      "store": true
+    },
+    "omitted_parameters": [
+      "temperature",
+      "top_p"
+    ],
+    "pro_mode_enabled": false,
+    "provider_builtin_tools_enabled": false,
+    "record_requested_and_reported_model": true,
+    "record_requested_and_reported_service_tier": true
+  },
+  "roles": {
+    "planner": {
+      "exposed_tools": [
+        "inspect_dataset"
+      ],
+      "authorized_context": [
+        "execution_context",
+        "public_documentation",
+        "eda_stage_contract",
+        "output_contract"
+      ]
+    },
+    "analyst_initial": {
+      "exposed_tools": [
+        "execute_python",
+        "read_output",
+        "validate_outputs"
+      ],
+      "authorized_context": [
+        "execution_context",
+        "public_documentation",
+        "eda_stage_contract",
+        "output_contract",
+        "inspection_result",
+        "plan"
+      ]
+    },
+    "reviewer": {
+      "exposed_tools": [
+        "read_output",
+        "validate_outputs"
+      ],
+      "authorized_context": [
+        "execution_context",
+        "public_documentation",
+        "eda_stage_contract",
+        "output_contract",
+        "pre_review_validation"
+      ]
+    },
+    "analyst_correction": {
+      "exposed_tools": [
+        "execute_python",
+        "read_output",
+        "validate_outputs"
+      ],
+      "authorized_context": [
+        "execution_context",
+        "public_documentation",
+        "eda_stage_contract",
+        "output_contract",
+        "inspection_result",
+        "plan",
+        "review_decision",
+        "current_validation"
+      ]
+    }
+  },
+  "prompts": {
+    "version": "1.0",
+    "contract_source": "experimento/contrato_comun_v1.0/06_prompts_comunes.md",
+    "component_ids": [
+      "PROMPT-COMMON-1.0",
+      "PROMPT-PLANNER-1.0",
+      "PROMPT-ANALYST-1.0",
+      "PROMPT-REVIEWER-1.0",
+      "PROMPT-CORRECTION-1.0",
+      "CONTEXT-SCHEMA-1.0"
+    ],
+    "language": "es",
+    "new_context_per_role": true,
+    "require_all_variables_resolved": true,
+    "allow_unknown_variables": false,
+    "hash_algorithm": "sha256",
+    "record_template_hashes": true,
+    "record_expanded_prompt_hash": true
+  },
+  "output_contract": {
+    "schema_version": "1.0",
+    "required_entries": [
+      "plan.md",
+      "prepared_data.csv",
+      "statistics.json",
+      "issues.json",
+      "figures/",
+      "report.md",
+      "trace.jsonl"
+    ],
+    "text_encoding": "utf-8",
+    "paths_must_be_relative": true,
+    "temporary_directory_name": "_temporary",
+    "runtime_materialized_entries": [
+      "plan.md",
+      "report.md",
+      "trace.jsonl"
+    ],
+    "missing_or_invalid_report_status": "failed"
+  },
+  "limits": {
+    "warning_threshold_ratio": 0.8,
+    "time_seconds": {
+      "run": 2700,
+      "roles": {
+        "planner": 300,
+        "analyst_initial": 1500,
+        "reviewer": 600,
+        "analyst_correction": 900
+      },
+      "model_request": 300,
+      "tools": {
+        "inspect_dataset": 120,
+        "execute_python": 180,
+        "read_output": 30,
+        "validate_outputs": 60
+      },
+      "controlled_process_shutdown": 10
+    },
+    "model_requests": {
+      "run": 45,
+      "roles": {
+        "planner": 3,
+        "analyst_initial": 20,
+        "reviewer": 10,
+        "analyst_correction": 12
+      },
+      "count_failed_requests_reaching_provider": true,
+      "count_retries_reaching_provider": true,
+      "one_request_equals_one_turn": true,
+      "role_limits_transferable": false
+    },
+    "tokens": {
+      "request_input_estimate_max": 100000,
+      "request_output_max": 32000,
+      "run_input_max": 720000,
+      "run_output_max": 80000,
+      "run_total_max": 800000,
+      "minimum_run_output_remaining_for_new_request": 4000,
+      "reduce_request_output_to_remaining_budget": true,
+      "usage_source": "openai_response_usage",
+      "cached_input_included_in_input_total": true,
+      "reasoning_tokens_included_in_output_total": true
+    },
+    "model_requested_tool_calls": {
+      "run": 40,
+      "roles": {
+        "planner": {
+          "inspect_dataset": 1,
+          "execute_python": 0,
+          "read_output": 0,
+          "validate_outputs": 0
+        },
+        "analyst_initial": {
+          "inspect_dataset": 0,
+          "execute_python": 10,
+          "read_output": 6,
+          "validate_outputs": 2
+        },
+        "reviewer": {
+          "inspect_dataset": 0,
+          "execute_python": 0,
+          "read_output": 8,
+          "validate_outputs": 2
+        },
+        "analyst_correction": {
+          "inspect_dataset": 0,
+          "execute_python": 5,
+          "read_output": 5,
+          "validate_outputs": 2
+        }
+      },
+      "automatic_validations_count": false,
+      "rejected_calls_count": true,
+      "parallel_calls_allowed": false
+    },
+    "retries": {
+      "transient_model_retries_per_request": 1,
+      "format_repairs_per_role": 1,
+      "run_total": 4,
+      "automatic_tool_retries": 0,
+      "correction_counts_as_retry": false,
+      "retry_after_max_seconds": 60,
+      "default_wait_seconds": 2,
+      "retryable_conditions": [
+        "network_error",
+        "timeout",
+        "http_429",
+        "http_5xx"
+      ],
+      "quality_based_retry_allowed": false
+    },
+    "sizes": {
+      "unit_definition": {
+        "MB_in_bytes": 1000000,
+        "GB_in_bytes": 1000000000
+      },
+      "tool_text_response_max_characters": 60000,
+      "read_output_chunk_max_characters": 50000,
+      "files_max_bytes": {
+        "plan.md": 1000000,
+        "report.md": 1000000,
+        "statistics.json": 20000000,
+        "issues.json": 20000000,
+        "single_figure_png": 10000000,
+        "figures_total": 100000000,
+        "trace.jsonl": 100000000,
+        "run_directory_total": 1000000000
+      },
+      "figures_max_count": 12
+    }
+  },
+  "tools": {
+    "version": "1.0",
+    "parallel_execution_allowed": false,
+    "inspect_dataset": {
+      "sample_rows_max": 20,
+      "sample_first_rows": 5,
+      "sample_last_rows": 5,
+      "sample_seeded_rows": 10,
+      "reuse_result_after_planner": true
+    },
+    "execute_python": {
+      "clean_process_per_call": true,
+      "cumulative_time_max_seconds": 900,
+      "memory_max_bytes": 4000000000,
+      "max_concurrent_calls": 1,
+      "network_allowed": false,
+      "child_processes_allowed": false,
+      "write_scope": "current_run_directory",
+      "install_dependencies_during_run": false,
+      "stdout_max_characters": 30000,
+      "stderr_max_characters": 30000,
+      "single_thread_when_configurable": true
+    },
+    "read_output": {
+      "authorized_paths_only": true,
+      "deterministic_pagination": true,
+      "return_hash_when_truncated": true
+    },
+    "validate_outputs": {
+      "deterministic": true,
+      "quality_scoring_allowed": false,
+      "automatic_before_review": true,
+      "automatic_at_closure": true
+    }
+  },
+  "security": {
+    "experiment_seed": 20260808,
+    "manual_intervention_during_run_allowed": false,
+    "credentials_from_environment_only": true,
+    "record_credentials": false,
+    "record_absolute_paths": false,
+    "access_other_run_directories_allowed": false,
+    "forbidden_dataset_roots": [
+      "datasets/reference_private",
+      "datasets/raw"
+    ],
+    "external_sources_allowed": false,
+    "tools_network_allowed": false,
+    "provider_connection_allowed_only_for_model_calls": true
+  },
+  "pricing": {
+    "table_version": "openai_standard_2026-08-22",
+    "consulted_on": "2026-08-22",
+    "currency": "USD",
+    "source": "https://developers.openai.com/api/docs/pricing",
+    "per_million_tokens": {
+      "input_uncached": 2.0,
+      "input_cached": 0.2,
+      "output": 12.0
+    },
+    "budgets": {
+      "warning_per_run": 0.75,
+      "maximum_per_run": 2.5,
+      "maximum_pilot_campaign": 7.5,
+      "maximum_definitive_campaign": 45.0,
+      "definitive_campaign_run_count": 18
+    },
+    "freeze_before_definitive_campaign": true
+  },
+  "environment": {
+    "operating_system": "Windows",
+    "same_machine_required": true,
+    "same_power_profile_required": true,
+    "avoid_unrelated_intensive_tasks": true,
+    "freeze_python_and_dependency_versions_after_D0": true,
+    "definitive_runs_in_short_time_window": true,
+    "timestamps": "UTC"
+  },
+  "hashing": {
+    "algorithm": "sha256",
+    "configuration_hash_source": "exact_file_bytes",
+    "record_configuration_hash_in": "run_started",
+    "hash_inputs_before_run": true,
+    "hash_outputs_when_written": true
+  }
+}

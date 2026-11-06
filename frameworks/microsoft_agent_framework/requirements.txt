@@ -1,0 +1,6 @@
+-r ../../experimento/capa_comun/requirements.txt
+
+agent-framework-core==1.13.0
+agent-framework-openai==1.12.0
+agent-framework-devui==1.0.0b260730
+python-dotenv==1.2.2

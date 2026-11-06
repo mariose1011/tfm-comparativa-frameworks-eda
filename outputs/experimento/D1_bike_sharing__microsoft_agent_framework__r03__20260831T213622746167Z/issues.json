@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "run_id": "D1_bike_sharing__microsoft_agent_framework__r03__20260831T213622746167Z",
+  "dataset_id": "D1_bike_sharing",
+  "checks_performed": [
+    {
+      "id": "CHK-001",
+      "category": "missing",
+      "description": "Conteo isna en columnas fuente.",
+      "outcome": "0 ausencias en las 17 columnas.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-002",
+      "category": "duplicate",
+      "description": "Duplicados completos, instant y timestamp.",
+      "outcome": "0 en las tres comprobaciones.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "CHK-003",
+      "category": "temporal",
+      "description": "Fechas, calendario horario y días ausentes.",
+      "outcome": "165 horas ausentes; 0 días completos ausentes.",
+      "evidence_ids": [
+        "STAT-004"
+      ]
+    },
+    {
+      "id": "CHK-004",
+      "category": "category",
+      "description": "Dominios y coherencia calendario.",
+      "outcome": "Sin códigos fuera de dominio ni discrepancias.",
+      "evidence_ids": [
+        "STAT-005"
+      ]
+    },
+    {
+      "id": "CHK-005",
+      "category": "range",
+      "description": "Rangos, no negatividad y normalización.",
+      "outcome": "Sin negativos ni valores climáticos fuera de [0,1].",
+      "evidence_ids": [
+        "STAT-006"
+      ]
+    },
+    {
+      "id": "CHK-006",
+      "category": "identity",
+      "description": "cnt=casual+registered.",
+      "outcome": "0 discrepancias.",
+      "evidence_ids": [
+        "STAT-006"
+      ]
+    },
+    {
+      "id": "CHK-007",
+      "category": "outlier",
+      "description": "Cribado IQR de cnt alto.",
+      "outcome": "505 observaciones sobre umbral; sin evidencia de error.",
+      "evidence_ids": [
+        "STAT-012"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "id": "ISSUE-001",
+      "category": "temporal",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Huecos en cobertura horaria",
+      "description": "Faltan timestamps horarios; no representan cnt=0.",
+      "evidence": {
+        "missing_hour_count": 165,
+        "expected_hours": 17544,
+        "observed_hours": 17379,
+        "first_missing_hours": [
+          "2011-01-02T05:00:00",
+          "2011-01-03T02:00:00",
+          "2011-01-03T03:00:00",
+          "2011-01-04T03:00:00",
+          "2011-01-05T03:00:00",
+          "2011-01-06T03:00:00",
+          "2011-01-07T03:00:00",
+          "2011-01-11T03:00:00",
+          "2011-01-11T04:00:00",
+          "2011-01-12T03:00:00"
+        ]
+      },
+      "affected_columns": [
+        "dteday",
+        "hr",
+        "timestamp",
+        "cnt"
+      ],
+      "affected_row_count": 165,
+      "sample_row_ids": [],
+      "decision": "No imputar ni crear filas.",
+      "action": "Considerar horas observadas al interpretar agregados diarios.",
+      "potential_effect": "Sumas diarias de días incompletos pueden subestimar un día completo.",
+      "uncertainty": "Causa no disponible en el archivo.",
+      "evidence_ids": [
+        "STAT-004",
+        "STAT-010"
+      ]
+    },
+    {
+      "id": "ISSUE-002",
+      "category": "outlier",
+      "status": "retained",
+      "severity": "low",
+      "title": "Valores altos de cnt",
+      "description": "La regla IQR detecta extremos altos, no errores demostrados.",
+      "evidence": {
+        "upper_fence": 642.5,
+        "high_count": 505,
+        "max_cnt": 977,
+        "identity_mismatch_count": 0
+      },
+      "affected_columns": [
+        "cnt",
+        "casual",
+        "registered"
+      ],
+      "affected_row_count": 505,
+      "sample_row_ids": [
+        5537,
+        10359,
+        10360,
+        10383,
+        10384,
+        10398,
+        10407,
+        10408,
+        10431,
+        10432
+      ],
+      "decision": "Conservar.",
+      "action": "No recortar ni eliminar; reportar cuantiles y medianas.",
+      "potential_effect": "Influyen en media y dispersión.",
+      "uncertainty": "No hay contexto para explicar cada pico.",
+      "evidence_ids": [
+        "STAT-006",
+        "STAT-007",
+        "STAT-014"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2600 @@
+{
+  "code": "D2-LG-R3",
+  "run_id": "D2_online_retail__langgraph__r03__20260902T200956928988Z",
+  "date": "2026-10-04",
+  "verification_count": 599,
+  "verifications": [
+    "Entrada congelada",
+    "Criterios sin cambios datasets/reference_private/D2_online_retail/evaluation_spec.json",
+    "Criterios sin cambios datasets/reference_private/D2_online_retail/reference_values.json",
+    "Criterios sin cambios datasets/reference_private/D2_online_retail/ficha_referencia_D2_online_retail.md",
+    "Criterios sin cambios experimento/evaluacion/01_protocolo_calidad_Q1_Q10_v0.1.md",
+    "Criterios sin cambios experimento/evaluacion/02_ficha_D2_online_retail.md",
+    "Dimensiones fuente",
+    "Dimensiones preparadas",
+    "Columnas fuente conservadas",
+    "Valores y orden InvoiceNo",
+    "Valores y orden StockCode",
+    "Valores y orden Country",
+    "Valores y orden Description",
+    "Cliente nullable sin sufijo decimal",
+    "Medida conservada Quantity",
+    "Medida conservada UnitPrice",
+    "Fecha y hora conservadas",
+    "Indicador C",
+    "Importe por fila",
+    "Mes por fila",
+    "STAT-001.rows",
+    "STAT-001.columns",
+    "STAT-001.column_names longitud",
+    "STAT-001.column_names[0]",
+    "STAT-001.column_names[1]",
+    "STAT-001.column_names[2]",
+    "STAT-001.column_names[3]",
+    "STAT-001.column_names[4]",
+    "STAT-001.column_names[5]",
+    "STAT-001.column_names[6]",
+    "STAT-001.column_names[7]",
+    "STAT-002.missing_counts.InvoiceNo",
+    "STAT-002.missing_counts.StockCode",
+    "STAT-002.missing_counts.Description",
+    "STAT-002.missing_counts.Quantity",
+    "STAT-002.missing_counts.InvoiceDate",
+    "STAT-002.missing_counts.UnitPrice",
+    "STAT-002.missing_counts.CustomerID",
+    "STAT-002.missing_counts.Country",
+    "STAT-002.missing_shares.InvoiceNo",
+    "STAT-002.missing_shares.StockCode",
+    "STAT-002.missing_shares.Description",
+    "STAT-002.missing_shares.Quantity",
+    "STAT-002.missing_shares.InvoiceDate",
+    "STAT-002.missing_shares.UnitPrice",
+    "STAT-002.missing_shares.CustomerID",
+    "STAT-002.missing_shares.Country",
+    "STAT-003.exact_duplicate_rows",
+    "STAT-003.exact_duplicate_share",
+    "STAT-003.unique_invoices",
+    "STAT-003.unique_stockcodes",
+    "STAT-003.unique_customer_ids_nonmissing",
+    "STAT-004.min",
+    "STAT-004.max",
+    "STAT-004.missing_dates",
+    "STAT-004.monthly_rows longitud",
+    "STAT-004.monthly_rows[0].InvoiceMonth",
+    "STAT-004.monthly_rows[0].lines",
+    "STAT-004.monthly_rows[1].InvoiceMonth",
+    "STAT-004.monthly_rows[1].lines",
+    "STAT-004.monthly_rows[2].InvoiceMonth",
+    "STAT-004.monthly_rows[2].lines",
+    "STAT-004.monthly_rows[3].InvoiceMonth",
+    "STAT-004.monthly_rows[3].lines",
+    "STAT-004.monthly_rows[4].InvoiceMonth",
+    "STAT-004.monthly_rows[4].lines",
+    "STAT-004.monthly_rows[5].InvoiceMonth",
+    "STAT-004.monthly_rows[5].lines",
+    "STAT-004.monthly_rows[6].InvoiceMonth",
+    "STAT-004.monthly_rows[6].lines",
+    "STAT-004.monthly_rows[7].InvoiceMonth",
+    "STAT-004.monthly_rows[7].lines",
+    "STAT-004.monthly_rows[8].InvoiceMonth",
+    "STAT-004.monthly_rows[8].lines",
+    "STAT-004.monthly_rows[9].InvoiceMonth",
+    "STAT-004.monthly_rows[9].lines",
+    "STAT-004.monthly_rows[10].InvoiceMonth",
+    "STAT-004.monthly_rows[10].lines",
+    "STAT-004.monthly_rows[11].InvoiceMonth",
+    "STAT-004.monthly_rows[11].lines",
+    "STAT-004.monthly_rows[12].InvoiceMonth",
+    "STAT-004.monthly_rows[12].lines",
+    "STAT-005.Quantity.count",
+    "STAT-005.Quantity.min",
+    "STAT-005.Quantity.median",
+    "STAT-005.Quantity.mean",
+    "STAT-005.Quantity.max",
+    "STAT-005.Quantity.std",
+    "STAT-005.Quantity.sum",
+    "STAT-005.Quantity.p01",
+    "STAT-005.Quantity.p25",
+    "STAT-005.Quantity.p75",
+    "STAT-005.Quantity.p99",
+    "STAT-005.UnitPrice.count",
+    "STAT-005.UnitPrice.min",
+    "STAT-005.UnitPrice.median",
+    "STAT-005.UnitPrice.mean",
+    "STAT-005.UnitPrice.max",
+    "STAT-005.UnitPrice.std",
+    "STAT-005.UnitPrice.sum",
+    "STAT-005.UnitPrice.p01",
+    "STAT-005.UnitPrice.p25",
+    "STAT-005.UnitPrice.p75",
+    "STAT-005.UnitPrice.p99",
+    "STAT-005.LineAmount.count",
+    "STAT-005.LineAmount.min",
+    "STAT-005.LineAmount.median",
+    "STAT-005.LineAmount.mean",
+    "STAT-005.LineAmount.max",
+    "STAT-005.LineAmount.std",
+    "STAT-005.LineAmount.sum",
+    "STAT-005.LineAmount.p01",
+    "STAT-005.LineAmount.p25",
+    "STAT-005.LineAmount.p75",
+    "STAT-005.LineAmount.p99",
+    "STAT-005.negative_quantity_rows",
+    "STAT-005.zero_quantity_rows",
+    "STAT-005.negative_unitprice_rows",
+    "STAT-005.zero_unitprice_rows",
+    "STAT-005.nonpositive_lineamount_rows",
+    "C31 mismos códigos clasificados tras strip y strip+upper",
+    "STAT-006.stockcodes_with_more_than_one_description",
+    "STAT-006.max_descriptions_for_one_stockcode",
+    "STAT-006.countries",
+    "STAT-006.blank_countries",
+    "STAT-006.blank_descriptions_after_trim",
+    "STAT-007.original_rows",
+    "STAT-007.prepared_rows",
+    "STAT-007.original_columns",
+    "STAT-007.prepared_columns",
+    "STAT-007.rows_removed",
+    "STAT-007.derived_columns longitud",
+    "STAT-007.derived_columns[0]",
+    "STAT-007.derived_columns[1]",
+    "STAT-007.derived_columns[2]",
+    "STAT-008.lines",
+    "STAT-008.invoices",
+    "STAT-008.cancellation_lines",
+    "STAT-008.cancellation_line_share",
+    "STAT-008.regular_lines",
+    "STAT-008.identified_customer_lines",
+    "STAT-008.countries",
+    "STAT-009.regular.Quantity.count",
+    "STAT-009.regular.Quantity.min",
+    "STAT-009.regular.Quantity.median",
+    "STAT-009.regular.Quantity.mean",
+    "STAT-009.regular.Quantity.max",
+    "STAT-009.regular.Quantity.std",
+    "STAT-009.regular.Quantity.sum",
+    "STAT-009.regular.Quantity.p01",
+    "STAT-009.regular.Quantity.p25",
+    "STAT-009.regular.Quantity.p75",
+    "STAT-009.regular.Quantity.p99",
+    "STAT-009.regular.UnitPrice.count",
+    "STAT-009.regular.UnitPrice.min",
+    "STAT-009.regular.UnitPrice.median",
+    "STAT-009.regular.UnitPrice.mean",
+    "STAT-009.regular.UnitPrice.max",
+    "STAT-009.regular.UnitPrice.std",
+    "STAT-009.regular.UnitPrice.sum",
+    "STAT-009.regular.UnitPrice.p01",
+    "STAT-009.regular.UnitPrice.p25",
+    "STAT-009.regular.UnitPrice.p75",
+    "STAT-009.regular.UnitPrice.p99",
+    "STAT-009.regular.LineAmount.count",
+    "STAT-009.regular.LineAmount.min",
+    "STAT-009.regular.LineAmount.median",
+    "STAT-009.regular.LineAmount.mean",
+    "STAT-009.regular.LineAmount.max",
+    "STAT-009.regular.LineAmount.std",
+    "STAT-009.regular.LineAmount.sum",
+    "STAT-009.regular.LineAmount.p01",
+    "STAT-009.regular.LineAmount.p25",
+    "STAT-009.regular.LineAmount.p75",
+    "STAT-009.regular.LineAmount.p99",
+    "STAT-009.cancellation.Quantity.count",
+    "STAT-009.cancellation.Quantity.min",
+    "STAT-009.cancellation.Quantity.median",
+    "STAT-009.cancellation.Quantity.mean",
+    "STAT-009.cancellation.Quantity.max",
+    "STAT-009.cancellation.Quantity.std",
+    "STAT-009.cancellation.Quantity.sum",
+    "STAT-009.cancellation.Quantity.p01",
+    "STAT-009.cancellation.Quantity.p25",
+    "STAT-009.cancellation.Quantity.p75",
+    "STAT-009.cancellation.Quantity.p99",
+    "STAT-009.cancellation.UnitPrice.count",
+    "STAT-009.cancellation.UnitPrice.min",
+    "STAT-009.cancellation.UnitPrice.median",
+    "STAT-009.cancellation.UnitPrice.mean",
+    "STAT-009.cancellation.UnitPrice.max",
+    "STAT-009.cancellation.UnitPrice.std",
+    "STAT-009.cancellation.UnitPrice.sum",
+    "STAT-009.cancellation.UnitPrice.p01",
+    "STAT-009.cancellation.UnitPrice.p25",
+    "STAT-009.cancellation.UnitPrice.p75",
+    "STAT-009.cancellation.UnitPrice.p99",
+    "STAT-009.cancellation.LineAmount.count",
+    "STAT-009.cancellation.LineAmount.min",
+    "STAT-009.cancellation.LineAmount.median",
+    "STAT-009.cancellation.LineAmount.mean",
+    "STAT-009.cancellation.LineAmount.max",
+    "STAT-009.cancellation.LineAmount.std",
+    "STAT-009.cancellation.LineAmount.sum",
+    "STAT-009.cancellation.LineAmount.p01",
+    "STAT-009.cancellation.LineAmount.p25",
+    "STAT-009.cancellation.LineAmount.p75",
+    "STAT-009.cancellation.LineAmount.p99",
+    "STAT-010.top_10 longitud",
+    "STAT-010.top_10[0].Country",
+    "STAT-010.top_10[0].lines",
+    "STAT-010.top_10[0].invoices",
+    "STAT-010.top_10[0].units",
+    "STAT-010.top_10[0].line_amount",
+    "STAT-010.top_10[1].Country",
+    "STAT-010.top_10[1].lines",
+    "STAT-010.top_10[1].invoices",
+    "STAT-010.top_10[1].units",
+    "STAT-010.top_10[1].line_amount",
+    "STAT-010.top_10[2].Country",
+    "STAT-010.top_10[2].lines",
+    "STAT-010.top_10[2].invoices",
+    "STAT-010.top_10[2].units",
+    "STAT-010.top_10[2].line_amount",
+    "STAT-010.top_10[3].Country",
+    "STAT-010.top_10[3].lines",
+    "STAT-010.top_10[3].invoices",
+    "STAT-010.top_10[3].units",
+    "STAT-010.top_10[3].line_amount",
+    "STAT-010.top_10[4].Country",
+    "STAT-010.top_10[4].lines",
+    "STAT-010.top_10[4].invoices",
+    "STAT-010.top_10[4].units",
+    "STAT-010.top_10[4].line_amount",
+    "STAT-010.top_10[5].Country",
+    "STAT-010.top_10[5].lines",
+    "STAT-010.top_10[5].invoices",
+    "STAT-010.top_10[5].units",
+    "STAT-010.top_10[5].line_amount",
+    "STAT-010.top_10[6].Country",
+    "STAT-010.top_10[6].lines",
+    "STAT-010.top_10[6].invoices",
+    "STAT-010.top_10[6].units",
+    "STAT-010.top_10[6].line_amount",
+    "STAT-010.top_10[7].Country",
+    "STAT-010.top_10[7].lines",
+    "STAT-010.top_10[7].invoices",
+    "STAT-010.top_10[7].units",
+    "STAT-010.top_10[7].line_amount",
+    "STAT-010.top_10[8].Country",
+    "STAT-010.top_10[8].lines",
+    "STAT-010.top_10[8].invoices",
+    "STAT-010.top_10[8].units",
+    "STAT-010.top_10[8].line_amount",
+    "STAT-010.top_10[9].Country",
+    "STAT-010.top_10[9].lines",
+    "STAT-010.top_10[9].invoices",
+    "STAT-010.top_10[9].units",
+    "STAT-010.top_10[9].line_amount",
+    "STAT-010.uk_share_of_net_lineamount",
+    "STAT-011.monthly longitud",
+    "STAT-011.monthly[0].InvoiceMonth",
+    "STAT-011.monthly[0].lines",
+    "STAT-011.monthly[0].invoices",
+    "STAT-011.monthly[0].units_net",
+    "STAT-011.monthly[0].line_amount_net",
+    "STAT-011.monthly[0].cancellation_lines",
+    "STAT-011.monthly[0].cancellation_share_lines",
+    "STAT-011.monthly[1].InvoiceMonth",
+    "STAT-011.monthly[1].lines",
+    "STAT-011.monthly[1].invoices",
+    "STAT-011.monthly[1].units_net",
+    "STAT-011.monthly[1].line_amount_net",
+    "STAT-011.monthly[1].cancellation_lines",
+    "STAT-011.monthly[1].cancellation_share_lines",
+    "STAT-011.monthly[2].InvoiceMonth",
+    "STAT-011.monthly[2].lines",
+    "STAT-011.monthly[2].invoices",
+    "STAT-011.monthly[2].units_net",
+    "STAT-011.monthly[2].line_amount_net",
+    "STAT-011.monthly[2].cancellation_lines",
+    "STAT-011.monthly[2].cancellation_share_lines",
+    "STAT-011.monthly[3].InvoiceMonth",
+    "STAT-011.monthly[3].lines",
+    "STAT-011.monthly[3].invoices",
+    "STAT-011.monthly[3].units_net",
+    "STAT-011.monthly[3].line_amount_net",
+    "STAT-011.monthly[3].cancellation_lines",
+    "STAT-011.monthly[3].cancellation_share_lines",
+    "STAT-011.monthly[4].InvoiceMonth",
+    "STAT-011.monthly[4].lines",
+    "STAT-011.monthly[4].invoices",
+    "STAT-011.monthly[4].units_net",
+    "STAT-011.monthly[4].line_amount_net",
+    "STAT-011.monthly[4].cancellation_lines",
+    "STAT-011.monthly[4].cancellation_share_lines",
+    "STAT-011.monthly[5].InvoiceMonth",
+    "STAT-011.monthly[5].lines",
+    "STAT-011.monthly[5].invoices",
+    "STAT-011.monthly[5].units_net",
+    "STAT-011.monthly[5].line_amount_net",
+    "STAT-011.monthly[5].cancellation_lines",
+    "STAT-011.monthly[5].cancellation_share_lines",
+    "STAT-011.monthly[6].InvoiceMonth",
+    "STAT-011.monthly[6].lines",
+    "STAT-011.monthly[6].invoices",
+    "STAT-011.monthly[6].units_net",
+    "STAT-011.monthly[6].line_amount_net",
+    "STAT-011.monthly[6].cancellation_lines",
+    "STAT-011.monthly[6].cancellation_share_lines",
+    "STAT-011.monthly[7].InvoiceMonth",
+    "STAT-011.monthly[7].lines",
+    "STAT-011.monthly[7].invoices",
+    "STAT-011.monthly[7].units_net",
+    "STAT-011.monthly[7].line_amount_net",
+    "STAT-011.monthly[7].cancellation_lines",
+    "STAT-011.monthly[7].cancellation_share_lines",
+    "STAT-011.monthly[8].InvoiceMonth",
+    "STAT-011.monthly[8].lines",
+    "STAT-011.monthly[8].invoices",
+    "STAT-011.monthly[8].units_net",
+    "STAT-011.monthly[8].line_amount_net",
+    "STAT-011.monthly[8].cancellation_lines",
+    "STAT-011.monthly[8].cancellation_share_lines",
+    "STAT-011.monthly[9].InvoiceMonth",
+    "STAT-011.monthly[9].lines",
+    "STAT-011.monthly[9].invoices",
+    "STAT-011.monthly[9].units_net",
+    "STAT-011.monthly[9].line_amount_net",
+    "STAT-011.monthly[9].cancellation_lines",
+    "STAT-011.monthly[9].cancellation_share_lines",
+    "STAT-011.monthly[10].InvoiceMonth",
+    "STAT-011.monthly[10].lines",
+    "STAT-011.monthly[10].invoices",
+    "STAT-011.monthly[10].units_net",
+    "STAT-011.monthly[10].line_amount_net",
+    "STAT-011.monthly[10].cancellation_lines",
+    "STAT-011.monthly[10].cancellation_share_lines",
+    "STAT-011.monthly[11].InvoiceMonth",
+    "STAT-011.monthly[11].lines",
+    "STAT-011.monthly[11].invoices",
+    "STAT-011.monthly[11].units_net",
+    "STAT-011.monthly[11].line_amount_net",
+    "STAT-011.monthly[11].cancellation_lines",
+    "STAT-011.monthly[11].cancellation_share_lines",
+    "STAT-011.monthly[12].InvoiceMonth",
+    "STAT-011.monthly[12].lines",
+    "STAT-011.monthly[12].invoices",
+    "STAT-011.monthly[12].units_net",
+    "STAT-011.monthly[12].line_amount_net",
+    "STAT-011.monthly[12].cancellation_lines",
+    "STAT-011.monthly[12].cancellation_share_lines",
+    "STAT-011.highest_net_amount_month longitud",
+    "STAT-011.highest_net_amount_month[0].InvoiceMonth",
+    "STAT-011.highest_net_amount_month[0].lines",
+    "STAT-011.highest_net_amount_month[0].invoices",
+    "STAT-011.highest_net_amount_month[0].units_net",
+    "STAT-011.highest_net_amount_month[0].line_amount_net",
+    "STAT-011.highest_net_amount_month[0].cancellation_lines",
+    "STAT-011.highest_net_amount_month[0].cancellation_share_lines",
+    "STAT-011.highest_line_count_month longitud",
+    "STAT-011.highest_line_count_month[0].InvoiceMonth",
+    "STAT-011.highest_line_count_month[0].lines",
+    "STAT-011.highest_line_count_month[0].invoices",
+    "STAT-011.highest_line_count_month[0].units_net",
+    "STAT-011.highest_line_count_month[0].line_amount_net",
+    "STAT-011.highest_line_count_month[0].cancellation_lines",
+    "STAT-011.highest_line_count_month[0].cancellation_share_lines",
+    "STAT-012.by_invoice_type longitud",
+    "STAT-012.by_invoice_type[0].IsCancellation",
+    "STAT-012.by_invoice_type[0].lines",
+    "STAT-012.by_invoice_type[0].invoices",
+    "STAT-012.by_invoice_type[0].quantity_sum",
+    "STAT-012.by_invoice_type[0].amount_sum",
+    "STAT-012.by_invoice_type[0].amount_median",
+    "STAT-012.by_invoice_type[1].IsCancellation",
+    "STAT-012.by_invoice_type[1].lines",
+    "STAT-012.by_invoice_type[1].invoices",
+    "STAT-012.by_invoice_type[1].quantity_sum",
+    "STAT-012.by_invoice_type[1].amount_sum",
+    "STAT-012.by_invoice_type[1].amount_median",
+    "STAT-012.missing_customer_by_invoice_type longitud",
+    "STAT-012.missing_customer_by_invoice_type[0].IsCancellation",
+    "STAT-012.missing_customer_by_invoice_type[0].lines",
+    "STAT-012.missing_customer_by_invoice_type[0].missing_customer",
+    "STAT-012.missing_customer_by_invoice_type[0].missing_customer_share",
+    "STAT-012.missing_customer_by_invoice_type[1].IsCancellation",
+    "STAT-012.missing_customer_by_invoice_type[1].lines",
+    "STAT-012.missing_customer_by_invoice_type[1].missing_customer",
+    "STAT-012.missing_customer_by_invoice_type[1].missing_customer_share",
+    "STAT-013.top_15 longitud",
+    "STAT-013.top_15[0].StockCode",
+    "STAT-013.top_15[0].Description",
+    "STAT-013.top_15[0].lines",
+    "STAT-013.top_15[0].units",
+    "STAT-013.top_15[0].line_amount",
+    "STAT-013.top_15[1].StockCode",
+    "STAT-013.top_15[1].Description",
+    "STAT-013.top_15[1].lines",
+    "STAT-013.top_15[1].units",
+    "STAT-013.top_15[1].line_amount",
+    "STAT-013.top_15[2].StockCode",
+    "STAT-013.top_15[2].Description",
+    "STAT-013.top_15[2].lines",
+    "STAT-013.top_15[2].units",
+    "STAT-013.top_15[2].line_amount",
+    "STAT-013.top_15[3].StockCode",
+    "STAT-013.top_15[3].Description",
+    "STAT-013.top_15[3].lines",
+    "STAT-013.top_15[3].units",
+    "STAT-013.top_15[3].line_amount",
+    "STAT-013.top_15[4].StockCode",
+    "STAT-013.top_15[4].Description",
+    "STAT-013.top_15[4].lines",
+    "STAT-013.top_15[4].units",
+    "STAT-013.top_15[4].line_amount",
+    "STAT-013.top_15[5].StockCode",
+    "STAT-013.top_15[5].Description",
+    "STAT-013.top_15[5].lines",
+    "STAT-013.top_15[5].units",
+    "STAT-013.top_15[5].line_amount",
+    "STAT-013.top_15[6].StockCode",
+    "STAT-013.top_15[6].Description",
+    "STAT-013.top_15[6].lines",
+    "STAT-013.top_15[6].units",
+    "STAT-013.top_15[6].line_amount",
+    "STAT-013.top_15[7].StockCode",
+    "STAT-013.top_15[7].Description",
+    "STAT-013.top_15[7].lines",
+    "STAT-013.top_15[7].units",
+    "STAT-013.top_15[7].line_amount",
+    "STAT-013.top_15[8].StockCode",
+    "STAT-013.top_15[8].Description",
+    "STAT-013.top_15[8].lines",
+    "STAT-013.top_15[8].units",
+    "STAT-013.top_15[8].line_amount",
+    "STAT-013.top_15[9].StockCode",
+    "STAT-013.top_15[9].Description",
+    "STAT-013.top_15[9].lines",
+    "STAT-013.top_15[9].units",
+    "STAT-013.top_15[9].line_amount",
+    "STAT-013.top_15[10].StockCode",
+    "STAT-013.top_15[10].Description",
+    "STAT-013.top_15[10].lines",
+    "STAT-013.top_15[10].units",
+    "STAT-013.top_15[10].line_amount",
+    "STAT-013.top_15[11].StockCode",
+    "STAT-013.top_15[11].Description",
+    "STAT-013.top_15[11].lines",
+    "STAT-013.top_15[11].units",
+    "STAT-013.top_15[11].line_amount",
+    "STAT-013.top_15[12].StockCode",
+    "STAT-013.top_15[12].Description",
+    "STAT-013.top_15[12].lines",
+    "STAT-013.top_15[12].units",
+    "STAT-013.top_15[12].line_amount",
+    "STAT-013.top_15[13].StockCode",
+    "STAT-013.top_15[13].Description",
+    "STAT-013.top_15[13].lines",
+    "STAT-013.top_15[13].units",
+    "STAT-013.top_15[13].line_amount",
+    "STAT-013.top_15[14].StockCode",
+    "STAT-013.top_15[14].Description",
+    "STAT-013.top_15[14].lines",
+    "STAT-013.top_15[14].units",
+    "STAT-013.top_15[14].line_amount",
+    "STAT-014.identified_regular_lines",
+    "STAT-014.customers",
+    "STAT-014.line_amount_per_customer.count",
+    "STAT-014.line_amount_per_customer.min",
+    "STAT-014.line_amount_per_customer.median",
+    "STAT-014.line_amount_per_customer.mean",
+    "STAT-014.line_amount_per_customer.max",
+    "STAT-014.line_amount_per_customer.std",
+    "STAT-014.line_amount_per_customer.sum",
+    "STAT-014.line_amount_per_customer.p01",
+    "STAT-014.line_amount_per_customer.p25",
+    "STAT-014.line_amount_per_customer.p75",
+    "STAT-014.line_amount_per_customer.p99",
+    "STAT-014.invoices_per_customer.count",
+    "STAT-014.invoices_per_customer.min",
+    "STAT-014.invoices_per_customer.median",
+    "STAT-014.invoices_per_customer.mean",
+    "STAT-014.invoices_per_customer.max",
+    "STAT-014.invoices_per_customer.std",
+    "STAT-014.invoices_per_customer.sum",
+    "STAT-014.invoices_per_customer.p01",
+    "STAT-014.invoices_per_customer.p25",
+    "STAT-014.invoices_per_customer.p75",
+    "STAT-014.invoices_per_customer.p99",
+    "STAT-014.top_10_by_amount longitud",
+    "STAT-014.top_10_by_amount[0].CustomerID",
+    "STAT-014.top_10_by_amount[0].lines",
+    "STAT-014.top_10_by_amount[0].invoices",
+    "STAT-014.top_10_by_amount[0].units",
+    "STAT-014.top_10_by_amount[0].line_amount",
+    "STAT-014.top_10_by_amount[1].CustomerID",
+    "STAT-014.top_10_by_amount[1].lines",
+    "STAT-014.top_10_by_amount[1].invoices",
+    "STAT-014.top_10_by_amount[1].units",
+    "STAT-014.top_10_by_amount[1].line_amount",
+    "STAT-014.top_10_by_amount[2].CustomerID",
+    "STAT-014.top_10_by_amount[2].lines",
+    "STAT-014.top_10_by_amount[2].invoices",
+    "STAT-014.top_10_by_amount[2].units",
+    "STAT-014.top_10_by_amount[2].line_amount",
+    "STAT-014.top_10_by_amount[3].CustomerID",
+    "STAT-014.top_10_by_amount[3].lines",
+    "STAT-014.top_10_by_amount[3].invoices",
+    "STAT-014.top_10_by_amount[3].units",
+    "STAT-014.top_10_by_amount[3].line_amount",
+    "STAT-014.top_10_by_amount[4].CustomerID",
+    "STAT-014.top_10_by_amount[4].lines",
+    "STAT-014.top_10_by_amount[4].invoices",
+    "STAT-014.top_10_by_amount[4].units",
+    "STAT-014.top_10_by_amount[4].line_amount",
+    "STAT-014.top_10_by_amount[5].CustomerID",
+    "STAT-014.top_10_by_amount[5].lines",
+    "STAT-014.top_10_by_amount[5].invoices",
+    "STAT-014.top_10_by_amount[5].units",
+    "STAT-014.top_10_by_amount[5].line_amount",
+    "STAT-014.top_10_by_amount[6].CustomerID",
+    "STAT-014.top_10_by_amount[6].lines",
+    "STAT-014.top_10_by_amount[6].invoices",
+    "STAT-014.top_10_by_amount[6].units",
+    "STAT-014.top_10_by_amount[6].line_amount",
+    "STAT-014.top_10_by_amount[7].CustomerID",
+    "STAT-014.top_10_by_amount[7].lines",
+    "STAT-014.top_10_by_amount[7].invoices",
+    "STAT-014.top_10_by_amount[7].units",
+    "STAT-014.top_10_by_amount[7].line_amount",
+    "STAT-014.top_10_by_amount[8].CustomerID",
+    "STAT-014.top_10_by_amount[8].lines",
+    "STAT-014.top_10_by_amount[8].invoices",
+    "STAT-014.top_10_by_amount[8].units",
+    "STAT-014.top_10_by_amount[8].line_amount",
+    "STAT-014.top_10_by_amount[9].CustomerID",
+    "STAT-014.top_10_by_amount[9].lines",
+    "STAT-014.top_10_by_amount[9].invoices",
+    "STAT-014.top_10_by_amount[9].units",
+    "STAT-014.top_10_by_amount[9].line_amount",
+    "STAT-015.rows",
+    "STAT-015.spearman_quantity_unitprice",
+    "STAT-015.quantity.count",
+    "STAT-015.quantity.min",
+    "STAT-015.quantity.median",
+    "STAT-015.quantity.mean",
+    "STAT-015.quantity.max",
+    "STAT-015.quantity.std",
+    "STAT-015.quantity.sum",
+    "STAT-015.quantity.p01",
+    "STAT-015.quantity.p25",
+    "STAT-015.quantity.p75",
+    "STAT-015.quantity.p99",
+    "STAT-015.unitprice.count",
+    "STAT-015.unitprice.min",
+    "STAT-015.unitprice.median",
+    "STAT-015.unitprice.mean",
+    "STAT-015.unitprice.max",
+    "STAT-015.unitprice.std",
+    "STAT-015.unitprice.sum",
+    "STAT-015.unitprice.p01",
+    "STAT-015.unitprice.p25",
+    "STAT-015.unitprice.p75",
+    "STAT-015.unitprice.p99",
+    "Perfil InvoiceNo.missing_prepared",
+    "Perfil InvoiceNo.unique_prepared",
+    "Perfil StockCode.missing_prepared",
+    "Perfil StockCode.unique_prepared",
+    "Perfil Description.missing_prepared",
+    "Perfil Description.unique_prepared",
+    "Perfil Quantity.missing_prepared",
+    "Perfil Quantity.unique_prepared",
+    "Perfil InvoiceDate.missing_prepared",
+    "Perfil InvoiceDate.unique_prepared",
+    "Perfil UnitPrice.missing_prepared",
+    "Perfil UnitPrice.unique_prepared",
+    "Perfil CustomerID.missing_prepared",
+    "Perfil CustomerID.unique_prepared",
+    "Perfil Country.missing_prepared",
+    "Perfil Country.unique_prepared",
+    "Perfil IsCancellation.missing_prepared",
+    "Perfil IsCancellation.unique_prepared",
+    "Perfil LineAmount.missing_prepared",
+    "Perfil LineAmount.unique_prepared",
+    "Perfil InvoiceMonth.missing_prepared",
+    "Perfil InvoiceMonth.unique_prepared",
+    "TR-002 filas normalizadas",
+    "Una operación Python",
+    "Sin deduplicación",
+    "Histogramas logarítmicos sin recorte P99",
+    "Doce etiquetas gráficas distintas",
+    "Cierre sin corrección",
+    "Hash cierre plan.md",
+    "Hash cierre prepared_data.csv",
+    "Hash cierre statistics.json",
+    "Hash cierre issues.json",
+    "Hash cierre report.md",
+    "Q2 final: 26 comprobaciones correctas y 39 de 47 puntos ponderados"
+  ],
+  "source_hashes": {
+    "datasets/experiment_inputs/D2_online_retail/Online Retail.xlsx": "43465A06F2CCF7C8B5BD2892BC7DEFB52F97487934FE93B16AE4C3936424676D",
+    "datasets/reference_private/D2_online_retail/evaluation_spec.json": "CFA6C6158DE428C6C4E0A00FA5D24EF618393BC308C16A4AED61E73825FA1326",
+    "datasets/reference_private/D2_online_retail/reference_values.json": "C99A55122B58A9239F976188BA53C5CE74F0D3480701B03C6D4B463F839907BF",
+    "datasets/reference_private/D2_online_retail/ficha_referencia_D2_online_retail.md": "4F3052A189E008BF307E050D6FFADA219DDE7389C15E834629ED6B118EE7ABFF",
+    "experimento/evaluacion/01_protocolo_calidad_Q1_Q10_v0.1.md": "07619927ECB44DFA9391801AA319901DE6626B18EAC0192F7FD3E3EDC30F97F6",
+    "experimento/evaluacion/02_ficha_D2_online_retail.md": "0F0D28F5280BABBA82202CC31A3CBE77C05C5F19064E7A9B9EB6761C33BD929B",
+    "datasets/experiment_inputs/D2_online_retail/Readme.md": "02697F86CEAD468A931826549DFADDE53DA3088FEABB2FDF892CD03828578FE1",
+    "outputs/experimento/D2_online_retail__langgraph__r03__20260902T200956928988Z/issues.json": "9A6F748935C5B2090B1433109F7D98FEA5CED3C520B9B432F71C826E2ED67778",
+    "outputs/experimento/D2_online_retail__langgraph__r03__20260902T200956928988Z/plan.md": "DAE9609C2F7D526E73B51001DCD71C1CB98C7AAE72C49AD7C15F982AABBB5A0E",
+    "outputs/experimento/D2_online_retail__langgraph__r03__20260902T200956928988Z/prepared_data.csv": "13250FC77D8074E6902711D6BEBCDF230915C388B9DFFB712CDB9194D94B7B24",
+    "outputs/experimento/D2_online_retail__langgraph__r03__20260902T200956928988Z/report.md": "F2CDE1A33234F54C59FF1EAD76860BD2F72B7882522109ABA5A35ED9F2DD7A95",
+    "outputs/experimento/D2_online_retail__langgraph__r03__20260902T200956928988Z/statistics.json": "07F3654C27EA340595660B6DFE387F0737DCE623DA08D3B47F34FA6258DE9E2D",
+    "outputs/experimento/D2_online_retail__langgraph__r03__20260902T200956928988Z/trace.jsonl": "33239B6733F6DD9BBD0371D5FEA81FD1321E9F48A85C69144ABF8461BEAB0BD3",
+    "outputs/experimento/D2_online_retail__langgraph__r03__20260902T200956928988Z/figures/fig_001_importe_mensual.png": "1EFBB29553C184E15A1071CA3B2E170326D4D2F459ACA5D209E9D079F513E30F",
+    "outputs/experimento/D2_online_retail__langgraph__r03__20260902T200956928988Z/figures/fig_002_paises_importe.png": "D7A56E30EBF289B44C74E28ACF808FA6EB113E38111581D9CFF19B912DFDD9DC",
+    "outputs/experimento/D2_online_retail__langgraph__r03__20260902T200956928988Z/figures/fig_003_cancelaciones.png": "916E0EAB0DC8EE69EF383C9EA23B7EE7E8B8A0CE8DD58EF3D256C21C1FAE5816",
+    "outputs/experimento/D2_online_retail__langgraph__r03__20260902T200956928988Z/figures/fig_004_distribuciones_positivas.png": "10C122EA3609673DF78C8A29DF9A549ED62311FAFC7EF7A476CA522CDDD4366F",
+    "outputs/experimento/D2_online_retail__langgraph__r03__20260902T200956928988Z/figures/fig_005_productos_importe.png": "5844296584F4C74FC9CC277B7A168D3A16FE7088DF5364F99901B2D5B03B67E8"
+  },
+  "q2": {
+    "correct_count": 26,
+    "weighted_correct": 39,
+    "weight_total": 47,
+    "score": 82.97872340425532,
+    "controls": [
+      {
+        "id": "C01",
+        "label": "Número de filas",
+        "reference_path": "structure.rows",
+        "tolerance": "exact",
+        "weight": 2,
+        "actual": 541909,
+        "expected": 541909,
+        "evidence": "STAT-001",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C02",
+        "label": "Número de columnas",
+        "reference_path": "structure.columns",
+        "tolerance": "exact",
+        "weight": 2,
+        "actual": 8,
+        "expected": 8,
+        "evidence": "STAT-001",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C03",
+        "label": "Primera fecha y hora",
+        "reference_path": "structure.date_min",
+        "tolerance": "exact",
+        "weight": 1,
+        "actual": "2010-12-01T08:26:00",
+        "expected": "2010-12-01T08:26:00",
+        "evidence": "STAT-004",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C04",
+        "label": "Última fecha y hora",
+        "reference_path": "structure.date_max",
+        "tolerance": "exact",
+        "weight": 1,
+        "actual": "2011-12-09T12:50:00",
+        "expected": "2011-12-09T12:50:00",
+        "evidence": "STAT-004",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C05",
+        "label": "Celdas ausentes totales",
+        "reference_path": "missingness.missing_cells_total",
+        "tolerance": "exact",
+        "weight": 2,
+        "actual": 136534,
+        "expected": 136534,
+        "evidence": "Suma de marginales emitidos STAT-002",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C06",
+        "label": "CustomerID ausentes",
+        "reference_path": "missingness.customer_id_rows",
+        "tolerance": "exact",
+        "weight": 2,
+        "actual": 135080,
+        "expected": 135080,
+        "evidence": "STAT-002",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C07",
+        "label": "Description ausentes",
+        "reference_path": "missingness.description_rows",
+        "tolerance": "exact",
+        "weight": 2,
+        "actual": 1454,
+        "expected": 1454,
+        "evidence": "STAT-002",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C08",
+        "label": "Filas con CustomerID y Description ausentes",
+        "reference_path": "missingness.both_customer_and_description_rows",
+        "tolerance": "exact",
+        "weight": 1,
+        "actual": null,
+        "expected": 1454,
+        "evidence": "No se emitió cruce de ambas ausencias.",
+        "correct": 0,
+        "status": "ausente"
+      },
+      {
+        "id": "C09",
+        "label": "Filas duplicadas después de la primera",
+        "reference_path": "duplicates.duplicate_rows_after_first",
+        "tolerance": "exact",
+        "weight": 2,
+        "actual": 5268,
+        "expected": 5268,
+        "evidence": "STAT-003",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C10",
+        "label": "Filas después de eliminar duplicados exactos",
+        "reference_path": "duplicates.rows_after_drop_duplicates",
+        "tolerance": "exact",
+        "weight": 1,
+        "actual": 536641,
+        "expected": 536641,
+        "evidence": "C01 (STAT-001) menos C09 (STAT-003): 541909 − 5268 = 536641. Tamaño hipotético sin duplicados, no eliminación ejecutada.",
+        "correct": 1,
+        "status": "correcta",
+        "equivalence_approved_at": "2026-10-05"
+      },
+      {
+        "id": "C11",
+        "label": "Facturas distintas",
+        "reference_path": "identifiers_and_cardinality.unique_invoices",
+        "tolerance": "exact",
+        "weight": 1,
+        "actual": 25900,
+        "expected": 25900,
+        "evidence": "STAT-003",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C12",
+        "label": "StockCode distintos",
+        "reference_path": "identifiers_and_cardinality.unique_stock_codes",
+        "tolerance": "exact",
+        "weight": 1,
+        "actual": 4070,
+        "expected": 4070,
+        "evidence": "STAT-003",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C13",
+        "label": "Clientes distintos no nulos",
+        "reference_path": "identifiers_and_cardinality.unique_customers_non_null",
+        "tolerance": "exact",
+        "weight": 1,
+        "actual": 4372,
+        "expected": 4372,
+        "evidence": "STAT-003",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C14",
+        "label": "Países distintos",
+        "reference_path": "identifiers_and_cardinality.unique_countries",
+        "tolerance": "exact",
+        "weight": 1,
+        "actual": 38,
+        "expected": 38,
+        "evidence": "STAT-006",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C15",
+        "label": "Líneas de cancelación",
+        "reference_path": "cancellations_and_adjustments.cancellation_rows",
+        "tolerance": "exact",
+        "weight": 2,
+        "actual": 9288,
+        "expected": 9288,
+        "evidence": "STAT-008",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C16",
+        "label": "Facturas de cancelación distintas",
+        "reference_path": "cancellations_and_adjustments.cancellation_invoices",
+        "tolerance": "exact",
+        "weight": 1,
+        "actual": 3836,
+        "expected": 3836,
+        "evidence": "STAT-012",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C17",
+        "label": "Cantidades negativas",
+        "reference_path": "quantities_and_prices.negative_quantity_rows",
+        "tolerance": "exact",
+        "weight": 2,
+        "actual": 10624,
+        "expected": 10624,
+        "evidence": "STAT-005",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C18",
+        "label": "Cantidades negativas sin prefijo C",
+        "reference_path": "cancellations_and_adjustments.negative_quantity_rows_without_c_prefix",
+        "tolerance": "exact",
+        "weight": 2,
+        "actual": 1336,
+        "expected": 1336,
+        "evidence": "C17 y STAT-009.result.cancellation.Quantity: 10624 − 9288 = 1336. El máximo −1 demuestra que todas las cancelaciones tienen Quantity negativa.",
+        "correct": 1,
+        "status": "correcta",
+        "equivalence_approved_at": "2026-10-05"
+      },
+      {
+        "id": "C19",
+        "label": "Precios iguales a cero",
+        "reference_path": "quantities_and_prices.zero_price_rows",
+        "tolerance": "exact",
+        "weight": 2,
+        "actual": 2515,
+        "expected": 2515,
+        "evidence": "STAT-005",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C20",
+        "label": "Precios negativos",
+        "reference_path": "quantities_and_prices.negative_price_rows",
+        "tolerance": "exact",
+        "weight": 2,
+        "actual": 2,
+        "expected": 2,
+        "evidence": "STAT-005",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C21",
+        "label": "Suma bruta de Quantity",
+        "reference_path": "quantities_and_prices.quantity.sum",
+        "tolerance": "exact",
+        "weight": 1,
+        "actual": 5176450,
+        "expected": 5176450.0,
+        "evidence": "STAT-005",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C22",
+        "label": "Cantidad mínima",
+        "reference_path": "quantities_and_prices.quantity.min",
+        "tolerance": "exact",
+        "weight": 1,
+        "actual": -80995,
+        "expected": -80995.0,
+        "evidence": "STAT-005",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C23",
+        "label": "Cantidad máxima",
+        "reference_path": "quantities_and_prices.quantity.max",
+        "tolerance": "exact",
+        "weight": 1,
+        "actual": 80995,
+        "expected": 80995.0,
+        "evidence": "STAT-005",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C24",
+        "label": "Valor neto de todas las líneas",
+        "reference_path": "values_sterling.raw_net_value_all_rows",
+        "tolerance": {
+          "absolute": 0.01
+        },
+        "weight": 2,
+        "actual": 9747747.934,
+        "expected": 9747747.934,
+        "evidence": "STAT-005",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C25",
+        "label": "Líneas de venta positiva",
+        "reference_path": "values_sterling.positive_sale_rows",
+        "tolerance": "exact",
+        "weight": 1,
+        "actual": 530104,
+        "expected": 530104,
+        "evidence": "STAT-015, filtro regular con Quantity>0 y UnitPrice>0",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C26",
+        "label": "Valor de ventas positivas",
+        "reference_path": "values_sterling.positive_sale_value",
+        "tolerance": {
+          "absolute": 0.01
+        },
+        "weight": 2,
+        "actual": null,
+        "expected": 10666684.544,
+        "evidence": "Importe regular sin C no equivale a importe positivo.",
+        "correct": 0,
+        "status": "ausente"
+      },
+      {
+        "id": "C27",
+        "label": "Valor de las cancelaciones",
+        "reference_path": "values_sterling.cancellation_value",
+        "tolerance": {
+          "absolute": 0.01
+        },
+        "weight": 2,
+        "actual": -896812.49,
+        "expected": -896812.49,
+        "evidence": "STAT-012",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C28",
+        "label": "Valor neto después de eliminar duplicados exactos",
+        "reference_path": "duplicates.raw_value_after_deduplication",
+        "tolerance": {
+          "absolute": 0.01
+        },
+        "weight": 1,
+        "actual": null,
+        "expected": 9726006.954,
+        "evidence": "No se emitió neto deduplicado.",
+        "correct": 0,
+        "status": "ausente"
+      },
+      {
+        "id": "C29",
+        "label": "Proporción de líneas del Reino Unido",
+        "reference_path": "country_concentration.uk_row_share",
+        "tolerance": {
+          "absolute": 0.001
+        },
+        "weight": 1,
+        "actual": null,
+        "expected": 0.914319563,
+        "evidence": "Se emiten 495478 líneas UK y 541909 totales, pero no su proporción. El porcentaje monetario no equivale a la cuota de líneas. Informe, estadísticas y traza contrastados.",
+        "correct": 0,
+        "status": "ausente",
+        "other_definition": false,
+        "review_20261006": {
+          "id": "C29",
+          "previous_value": 0.9143195628786382,
+          "operands": [
+            495478,
+            541909
+          ],
+          "previous_evidence": "STAT-010/001, cuota a partir de conteos emitidos",
+          "decision": "Ausente. Los conteos no acreditan una proporción que el framework no emitió."
+        }
+      },
+      {
+        "id": "C30",
+        "label": "Mes completo con mayor venta positiva",
+        "reference_path": "temporal.highest_complete_month_by_positive_value.value",
+        "expected_category": "2011-11",
+        "tolerance": {
+          "absolute": 0.01
+        },
+        "weight": 2,
+        "actual": null,
+        "expected": 1509496.33,
+        "evidence": "Máximo mensual neto, no positivo.",
+        "correct": 0,
+        "status": "ausente"
+      },
+      {
+        "id": "C31",
+        "label": "StockCode con varias descripciones normalizadas",
+        "reference_path": "identifiers_and_cardinality.stock_codes_with_multiple_normalized_descriptions",
+        "tolerance": "exact",
+        "weight": 1,
+        "actual": 647,
+        "expected": 647,
+        "evidence": "STAT-006, mismos códigos clasificados tras strip y strip+upper",
+        "correct": 1,
+        "status": "correcta"
+      },
+      {
+        "id": "C32",
+        "label": "Mediana de líneas por factura",
+        "reference_path": "identifiers_and_cardinality.invoice_lines.median",
+        "tolerance": {
+          "absolute": 0.01
+        },
+        "weight": 1,
+        "actual": null,
+        "expected": 10.0,
+        "evidence": "Mediana de facturas por cliente, no líneas por factura.",
+        "correct": 0,
+        "status": "ausente"
+      }
+    ]
+  },
+  "q3": {
+    "valid": 10,
+    "total": 12,
+    "invalid": [
+      "D08",
+      "D09"
+    ]
+  },
+  "q4": {
+    "K": 8,
+    "A": 2,
+    "F": 0,
+    "precision": 1.0,
+    "coverage": 0.8,
+    "score": 88.88888888888889
+  },
+  "q7": {
+    "scores": [
+      4,
+      2,
+      3,
+      2,
+      3
+    ],
+    "score": 70
+  },
+  "q8": {
+    "weights": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      1,
+      2,
+      1
+    ],
+    "scores": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0.5,
+      0.5,
+      0.5,
+      1,
+      0.5,
+      1,
+      1
+    ],
+    "weighted": 18.5,
+    "total": 22,
+    "score": 84.0909090909091
+  },
+  "q9": {
+    "total": 185,
+    "supported": 185,
+    "claims": [
+      {
+        "id": "AF001",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "541909 líneas originales",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF002",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "25900 InvoiceNo distintos originales",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF003",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Una fila es una línea de factura",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF004",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Una fila no es necesariamente una compra completa",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF005",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Una factura no acredita necesariamente una compra completa",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF006",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Primera fecha-hora2010-12-01T08:26:00",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF007",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Última fecha-hora2011-12-09T12:50:00",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF008",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Libro XLSX y hoja Online Retail",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF009",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Ocho columnas originales",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF010",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Lista de ocho campos fuente correcta",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF011",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Empresa británica de comercio electrónico",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF012",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Análisis descriptivo exploratorio",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF013",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "No se entrenaron modelos",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF014",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "No se realizaron inferencias causales",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF015",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "InvoiceDate original fecha-hora",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF016",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Quantity original numérica",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF017",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "UnitPrice original numérica",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF018",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Identificadores originales mixtos o nominales",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF019",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Copia preparada conserva541909 líneas",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF020",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Once columnas preparadas",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF021",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Tres variables derivadas añadidas",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF022",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "IsCancellation identifica prefijo C",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF023",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "LineAmount=QuantityxUnitPrice",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF024",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "InvoiceMonth deriva del mes de InvoiceDate",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF025",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "InvoiceNo convertido a texto nominal",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF026",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "StockCode convertido a texto nominal",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF027",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "CustomerID convertido a texto nominal",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF028",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "CustomerID serializado sin sufijo decimal",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF029",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Description recortada en espacios periféricos",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF030",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Country recortado en espacios periféricos",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF031",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "No se imputaron identificadores",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF032",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "No se imputaron descripciones",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF033",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "No se eliminaron cancelaciones",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF034",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "No se eliminaron duplicados",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF035",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "No se eliminaron ausencias",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF036",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "No se eliminaron extremos",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF037",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "La repetición de InvoiceNo no se trata como duplicación",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF038",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "La repetición de StockCode no se trata como duplicación",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF039",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "La repetición de CustomerID no se trata como duplicación",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF040",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "No hay identificador propio independiente de línea",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF041",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "No hay regla documental de deduplicación",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF042",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "No se anualizaron importes",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF043",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "No se extrapolaron registros",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF044",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "LineAmount no acredita ingreso definitivo",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF045",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "LineAmount no acredita cobro confirmado",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF046",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "LineAmount no acredita rentabilidad",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF047",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "LineAmount no mide descuento confirmado",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF048",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "LineAmount no acredita envío confirmado",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF049",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "LineAmount no acredita valor final de compra",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF050",
+        "report_lines": "3/5/7/15/17/19/23/25/29/31/93/97/103/113",
+        "statement": "Los agregados completos conservan signos, ceros y extremos",
+        "status": "respaldada",
+        "evidence": "STAT-001/004/005/007, TR-001–004, CSV, evento16 y diccionario público"
+      },
+      {
+        "id": "AF051",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "C indica cancelación documentada",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF052",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "9288 líneas C",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF053",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "C1,71% del total",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF054",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Importe C-896812,49 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF055",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "532621 líneas sin C",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF056",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Importe sin C10644560,42 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF057",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Importe neto total9747747,93 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF058",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "UK neto8187806,36 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF059",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "UK84,0% del importe neto",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF060",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Noviembre2011 máximo mensual de líneas",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF061",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Noviembre84711 líneas",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF062",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Noviembre máximo mensual neto",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF063",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Noviembre neto1461756,25 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF064",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "CustomerID ausente135080 líneas",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF065",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "CustomerID ausente24,93%",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF066",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Description ausente1454 líneas",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF067",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Description ausente0,27%",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF068",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Sin ausencias InvoiceNo",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF069",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Sin ausencias StockCode",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF070",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Sin ausencias Quantity",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF071",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Sin ausencias InvoiceDate",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF072",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Sin ausencias UnitPrice",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF073",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Sin ausencias Country",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF074",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "5268 duplicados después del primero",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF075",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Duplicados0,97% de líneas",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF076",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Ausencias de cliente limitan análisis por cliente",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF077",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Ausencias de descripción limitan agrupaciones descriptivas",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF078",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "4070 StockCode distintos",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF079",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "4372 clientes identificados originales",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF080",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "38 países",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF081",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Quantity completa mediana3",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF082",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Quantity completa P25=1",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF083",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Quantity completa P75=10",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF084",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Quantity completa mínima-80995",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF085",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Quantity completa máxima80995",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF086",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "UnitPrice completo mediana2,08 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF087",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "UnitPrice completo P25=1,25 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF088",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "UnitPrice completo P75=4,13 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF089",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "UnitPrice completo mínimo-11062,06 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF090",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "UnitPrice completo máximo38970 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF091",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Importe completo mediana9,75 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF092",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Importe completo P25=3,40 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF093",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Importe completo P75=17,40 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF094",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Importe completo mínimo-168469,60 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF095",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Importe completo máximo168469,60 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF096",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Quantity completa P99=100",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF097",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "UnitPrice completo P99=18 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF098",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Importe completo P99=180 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF099",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Quantity presenta cola amplia",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF100",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "UnitPrice presenta cola amplia",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF101",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Importe presenta cola amplia",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF102",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Medias sensibles a extremos",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF103",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "10624 cantidades negativas",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF104",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Dos precios negativos",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF105",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "2515 precios cero",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF106",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "11805 importes no positivos",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF107",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Unidades sin C5454024",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF108",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Unidades C-277574",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF109",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Mediana importe sin C9,90 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF110",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Mediana importe C-8,50 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF111",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Agregados C y sin C difieren en signo",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF112",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Noviembre3462 facturas",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF113",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Noviembre740286 unidades netas",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF114",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Cuota mensual mínima C aproximadamente1,27%",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF115",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Cuota mensual máxima C aproximadamente1,99%",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF116",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Cuota C noviembre1,27%",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF117",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Cuota C enero1,99%",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF118",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Cuota de líneas C no acredita tasa de devolución comercial",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF119",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "UK495478 líneas originales",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF120",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "UK23494 facturas",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF121",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Netherlands segundo neto",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF122",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Netherlands neto284661,54 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF123",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "EIRE tercero neto",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF124",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "EIRE neto263276,82 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF125",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Germany cuarto neto",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF126",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Germany neto221698,21 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF127",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "France quinto neto",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF128",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "France neto197403,90 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF129",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Ranking de pares código–descripción en líneas sin C",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF130",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Par DOT DOTCOM POSTAGE primero por importe regular",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF131",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Par DOT206248,77 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF132",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Par22423 REGENCY CAKESTAND segundo",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF133",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Par22423 importe174484,74 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF134",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Par23843 PAPER CRAFT tercero",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF135",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Par23843 importe168469,60 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF136",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Par23843 una línea",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF137",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Par23843 80995 unidades",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF138",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Par23843 influye en máximos y ranking",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF139",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "397924 líneas regulares identificadas",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF140",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "4339 clientes regulares identificados",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF141",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Importe regular por cliente mediana674,45 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF142",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Importe regular por cliente media2053,79 GBP",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF143",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Facturas por cliente regular mediana2",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF144",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Facturas por cliente regular media4,27",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF145",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Actividad identificada con concentración y cola alta",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF146",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Análisis por cliente no representa líneas sin identificador",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF147",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "530104 líneas regulares con Quantity y UnitPrice positivos",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF148",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Spearman Quantity–UnitPrice positivo-0,403",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF149",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Asociación monotónica negativa moderada",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF150",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Spearman no identifica mecanismo causal",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF151",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Spearman no resume población excluida",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF152",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "647 códigos multidescripción normalizada",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF153",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Máximo ocho descripciones por código",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF154",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Correspondencia código–descripción no unívoca",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF155",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "No se impuso una descripción única por código",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF156",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Los valores no positivos se registran como riesgos, no errores confirmados",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF157",
+        "report_lines": "9/11/27/29/35/37/39/41/43/47/49/51/53/55/57/59/85/87/89/91/101/107/109/111",
+        "statement": "Las cancelaciones afectan sumas netas",
+        "status": "respaldada",
+        "evidence": "STAT-002–006/008–015, incidencias y recálculo externo"
+      },
+      {
+        "id": "AF158",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "FIG-001 representa neto mensual",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF159",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "FIG-001 incluye cancelaciones",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF160",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "Neto crece septiembre–noviembre2011",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF161",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "FIG-002 compara diez países principales por importe neto",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF162",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "UK domina la figura geográfica",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF163",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "FIG-003 representa frecuencia de C frente a no C",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF164",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "Líneas C son minoría",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF165",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "La clasificación C no prueba naturaleza homogénea de todas las operaciones",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF166",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "FIG-004 representa Quantity positiva en líneas regulares",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF167",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "FIG-004 representa UnitPrice positivo en líneas regulares",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF168",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "Los dos histogramas usan escala logarítmica",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF169",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "FIG-004 excluye valores no positivos de la representación, no del CSV",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF170",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "Las figuras positivas muestran masa y cola",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF171",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "FIG-005 muestra doce pares por mayor importe regular",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF172",
+        "report_lines": "63/65/67/69/71/73/75/77/79/81",
+        "statement": "Las figuras no eliminan datos del CSV",
+        "status": "respaldada",
+        "evidence": "Cinco PNG inspeccionados, STAT-005/008/010/011/012/013/015 y evento16"
+      },
+      {
+        "id": "AF173",
+        "report_lines": "5/29/31/87/91/93/97/99/101/103/113",
+        "statement": "La documentación no clasifica concluyentemente todos los duplicados como errores",
+        "status": "respaldada",
+        "evidence": "Campos fuente, diccionario público, operaciones e ISSUE-001–005"
+      },
+      {
+        "id": "AF174",
+        "report_lines": "5/29/31/87/91/93/97/99/101/103/113",
+        "statement": "La documentación no clasifica concluyentemente todos los no positivos como errores",
+        "status": "respaldada",
+        "evidence": "Campos fuente, diccionario público, operaciones e ISSUE-001–005"
+      },
+      {
+        "id": "AF175",
+        "report_lines": "5/29/31/87/91/93/97/99/101/103/113",
+        "statement": "La documentación no clasifica concluyentemente todos los extremos como errores",
+        "status": "respaldada",
+        "evidence": "Campos fuente, diccionario público, operaciones e ISSUE-001–005"
+      },
+      {
+        "id": "AF176",
+        "report_lines": "5/29/31/87/91/93/97/99/101/103/113",
+        "statement": "No hay calendario operativo",
+        "status": "respaldada",
+        "evidence": "Campos fuente, diccionario público, operaciones e ISSUE-001–005"
+      },
+      {
+        "id": "AF177",
+        "report_lines": "5/29/31/87/91/93/97/99/101/103/113",
+        "statement": "La integridad operativa de diciembre2010 no está acreditada",
+        "status": "respaldada",
+        "evidence": "Campos fuente, diccionario público, operaciones e ISSUE-001–005"
+      },
+      {
+        "id": "AF178",
+        "report_lines": "5/29/31/87/91/93/97/99/101/103/113",
+        "statement": "No se determinó origen técnico o legítimo de duplicados",
+        "status": "respaldada",
+        "evidence": "Campos fuente, diccionario público, operaciones e ISSUE-001–005"
+      },
+      {
+        "id": "AF179",
+        "report_lines": "5/29/31/87/91/93/97/99/101/103/113",
+        "statement": "No hay relación documentada verificable C–factura original",
+        "status": "respaldada",
+        "evidence": "Campos fuente, diccionario público, operaciones e ISSUE-001–005"
+      },
+      {
+        "id": "AF180",
+        "report_lines": "5/29/31/87/91/93/97/99/101/103/113",
+        "statement": "El proceso operativo que genera cada registro no está documentado",
+        "status": "respaldada",
+        "evidence": "Campos fuente, diccionario público, operaciones e ISSUE-001–005"
+      },
+      {
+        "id": "AF181",
+        "report_lines": "5/29/31/87/91/93/97/99/101/103/113",
+        "statement": "La ausencia CustomerID no puede asumirse aleatoria",
+        "status": "respaldada",
+        "evidence": "Campos fuente, diccionario público, operaciones e ISSUE-001–005"
+      },
+      {
+        "id": "AF182",
+        "report_lines": "5/29/31/87/91/93/97/99/101/103/113",
+        "statement": "Imputar identidad carece de evidencia",
+        "status": "respaldada",
+        "evidence": "Campos fuente, diccionario público, operaciones e ISSUE-001–005"
+      },
+      {
+        "id": "AF183",
+        "report_lines": "5/29/31/87/91/93/97/99/101/103/113",
+        "statement": "No hay reglas operativas para códigos especiales",
+        "status": "respaldada",
+        "evidence": "Campos fuente, diccionario público, operaciones e ISSUE-001–005"
+      },
+      {
+        "id": "AF184",
+        "report_lines": "5/29/31/87/91/93/97/99/101/103/113",
+        "statement": "No hay reglas operativas para precios no positivos",
+        "status": "respaldada",
+        "evidence": "Campos fuente, diccionario público, operaciones e ISSUE-001–005"
+      },
+      {
+        "id": "AF185",
+        "report_lines": "5/29/31/87/91/93/97/99/101/103/113",
+        "statement": "Los análisis de clientes se limitan a identidad observada",
+        "status": "respaldada",
+        "evidence": "Campos fuente, diccionario público, operaciones e ISSUE-001–005"
+      }
+    ]
+  },
+  "profile_note": {
+    "column": "LineAmount",
+    "unique_in_memory": 6204,
+    "unique_csv_read": 5998,
+    "max_absolute_numeric_difference": 4.547473508864641e-13,
+    "interpretation": "Diferencia flotante sin pérdida monetaria a la tolerancia."
+  },
+  "normalization_equivalence": {
+    "multi_description_codes": 647,
+    "same_code_set": true
+  },
+  "excluded_q9": "Se excluyen recomendaciones e hipótesis explícitas, contrastando sus premisas. Posibilidad de mes inicial parcial no equivale a diagnóstico demostrado. Repeticiones cuentan una vez.",
+  "status": "Evaluación cerrada el 06/10/2026",
+  "status_updated_at": "2026-10-06",
+  "review_updates": [
+    {
+      "date": "2026-10-05",
+      "approved_by": "evaluador",
+      "original_scores": [
+        100,
+        78.72340425531915,
+        83.33333333333333,
+        88.88888888888889,
+        75,
+        75,
+        70,
+        84.0909090909091,
+        100,
+        75
+      ],
+      "original_index": 83.18982376961101,
+      "current_scores": [
+        100,
+        85.1063829787234,
+        83.33333333333333,
+        88.88888888888889,
+        75,
+        75,
+        70,
+        84.0909090909091,
+        100,
+        75
+      ],
+      "current_index": 84.14727057812165,
+      "confirmed_metrics": [
+        "Q2"
+      ],
+      "changed_controls": [
+        "C10",
+        "C18"
+      ],
+      "reason": {
+        "1": "Equivalencias numéricas aprobadas: C10, C18. Operaciones sobre resultados emitidos, sin analizar de nuevo las filas."
+      }
+    },
+    {
+      "date": "2026-10-06",
+      "approved_by": "evaluador",
+      "rule": "El 06/10/2026 se admite reconstruir la misma magnitud a partir de resultados emitidos, sin acreditar crecimientos o proporciones nuevos.",
+      "previous_q2": 85.1063829787234,
+      "current_q2": 82.97872340425532,
+      "previous_scores": [
+        100,
+        85.1063829787234,
+        83.33333333333333,
+        88.88888888888889,
+        75,
+        75,
+        70,
+        84.0909090909091,
+        100,
+        75
+      ],
+      "current_scores": [
+        100,
+        82.97872340425532,
+        83.33333333333333,
+        88.88888888888889,
+        75,
+        75,
+        70,
+        84.0909090909091,
+        100,
+        75
+      ],
+      "current_index": 83.82812164195143,
+      "controls_before": [
+        {
+          "id": "C29",
+          "label": "Proporción de líneas del Reino Unido",
+          "reference_path": "country_concentration.uk_row_share",
+          "tolerance": {
+            "absolute": 0.001
+          },
+          "weight": 1,
+          "actual": 0.9143195628786382,
+          "expected": 0.914319563,
+          "evidence": "STAT-010/001, cuota a partir de conteos emitidos",
+          "correct": 1,
+          "status": "correcta"
+        }
+      ],
+      "operations": [
+        {
+          "id": "C29",
+          "previous_value": 0.9143195628786382,
+          "operands": [
+            495478,
+            541909
+          ],
+          "previous_evidence": "STAT-010/001, cuota a partir de conteos emitidos",
+          "decision": "Ausente. Los conteos no acreditan una proporción que el framework no emitió."
+        }
+      ],
+      "other_metrics_unchanged": true
+    },
+    {
+      "date": "2026-10-06",
+      "action": "global_acceptance_and_closure",
+      "approved_by": "evaluador",
+      "previous_state": {
+        "status": "revisada, diez notas finales registradas en el Excel",
+        "current_scores": [
+          100,
+          82.97872340425532,
+          83.33333333333333,
+          88.88888888888889,
+          75,
+          75,
+          70,
+          84.0909090909091,
+          100,
+          75
+        ],
+        "current_index": 83.82812164195143
+      },
+      "final_scores": [
+        100,
+        82.97872340425532,
+        83.33333333333333,
+        88.88888888888889,
+        75,
+        75,
+        70,
+        84.0909090909091,
+        100,
+        75
+      ],
+      "final_index": 83.82812164195143,
+      "note": "06/10/2026. Cierre de la evaluación con las puntuaciones vigentes, sin una nueva puntuación individual."
+    }
+  ],
+  "current_scores": [
+    100,
+    82.97872340425532,
+    83.33333333333333,
+    88.88888888888889,
+    75,
+    75,
+    70,
+    84.0909090909091,
+    100,
+    75
+  ],
+  "current_index": 83.82812164195143,
+  "q2_human_confirmation_date": "2026-10-06",
+  "final_scores": [
+    100,
+    82.97872340425532,
+    83.33333333333333,
+    88.88888888888889,
+    75,
+    75,
+    70,
+    84.0909090909091,
+    100,
+    75
+  ],
+  "final_index": 83.82812164195143,
+  "confirmed_metrics": [
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4",
+    "Q5",
+    "Q6",
+    "Q7",
+    "Q8",
+    "Q9",
+    "Q10"
+  ],
+  "pending_metrics": [],
+  "evaluation_status": "closed"
+}

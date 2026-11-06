@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0",
+  "run_id": "D1_bike_sharing__langgraph__r02__20260831T180229010000Z",
+  "dataset_id": "D1_bike_sharing",
+  "checks_performed": [
+    {
+      "id": "CHK-001",
+      "category": "missing",
+      "description": "Conteo de valores ausentes por cada columna fuente.",
+      "outcome": "0 valores ausentes en las 17 columnas fuente.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-002",
+      "category": "duplicate",
+      "description": "Comprobación de filas completas, instant y clave dteday-hr duplicados.",
+      "outcome": "0 duplicados en las tres comprobaciones.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-003",
+      "category": "temporal",
+      "description": "Validación de fechas, secuencia horaria y número de horas por fecha.",
+      "outcome": "Fechas continuas, con 165 espacios horarios teóricos ausentes y fechas con menos de 24 registros.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "CHK-004",
+      "category": "range_category",
+      "description": "Validación de dominios categóricos, rangos normalizados y no negatividad de recuentos.",
+      "outcome": "No se hallaron códigos fuera de dominio, valores normalizados fuera de [0,1] ni recuentos negativos.",
+      "evidence_ids": [
+        "STAT-004"
+      ]
+    },
+    {
+      "id": "CHK-005",
+      "category": "identity",
+      "description": "Comprobación cnt = casual + registered y coherencia de yr, mnth, weekday y workingday con dteday.",
+      "outcome": "0 violaciones; weekday concuerda con domingo=0.",
+      "evidence_ids": [
+        "STAT-004"
+      ]
+    },
+    {
+      "id": "CHK-006",
+      "category": "outlier",
+      "description": "Cribado IQR de cnt y revisión de filas máximas.",
+      "outcome": "Se identificaron valores altos estadísticos, retenidos sin clasificarlos como errores.",
+      "evidence_ids": [
+        "STAT-005"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "id": "ISSUE-001",
+      "category": "temporal",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Espacios horarios no observados en la cobertura teórica",
+      "description": "La secuencia entre la primera y última marca temporal contiene espacios horarios sin registro; algunas fechas tienen menos de 24 observaciones.",
+      "evidence": "STAT-003 cuantifica 165 espacios horarios ausentes y lista ejemplos de fechas incompletas.",
+      "affected_columns": [
+        "dteday",
+        "hr",
+        "timestamp",
+        "cnt"
+      ],
+      "affected_row_count": 165,
+      "sample_row_ids": [
+        "2011-01-02 05:00:00",
+        "2011-01-03 02:00:00",
+        "2011-01-03 03:00:00",
+        "2011-01-04 03:00:00",
+        "2011-01-05 03:00:00"
+      ],
+      "decision": "Conservar los registros disponibles y no imputar alquileres desconocidos.",
+      "action": "Informar número de registros en agregaciones y evitar interpretar sumas de cobertura desigual como directamente comparables.",
+      "potential_effect": "Las sumas diarias o mensuales pueden reducirse por horas no observadas, no solo por nivel de alquileres.",
+      "uncertainty": "No se puede determinar con este archivo si cada ausencia procede de horario de verano, indisponibilidad u otra causa.",
+      "evidence_ids": [
+        "STAT-003",
+        "STAT-010"
+      ]
+    },
+    {
+      "id": "ISSUE-002",
+      "category": "outlier",
+      "status": "retained",
+      "severity": "low",
+      "title": "Valores altos de cnt según regla IQR",
+      "description": "Algunos registros superan el umbral superior de IQR para cnt.",
+      "evidence": "STAT-005 aporta umbral, número de registros y filas con el máximo; STAT-004 confirma no negatividad e identidad de componentes.",
+      "affected_columns": [
+        "cnt",
+        "casual",
+        "registered"
+      ],
+      "affected_row_count": 505,
+      "sample_row_ids": [
+        14774
+      ],
+      "decision": "Retener como extremos estadísticos potencialmente válidos.",
+      "action": "No se aplicó recorte ni eliminación; la distribución y los cuantiles se presentan explícitamente.",
+      "potential_effect": "La media y las sumas son sensibles a estos valores; mediana y cuantiles complementan la descripción.",
+      "uncertainty": "No hay evidencia interna para decidir si reflejan demanda real excepcional o incidencia de medición.",
+      "evidence_ids": [
+        "STAT-005",
+        "STAT-007"
+      ]
+    }
+  ]
+}

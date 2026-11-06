@@ -1,0 +1,131 @@
+{
+  "manifest_version": "1.2",
+  "retrieved_on": "2026-08-04",
+  "updated_on": "2026-08-28",
+  "selection": {
+    "sampling": "none",
+    "d0_selected_file": "pedidos_piloto.csv",
+    "d1_selected_file": "hour.csv",
+    "d2_selected_file": "Online Retail.xlsx"
+  },
+  "datasets": [
+    {
+      "id": "D0_piloto",
+      "name": "Pedidos sintéticos",
+      "source": "Generación local reproducible para el piloto técnico",
+      "generator": "datasets/reference_private/D0_piloto/generate_pilot.mjs",
+      "generator_version": "1.0",
+      "seed": 20260808,
+      "license": "No aplica. Datos sintéticos creados para el TFM",
+      "pilot_only": true,
+      "selected_input": "datasets/experiment_inputs/D0_piloto/pedidos_piloto.csv",
+      "selected_sheet": null,
+      "selected_input_structure": {
+        "rows": 246,
+        "columns": 13,
+        "period_start": "2025-01-01",
+        "period_end": "2025-06-10"
+      },
+      "files": [
+        {
+          "path": "datasets/experiment_inputs/D0_piloto/pedidos_piloto.csv",
+          "bytes": 19361,
+          "sha256": "9073C498158358126C1F10A27BD0C6144A59814C33CDF99314C31C42A1F11412"
+        },
+        {
+          "path": "datasets/experiment_inputs/D0_piloto/Readme.md",
+          "bytes": 1934,
+          "sha256": "3D61D4437C9BC33AA5D9C0836538BD6AF55049A4E79264548FEAF93EC0EA4F7A"
+        }
+      ]
+    },
+    {
+      "id": "D1_bike_sharing",
+      "name": "Bike Sharing",
+      "repository": "UCI Machine Learning Repository",
+      "landing_page": "https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset",
+      "download_url": "https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip",
+      "doi": "10.24432/C5W894",
+      "license": "CC BY 4.0",
+      "selected_input": "datasets/experiment_inputs/D1_bike_sharing/hour.csv",
+      "selected_sheet": null,
+      "selected_input_structure": {
+        "rows": 17379,
+        "columns": 17,
+        "period_start": "2011-01-01T00:00:00",
+        "period_end": "2012-12-31T23:00:00"
+      },
+      "files": [
+        {
+          "path": "datasets/raw/D1_bike_sharing/bike_sharing_dataset.zip",
+          "bytes": 279992,
+          "sha256": "B70182D0D0508E9ABBB79306CE5C0CEC34869000F8220175AC83D11DBE845401"
+        },
+        {
+          "path": "datasets/raw/D1_bike_sharing/hour.csv",
+          "bytes": 1156736,
+          "sha256": "E03DE4EE4EF4DC376AC6E04BF829673C6269E8EBA5C60FA121640FA2F829504F"
+        },
+        {
+          "path": "datasets/raw/D1_bike_sharing/day.csv",
+          "bytes": 57569,
+          "sha256": "A6BCF826782D3C0FBFDCBEEAD17CD0884185A0DAFE8FF10CD48A874EE7BA18BE"
+        },
+        {
+          "path": "datasets/raw/D1_bike_sharing/Readme.txt",
+          "bytes": 5607,
+          "sha256": "B92C8628622948BF0828C43A1B315D1517C3D7FD63654730D0DEA379B8E88175"
+        },
+        {
+          "path": "datasets/experiment_inputs/D1_bike_sharing/hour.csv",
+          "bytes": 1156736,
+          "sha256": "E03DE4EE4EF4DC376AC6E04BF829673C6269E8EBA5C60FA121640FA2F829504F"
+        },
+        {
+          "path": "datasets/experiment_inputs/D1_bike_sharing/Readme.txt",
+          "bytes": 5607,
+          "sha256": "B92C8628622948BF0828C43A1B315D1517C3D7FD63654730D0DEA379B8E88175"
+        }
+      ]
+    },
+    {
+      "id": "D2_online_retail",
+      "name": "Online Retail",
+      "repository": "UCI Machine Learning Repository",
+      "landing_page": "https://archive.ics.uci.edu/dataset/352/online+retail",
+      "download_url": "https://archive.ics.uci.edu/static/public/352/online+retail.zip",
+      "doi": "10.24432/C5BW33",
+      "license": "CC BY 4.0",
+      "selected_input": "datasets/experiment_inputs/D2_online_retail/Online Retail.xlsx",
+      "selected_sheet": "Online Retail",
+      "selected_input_structure": {
+        "rows": 541909,
+        "columns": 8,
+        "period_start": "2010-12-01T08:26:00",
+        "period_end": "2011-12-09T12:50:00"
+      },
+      "files": [
+        {
+          "path": "datasets/raw/D2_online_retail/online_retail.zip",
+          "bytes": 23715478,
+          "sha256": "F5385CBB54BBEBF7196389109C6B0621FAAB0C304E3702548165E71C84AEDE8B"
+        },
+        {
+          "path": "datasets/raw/D2_online_retail/Online Retail.xlsx",
+          "bytes": 23715344,
+          "sha256": "43465A06F2CCF7C8B5BD2892BC7DEFB52F97487934FE93B16AE4C3936424676D"
+        },
+        {
+          "path": "datasets/experiment_inputs/D2_online_retail/Online Retail.xlsx",
+          "bytes": 23715344,
+          "sha256": "43465A06F2CCF7C8B5BD2892BC7DEFB52F97487934FE93B16AE4C3936424676D"
+        },
+        {
+          "path": "datasets/experiment_inputs/D2_online_retail/Readme.md",
+          "bytes": 1337,
+          "sha256": "02697F86CEAD468A931826549DFADDE53DA3088FEABB2FDF892CD03828578FE1"
+        }
+      ]
+    }
+  ]
+}

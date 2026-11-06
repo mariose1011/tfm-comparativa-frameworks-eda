@@ -1,0 +1,234 @@
+{
+  "generated_from": {
+    "path": "datasets/experiment_inputs/D0_piloto/pedidos_piloto.csv",
+    "sha256": "9073C498158358126C1F10A27BD0C6144A59814C33CDF99314C31C42A1F11412",
+    "generator": "datasets/reference_private/D0_piloto/generate_pilot.mjs",
+    "generator_version": "1.0",
+    "seed": 20260808
+  },
+  "structure": {
+    "rows": 246,
+    "columns": 13,
+    "column_names": [
+      "order_id",
+      "order_date",
+      "region",
+      "channel",
+      "customer_type",
+      "product_category",
+      "units",
+      "unit_price_eur",
+      "discount_rate",
+      "delivery_days",
+      "satisfaction_score",
+      "returned",
+      "net_amount_eur"
+    ],
+    "unique_order_ids": 240,
+    "date_min": "2025-01-01",
+    "date_max": "2025-06-10",
+    "months_present": 6,
+    "partial_last_month": "2025-06"
+  },
+  "quality": {
+    "missing_cells_total": 24,
+    "missing_by_column": {
+      "order_id": 0,
+      "order_date": 2,
+      "region": 3,
+      "channel": 0,
+      "customer_type": 0,
+      "product_category": 0,
+      "units": 0,
+      "unit_price_eur": 0,
+      "discount_rate": 0,
+      "delivery_days": 5,
+      "satisfaction_score": 14,
+      "returned": 0,
+      "net_amount_eur": 0
+    },
+    "duplicate_rows_after_first": 6,
+    "rows_after_drop_duplicates": 240,
+    "duplicate_order_ids_after_first": 6,
+    "raw_region_labels": [
+      " SUR",
+      "Este",
+      "Este ",
+      "Norte",
+      "OESTE",
+      "Oeste",
+      "Sur",
+      "nOrTe",
+      "norte"
+    ],
+    "raw_region_label_count": 9,
+    "normalized_region_categories": [
+      "Este",
+      "Norte",
+      "Oeste",
+      "Sur"
+    ],
+    "normalized_region_category_count": 4,
+    "raw_channel_labels": [
+      "Online",
+      "Socio",
+      "TIENDA",
+      "Tienda",
+      "online ",
+      "socio"
+    ],
+    "raw_channel_label_count": 6,
+    "normalized_channel_categories": [
+      "Online",
+      "Socio",
+      "Tienda"
+    ],
+    "normalized_channel_category_count": 3,
+    "invalid_discount_rows": 2,
+    "negative_delivery_rows": 2,
+    "amount_identity_errors": 4,
+    "high_unit_rows_50_or_more": 1
+  },
+  "overall": {
+    "units_sum": 2179,
+    "units_mean": 8.857724,
+    "units_median": 5,
+    "units_max": 85,
+    "recorded_net_sum": 178802.89,
+    "recalculated_net_sum": 178793.05,
+    "returned_rows": 10,
+    "return_rate": 0.040650407,
+    "satisfaction_mean_non_null": 4.62069,
+    "valid_delivery_mean": 2.711297
+  },
+  "sensitivity": {
+    "recorded_net_after_exact_deduplication": 170319.56,
+    "recorded_net_difference_due_to_exact_duplicates": 8483.33
+  },
+  "temporal": {
+    "by_month": {
+      "2025-01": {
+        "rows": 48,
+        "recorded_net_sum": 39091.87,
+        "mean_recorded_net": 814.413958,
+        "mean_valid_delivery_days": 2.829787
+      },
+      "2025-02": {
+        "rows": 43,
+        "recorded_net_sum": 36338.87,
+        "mean_recorded_net": 845.09,
+        "mean_valid_delivery_days": 2.829268
+      },
+      "2025-03": {
+        "rows": 47,
+        "recorded_net_sum": 34477.67,
+        "mean_recorded_net": 733.567447,
+        "mean_valid_delivery_days": 2.76087
+      },
+      "2025-04": {
+        "rows": 45,
+        "recorded_net_sum": 21996.54,
+        "mean_recorded_net": 488.812,
+        "mean_valid_delivery_days": 2.590909
+      },
+      "2025-05": {
+        "rows": 47,
+        "recorded_net_sum": 32072.43,
+        "mean_recorded_net": 682.392128,
+        "mean_valid_delivery_days": 2.733333
+      },
+      "2025-06": {
+        "rows": 14,
+        "recorded_net_sum": 11403.72,
+        "mean_recorded_net": 814.551429,
+        "mean_valid_delivery_days": 2.357143
+      }
+    },
+    "highest_complete_month_by_recorded_net": {
+      "month": "2025-01",
+      "value": 39091.87
+    }
+  },
+  "by_region_normalized": {
+    "Este": {
+      "rows": 59,
+      "recorded_net_sum": 38930.69,
+      "mean_recorded_net": 659.842203,
+      "mean_valid_delivery_days": 2.526316
+    },
+    "Norte": {
+      "rows": 69,
+      "recorded_net_sum": 54909.5,
+      "mean_recorded_net": 795.789855,
+      "mean_valid_delivery_days": 2.478261
+    },
+    "Oeste": {
+      "rows": 58,
+      "recorded_net_sum": 43353.45,
+      "mean_recorded_net": 747.473276,
+      "mean_valid_delivery_days": 3.375
+    },
+    "Sur": {
+      "rows": 57,
+      "recorded_net_sum": 39320.17,
+      "mean_recorded_net": 689.827544,
+      "mean_valid_delivery_days": 2.425926
+    }
+  },
+  "by_channel_normalized": {
+    "Online": {
+      "rows": 108,
+      "recorded_net_sum": 86536.18,
+      "mean_recorded_net": 801.260926,
+      "mean_valid_delivery_days": 3.317308
+    },
+    "Socio": {
+      "rows": 50,
+      "recorded_net_sum": 38654.01,
+      "mean_recorded_net": 773.0802,
+      "mean_valid_delivery_days": 4.183673
+    },
+    "Tienda": {
+      "rows": 88,
+      "recorded_net_sum": 53612.7,
+      "mean_recorded_net": 609.235227,
+      "mean_valid_delivery_days": 1.139535
+    }
+  },
+  "by_product_category": {
+    "Consumibles": {
+      "rows": 90,
+      "recorded_net_sum": 11777.13,
+      "mean_recorded_net": 130.857,
+      "mean_valid_delivery_days": 2.568182
+    },
+    "Equipamiento": {
+      "rows": 65,
+      "recorded_net_sum": 71366.83,
+      "mean_recorded_net": 1097.951231,
+      "mean_valid_delivery_days": 2.754098
+    },
+    "Servicios": {
+      "rows": 52,
+      "recorded_net_sum": 28916.44,
+      "mean_recorded_net": 556.085385,
+      "mean_valid_delivery_days": 2.745098
+    },
+    "Software": {
+      "rows": 39,
+      "recorded_net_sum": 66742.49,
+      "mean_recorded_net": 1711.345897,
+      "mean_valid_delivery_days": 2.923077
+    }
+  },
+  "by_returned": {
+    "0": {
+      "rows": 236,
+      "mean_satisfaction_non_null": 4.662162
+    },
+    "1": {
+      "rows": 10,
+      "mean_satisfaction_non_null": 3.7
+    }
+  }
+}

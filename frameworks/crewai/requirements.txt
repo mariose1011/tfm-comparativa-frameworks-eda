@@ -1,0 +1,3 @@
+-r ../../experimento/capa_comun/requirements.txt
+
+crewai[openai]==1.15.11

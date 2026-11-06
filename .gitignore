@@ -1,0 +1,42 @@
+# Credenciales y configuración privada
+.env
+.env.*
+*.env
+!.env.example
+!*.env.example
+*.pem
+*.key
+.codex/
+.agents/
+
+# Entornos virtuales y dependencias locales
+.venv/
+venv/
+node_modules/
+
+# Cachés y archivos generados por las herramientas
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.local_appdata/
+.storage/
+
+# Material interno y copias de trabajo
+*NO_COMPARTIR*/
+REVISION_TEMPORAL.md
+revision_temporal.md
+copias_seguridad/
+*.bak
+*.tmp
+~$*
+
+# Configuración del editor y archivos del sistema
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini

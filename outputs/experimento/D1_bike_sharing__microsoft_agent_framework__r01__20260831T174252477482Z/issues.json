@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "run_id": "D1_bike_sharing__microsoft_agent_framework__r01__20260831T174252477482Z",
+  "dataset_id": "D1_bike_sharing",
+  "checks_performed": [
+    {
+      "id": "CHK-001",
+      "category": "missing",
+      "description": "Nulos en todas las columnas.",
+      "outcome": "0 ausencias.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-002",
+      "category": "duplicate",
+      "description": "Duplicados de fila, instant y fecha-hora.",
+      "outcome": "0 duplicados; instant secuencial.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-003",
+      "category": "category_range_identity",
+      "description": "Códigos, rangos, identidad y coherencia temporal.",
+      "outcome": "0 infracciones comprobadas.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "CHK-004",
+      "category": "temporal",
+      "description": "Fechas y horas por fecha.",
+      "outcome": "731 fechas continuas; 165 franjas no representadas.",
+      "evidence_ids": [
+        "STAT-004"
+      ]
+    },
+    {
+      "id": "CHK-005",
+      "category": "outlier",
+      "description": "Tukey y extremos diarios.",
+      "outcome": "Extremos estadísticos sin evidencia de error.",
+      "evidence_ids": [
+        "STAT-014"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "id": "ISSUE-001",
+      "category": "temporal",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Cobertura horaria incompleta frente a malla de 24 horas",
+      "description": "Todas las fechas están presentes, pero algunas contienen menos de 24 registros.",
+      "evidence": "17.379 observaciones frente a 17.544 franjas de una malla regular; 165 no representadas.",
+      "affected_columns": [
+        "dteday",
+        "hr"
+      ],
+      "affected_row_count": 165,
+      "sample_row_ids": [],
+      "decision": "Retener sin imputar.",
+      "action": "Advertir al interpretar agregados; investigar con metadatos adicionales.",
+      "potential_effect": "Totales y medias pueden no representar días completos.",
+      "uncertainty": "No se conoce el mecanismo de ausencia.",
+      "evidence_ids": [
+        "STAT-004"
+      ]
+    },
+    {
+      "id": "ISSUE-002",
+      "category": "outlier",
+      "status": "retained",
+      "severity": "low",
+      "title": "Extremos estadísticos de cnt conservados",
+      "description": "Tukey identifica valores extremos relativos, sin señales de invalidez.",
+      "evidence": "Cumplen rangos y cnt=casual+registered; el recuento está en STAT-014.",
+      "affected_columns": [
+        "cnt",
+        "casual",
+        "registered"
+      ],
+      "affected_row_count": 505,
+      "sample_row_ids": [],
+      "decision": "Conservar y acompañar media de mediana/cuartiles.",
+      "action": "No winsorizar ni eliminar.",
+      "potential_effect": "La media puede ser sensible a valores altos.",
+      "uncertainty": "No hay contexto externo para clasificar eventos.",
+      "evidence_ids": [
+        "STAT-006",
+        "STAT-014"
+      ]
+    }
+  ]
+}

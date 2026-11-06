@@ -1,0 +1,280 @@
+{
+  "schema_version": "1.0",
+  "run_id": "D2_online_retail__microsoft_agent_framework__r01__20260902T172454433424Z",
+  "dataset_id": "D2_online_retail",
+  "checks_performed": [
+    {
+      "id": "CHK-001",
+      "category": "load_and_schema",
+      "description": "Lectura de hoja, dimensiones, columnas y fechas extremas.",
+      "outcome": "Carga correcta de la tabla Online Retail.",
+      "evidence_ids": [
+        "STAT-001"
+      ]
+    },
+    {
+      "id": "CHK-002",
+      "category": "missingness",
+      "description": "Conteo por columna y patrón Description/CustomerID.",
+      "outcome": "Se detectaron ausencias en ambas columnas.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-003",
+      "category": "duplicates_cardinality",
+      "description": "Duplicados exactos y cardinalidad de claves/categorías.",
+      "outcome": "Se detectaron duplicados exactos; cardinalidades cuantificadas.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "CHK-004",
+      "category": "types_categories",
+      "description": "Patrones de identificadores, espacios y prefijo de cancelación.",
+      "outcome": "Se detectaron códigos especiales y espacios en Description.",
+      "evidence_ids": [
+        "STAT-004"
+      ]
+    },
+    {
+      "id": "CHK-005",
+      "category": "range_outliers",
+      "description": "Signos, ceros, cuantiles y señal de Tukey.",
+      "outcome": "Se detectaron no positivos y cola alta, retenidos con cautela.",
+      "evidence_ids": [
+        "STAT-005",
+        "STAT-006",
+        "STAT-007",
+        "STAT-011",
+        "STAT-015",
+        "STAT-016"
+      ]
+    },
+    {
+      "id": "CHK-006",
+      "category": "temporal",
+      "description": "Fechas inválidas, rango y conteos mensuales.",
+      "outcome": "No hay fechas inválidas; el último mes está truncado al día 9.",
+      "evidence_ids": [
+        "STAT-008",
+        "STAT-013"
+      ]
+    },
+    {
+      "id": "CHK-007",
+      "category": "identity_consistency",
+      "description": "Relaciones código-descripción, cliente-país, factura-fecha e identidad LineAmount.",
+      "outcome": "Se cuantificaron relaciones no uno-a-uno y la identidad derivada se verificó.",
+      "evidence_ids": [
+        "STAT-009"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "id": "ISSUE-001",
+      "category": "missing",
+      "status": "retained",
+      "severity": "high",
+      "title": "Ausencias en CustomerID",
+      "description": "CustomerID no está disponible en una fracción material de líneas; Description también presenta ausencias.",
+      "evidence": {
+        "missing_customerid": 135080,
+        "missing_customerid_pct": 24.926694334288598,
+        "missing_description": 1454,
+        "both_missing": 1454
+      },
+      "affected_columns": [
+        "CustomerID",
+        "Description"
+      ],
+      "affected_row_count": 135080,
+      "sample_row_ids": [
+        622,
+        1443,
+        1444,
+        1445,
+        1446
+      ],
+      "decision": "Conservar todas las líneas; limitar análisis por cliente a CustomerID disponible.",
+      "action": "No imputar identificadores ni descripciones.",
+      "potential_effect": "Las métricas por cliente o artículo pueden no representar toda la actividad de líneas.",
+      "uncertainty": "No se conoce la causa de las ausencias con la documentación disponible.",
+      "evidence_ids": [
+        "STAT-002",
+        "STAT-010"
+      ]
+    },
+    {
+      "id": "ISSUE-002",
+      "category": "duplicate",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Filas duplicadas exactas",
+      "description": "Hay filas iguales en las ocho variables fuente.",
+      "evidence": {
+        "exact_duplicate_rows": 5268
+      },
+      "affected_columns": [
+        "InvoiceNo",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "UnitPrice",
+        "CustomerID",
+        "Country"
+      ],
+      "affected_row_count": 5268,
+      "sample_row_ids": [
+        517,
+        527,
+        537,
+        539,
+        555
+      ],
+      "decision": "Conservarlas en la copia preparada.",
+      "action": "Recomendar validar contra un identificador de línea externo antes de deduplicar.",
+      "potential_effect": "Si fueran duplicados de carga, podrían inflar conteos e importes; si son líneas legítimas, eliminarlas sesgaría resultados.",
+      "uncertainty": "No existe identificador de línea ni regla documental que permita resolverlo.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "ISSUE-003",
+      "category": "range",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Cantidades o precios no positivos",
+      "description": "Existen líneas con Quantity o UnitPrice no positivos, en gran parte asociadas a cancelaciones.",
+      "evidence": {
+        "lines_with_nonpositive_quantity_or_price": 11805,
+        "of_which_cancellation": 9288,
+        "noncancellation_with_nonpositive": 2517,
+        "cancellation_with_positive_quantity_and_price": 0
+      },
+      "affected_columns": [
+        "Quantity",
+        "UnitPrice",
+        "IsCancellation"
+      ],
+      "affected_row_count": 11805,
+      "sample_row_ids": [
+        141,
+        154,
+        235,
+        236,
+        237
+      ],
+      "decision": "Conservar la población íntegra y usar ventas tipo línea explícitamente filtradas para comparativos comerciales.",
+      "action": "Segmentación por IsCancellation y signo, sin corrección automática.",
+      "potential_effect": "Los totales agregados cambian materialmente según se incluyan o excluyan estas líneas.",
+      "uncertainty": "No se puede determinar si cada caso no positivo es devolución, ajuste u otra operación.",
+      "evidence_ids": [
+        "STAT-005",
+        "STAT-006",
+        "STAT-007",
+        "STAT-016"
+      ]
+    },
+    {
+      "id": "ISSUE-004",
+      "category": "temporal",
+      "status": "detected",
+      "severity": "low",
+      "title": "Mes final incompleto",
+      "description": "La última fecha observada es el día 9 de diciembre de 2011.",
+      "evidence": {
+        "last_timestamp": "2011-12-09T12:50:00",
+        "last_month": "2011-12",
+        "last_day": 9
+      },
+      "affected_columns": [
+        "InvoiceDate",
+        "YearMonth"
+      ],
+      "affected_row_count": 25525,
+      "sample_row_ids": [],
+      "decision": "Mantener el mes y señalar su cobertura parcial.",
+      "action": "No comparar su total como si representase un mes completo.",
+      "potential_effect": "Las comparaciones mensuales pueden subestimar diciembre de 2011.",
+      "uncertainty": "No se conoce si faltan días por corte de extracción o ausencia de actividad.",
+      "evidence_ids": [
+        "STAT-008",
+        "STAT-013"
+      ]
+    },
+    {
+      "id": "ISSUE-005",
+      "category": "outlier",
+      "status": "suspected",
+      "severity": "medium",
+      "title": "Cola alta de importes de línea",
+      "description": "La regla de Tukey identifica líneas de importe elevado dentro de ventas tipo línea; no se consideran errores probados.",
+      "evidence": {
+        "spearman_rho_quantity_unitprice": -0.4032372816383789,
+        "n": 530104,
+        "lineamount_tukey_upper_cutoff_gbp": 38.62500000000001,
+        "lines_above_cutoff": 42651,
+        "share_of_sales_amount_above_cutoff_pct": 52.13328618711235
+      },
+      "affected_columns": [
+        "Quantity",
+        "UnitPrice",
+        "LineAmount"
+      ],
+      "affected_row_count": 42651,
+      "sample_row_ids": [
+        9,
+        26,
+        27,
+        28,
+        31
+      ],
+      "decision": "Conservarlas y emplear cuantiles, escala logarítmica y agregaciones explícitas.",
+      "action": "No winsorizar ni eliminar sin validación de negocio.",
+      "potential_effect": "Medias, importes agregados y asociaciones pueden estar dominados por pocas líneas.",
+      "uncertainty": "La documentación no define límites válidos de cantidad, precio o importe.",
+      "evidence_ids": [
+        "STAT-011",
+        "STAT-015"
+      ]
+    },
+    {
+      "id": "ISSUE-006",
+      "category": "category",
+      "status": "retained",
+      "severity": "low",
+      "title": "Códigos especiales y espacios en texto",
+      "description": "StockCode incluye formatos fuera de número con letra opcional; varias Description tienen espacios periféricos.",
+      "evidence": {
+        "stockcodes_non_simple_pattern": 3385,
+        "descriptions_changed_if_trimmed": 113452
+      },
+      "affected_columns": [
+        "StockCode",
+        "Description"
+      ],
+      "affected_row_count": 3385,
+      "sample_row_ids": [
+        45,
+        132,
+        141,
+        281,
+        386
+      ],
+      "decision": "Preservar valores fuente; usar StockCode como categoría textual.",
+      "action": "No convertir códigos a números ni normalizar Description de forma irreversible.",
+      "potential_effect": "Agrupar solo por Description o convertir StockCode puede combinar o distorsionar conceptos.",
+      "uncertainty": "No se documenta la semántica de los códigos especiales.",
+      "evidence_ids": [
+        "STAT-004",
+        "STAT-009"
+      ]
+    }
+  ]
+}

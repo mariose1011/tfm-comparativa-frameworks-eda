@@ -1,0 +1,92 @@
+{
+  "spec_version": "0.1",
+  "dataset_id": "D1_bike_sharing",
+  "input_sha256": "E03DE4EE4EF4DC376AC6E04BF829673C6269E8EBA5C60FA121640FA2F829504F",
+  "reference_values_file": "reference_values.json",
+  "automatic_checks": [
+    {"id": "C01", "label": "Número de filas", "reference_path": "structure.rows", "tolerance": "exact", "weight": 2},
+    {"id": "C02", "label": "Número de columnas", "reference_path": "structure.columns", "tolerance": "exact", "weight": 2},
+    {"id": "C03", "label": "Fechas distintas", "reference_path": "structure.unique_dates", "tolerance": "exact", "weight": 1},
+    {"id": "C04", "label": "Celdas ausentes", "reference_path": "quality.missing_cells_total", "tolerance": "exact", "weight": 2},
+    {"id": "C05", "label": "Filas duplicadas", "reference_path": "quality.duplicate_rows", "tolerance": "exact", "weight": 2},
+    {"id": "C06", "label": "Huecos en la secuencia horaria", "reference_path": "structure.missing_hourly_slots", "tolerance": "exact", "weight": 1},
+    {"id": "C07", "label": "Alquileres totales", "reference_path": "overall.cnt_sum", "tolerance": "exact", "weight": 2},
+    {"id": "C08", "label": "Media horaria de alquileres", "reference_path": "overall.cnt_mean", "tolerance": {"absolute": 0.01}, "weight": 2},
+    {"id": "C09", "label": "Mediana horaria de alquileres", "reference_path": "overall.cnt_median", "tolerance": {"absolute": 0.01}, "weight": 1},
+    {"id": "C10", "label": "Desviación típica muestral", "reference_path": "overall.cnt_std_sample", "tolerance": {"absolute": 0.01}, "weight": 1},
+    {"id": "C11", "label": "Máximo horario", "reference_path": "overall.cnt_max", "tolerance": "exact", "weight": 1},
+    {"id": "C12", "label": "Total de usuarios ocasionales", "reference_path": "overall.casual_sum", "tolerance": "exact", "weight": 1},
+    {"id": "C13", "label": "Total de usuarios registrados", "reference_path": "overall.registered_sum", "tolerance": "exact", "weight": 1},
+    {"id": "C14", "label": "Proporción de usuarios registrados", "reference_path": "overall.registered_share", "tolerance": {"absolute": 0.001}, "weight": 1},
+    {"id": "C15", "label": "Alquileres totales en 2011", "reference_path": "by_year.0.total_cnt", "tolerance": "exact", "weight": 1},
+    {"id": "C16", "label": "Alquileres totales en 2012", "reference_path": "by_year.1.total_cnt", "tolerance": "exact", "weight": 1},
+    {"id": "C17", "label": "Variación total de 2012 respecto a 2011", "reference_path": "year_change.total_cnt_2012_vs_2011_pct", "tolerance": {"absolute_percentage_points": 0.1}, "weight": 2},
+    {"id": "C18", "label": "Hora con mayor media", "reference_path": "by_hour.17.mean", "expected_category": 17, "tolerance": {"absolute": 0.05}, "weight": 2},
+    {"id": "C19", "label": "Hora con menor media", "reference_path": "by_hour.4.mean", "expected_category": 4, "tolerance": {"absolute": 0.05}, "weight": 1},
+    {"id": "C20", "label": "Temporada con mayor media", "reference_path": "by_season.3.mean", "expected_category": 3, "tolerance": {"absolute": 0.05}, "weight": 1},
+    {"id": "C21", "label": "Media con tiempo despejado", "reference_path": "by_weather.1.mean", "expected_category": 1, "tolerance": {"absolute": 0.05}, "weight": 1},
+    {"id": "C22", "label": "Media con tiempo adverso de categoría 3", "reference_path": "by_weather.3.mean", "expected_category": 3, "tolerance": {"absolute": 0.05}, "weight": 1},
+    {"id": "C23", "label": "Observaciones meteorológicas de categoría 4", "reference_path": "by_weather.4.count", "tolerance": "exact", "weight": 1},
+    {"id": "C24", "label": "Correlación de Pearson entre temperatura y cnt", "reference_path": "correlations_pearson.temp", "tolerance": {"absolute": 0.005}, "weight": 1},
+    {"id": "C25", "label": "Correlación de Pearson entre humedad y cnt", "reference_path": "correlations_pearson.hum", "tolerance": {"absolute": 0.005}, "weight": 1},
+    {"id": "C26", "label": "Inconsistencias en cnt = casual + registered", "reference_path": "quality.cnt_identity_errors", "tolerance": "exact", "weight": 2}
+  ],
+  "known_risks": [
+    {"id": "R01", "label": "instant es un identificador secuencial, no una medida analítica"},
+    {"id": "R02", "label": "Ocho variables categóricas o binarias están almacenadas como números"},
+    {"id": "R03", "label": "cnt es exactamente la suma de casual y registered"},
+    {"id": "R04", "label": "temp, atemp, hum y windspeed están normalizadas"},
+    {"id": "R05", "label": "Faltan 165 combinaciones fecha-hora en la secuencia completa"},
+    {"id": "R06", "label": "weathersit = 4 solo tiene tres observaciones"},
+    {"id": "R07", "label": "Existe dependencia temporal y varias variables de calendario son derivadas entre sí"}
+  ],
+  "valid_decisions": [
+    {"id": "D01", "decision": "Convertir dteday a fecha y crear una marca temporal con hr", "status": "recommended"},
+    {"id": "D02", "decision": "Tratar season, yr, mnth, hr, holiday, weekday, workingday y weathersit como categóricas o binarias cuando corresponda", "status": "recommended"},
+    {"id": "D03", "decision": "Conservar instant únicamente como identificador u orden", "status": "recommended"},
+    {"id": "D04", "decision": "No eliminar filas por valores ausentes o duplicados porque no existen", "status": "recommended"},
+    {"id": "D05", "decision": "No imputar los 165 huecos horarios; se permite reindexar solo si quedan marcados como ausentes", "status": "acceptable"},
+    {"id": "D06", "decision": "Mantener valores extremos de cnt salvo evidencia concreta de error", "status": "recommended"},
+    {"id": "D07", "decision": "Mantener cnt y sus componentes, señalando la identidad exacta y evitando usarlos como evidencia independiente", "status": "recommended"},
+    {"id": "D08", "decision": "Mantener las variables normalizadas o convertirlas solo mediante los factores documentados", "status": "acceptable"}
+  ],
+  "invalid_or_harmful_decisions": [
+    {"id": "H01", "decision": "Eliminar automáticamente valores altos de cnt mediante IQR o z-score sin evidencia de error"},
+    {"id": "H02", "decision": "Tratar los códigos de season, weekday o weathersit como magnitudes continuas"},
+    {"id": "H03", "decision": "Presentar temp, hum o windspeed como unidades originales sin desnormalizarlas"},
+    {"id": "H04", "decision": "Interpretar la correlación entre registered y cnt como un hallazgo independiente"},
+    {"id": "H05", "decision": "Rellenar silenciosamente horas ausentes con cero o interpolación"},
+    {"id": "H06", "decision": "Afirmar relaciones causales a partir del EDA observacional"}
+  ],
+  "information_units": [
+    {"id": "U01", "weight": 2, "label": "Estructura y periodo", "requirement": "Indicar 17379 filas, 17 columnas y el periodo 2011-2012"},
+    {"id": "U02", "weight": 2, "label": "Calidad básica", "requirement": "Indicar que no hay celdas ausentes ni filas duplicadas y distinguirlo de los huecos horarios"},
+    {"id": "U03", "weight": 2, "label": "Demanda global", "requirement": "Resumir nivel y dispersión de cnt con cifras correctas"},
+    {"id": "U04", "weight": 2, "label": "Composición de usuarios", "requirement": "Explicar que los registrados representan aproximadamente el 81,17 % del total"},
+    {"id": "U05", "weight": 2, "label": "Cambio anual", "requirement": "Mostrar que el total de 2012 supera al de 2011 en aproximadamente un 64,88 %, sin atribuir causalidad"},
+    {"id": "U06", "weight": 2, "label": "Patrón horario", "requirement": "Identificar el máximo medio a las 17 h y el mínimo a las 4 h"},
+    {"id": "U07", "weight": 2, "label": "Día laborable", "requirement": "Distinguir perfiles: máximo a las 17 h en laborables y a las 13 h en no laborables"},
+    {"id": "U08", "weight": 1, "label": "Estacionalidad", "requirement": "Describir diferencias mensuales o estacionales; la temporada 3 tiene la mayor media"},
+    {"id": "U09", "weight": 2, "label": "Meteorología", "requirement": "Relacionar peor tiempo con menor demanda y advertir que la categoría 4 solo contiene tres filas"},
+    {"id": "U10", "weight": 2, "label": "Variables ambientales", "requirement": "Describir asociaciones de temperatura y humedad con cnt de forma prudente"},
+    {"id": "U11", "weight": 2, "label": "Redundancia", "requirement": "Reconocer que cnt = casual + registered y evitar presentarlo como descubrimiento predictivo"},
+    {"id": "U12", "weight": 1, "label": "Limitaciones", "requirement": "Mencionar dependencia temporal, datos de una sola ciudad y ausencia de base causal"}
+  ],
+  "visual_objectives": [
+    {"id": "V01", "label": "Evolución temporal", "requirement": "Mostrar la evolución agregada de la demanda a lo largo de 2011 y 2012 sin saturar el gráfico"},
+    {"id": "V02", "label": "Perfil horario", "requirement": "Comparar la demanda media por hora entre días laborables y no laborables"},
+    {"id": "V03", "label": "Estacionalidad", "requirement": "Mostrar un patrón mensual o estacional con categorías ordenadas correctamente"},
+    {"id": "V04", "label": "Meteorología", "requirement": "Comparar cnt por situación meteorológica e indicar el bajo tamaño de la categoría 4"},
+    {"id": "V05", "label": "Relaciones ambientales", "requirement": "Representar la relación de cnt con temperatura o humedad mediante una técnica legible para datos densos"}
+  ],
+  "mandatory_outputs": [
+    "plan.md",
+    "prepared_data.csv",
+    "statistics.json",
+    "issues.json",
+    "figures/",
+    "report.md",
+    "trace.jsonl"
+  ]
+}
+

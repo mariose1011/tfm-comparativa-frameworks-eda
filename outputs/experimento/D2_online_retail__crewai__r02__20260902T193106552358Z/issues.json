@@ -1,0 +1,321 @@
+{
+  "schema_version": "1.0",
+  "run_id": "D2_online_retail__crewai__r02__20260902T193106552358Z",
+  "dataset_id": "D2_online_retail",
+  "checks_performed": [
+    {
+      "id": "CHK-001",
+      "category": "missingness",
+      "description": "Conteo de ausencias y coausencia de Description y CustomerID.",
+      "outcome": "Se detectaron ausencias concentradas en CustomerID y Description.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-002",
+      "category": "duplicates",
+      "description": "Detección de filas idénticas en las ocho columnas fuente.",
+      "outcome": "Se cuantificaron duplicados exactos y se retuvieron.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "CHK-003",
+      "category": "types_and_categories",
+      "description": "Revisión de tipos observados, cardinalidad y correspondencia StockCode–Description.",
+      "outcome": "Identificadores nominales con tipos técnicos mixtos y relación código-descripción no estricta.",
+      "evidence_ids": [
+        "STAT-004",
+        "STAT-008"
+      ]
+    },
+    {
+      "id": "CHK-004",
+      "category": "temporal",
+      "description": "Rango fecha-hora y agregación por mes.",
+      "outcome": "Cobertura de diciembre de 2010 a diciembre de 2011 con meses de borde.",
+      "evidence_ids": [
+        "STAT-005"
+      ]
+    },
+    {
+      "id": "CHK-005",
+      "category": "range_and_cancellation",
+      "description": "Cuantiles, signos, ceros y prefijo C de InvoiceNo.",
+      "outcome": "Hay negativos, ceros y extremos; se revisaron contra el estado de cancelación.",
+      "evidence_ids": [
+        "STAT-006",
+        "STAT-007",
+        "STAT-016"
+      ]
+    },
+    {
+      "id": "CHK-006",
+      "category": "identity",
+      "description": "Validación de line_amount frente a Quantity×UnitPrice.",
+      "outcome": "La variable derivada satisface su identidad aritmética.",
+      "evidence_ids": [
+        "STAT-015"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "id": "ISSUE-001",
+      "category": "missing",
+      "status": "retained",
+      "severity": "high",
+      "title": "CustomerID ausente en una fracción relevante de líneas",
+      "description": "CustomerID no está disponible para todas las líneas, limitando cualquier perfil o agregación por cliente identificado.",
+      "evidence": {
+        "missing": 135080,
+        "percent": 24.926694334288598
+      },
+      "affected_columns": [
+        "CustomerID"
+      ],
+      "affected_row_count": 135080,
+      "sample_row_ids": [
+        624,
+        1445,
+        1446,
+        1447,
+        1448
+      ],
+      "decision": "No imputar identificadores; conservar filas y declarar poblaciones.",
+      "action": "Usar customer_id_available y restringir métricas de clientes a registros identificados.",
+      "potential_effect": "Sesgo de cobertura en resultados por cliente y comparaciones entre grupos.",
+      "uncertainty": "No se documenta la causa de la ausencia.",
+      "evidence_ids": [
+        "STAT-002",
+        "STAT-012"
+      ]
+    },
+    {
+      "id": "ISSUE-002",
+      "category": "missing",
+      "status": "retained",
+      "severity": "low",
+      "title": "Description ausente",
+      "description": "Algunas líneas no tienen descripción del artículo o concepto.",
+      "evidence": {
+        "missing": 1454,
+        "percent": 0.2683107311375157
+      },
+      "affected_columns": [
+        "Description"
+      ],
+      "affected_row_count": 1454,
+      "sample_row_ids": [
+        624,
+        1972,
+        1973,
+        1974,
+        1989
+      ],
+      "decision": "Conservar ausencias sin reemplazar por una categoría inventada.",
+      "action": "Incluir faltantes como tales cuando se agrupen descripciones.",
+      "potential_effect": "Rankings o correspondencia por descripción pueden ser incompletos.",
+      "uncertainty": "Puede corresponder a conceptos especiales o datos incompletos.",
+      "evidence_ids": [
+        "STAT-002",
+        "STAT-008"
+      ]
+    },
+    {
+      "id": "ISSUE-003",
+      "category": "duplicate",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Filas exactamente duplicadas",
+      "description": "Existen filas idénticas en todas las variables fuente.",
+      "evidence": {
+        "count": 5268,
+        "percent": 0.9721189350979592
+      },
+      "affected_columns": [
+        "InvoiceNo",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "UnitPrice",
+        "CustomerID",
+        "Country"
+      ],
+      "affected_row_count": 5268,
+      "sample_row_ids": [
+        519,
+        529,
+        539,
+        541,
+        557
+      ],
+      "decision": "Retener, porque no se puede distinguir con la información disponible una repetición legítima de un duplicado técnico.",
+      "action": "No deduplicar; interpretar conteos de líneas con esta salvedad.",
+      "potential_effect": "Posible sobreconteo si algunas repeticiones fueran errores.",
+      "uncertainty": "Alta: no hay clave de línea ni regla documental de deduplicación.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "ISSUE-004",
+      "category": "temporal",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Meses de borde incompletos para comparación mensual",
+      "description": "La cobertura empieza el 1 de diciembre de 2010 y termina el 9 de diciembre de 2011.",
+      "evidence": {
+        "min_datetime": "2010-12-01T08:26:00",
+        "max_datetime": "2011-12-09T12:50:00"
+      },
+      "affected_columns": [
+        "InvoiceDate"
+      ],
+      "affected_row_count": null,
+      "sample_row_ids": [],
+      "decision": "Mantener observaciones y advertir al comparar meses.",
+      "action": "No anualizar ni comparar los totales de meses de borde como meses completos.",
+      "potential_effect": "Totales mensuales de borde no comparables directamente.",
+      "uncertainty": null,
+      "evidence_ids": [
+        "STAT-005",
+        "STAT-014"
+      ]
+    },
+    {
+      "id": "ISSUE-005",
+      "category": "outlier",
+      "status": "suspected",
+      "severity": "medium",
+      "title": "Extremos, ceros y signos no uniformes en medidas numéricas",
+      "description": "El cribado IQR y los resúmenes muestran valores extremos, ceros y negativos; no se clasifican como errores sin más evidencia.",
+      "evidence": {
+        "numeric_summary": {
+          "Quantity": {
+            "count": 541909,
+            "mean": 9.55224954743324,
+            "std": 218.08115785023386,
+            "min": -80995,
+            "p01": -2.0,
+            "p05": 1.0,
+            "p25": 1.0,
+            "median": 3.0,
+            "p75": 10.0,
+            "p95": 29.0,
+            "p99": 100.0,
+            "max": 80995,
+            "zero_count": 0,
+            "negative_count": 10624,
+            "positive_count": 531285
+          },
+          "UnitPrice": {
+            "count": 541909,
+            "mean": 4.611113626088514,
+            "std": 96.75985306117937,
+            "min": -11062.06,
+            "p01": 0.19,
+            "p05": 0.42,
+            "p25": 1.25,
+            "median": 2.08,
+            "p75": 4.13,
+            "p95": 9.95,
+            "p99": 18.0,
+            "max": 38970.0,
+            "zero_count": 2515,
+            "negative_count": 2,
+            "positive_count": 539392
+          },
+          "line_amount": {
+            "count": 541909,
+            "mean": 17.987794876999644,
+            "std": 378.8108235059747,
+            "min": -168469.6,
+            "p01": -6.58,
+            "p05": 0.83,
+            "p25": 3.4,
+            "median": 9.75,
+            "p75": 17.4,
+            "p95": 59.400000000000006,
+            "p99": 180.0,
+            "max": 168469.6,
+            "zero_count": 2515,
+            "negative_count": 9290,
+            "positive_count": 530104
+          }
+        },
+        "iqr_screen": {
+          "Quantity": {
+            "q1": 1.0,
+            "q3": 10.0,
+            "iqr": 9.0,
+            "lower_fence": -12.5,
+            "upper_fence": 23.5,
+            "outside_fences": 58619
+          },
+          "UnitPrice": {
+            "q1": 1.25,
+            "q3": 4.13,
+            "iqr": 2.88,
+            "lower_fence": -3.0700000000000003,
+            "upper_fence": 8.45,
+            "outside_fences": 39627
+          },
+          "line_amount": {
+            "q1": 3.4,
+            "q3": 17.4,
+            "iqr": 13.999999999999998,
+            "lower_fence": -17.599999999999998,
+            "upper_fence": 38.39999999999999,
+            "outside_fences": 44997
+          }
+        }
+      },
+      "affected_columns": [
+        "Quantity",
+        "UnitPrice",
+        "line_amount"
+      ],
+      "affected_row_count": null,
+      "sample_row_ids": [],
+      "decision": "Retener todos los valores y usar cuantiles/recorte únicamente para visualización.",
+      "action": "Separar cancelaciones por prefijo C y declarar filtros de figuras.",
+      "potential_effect": "Medias y sumas son sensibles a colas y ajustes; los gráficos sin tratamiento pueden ocultar la masa central.",
+      "uncertainty": "Pueden ser operaciones válidas, cancelaciones, ajustes o errores no verificables.",
+      "evidence_ids": [
+        "STAT-006",
+        "STAT-007",
+        "STAT-016"
+      ]
+    },
+    {
+      "id": "ISSUE-006",
+      "category": "category",
+      "status": "retained",
+      "severity": "low",
+      "title": "Relación StockCode–Description no estrictamente uno a uno",
+      "description": "Algunos códigos presentan varias descripciones y algunas descripciones se vinculan a varios códigos.",
+      "evidence": {
+        "stockcodes_with_multiple_descriptions": 647,
+        "descriptions_linked_to_multiple_stockcodes": 177
+      },
+      "affected_columns": [
+        "StockCode",
+        "Description"
+      ],
+      "affected_row_count": null,
+      "sample_row_ids": [],
+      "decision": "Conservar ambos campos y agrupar rankings por el par código-descripción.",
+      "action": "Evitar asumir equivalencia exacta de uno a uno.",
+      "potential_effect": "Agregaciones solo por descripción o solo por código pueden mezclar variantes.",
+      "uncertainty": "La documentación no especifica una clave de catálogo estable.",
+      "evidence_ids": [
+        "STAT-008",
+        "STAT-013"
+      ]
+    }
+  ]
+}

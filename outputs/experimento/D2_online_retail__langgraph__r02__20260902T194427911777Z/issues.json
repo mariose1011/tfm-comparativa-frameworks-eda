@@ -1,0 +1,337 @@
+{
+  "schema_version": "1.0",
+  "run_id": "D2_online_retail__langgraph__r02__20260902T194427911777Z",
+  "dataset_id": "D2_online_retail",
+  "checks_performed": [
+    {
+      "id": "CHK-001",
+      "category": "missingness",
+      "description": "Conteo de ausencias y cardinalidad por columna fuente.",
+      "outcome": "Description tiene 1454 ausencias y CustomerID 135080; las demás columnas no tienen ausencias.",
+      "evidence_ids": [
+        "STAT-002"
+      ]
+    },
+    {
+      "id": "CHK-002",
+      "category": "duplicates",
+      "description": "Detección de filas idénticas en las ocho columnas fuente.",
+      "outcome": "Se hallaron 5268 filas duplicadas más allá de la primera; se conservaron por ambigüedad operativa.",
+      "evidence_ids": [
+        "STAT-003"
+      ]
+    },
+    {
+      "id": "CHK-003",
+      "category": "range_cancellation",
+      "description": "Revisión de signos, ceros, rangos y regla de prefijo C.",
+      "outcome": "Se cuantificaron cancelaciones, cantidades negativas y precios nulos/negativos.",
+      "evidence_ids": [
+        "STAT-004"
+      ]
+    },
+    {
+      "id": "CHK-004",
+      "category": "temporal",
+      "description": "Validación de fecha-hora, extremos y ventana por mes.",
+      "outcome": "Todas las fechas fueron parseables y se identificaron ventanas parciales en meses extremos.",
+      "evidence_ids": [
+        "STAT-005"
+      ]
+    },
+    {
+      "id": "CHK-005",
+      "category": "identity_category",
+      "description": "Comprobación de identidad line_amount y correspondencia StockCode-Description.",
+      "outcome": "La identidad se cumple numéricamente; algunos códigos tienen más de una descripción.",
+      "evidence_ids": [
+        "STAT-006",
+        "STAT-013"
+      ]
+    },
+    {
+      "id": "CHK-006",
+      "category": "outlier",
+      "description": "Cribado exploratorio IQR para importe positivo de línea.",
+      "outcome": "Se cuantificaron valores sobre el umbral IQR sin clasificarlos como errores.",
+      "evidence_ids": [
+        "STAT-014"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "id": "ISSUE-001",
+      "category": "missing",
+      "status": "retained",
+      "severity": "high",
+      "title": "CustomerID ausente en parte relevante de las líneas",
+      "description": "CustomerID está ausente y no existe información autorizada para imputarlo.",
+      "evidence": {
+        "missing_lines": 135080,
+        "pct": 24.926694334288598
+      },
+      "affected_columns": [
+        "CustomerID"
+      ],
+      "affected_row_count": 135080,
+      "sample_row_ids": [
+        622,
+        1443,
+        1444,
+        1445,
+        1446
+      ],
+      "decision": "Conservar ausencias y restringir agregaciones de clientes a identificadores presentes.",
+      "action": "Se añadió customer_identified; no se imputó.",
+      "potential_effect": "Los patrones por cliente pueden no representar la actividad sin identificador.",
+      "uncertainty": "No se conoce el mecanismo de ausencia.",
+      "evidence_ids": [
+        "STAT-002",
+        "STAT-007",
+        "STAT-012"
+      ]
+    },
+    {
+      "id": "ISSUE-002",
+      "category": "missing",
+      "status": "retained",
+      "severity": "low",
+      "title": "Description ausente",
+      "description": "Hay líneas sin descripción de artículo.",
+      "evidence": {
+        "missing_lines": 1454,
+        "pct": 0.2683107311375157
+      },
+      "affected_columns": [
+        "Description"
+      ],
+      "affected_row_count": 1454,
+      "sample_row_ids": [
+        622,
+        1970,
+        1971,
+        1972,
+        1987
+      ],
+      "decision": "Conservar y no imputar; los rankings StockCode-Description usan solo descripciones disponibles.",
+      "action": "Se mantuvieron campos vacíos en CSV.",
+      "potential_effect": "Puede limitar la etiqueta legible de algunos códigos.",
+      "uncertainty": "No se puede inferir la descripción correcta.",
+      "evidence_ids": [
+        "STAT-002",
+        "STAT-011"
+      ]
+    },
+    {
+      "id": "ISSUE-003",
+      "category": "duplicate",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Filas exactamente duplicadas",
+      "description": "Existen registros idénticos en todas las columnas fuente.",
+      "evidence": {
+        "duplicate_rows_beyond_first": 5268,
+        "rows_belonging_to_groups": 10147
+      },
+      "affected_columns": [
+        "InvoiceNo",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "UnitPrice",
+        "CustomerID",
+        "Country"
+      ],
+      "affected_row_count": 5268,
+      "sample_row_ids": [
+        517,
+        527,
+        537,
+        539,
+        555
+      ],
+      "decision": "Conservar para no borrar líneas potencialmente legítimas.",
+      "action": "Recomendar validación contra sistema transaccional antes de deduplicar.",
+      "potential_effect": "Los conteos e importes pueden estar inflados si fueran duplicaciones técnicas.",
+      "uncertainty": "Las columnas disponibles no distinguen una repetición legítima de un duplicado técnico.",
+      "evidence_ids": [
+        "STAT-003",
+        "STAT-006"
+      ]
+    },
+    {
+      "id": "ISSUE-004",
+      "category": "range",
+      "status": "retained",
+      "severity": "medium",
+      "title": "Cancelaciones, valores negativos y precios nulos",
+      "description": "Hay líneas con prefijo C, cantidades negativas y precios unitarios nulos.",
+      "evidence": {
+        "cancellation_lines": 9288,
+        "negative_quantity_lines": 10624,
+        "zero_unitprice_lines": 2515,
+        "negative_unitprice_lines": 2,
+        "cancel_negative_quantity": 9288,
+        "cancel_nonnegative_quantity": 0,
+        "noncancel_negative_quantity": 1336,
+        "zero_price_sample": [
+          {
+            "InvoiceNo": "536414",
+            "StockCode": "22139",
+            "Description": null,
+            "Quantity": 56,
+            "row_id": 622
+          },
+          {
+            "InvoiceNo": "536545",
+            "StockCode": "21134",
+            "Description": null,
+            "Quantity": 1,
+            "row_id": 1970
+          },
+          {
+            "InvoiceNo": "536546",
+            "StockCode": "22145",
+            "Description": null,
+            "Quantity": 1,
+            "row_id": 1971
+          },
+          {
+            "InvoiceNo": "536547",
+            "StockCode": "37509",
+            "Description": null,
+            "Quantity": 1,
+            "row_id": 1972
+          },
+          {
+            "InvoiceNo": "536549",
+            "StockCode": "85226A",
+            "Description": null,
+            "Quantity": 1,
+            "row_id": 1987
+          }
+        ]
+      },
+      "affected_columns": [
+        "InvoiceNo",
+        "Quantity",
+        "UnitPrice",
+        "line_amount"
+      ],
+      "affected_row_count": 11805,
+      "sample_row_ids": [
+        141,
+        154,
+        235,
+        236,
+        237
+      ],
+      "decision": "Conservar la población completa; para rankings descriptivos se definió una población explícita de ventas ordinarias positivas.",
+      "action": "Se añadió is_cancellation y se separaron poblaciones en estadísticas.",
+      "potential_effect": "Mezclar estas líneas con ventas positivas altera totales y distribuciones.",
+      "uncertainty": "No se puede clasificar cada caso como devolución, ajuste o error solo con estos campos.",
+      "evidence_ids": [
+        "STAT-004",
+        "STAT-008",
+        "STAT-009"
+      ]
+    },
+    {
+      "id": "ISSUE-005",
+      "category": "temporal",
+      "status": "suspected",
+      "severity": "low",
+      "title": "Cobertura parcial en meses extremos",
+      "description": "La primera y la última ventanas mensuales no abarcan el mes calendario completo.",
+      "evidence": {
+        "first_month": {
+          "invoice_month": "2010-12",
+          "first": "2010-12-01T08:26:00",
+          "last": "2010-12-23T17:41:00",
+          "lines": 42481
+        },
+        "last_month": {
+          "invoice_month": "2011-12",
+          "first": "2011-12-01T08:12:00",
+          "last": "2011-12-09T12:50:00",
+          "lines": 25525
+        }
+      },
+      "affected_columns": [
+        "InvoiceDate",
+        "invoice_month"
+      ],
+      "affected_row_count": null,
+      "sample_row_ids": [],
+      "decision": "Mantener meses y advertir al comparar niveles mensuales.",
+      "action": "No se extrapolaron importes ni se ajustó por días.",
+      "potential_effect": "Las comparaciones de diciembre inicial/final contra meses completos pueden ser engañosas.",
+      "uncertainty": "No se conoce si la extracción coincide con inicio/fin real de actividad.",
+      "evidence_ids": [
+        "STAT-005",
+        "STAT-009"
+      ]
+    },
+    {
+      "id": "ISSUE-006",
+      "category": "category",
+      "status": "unresolved",
+      "severity": "low",
+      "title": "StockCode con múltiples Description",
+      "description": "Parte de los códigos se asocia con más de una descripción no vacía.",
+      "evidence": {
+        "stockcodes_multiple_descriptions": 647,
+        "maximum_descriptions_one_code": 8
+      },
+      "affected_columns": [
+        "StockCode",
+        "Description"
+      ],
+      "affected_row_count": 647,
+      "sample_row_ids": [],
+      "decision": "Usar conjuntamente StockCode y Description en rankings; no asumir correspondencia uno-a-uno.",
+      "action": "Documentar la ambigüedad.",
+      "potential_effect": "Agregar por una etiqueta única podría fusionar variantes o cambios de descripción.",
+      "uncertainty": "Puede reflejar cambios legítimos de etiqueta o inconsistencia.",
+      "evidence_ids": [
+        "STAT-013"
+      ]
+    },
+    {
+      "id": "ISSUE-007",
+      "category": "outlier",
+      "status": "suspected",
+      "severity": "low",
+      "title": "Cola alta de importes de línea",
+      "description": "El cribado IQR marca líneas altas dentro de ventas positivas.",
+      "evidence": {
+        "upper_fence_GBP": 38.62500000000001,
+        "lines_above": 42651,
+        "maximum_GBP": 168469.6
+      },
+      "affected_columns": [
+        "Quantity",
+        "UnitPrice",
+        "line_amount"
+      ],
+      "affected_row_count": 42651,
+      "sample_row_ids": [
+        9,
+        26,
+        27,
+        28,
+        31
+      ],
+      "decision": "Retener, pues la regla estadística no prueba error.",
+      "action": "Se usa escala logarítmica para visualizar distribución.",
+      "potential_effect": "La media y rankings son sensibles a estas líneas.",
+      "uncertainty": "No hay evidencia de que sean inválidas.",
+      "evidence_ids": [
+        "STAT-008",
+        "STAT-014"
+      ]
+    }
+  ]
+}

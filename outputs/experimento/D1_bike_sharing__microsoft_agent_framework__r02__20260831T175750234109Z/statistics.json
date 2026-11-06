@@ -1,0 +1,3212 @@
+{
+  "schema_version": "1.0",
+  "run_id": "D1_bike_sharing__microsoft_agent_framework__r02__20260831T175750234109Z",
+  "dataset_id": "D1_bike_sharing",
+  "generated_at_utc": "2026-08-31T18:00:49.326844+00:00",
+  "profile": {
+    "original_rows": 17379,
+    "original_columns": 17,
+    "prepared_rows": 17379,
+    "prepared_columns": 19,
+    "unit_of_analysis": "Una fila representa un agregado de alquileres para una hora (dteday y hr), con calendario, tiempo y componentes de usuario.",
+    "columns": [
+      {
+        "name": "instant",
+        "origin": "source",
+        "source_name": "instant",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 17379
+      },
+      {
+        "name": "dteday",
+        "origin": "source",
+        "source_name": "dteday",
+        "original_type": "str",
+        "prepared_type": "str",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 731
+      },
+      {
+        "name": "season",
+        "origin": "source",
+        "source_name": "season",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 4
+      },
+      {
+        "name": "yr",
+        "origin": "source",
+        "source_name": "yr",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 2
+      },
+      {
+        "name": "mnth",
+        "origin": "source",
+        "source_name": "mnth",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 12
+      },
+      {
+        "name": "hr",
+        "origin": "source",
+        "source_name": "hr",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 24
+      },
+      {
+        "name": "holiday",
+        "origin": "source",
+        "source_name": "holiday",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 2
+      },
+      {
+        "name": "weekday",
+        "origin": "source",
+        "source_name": "weekday",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 7
+      },
+      {
+        "name": "workingday",
+        "origin": "source",
+        "source_name": "workingday",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 2
+      },
+      {
+        "name": "weathersit",
+        "origin": "source",
+        "source_name": "weathersit",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 4
+      },
+      {
+        "name": "temp",
+        "origin": "source",
+        "source_name": "temp",
+        "original_type": "float64",
+        "prepared_type": "float64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 50
+      },
+      {
+        "name": "atemp",
+        "origin": "source",
+        "source_name": "atemp",
+        "original_type": "float64",
+        "prepared_type": "float64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 65
+      },
+      {
+        "name": "hum",
+        "origin": "source",
+        "source_name": "hum",
+        "original_type": "float64",
+        "prepared_type": "float64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 89
+      },
+      {
+        "name": "windspeed",
+        "origin": "source",
+        "source_name": "windspeed",
+        "original_type": "float64",
+        "prepared_type": "float64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 30
+      },
+      {
+        "name": "casual",
+        "origin": "source",
+        "source_name": "casual",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 322
+      },
+      {
+        "name": "registered",
+        "origin": "source",
+        "source_name": "registered",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 776
+      },
+      {
+        "name": "cnt",
+        "origin": "source",
+        "source_name": "cnt",
+        "original_type": "int64",
+        "prepared_type": "int64",
+        "missing_original": 0,
+        "missing_prepared": 0,
+        "unique_prepared": 869
+      },
+      {
+        "name": "date_hour",
+        "origin": "derived",
+        "source_name": null,
+        "original_type": null,
+        "prepared_type": "str",
+        "missing_original": null,
+        "missing_prepared": 0,
+        "unique_prepared": 17379
+      },
+      {
+        "name": "casual_share",
+        "origin": "derived",
+        "source_name": null,
+        "original_type": null,
+        "prepared_type": "float64",
+        "missing_original": null,
+        "missing_prepared": 0,
+        "unique_prepared": 7376
+      }
+    ]
+  },
+  "preparation": {
+    "summary": "Se retuvieron las 17.379 filas fuente, sin imputación ni exclusión; se convirtió dteday y se añadieron date_hour y casual_share para el EDA.",
+    "changes": [
+      {
+        "id": "TR-001",
+        "action": "type_conversion",
+        "description": "Conversión controlada de dteday a fecha y serialización ISO YYYY-MM-DD.",
+        "justification": "Permite comprobación temporal no ambigua.",
+        "affected_columns": [
+          "dteday"
+        ],
+        "rows_affected": 17379,
+        "before": "string",
+        "after": "fecha ISO en CSV"
+      },
+      {
+        "id": "TR-002",
+        "action": "derived_variable",
+        "description": "Creación de date_hour=dteday+hr, ISO 8601.",
+        "justification": "Permite verificar continuidad temporal.",
+        "affected_columns": [
+          "date_hour"
+        ],
+        "rows_affected": 17379,
+        "before": null,
+        "after": "timestamp horario"
+      },
+      {
+        "id": "TR-003",
+        "action": "derived_variable",
+        "description": "Creación de casual_share=casual/cnt; ausente cuando cnt=0.",
+        "justification": "Resume composición evitando división por cero.",
+        "affected_columns": [
+          "casual_share"
+        ],
+        "rows_affected": 17379,
+        "before": null,
+        "after": {
+          "missing_due_to_zero_cnt": 0
+        }
+      },
+      {
+        "id": "TR-004",
+        "action": "retention_decision",
+        "description": "Conservación de todas las filas, códigos y extremos.",
+        "justification": "No hay evidencia de invalidez que justifique excluir o imputar.",
+        "affected_columns": [
+          "instant",
+          "dteday",
+          "season",
+          "yr",
+          "mnth",
+          "hr",
+          "holiday",
+          "weekday",
+          "workingday",
+          "weathersit",
+          "temp",
+          "atemp",
+          "hum",
+          "windspeed",
+          "casual",
+          "registered",
+          "cnt"
+        ],
+        "rows_affected": 0,
+        "before": {
+          "rows": 17379
+        },
+        "after": {
+          "rows": 17379
+        }
+      }
+    ]
+  },
+  "analyses": [
+    {
+      "id": "STAT-001",
+      "stage": "E1",
+      "analysis_type": "structure",
+      "title": "Carga, estructura y cobertura inicial",
+      "variables": [
+        "instant",
+        "dteday",
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed",
+        "casual",
+        "registered",
+        "cnt"
+      ],
+      "population": "CSV original completo",
+      "method": "Lectura CSV, dimensiones y conversión controlada de fecha",
+      "result": {
+        "input_format": "csv",
+        "rows": 17379,
+        "columns": 17,
+        "column_names": [
+          "instant",
+          "dteday",
+          "season",
+          "yr",
+          "mnth",
+          "hr",
+          "holiday",
+          "weekday",
+          "workingday",
+          "weathersit",
+          "temp",
+          "atemp",
+          "hum",
+          "windspeed",
+          "casual",
+          "registered",
+          "cnt"
+        ],
+        "head_sample": [
+          {
+            "instant": 1,
+            "dteday": "2011-01-01",
+            "season": 1,
+            "yr": 0,
+            "mnth": 1,
+            "hr": 0,
+            "holiday": 0,
+            "weekday": 6,
+            "workingday": 0,
+            "weathersit": 1,
+            "temp": 0.24,
+            "atemp": 0.2879,
+            "hum": 0.81,
+            "windspeed": 0.0,
+            "casual": 3,
+            "registered": 13,
+            "cnt": 16
+          },
+          {
+            "instant": 2,
+            "dteday": "2011-01-01",
+            "season": 1,
+            "yr": 0,
+            "mnth": 1,
+            "hr": 1,
+            "holiday": 0,
+            "weekday": 6,
+            "workingday": 0,
+            "weathersit": 1,
+            "temp": 0.22,
+            "atemp": 0.2727,
+            "hum": 0.8,
+            "windspeed": 0.0,
+            "casual": 8,
+            "registered": 32,
+            "cnt": 40
+          },
+          {
+            "instant": 3,
+            "dteday": "2011-01-01",
+            "season": 1,
+            "yr": 0,
+            "mnth": 1,
+            "hr": 2,
+            "holiday": 0,
+            "weekday": 6,
+            "workingday": 0,
+            "weathersit": 1,
+            "temp": 0.22,
+            "atemp": 0.2727,
+            "hum": 0.8,
+            "windspeed": 0.0,
+            "casual": 5,
+            "registered": 27,
+            "cnt": 32
+          }
+        ],
+        "date_min": "2011-01-01T00:00:00",
+        "date_max": "2012-12-31T00:00:00",
+        "hour_min": 0,
+        "hour_max": 23
+      },
+      "interpretation": "Las columnas y hr son compatibles con el archivo horario documentado; una fila es un agregado horario."
+    },
+    {
+      "id": "STAT-002",
+      "stage": "E2",
+      "analysis_type": "quality",
+      "title": "Ausencias, duplicados e identificadores",
+      "variables": [
+        "instant",
+        "dteday",
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed",
+        "casual",
+        "registered",
+        "cnt"
+      ],
+      "population": "17.379 filas",
+      "method": "isna, duplicated y unicidad",
+      "result": {
+        "missing_by_column": {
+          "instant": 0,
+          "dteday": 0,
+          "season": 0,
+          "yr": 0,
+          "mnth": 0,
+          "hr": 0,
+          "holiday": 0,
+          "weekday": 0,
+          "workingday": 0,
+          "weathersit": 0,
+          "temp": 0,
+          "atemp": 0,
+          "hum": 0,
+          "windspeed": 0,
+          "casual": 0,
+          "registered": 0,
+          "cnt": 0
+        },
+        "invalid_dates": 0,
+        "full_row_duplicates": 0,
+        "duplicate_instant": 0,
+        "duplicate_date_hour": 0,
+        "instant_monotonic": true,
+        "nonconsecutive_instant_steps": 0
+      },
+      "interpretation": "No hay ausencias, fechas inválidas ni duplicados en las comprobaciones realizadas."
+    },
+    {
+      "id": "STAT-003",
+      "stage": "E2",
+      "analysis_type": "validation",
+      "title": "Dominios, rangos e identidades",
+      "variables": [
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed",
+        "casual",
+        "registered",
+        "cnt"
+      ],
+      "population": "Población completa",
+      "method": "Validación contra documentación y calendario",
+      "result": {
+        "out_of_domain_counts": {
+          "season": 0,
+          "yr": 0,
+          "mnth": 0,
+          "hr": 0,
+          "holiday": 0,
+          "weekday": 0,
+          "workingday": 0,
+          "weathersit": 0
+        },
+        "weather_ranges": {
+          "temp": {
+            "min": 0.02,
+            "max": 1.0,
+            "outside_0_1": 0
+          },
+          "atemp": {
+            "min": 0.0,
+            "max": 1.0,
+            "outside_0_1": 0
+          },
+          "hum": {
+            "min": 0.0,
+            "max": 1.0,
+            "outside_0_1": 0
+          },
+          "windspeed": {
+            "min": 0.0,
+            "max": 0.8507,
+            "outside_0_1": 0
+          }
+        },
+        "negative_counts": {
+          "casual": 0,
+          "registered": 0,
+          "cnt": 0
+        },
+        "identity_violations": 0,
+        "calendar_mismatches": {
+          "yr": 0,
+          "mnth": 0,
+          "weekday_sunday0": 0
+        },
+        "season_month_rule_mismatches": 3922
+      },
+      "interpretation": "Los códigos, rangos, coherencia de yr/mnth/weekday e identidad de componentes se cumplen. season está en dominio, pero no coincide en 3.922 filas con una regla rígida de bloques mensuales; se conserva como clasificación provista por la fuente."
+    },
+    {
+      "id": "STAT-004",
+      "stage": "E2",
+      "analysis_type": "temporal_quality",
+      "title": "Cobertura temporal horaria",
+      "variables": [
+        "dteday",
+        "hr",
+        "date_hour"
+      ],
+      "population": "Rejilla entre primera y última observación",
+      "method": "Comparación con rango horario y conteos diarios",
+      "result": {
+        "start": "2011-01-01T00:00:00",
+        "end": "2012-12-31T23:00:00",
+        "expected_hour_slots": 17544,
+        "observed_rows": 17379,
+        "missing_hour_slots": 165,
+        "missing_hour_examples": [
+          "2011-01-02T05:00:00",
+          "2011-01-03T02:00:00",
+          "2011-01-03T03:00:00",
+          "2011-01-04T03:00:00",
+          "2011-01-05T03:00:00",
+          "2011-01-06T03:00:00",
+          "2011-01-07T03:00:00",
+          "2011-01-11T03:00:00",
+          "2011-01-11T04:00:00",
+          "2011-01-12T03:00:00",
+          "2011-01-12T04:00:00",
+          "2011-01-14T04:00:00",
+          "2011-01-18T00:00:00",
+          "2011-01-18T01:00:00",
+          "2011-01-18T02:00:00",
+          "2011-01-18T03:00:00",
+          "2011-01-18T04:00:00",
+          "2011-01-18T05:00:00",
+          "2011-01-18T06:00:00",
+          "2011-01-18T07:00:00"
+        ],
+        "days": 731,
+        "days_with_not_24_records": 76,
+        "incomplete_day_records": [
+          {
+            "dteday": "2011-01-02T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-03T00:00:00",
+            "records": 22
+          },
+          {
+            "dteday": "2011-01-04T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-05T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-06T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-07T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-11T00:00:00",
+            "records": 22
+          },
+          {
+            "dteday": "2011-01-12T00:00:00",
+            "records": 22
+          },
+          {
+            "dteday": "2011-01-14T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-18T00:00:00",
+            "records": 12
+          },
+          {
+            "dteday": "2011-01-19T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-22T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-23T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-24T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-25T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-26T00:00:00",
+            "records": 16
+          },
+          {
+            "dteday": "2011-01-27T00:00:00",
+            "records": 8
+          },
+          {
+            "dteday": "2011-01-28T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-29T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-01-30T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-01T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-03T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-04T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-09T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-10T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-11T00:00:00",
+            "records": 22
+          },
+          {
+            "dteday": "2011-02-13T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-15T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-16T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-20T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-22T00:00:00",
+            "records": 18
+          },
+          {
+            "dteday": "2011-02-23T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-24T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-25T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-27T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-02-28T00:00:00",
+            "records": 22
+          },
+          {
+            "dteday": "2011-03-06T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-07T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-10T00:00:00",
+            "records": 22
+          },
+          {
+            "dteday": "2011-03-11T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-13T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-14T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-15T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-16T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-18T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-21T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-23T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-27T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-03-28T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-04-11T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-08-27T00:00:00",
+            "records": 18
+          },
+          {
+            "dteday": "2011-08-28T00:00:00",
+            "records": 17
+          },
+          {
+            "dteday": "2011-09-06T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-09-08T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-09-12T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-10-19T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-11-28T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-12-25T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-12-26T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2011-12-28T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2012-01-02T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2012-01-10T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2012-01-17T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2012-02-06T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2012-02-20T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2012-02-21T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2012-02-29T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2012-03-11T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2012-04-02T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2012-04-11T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2012-10-29T00:00:00",
+            "records": 1
+          },
+          {
+            "dteday": "2012-10-30T00:00:00",
+            "records": 11
+          },
+          {
+            "dteday": "2012-11-08T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2012-11-29T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2012-12-24T00:00:00",
+            "records": 23
+          },
+          {
+            "dteday": "2012-12-25T00:00:00",
+            "records": 23
+          }
+        ]
+      },
+      "interpretation": "Hay posiciones horarias sin registro y fechas con distinto número de registros de 24; no se imputaron."
+    },
+    {
+      "id": "STAT-005",
+      "stage": "E4",
+      "analysis_type": "numeric_descriptive",
+      "title": "Distribuciones de conteos y meteorología",
+      "variables": [
+        "casual",
+        "registered",
+        "cnt",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed"
+      ],
+      "population": "17.379 observaciones preparadas",
+      "method": "Media, mediana, desviación, cuantiles, mínimo y máximo",
+      "result": {
+        "casual": {
+          "n": 17379,
+          "mean": 35.67621842453536,
+          "median": 17.0,
+          "std": 49.30503038705308,
+          "min": 0.0,
+          "p01": 0.0,
+          "p05": 0.0,
+          "p25": 4.0,
+          "p75": 48.0,
+          "p95": 138.09999999999854,
+          "p99": 240.0,
+          "max": 367.0
+        },
+        "registered": {
+          "n": 17379,
+          "mean": 153.78686920996606,
+          "median": 115.0,
+          "std": 151.35728591258314,
+          "min": 0.0,
+          "p01": 1.0,
+          "p05": 4.0,
+          "p25": 34.0,
+          "p75": 220.0,
+          "p95": 465.0,
+          "p99": 699.2200000000012,
+          "max": 886.0
+        },
+        "cnt": {
+          "n": 17379,
+          "mean": 189.46308763450142,
+          "median": 142.0,
+          "std": 181.38759909186476,
+          "min": 1.0,
+          "p01": 2.0,
+          "p05": 5.0,
+          "p25": 40.0,
+          "p75": 281.0,
+          "p95": 563.0999999999985,
+          "p99": 782.2200000000012,
+          "max": 977.0
+        },
+        "temp": {
+          "n": 17379,
+          "mean": 0.4969871684216583,
+          "median": 0.5,
+          "std": 0.1925561212497219,
+          "min": 0.02,
+          "p01": 0.12,
+          "p05": 0.2,
+          "p25": 0.34,
+          "p75": 0.66,
+          "p95": 0.8,
+          "p99": 0.8844000000000233,
+          "max": 1.0
+        },
+        "atemp": {
+          "n": 17379,
+          "mean": 0.4757751021347604,
+          "median": 0.4848,
+          "std": 0.17185021563535943,
+          "min": 0.0,
+          "p01": 0.1212,
+          "p05": 0.2121,
+          "p25": 0.3333,
+          "p75": 0.6212,
+          "p95": 0.7424,
+          "p99": 0.8182,
+          "max": 1.0
+        },
+        "hum": {
+          "n": 17379,
+          "mean": 0.6272288394038782,
+          "median": 0.63,
+          "std": 0.19292983406291508,
+          "min": 0.0,
+          "p01": 0.23,
+          "p05": 0.31,
+          "p25": 0.48,
+          "p75": 0.78,
+          "p95": 0.93,
+          "p99": 1.0,
+          "max": 1.0
+        },
+        "windspeed": {
+          "n": 17379,
+          "mean": 0.1900976063064618,
+          "median": 0.194,
+          "std": 0.1223402285727905,
+          "min": 0.0,
+          "p01": 0.0,
+          "p05": 0.0,
+          "p25": 0.1045,
+          "p75": 0.2537,
+          "p95": 0.4179,
+          "p99": 0.5224,
+          "max": 0.8507
+        }
+      },
+      "interpretation": "Los cuantiles y medianas complementan las medias de conteos potencialmente asimétricos."
+    },
+    {
+      "id": "STAT-006",
+      "stage": "E4",
+      "analysis_type": "categorical_frequency",
+      "title": "Frecuencias de calendario y tiempo",
+      "variables": [
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit"
+      ],
+      "population": "17.379 observaciones",
+      "method": "Frecuencias y proporciones",
+      "result": {
+        "season": [
+          {
+            "code": 1,
+            "n": 4242,
+            "proportion": 0.2440876920421198
+          },
+          {
+            "code": 2,
+            "n": 4409,
+            "proportion": 0.25369699062086426
+          },
+          {
+            "code": 3,
+            "n": 4496,
+            "proportion": 0.25870303239541975
+          },
+          {
+            "code": 4,
+            "n": 4232,
+            "proportion": 0.24351228494159619
+          }
+        ],
+        "yr": [
+          {
+            "code": 0,
+            "n": 8645,
+            "proportion": 0.4974394384026699
+          },
+          {
+            "code": 1,
+            "n": 8734,
+            "proportion": 0.5025605615973301
+          }
+        ],
+        "mnth": [
+          {
+            "code": 1,
+            "n": 1429,
+            "proportion": 0.08222567466482536
+          },
+          {
+            "code": 2,
+            "n": 1341,
+            "proportion": 0.07716209218021751
+          },
+          {
+            "code": 3,
+            "n": 1473,
+            "proportion": 0.08475746590712929
+          },
+          {
+            "code": 4,
+            "n": 1437,
+            "proportion": 0.08268600034524426
+          },
+          {
+            "code": 5,
+            "n": 1488,
+            "proportion": 0.08562057655791472
+          },
+          {
+            "code": 6,
+            "n": 1440,
+            "proportion": 0.08285862247540135
+          },
+          {
+            "code": 7,
+            "n": 1488,
+            "proportion": 0.08562057655791472
+          },
+          {
+            "code": 8,
+            "n": 1475,
+            "proportion": 0.08487254732723402
+          },
+          {
+            "code": 9,
+            "n": 1437,
+            "proportion": 0.08268600034524426
+          },
+          {
+            "code": 10,
+            "n": 1451,
+            "proportion": 0.08349157028597733
+          },
+          {
+            "code": 11,
+            "n": 1437,
+            "proportion": 0.08268600034524426
+          },
+          {
+            "code": 12,
+            "n": 1483,
+            "proportion": 0.08533287300765291
+          }
+        ],
+        "hr": [
+          {
+            "code": 0,
+            "n": 726,
+            "proportion": 0.04177455549801484
+          },
+          {
+            "code": 1,
+            "n": 724,
+            "proportion": 0.041659474077910125
+          },
+          {
+            "code": 2,
+            "n": 715,
+            "proportion": 0.041141607687438866
+          },
+          {
+            "code": 3,
+            "n": 697,
+            "proportion": 0.04010587490649634
+          },
+          {
+            "code": 4,
+            "n": 697,
+            "proportion": 0.04010587490649634
+          },
+          {
+            "code": 5,
+            "n": 717,
+            "proportion": 0.041256689107543584
+          },
+          {
+            "code": 6,
+            "n": 725,
+            "proportion": 0.041717014787962484
+          },
+          {
+            "code": 7,
+            "n": 727,
+            "proportion": 0.04183209620806721
+          },
+          {
+            "code": 8,
+            "n": 727,
+            "proportion": 0.04183209620806721
+          },
+          {
+            "code": 9,
+            "n": 727,
+            "proportion": 0.04183209620806721
+          },
+          {
+            "code": 10,
+            "n": 727,
+            "proportion": 0.04183209620806721
+          },
+          {
+            "code": 11,
+            "n": 727,
+            "proportion": 0.04183209620806721
+          },
+          {
+            "code": 12,
+            "n": 728,
+            "proportion": 0.04188963691811957
+          },
+          {
+            "code": 13,
+            "n": 729,
+            "proportion": 0.04194717762817193
+          },
+          {
+            "code": 14,
+            "n": 729,
+            "proportion": 0.04194717762817193
+          },
+          {
+            "code": 15,
+            "n": 729,
+            "proportion": 0.04194717762817193
+          },
+          {
+            "code": 16,
+            "n": 730,
+            "proportion": 0.04200471833822429
+          },
+          {
+            "code": 17,
+            "n": 730,
+            "proportion": 0.04200471833822429
+          },
+          {
+            "code": 18,
+            "n": 728,
+            "proportion": 0.04188963691811957
+          },
+          {
+            "code": 19,
+            "n": 728,
+            "proportion": 0.04188963691811957
+          },
+          {
+            "code": 20,
+            "n": 728,
+            "proportion": 0.04188963691811957
+          },
+          {
+            "code": 21,
+            "n": 728,
+            "proportion": 0.04188963691811957
+          },
+          {
+            "code": 22,
+            "n": 728,
+            "proportion": 0.04188963691811957
+          },
+          {
+            "code": 23,
+            "n": 728,
+            "proportion": 0.04188963691811957
+          }
+        ],
+        "holiday": [
+          {
+            "code": 0,
+            "n": 16879,
+            "proportion": 0.971229644973819
+          },
+          {
+            "code": 1,
+            "n": 500,
+            "proportion": 0.028770355026181024
+          }
+        ],
+        "weekday": [
+          {
+            "code": 0,
+            "n": 2502,
+            "proportion": 0.14396685655100985
+          },
+          {
+            "code": 1,
+            "n": 2479,
+            "proportion": 0.1426434202198055
+          },
+          {
+            "code": 2,
+            "n": 2453,
+            "proportion": 0.1411473617584441
+          },
+          {
+            "code": 3,
+            "n": 2475,
+            "proportion": 0.14241325737959606
+          },
+          {
+            "code": 4,
+            "n": 2471,
+            "proportion": 0.14218309453938663
+          },
+          {
+            "code": 5,
+            "n": 2487,
+            "proportion": 0.1431037459002244
+          },
+          {
+            "code": 6,
+            "n": 2512,
+            "proportion": 0.14454226365153347
+          }
+        ],
+        "workingday": [
+          {
+            "code": 0,
+            "n": 5514,
+            "proportion": 0.3172794752287243
+          },
+          {
+            "code": 1,
+            "n": 11865,
+            "proportion": 0.6827205247712756
+          }
+        ],
+        "weathersit": [
+          {
+            "code": 1,
+            "n": 11413,
+            "proportion": 0.656712123827608
+          },
+          {
+            "code": 2,
+            "n": 4544,
+            "proportion": 0.26146498647793315
+          },
+          {
+            "code": 3,
+            "n": 1419,
+            "proportion": 0.08165026756430174
+          },
+          {
+            "code": 4,
+            "n": 3,
+            "proportion": 0.00017262213015708613
+          }
+        ]
+      },
+      "interpretation": "Los tamaños de grupo quedan disponibles para contextualizar las comparaciones."
+    },
+    {
+      "id": "STAT-007",
+      "stage": "E4",
+      "analysis_type": "composition",
+      "title": "Composición agregada de usuarios",
+      "variables": [
+        "casual",
+        "registered",
+        "cnt"
+      ],
+      "population": "17.379 observaciones",
+      "method": "Suma de componentes y proporciones sobre suma de cnt",
+      "result": {
+        "total_cnt": 3292679,
+        "total_casual": 620017,
+        "total_registered": 2672662,
+        "casual_share_of_all_rentals": 0.18830168382645257,
+        "registered_share_of_all_rentals": 0.8116983161735475,
+        "zero_cnt_rows": 0
+      },
+      "interpretation": "Las proporciones usan el total de alquileres del archivo como denominador."
+    },
+    {
+      "id": "STAT-008",
+      "stage": "E4",
+      "analysis_type": "group_descriptive",
+      "title": "Conteos por año, estación, clima y festivo",
+      "variables": [
+        "yr",
+        "season",
+        "weathersit",
+        "holiday",
+        "casual",
+        "registered",
+        "cnt"
+      ],
+      "population": "Población completa agrupada",
+      "method": "Tamaño, media, mediana, desviación, mínimo y máximo",
+      "result": {
+        "by_year": [
+          {
+            "yr": 0,
+            "casual_count": 8645,
+            "casual_mean": 28.60057836899942,
+            "casual_median": 14.0,
+            "casual_std": 38.840788759808255,
+            "casual_min": 0,
+            "casual_max": 272,
+            "registered_count": 8645,
+            "registered_mean": 115.19386928860614,
+            "registered_median": 90.0,
+            "registered_std": 109.46101444308769,
+            "registered_min": 0,
+            "registered_max": 567,
+            "cnt_count": 8645,
+            "cnt_mean": 143.79444765760556,
+            "cnt_median": 109.0,
+            "cnt_std": 133.79785413838667,
+            "cnt_min": 1,
+            "cnt_max": 651
+          },
+          {
+            "yr": 1,
+            "casual_count": 8734,
+            "casual_mean": 42.67975727043737,
+            "casual_median": 20.0,
+            "casual_std": 56.97041333083274,
+            "casual_min": 0,
+            "casual_max": 367,
+            "registered_count": 8734,
+            "registered_mean": 191.98660407602472,
+            "registered_median": 156.0,
+            "registered_std": 175.48163668340234,
+            "registered_min": 0,
+            "registered_max": 886,
+            "cnt_count": 8734,
+            "cnt_mean": 234.6663613464621,
+            "cnt_median": 191.0,
+            "cnt_std": 208.9109409863988,
+            "cnt_min": 1,
+            "cnt_max": 977
+          }
+        ],
+        "by_season": [
+          {
+            "season": 1,
+            "casual_count": 4242,
+            "casual_mean": 14.29090051862329,
+            "casual_median": 5.0,
+            "casual_std": 27.463006043718636,
+            "casual_min": 0,
+            "casual_max": 367,
+            "registered_count": 4242,
+            "registered_mean": 96.82366808109383,
+            "registered_median": 66.0,
+            "registered_std": 104.34760450681623,
+            "registered_min": 0,
+            "registered_max": 681,
+            "cnt_count": 4242,
+            "cnt_mean": 111.11456859971712,
+            "cnt_median": 76.0,
+            "cnt_std": 119.22401021623001,
+            "cnt_min": 1,
+            "cnt_max": 801
+          },
+          {
+            "season": 2,
+            "casual_count": 4409,
+            "casual_mean": 46.160580630528464,
+            "casual_median": 27.0,
+            "casual_std": 57.45580308228023,
+            "casual_min": 0,
+            "casual_max": 361,
+            "registered_count": 4409,
+            "registered_mean": 162.1834883193468,
+            "registered_median": 128.0,
+            "registered_std": 152.75149337769975,
+            "registered_min": 0,
+            "registered_max": 782,
+            "cnt_count": 4409,
+            "cnt_mean": 208.34406894987526,
+            "cnt_median": 165.0,
+            "cnt_std": 188.36247314750835,
+            "cnt_min": 1,
+            "cnt_max": 957
+          },
+          {
+            "season": 3,
+            "casual_count": 4496,
+            "casual_mean": 50.28714412811388,
+            "casual_median": 36.0,
+            "casual_std": 51.75191590856355,
+            "casual_min": 0,
+            "casual_max": 350,
+            "registered_count": 4496,
+            "registered_mean": 185.72909252669038,
+            "registered_median": 153.0,
+            "registered_std": 166.43015553281805,
+            "registered_min": 0,
+            "registered_max": 886,
+            "cnt_count": 4496,
+            "cnt_mean": 236.01623665480426,
+            "cnt_median": 199.0,
+            "cnt_std": 197.71163021956164,
+            "cnt_min": 1,
+            "cnt_max": 977
+          },
+          {
+            "season": 4,
+            "casual_count": 4232,
+            "casual_mean": 30.666824196597354,
+            "casual_median": 14.0,
+            "casual_std": 46.0340584358059,
+            "casual_min": 0,
+            "casual_max": 362,
+            "registered_count": 4232,
+            "registered_mean": 168.20203213610586,
+            "registered_median": 134.0,
+            "registered_std": 157.55933950428224,
+            "registered_min": 0,
+            "registered_max": 876,
+            "cnt_count": 4232,
+            "cnt_mean": 198.86885633270322,
+            "cnt_median": 155.5,
+            "cnt_std": 182.9679718103844,
+            "cnt_min": 1,
+            "cnt_max": 967
+          }
+        ],
+        "by_weathersit": [
+          {
+            "weathersit": 1,
+            "casual_count": 11413,
+            "casual_mean": 40.545430649259615,
+            "casual_median": 20.0,
+            "casual_std": 53.12655902267653,
+            "casual_min": 0,
+            "casual_max": 367,
+            "registered_count": 11413,
+            "registered_mean": 164.3238412336809,
+            "registered_median": 128.0,
+            "registered_std": 156.8904528176069,
+            "registered_min": 0,
+            "registered_max": 886,
+            "cnt_count": 11413,
+            "cnt_mean": 204.8692718829405,
+            "cnt_median": 159.0,
+            "cnt_std": 189.48777342363275,
+            "cnt_min": 1,
+            "cnt_max": 977
+          },
+          {
+            "weathersit": 2,
+            "casual_count": 4544,
+            "casual_mean": 29.595290492957748,
+            "casual_median": 15.0,
+            "casual_std": 41.35670448924814,
+            "casual_min": 0,
+            "casual_max": 350,
+            "registered_count": 4544,
+            "registered_mean": 145.57020246478874,
+            "registered_median": 111.0,
+            "registered_std": 142.3904312516945,
+            "registered_min": 0,
+            "registered_max": 822,
+            "cnt_count": 4544,
+            "cnt_mean": 175.16549295774647,
+            "cnt_median": 133.0,
+            "cnt_std": 165.43158927677524,
+            "cnt_min": 1,
+            "cnt_max": 957
+          },
+          {
+            "weathersit": 3,
+            "casual_count": 1419,
+            "casual_mean": 16.05567300916138,
+            "casual_median": 5.0,
+            "casual_std": 30.01732694071746,
+            "casual_min": 0,
+            "casual_max": 263,
+            "registered_count": 1419,
+            "registered_mean": 95.52360817477097,
+            "registered_median": 55.0,
+            "registered_std": 114.77346903982001,
+            "registered_min": 0,
+            "registered_max": 791,
+            "cnt_count": 1419,
+            "cnt_mean": 111.57928118393235,
+            "cnt_median": 63.0,
+            "cnt_std": 133.78104501327016,
+            "cnt_min": 1,
+            "cnt_max": 891
+          },
+          {
+            "weathersit": 4,
+            "casual_count": 3,
+            "casual_mean": 2.6666666666666665,
+            "casual_median": 1.0,
+            "casual_std": 2.8867513459481287,
+            "casual_min": 1,
+            "casual_max": 6,
+            "registered_count": 3,
+            "registered_mean": 71.66666666666667,
+            "registered_median": 35.0,
+            "registered_std": 75.04887296511077,
+            "registered_min": 22,
+            "registered_max": 158,
+            "cnt_count": 3,
+            "cnt_mean": 74.33333333333333,
+            "cnt_median": 36.0,
+            "cnt_std": 77.92517778826901,
+            "cnt_min": 23,
+            "cnt_max": 164
+          }
+        ],
+        "by_holiday": [
+          {
+            "holiday": 0,
+            "casual_count": 16879,
+            "casual_mean": 35.40837727353516,
+            "casual_median": 17.0,
+            "casual_std": 48.9637445376435,
+            "casual_min": 0,
+            "casual_max": 367,
+            "registered_count": 16879,
+            "registered_mean": 155.02020261863854,
+            "registered_median": 117.0,
+            "registered_std": 152.21077856369877,
+            "registered_min": 0,
+            "registered_max": 886,
+            "cnt_count": 16879,
+            "cnt_mean": 190.4285798921737,
+            "cnt_median": 144.0,
+            "cnt_std": 181.98143493836545,
+            "cnt_min": 1,
+            "cnt_max": 977
+          },
+          {
+            "holiday": 1,
+            "casual_count": 500,
+            "casual_mean": 44.718,
+            "casual_median": 17.0,
+            "casual_std": 59.04136042200386,
+            "casual_min": 0,
+            "casual_max": 272,
+            "registered_count": 500,
+            "registered_mean": 112.152,
+            "registered_median": 70.5,
+            "registered_std": 111.36909376524615,
+            "registered_min": 0,
+            "registered_max": 601,
+            "cnt_count": 500,
+            "cnt_mean": 156.87,
+            "cnt_median": 97.0,
+            "cnt_std": 156.7574780156521,
+            "cnt_min": 1,
+            "cnt_max": 712
+          }
+        ]
+      },
+      "interpretation": "Las comparaciones son descriptivas y muestran el tamaño de cada grupo."
+    },
+    {
+      "id": "STAT-009",
+      "stage": "E5",
+      "analysis_type": "hourly_comparison",
+      "title": "Perfil horario por condición laborable",
+      "variables": [
+        "hr",
+        "workingday",
+        "casual",
+        "registered",
+        "cnt"
+      ],
+      "population": "Población completa agrupada por hr y workingday",
+      "method": "Tamaño, media, mediana, desviación, mínimo y máximo",
+      "result": [
+        {
+          "hr": 0,
+          "workingday": 0,
+          "casual_count": 230,
+          "casual_mean": 16.64782608695652,
+          "casual_median": 13.0,
+          "casual_std": 13.75208978371665,
+          "casual_min": 0,
+          "casual_max": 63,
+          "registered_count": 230,
+          "registered_mean": 74.15217391304348,
+          "registered_median": 76.0,
+          "registered_std": 38.580131202961766,
+          "registered_min": 4,
+          "registered_max": 218,
+          "cnt_count": 230,
+          "cnt_mean": 90.8,
+          "cnt_median": 93.5,
+          "cnt_std": 48.69272696603311,
+          "cnt_min": 6,
+          "cnt_max": 249
+        },
+        {
+          "hr": 0,
+          "workingday": 1,
+          "casual_count": 496,
+          "casual_mean": 7.149193548387097,
+          "casual_median": 5.0,
+          "casual_std": 7.109953142725787,
+          "casual_min": 0,
+          "casual_max": 68,
+          "registered_count": 496,
+          "registered_mean": 29.637096774193548,
+          "registered_median": 26.0,
+          "registered_std": 19.428120690752724,
+          "registered_min": 0,
+          "registered_max": 234,
+          "cnt_count": 496,
+          "cnt_mean": 36.78629032258065,
+          "cnt_median": 33.0,
+          "cnt_std": 24.46714336808305,
+          "cnt_min": 2,
+          "cnt_max": 283
+        },
+        {
+          "hr": 1,
+          "workingday": 0,
+          "casual_count": 230,
+          "casual_mean": 12.504347826086956,
+          "casual_median": 11.0,
+          "casual_std": 9.814768226351758,
+          "casual_min": 0,
+          "casual_max": 49,
+          "registered_count": 230,
+          "registered_mean": 57.004347826086956,
+          "registered_median": 57.0,
+          "registered_std": 29.11451532909179,
+          "registered_min": 2,
+          "registered_max": 139,
+          "cnt_count": 230,
+          "cnt_mean": 69.50869565217391,
+          "cnt_median": 71.0,
+          "cnt_std": 36.54915232134873,
+          "cnt_min": 4,
+          "cnt_max": 168
+        },
+        {
+          "hr": 1,
+          "workingday": 1,
+          "casual_count": 494,
+          "casual_mean": 3.710526315789474,
+          "casual_median": 3.0,
+          "casual_std": 4.288199114944116,
+          "casual_min": 0,
+          "casual_max": 41,
+          "registered_count": 494,
+          "registered_mean": 12.842105263157896,
+          "registered_median": 11.0,
+          "registered_std": 9.053333546115134,
+          "registered_min": 0,
+          "registered_max": 86,
+          "cnt_count": 494,
+          "cnt_mean": 16.55263157894737,
+          "cnt_median": 14.0,
+          "cnt_std": 11.680337631181398,
+          "cnt_min": 1,
+          "cnt_max": 114
+        },
+        {
+          "hr": 2,
+          "workingday": 0,
+          "casual_count": 228,
+          "casual_mean": 10.399122807017545,
+          "casual_median": 9.0,
+          "casual_std": 8.27306010229695,
+          "casual_min": 0,
+          "casual_max": 44,
+          "registered_count": 228,
+          "registered_mean": 42.771929824561404,
+          "registered_median": 43.0,
+          "registered_std": 21.816428796261924,
+          "registered_min": 2,
+          "registered_max": 104,
+          "cnt_count": 228,
+          "cnt_mean": 53.171052631578945,
+          "cnt_median": 54.0,
+          "cnt_std": 27.852690610019753,
+          "cnt_min": 2,
+          "cnt_max": 132
+        },
+        {
+          "hr": 2,
+          "workingday": 1,
+          "casual_count": 487,
+          "casual_mean": 2.137577002053388,
+          "casual_median": 1.0,
+          "casual_std": 2.928426852242519,
+          "casual_min": 0,
+          "casual_max": 17,
+          "registered_count": 487,
+          "registered_mean": 6.546201232032854,
+          "registered_median": 5.0,
+          "registered_std": 5.013707644673118,
+          "registered_min": 0,
+          "registered_max": 68,
+          "cnt_count": 487,
+          "cnt_mean": 8.683778234086242,
+          "cnt_median": 7.0,
+          "cnt_std": 6.563915236079673,
+          "cnt_min": 1,
+          "cnt_max": 74
+        },
+        {
+          "hr": 3,
+          "workingday": 0,
+          "casual_count": 227,
+          "casual_mean": 6.453744493392071,
+          "casual_median": 5.0,
+          "casual_std": 5.609830308816795,
+          "casual_min": 0,
+          "casual_max": 26,
+          "registered_count": 227,
+          "registered_mean": 19.3215859030837,
+          "registered_median": 19.0,
+          "registered_std": 10.932116407869001,
+          "registered_min": 2,
+          "registered_max": 61,
+          "cnt_count": 227,
+          "cnt_mean": 25.77533039647577,
+          "cnt_median": 25.0,
+          "cnt_std": 14.89306155641272,
+          "cnt_min": 2,
+          "cnt_max": 79
+        },
+        {
+          "hr": 3,
+          "workingday": 1,
+          "casual_count": 470,
+          "casual_mean": 0.9106382978723404,
+          "casual_median": 0.0,
+          "casual_std": 1.564700430813832,
+          "casual_min": 0,
+          "casual_max": 17,
+          "registered_count": 470,
+          "registered_mean": 4.031914893617022,
+          "registered_median": 4.0,
+          "registered_std": 2.6463642342124514,
+          "registered_min": 0,
+          "registered_max": 29,
+          "cnt_count": 470,
+          "cnt_mean": 4.9425531914893615,
+          "cnt_median": 4.0,
+          "cnt_std": 3.4030742830646354,
+          "cnt_min": 1,
+          "cnt_max": 36
+        },
+        {
+          "hr": 4,
+          "workingday": 0,
+          "casual_count": 227,
+          "casual_mean": 2.26431718061674,
+          "casual_median": 1.0,
+          "casual_std": 2.4676140971755745,
+          "casual_min": 0,
+          "casual_max": 13,
+          "registered_count": 227,
+          "registered_mean": 6.0,
+          "registered_median": 5.0,
+          "registered_std": 3.6892573058850955,
+          "registered_min": 0,
+          "registered_max": 22,
+          "cnt_count": 227,
+          "cnt_mean": 8.26431718061674,
+          "cnt_median": 7.0,
+          "cnt_std": 5.20727068675578,
+          "cnt_min": 1,
+          "cnt_max": 28
+        },
+        {
+          "hr": 4,
+          "workingday": 1,
+          "casual_count": 470,
+          "casual_mean": 0.7659574468085106,
+          "casual_median": 0.0,
+          "casual_std": 1.273190273943808,
+          "casual_min": 0,
+          "casual_max": 11,
+          "registered_count": 470,
+          "registered_mean": 4.663829787234042,
+          "registered_median": 4.0,
+          "registered_std": 2.727450720664336,
+          "registered_min": 0,
+          "registered_max": 14,
+          "cnt_count": 470,
+          "cnt_mean": 5.4297872340425535,
+          "cnt_median": 5.0,
+          "cnt_std": 3.129467545575962,
+          "cnt_min": 1,
+          "cnt_max": 17
+        },
+        {
+          "hr": 5,
+          "workingday": 0,
+          "casual_count": 222,
+          "casual_mean": 1.7252252252252251,
+          "casual_median": 1.0,
+          "casual_std": 2.2292164672012786,
+          "casual_min": 0,
+          "casual_max": 16,
+          "registered_count": 222,
+          "registered_mean": 6.963963963963964,
+          "registered_median": 6.0,
+          "registered_std": 5.289668796871498,
+          "registered_min": 0,
+          "registered_max": 39,
+          "cnt_count": 222,
+          "cnt_mean": 8.68918918918919,
+          "cnt_median": 7.0,
+          "cnt_std": 6.698940975955799,
+          "cnt_min": 1,
+          "cnt_max": 55
+        },
+        {
+          "hr": 5,
+          "workingday": 1,
+          "casual_count": 495,
+          "casual_mean": 1.2707070707070707,
+          "casual_median": 1.0,
+          "casual_std": 1.536153546251954,
+          "casual_min": 0,
+          "casual_max": 10,
+          "registered_count": 495,
+          "registered_mean": 23.64242424242424,
+          "registered_median": 24.0,
+          "registered_std": 11.57686065447694,
+          "registered_min": 1,
+          "registered_max": 64,
+          "cnt_count": 495,
+          "cnt_mean": 24.913131313131313,
+          "cnt_median": 25.0,
+          "cnt_std": 12.281389152993086,
+          "cnt_min": 1,
+          "cnt_max": 66
+        },
+        {
+          "hr": 6,
+          "workingday": 0,
+          "casual_count": 229,
+          "casual_mean": 3.8209606986899565,
+          "casual_median": 3.0,
+          "casual_std": 3.557583565764267,
+          "casual_min": 0,
+          "casual_max": 17,
+          "registered_count": 229,
+          "registered_mean": 14.921397379912664,
+          "registered_median": 12.0,
+          "registered_std": 13.849850393903246,
+          "registered_min": 0,
+          "registered_max": 123,
+          "cnt_count": 229,
+          "cnt_mean": 18.74235807860262,
+          "cnt_median": 16.0,
+          "cnt_std": 16.064535300315324,
+          "cnt_min": 1,
+          "cnt_max": 133
+        },
+        {
+          "hr": 6,
+          "workingday": 1,
+          "casual_count": 496,
+          "casual_mean": 4.318548387096774,
+          "casual_median": 3.0,
+          "casual_std": 3.7448063306691326,
+          "casual_min": 0,
+          "casual_max": 19,
+          "registered_count": 496,
+          "registered_mean": 98.18145161290323,
+          "registered_median": 99.5,
+          "registered_std": 43.69808421834084,
+          "registered_min": 7,
+          "registered_max": 203,
+          "cnt_count": 496,
+          "cnt_mean": 102.5,
+          "cnt_median": 104.0,
+          "cnt_std": 45.8126620051706,
+          "cnt_min": 7,
+          "cnt_max": 213
+        },
+        {
+          "hr": 7,
+          "workingday": 0,
+          "casual_count": 231,
+          "casual_mean": 8.606060606060606,
+          "casual_median": 7.0,
+          "casual_std": 7.604675768508282,
+          "casual_min": 0,
+          "casual_max": 35,
+          "registered_count": 231,
+          "registered_mean": 34.8008658008658,
+          "registered_median": 29.0,
+          "registered_std": 34.41263922423802,
+          "registered_min": 1,
+          "registered_max": 367,
+          "cnt_count": 231,
+          "cnt_mean": 43.40692640692641,
+          "cnt_median": 39.0,
+          "cnt_std": 37.79462515949503,
+          "cnt_min": 1,
+          "cnt_max": 387
+        },
+        {
+          "hr": 7,
+          "workingday": 1,
+          "casual_count": 496,
+          "casual_mean": 12.195564516129032,
+          "casual_median": 11.0,
+          "casual_std": 8.452126651512206,
+          "casual_min": 0,
+          "casual_max": 40,
+          "registered_count": 496,
+          "registered_mean": 278.41733870967744,
+          "registered_median": 281.0,
+          "registered_std": 129.46515159122774,
+          "registered_min": 15,
+          "registered_max": 572,
+          "cnt_count": 496,
+          "cnt_mean": 290.61290322580646,
+          "cnt_median": 295.0,
+          "cnt_std": 134.55824976806565,
+          "cnt_min": 18,
+          "cnt_max": 596
+        },
+        {
+          "hr": 8,
+          "workingday": 0,
+          "casual_count": 231,
+          "casual_mean": 20.424242424242426,
+          "casual_median": 21.0,
+          "casual_std": 15.332322244260471,
+          "casual_min": 0,
+          "casual_max": 69,
+          "registered_count": 231,
+          "registered_mean": 85.22943722943722,
+          "registered_median": 76.0,
+          "registered_std": 65.4247274030918,
+          "registered_min": 4,
+          "registered_max": 549,
+          "cnt_count": 231,
+          "cnt_mean": 105.65367965367966,
+          "cnt_median": 94.0,
+          "cnt_std": 74.3382485193391,
+          "cnt_min": 5,
+          "cnt_max": 597
+        },
+        {
+          "hr": 8,
+          "workingday": 1,
+          "casual_count": 496,
+          "casual_mean": 22.264112903225808,
+          "casual_median": 22.0,
+          "casual_std": 12.90856744781945,
+          "casual_min": 0,
+          "casual_max": 55,
+          "registered_count": 496,
+          "registered_mean": 454.741935483871,
+          "registered_median": 437.5,
+          "registered_std": 178.66780284431778,
+          "registered_min": 31,
+          "registered_max": 808,
+          "cnt_count": 496,
+          "cnt_mean": 477.00604838709677,
+          "cnt_median": 463.0,
+          "cnt_std": 186.15375952573547,
+          "cnt_min": 31,
+          "cnt_max": 839
+        },
+        {
+          "hr": 9,
+          "workingday": 0,
+          "casual_count": 231,
+          "casual_mean": 45.01731601731602,
+          "casual_median": 45.0,
+          "casual_std": 32.768086989307584,
+          "casual_min": 0,
+          "casual_max": 142,
+          "registered_count": 231,
+          "registered_mean": 126.60606060606061,
+          "registered_median": 118.0,
+          "registered_std": 66.48834979725041,
+          "registered_min": 6,
+          "registered_max": 337,
+          "cnt_count": 231,
+          "cnt_mean": 171.62337662337663,
+          "cnt_median": 170.0,
+          "cnt_std": 92.51510414324683,
+          "cnt_min": 14,
+          "cnt_max": 397
+        },
+        {
+          "hr": 9,
+          "workingday": 1,
+          "casual_count": 496,
+          "casual_mean": 24.3125,
+          "casual_median": 23.0,
+          "casual_std": 15.588947295368532,
+          "casual_min": 0,
+          "casual_max": 75,
+          "registered_count": 496,
+          "registered_mean": 217.20564516129033,
+          "registered_median": 206.5,
+          "registered_std": 76.40689883963354,
+          "registered_min": 22,
+          "registered_max": 399,
+          "cnt_count": 496,
+          "cnt_mean": 241.51814516129033,
+          "cnt_median": 228.0,
+          "cnt_std": 85.70586105735669,
+          "cnt_min": 23,
+          "cnt_max": 426
+        },
+        {
+          "hr": 10,
+          "workingday": 0,
+          "casual_count": 231,
+          "casual_mean": 79.26839826839827,
+          "casual_median": 79.0,
+          "casual_std": 52.928309155233705,
+          "casual_min": 0,
+          "casual_max": 209,
+          "registered_count": 231,
+          "registered_mean": 176.64069264069263,
+          "registered_median": 173.0,
+          "registered_std": 82.73722619098993,
+          "registered_min": 12,
+          "registered_max": 351,
+          "cnt_count": 231,
+          "cnt_mean": 255.9090909090909,
+          "cnt_median": 260.0,
+          "cnt_std": 127.84425121674404,
+          "cnt_min": 12,
+          "cnt_max": 539
+        },
+        {
+          "hr": 10,
+          "workingday": 1,
+          "casual_count": 496,
+          "casual_mean": 31.205645161290324,
+          "casual_median": 29.0,
+          "casual_std": 21.682605987546985,
+          "casual_min": 0,
+          "casual_max": 125,
+          "registered_count": 496,
+          "registered_mean": 104.16129032258064,
+          "registered_median": 104.0,
+          "registered_std": 39.876909010994034,
+          "registered_min": 8,
+          "registered_max": 200,
+          "cnt_count": 496,
+          "cnt_mean": 135.36693548387098,
+          "cnt_median": 133.0,
+          "cnt_std": 55.6793347542028,
+          "cnt_min": 8,
+          "cnt_max": 275
+        },
+        {
+          "hr": 11,
+          "workingday": 0,
+          "casual_count": 231,
+          "casual_mean": 106.65367965367966,
+          "casual_median": 107.0,
+          "casual_std": 67.99029004754361,
+          "casual_min": 1,
+          "casual_max": 268,
+          "registered_count": 231,
+          "registered_mean": 208.66233766233765,
+          "registered_median": 207.0,
+          "registered_std": 96.74002953540784,
+          "registered_min": 26,
+          "registered_max": 446,
+          "cnt_count": 231,
+          "cnt_mean": 315.31601731601734,
+          "cnt_median": 317.0,
+          "cnt_std": 155.2507919287501,
+          "cnt_min": 27,
+          "cnt_max": 663
+        },
+        {
+          "hr": 11,
+          "workingday": 1,
+          "casual_count": 496,
+          "casual_mean": 37.59879032258065,
+          "casual_median": 36.0,
+          "casual_std": 26.216316889696714,
+          "casual_min": 0,
+          "casual_max": 131,
+          "registered_count": 496,
+          "registered_mean": 120.63104838709677,
+          "registered_median": 120.0,
+          "registered_std": 48.565554610816925,
+          "registered_min": 5,
+          "registered_max": 252,
+          "cnt_count": 496,
+          "cnt_mean": 158.2298387096774,
+          "cnt_median": 157.0,
+          "cnt_std": 69.17391051351305,
+          "cnt_min": 10,
+          "cnt_max": 361
+        },
+        {
+          "hr": 12,
+          "workingday": 0,
+          "casual_count": 231,
+          "casual_mean": 126.24675324675324,
+          "casual_median": 120.0,
+          "casual_std": 79.37103115897418,
+          "casual_min": 4,
+          "casual_max": 362,
+          "registered_count": 231,
+          "registered_mean": 240.01298701298703,
+          "registered_median": 243.0,
+          "registered_std": 106.50664321062554,
+          "registered_min": 26,
+          "registered_max": 526,
+          "cnt_count": 231,
+          "cnt_mean": 366.2597402597403,
+          "cnt_median": 367.0,
+          "cnt_std": 174.87558826807748,
+          "cnt_min": 32,
+          "cnt_max": 776
+        },
+        {
+          "hr": 12,
+          "workingday": 1,
+          "casual_count": 497,
+          "casual_mean": 41.35814889336016,
+          "casual_median": 38.0,
+          "casual_std": 29.41753953087115,
+          "casual_min": 0,
+          "casual_max": 199,
+          "registered_count": 497,
+          "registered_mean": 159.46277665995976,
+          "registered_median": 162.0,
+          "registered_std": 65.95320862979241,
+          "registered_min": 3,
+          "registered_max": 312,
+          "cnt_count": 497,
+          "cnt_mean": 200.8209255533199,
+          "cnt_median": 201.0,
+          "cnt_std": 89.26497640649048,
+          "cnt_min": 3,
+          "cnt_max": 471
+        },
+        {
+          "hr": 13,
+          "workingday": 0,
+          "casual_count": 231,
+          "casual_mean": 136.42424242424244,
+          "casual_median": 124.0,
+          "casual_std": 85.75491934786228,
+          "casual_min": 0,
+          "casual_max": 355,
+          "registered_count": 231,
+          "registered_mean": 236.30735930735932,
+          "registered_median": 232.0,
+          "registered_std": 104.95243596587133,
+          "registered_min": 30,
+          "registered_max": 491,
+          "cnt_count": 231,
+          "cnt_mean": 372.73160173160176,
+          "cnt_median": 367.0,
+          "cnt_std": 177.96564591915862,
+          "cnt_min": 30,
+          "cnt_max": 760
+        },
+        {
+          "hr": 13,
+          "workingday": 1,
+          "casual_count": 498,
+          "casual_mean": 42.56827309236948,
+          "casual_median": 38.0,
+          "casual_std": 30.664281278183644,
+          "casual_min": 0,
+          "casual_max": 224,
+          "registered_count": 498,
+          "registered_mean": 155.86144578313252,
+          "registered_median": 158.0,
+          "registered_std": 63.58649489883202,
+          "registered_min": 9,
+          "registered_max": 316,
+          "cnt_count": 498,
+          "cnt_mean": 198.429718875502,
+          "cnt_median": 198.0,
+          "cnt_std": 88.4768500700107,
+          "cnt_min": 11,
+          "cnt_max": 428
+        },
+        {
+          "hr": 14,
+          "workingday": 0,
+          "casual_count": 231,
+          "casual_mean": 139.5930735930736,
+          "casual_median": 129.0,
+          "casual_std": 87.81907658752662,
+          "casual_min": 0,
+          "casual_max": 361,
+          "registered_count": 231,
+          "registered_mean": 225.05194805194805,
+          "registered_median": 226.0,
+          "registered_std": 97.13919588211222,
+          "registered_min": 19,
+          "registered_max": 448,
+          "cnt_count": 231,
+          "cnt_mean": 364.64502164502164,
+          "cnt_median": 361.0,
+          "cnt_std": 172.34390406563986,
+          "cnt_min": 23,
+          "cnt_max": 750
+        },
+        {
+          "hr": 14,
+          "workingday": 1,
+          "casual_count": 498,
+          "casual_mean": 45.869477911646584,
+          "casual_median": 42.0,
+          "casual_std": 33.92785920019064,
+          "casual_min": 0,
+          "casual_max": 240,
+          "registered_count": 498,
+          "registered_mean": 137.70281124497993,
+          "registered_median": 135.5,
+          "registered_std": 59.664117133908256,
+          "registered_min": 12,
+          "registered_max": 502,
+          "cnt_count": 498,
+          "cnt_mean": 183.5722891566265,
+          "cnt_median": 179.0,
+          "cnt_std": 87.25701412646622,
+          "cnt_min": 12,
+          "cnt_max": 651
+        },
+        {
+          "hr": 15,
+          "workingday": 0,
+          "casual_count": 231,
+          "casual_mean": 136.5021645021645,
+          "casual_median": 132.0,
+          "casual_std": 86.93025062402286,
+          "casual_min": 0,
+          "casual_max": 357,
+          "registered_count": 231,
+          "registered_mean": 222.3116883116883,
+          "registered_median": 221.0,
+          "registered_std": 93.921048213763,
+          "registered_min": 4,
+          "registered_max": 456,
+          "cnt_count": 231,
+          "cnt_mean": 358.8138528138528,
+          "cnt_median": 361.0,
+          "cnt_std": 169.10165447563077,
+          "cnt_min": 7,
+          "cnt_max": 750
+        },
+        {
+          "hr": 15,
+          "workingday": 1,
+          "casual_count": 498,
+          "casual_mean": 46.333333333333336,
+          "casual_median": 42.0,
+          "casual_std": 34.03373479295324,
+          "casual_min": 0,
+          "casual_max": 233,
+          "registered_count": 498,
+          "registered_mean": 154.99799196787149,
+          "registered_median": 151.5,
+          "registered_std": 70.25050030242046,
+          "registered_min": 11,
+          "registered_max": 423,
+          "cnt_count": 498,
+          "cnt_mean": 201.33132530120483,
+          "cnt_median": 194.0,
+          "cnt_std": 97.63981701050902,
+          "cnt_min": 13,
+          "cnt_max": 601
+        },
+        {
+          "hr": 16,
+          "workingday": 0,
+          "casual_count": 231,
+          "casual_mean": 128.6147186147186,
+          "casual_median": 121.0,
+          "casual_std": 85.20080398571238,
+          "casual_min": 3,
+          "casual_max": 367,
+          "registered_count": 231,
+          "registered_mean": 224.1125541125541,
+          "registered_median": 226.0,
+          "registered_std": 99.0335269007656,
+          "registered_min": 8,
+          "registered_max": 473,
+          "cnt_count": 231,
+          "cnt_mean": 352.72727272727275,
+          "cnt_median": 356.0,
+          "cnt_std": 171.59314643988068,
+          "cnt_min": 11,
+          "cnt_max": 783
+        },
+        {
+          "hr": 16,
+          "workingday": 1,
+          "casual_count": 499,
+          "casual_mean": 48.344689378757515,
+          "casual_median": 45.0,
+          "casual_std": 34.330800197819414,
+          "casual_min": 0,
+          "casual_max": 219,
+          "registered_count": 499,
+          "registered_mean": 244.77755511022045,
+          "registered_median": 247.0,
+          "registered_std": 105.3412155998338,
+          "registered_min": 13,
+          "registered_max": 481,
+          "cnt_count": 499,
+          "cnt_mean": 293.12224448897797,
+          "cnt_median": 292.0,
+          "cnt_std": 132.79884494621396,
+          "cnt_min": 13,
+          "cnt_max": 634
+        },
+        {
+          "hr": 17,
+          "workingday": 0,
+          "casual_count": 231,
+          "casual_mean": 111.81385281385282,
+          "casual_median": 99.0,
+          "casual_std": 81.79887837200077,
+          "casual_min": 1,
+          "casual_max": 347,
+          "registered_count": 231,
+          "registered_mean": 211.73593073593074,
+          "registered_median": 214.0,
+          "registered_std": 105.87332241420059,
+          "registered_min": 14,
+          "registered_max": 601,
+          "cnt_count": 231,
+          "cnt_mean": 323.54978354978357,
+          "cnt_median": 322.0,
+          "cnt_std": 174.11177291425255,
+          "cnt_min": 15,
+          "cnt_max": 731
+        },
+        {
+          "hr": 17,
+          "workingday": 1,
+          "casual_count": 499,
+          "casual_mean": 56.895791583166336,
+          "casual_median": 56.0,
+          "casual_std": 38.58122868900448,
+          "casual_min": 0,
+          "casual_max": 264,
+          "registered_count": 499,
+          "registered_mean": 468.3947895791583,
+          "registered_median": 480.0,
+          "registered_std": 198.81396940514097,
+          "registered_min": 19,
+          "registered_max": 885,
+          "cnt_count": 499,
+          "cnt_mean": 525.2905811623247,
+          "cnt_median": 539.0,
+          "cnt_std": 228.76104606389583,
+          "cnt_min": 26,
+          "cnt_max": 976
+        },
+        {
+          "hr": 18,
+          "workingday": 0,
+          "casual_count": 230,
+          "casual_mean": 84.22173913043478,
+          "casual_median": 71.0,
+          "casual_std": 67.17271264786868,
+          "casual_min": 0,
+          "casual_max": 266,
+          "registered_count": 230,
+          "registered_mean": 196.83478260869566,
+          "registered_median": 193.5,
+          "registered_std": 100.25525766171644,
+          "registered_min": 23,
+          "registered_max": 589,
+          "cnt_count": 230,
+          "cnt_mean": 281.05652173913046,
+          "cnt_median": 276.5,
+          "cnt_std": 155.80670850703598,
+          "cnt_min": 23,
+          "cnt_max": 676
+        },
+        {
+          "hr": 18,
+          "workingday": 1,
+          "casual_count": 498,
+          "casual_mean": 50.45180722891566,
+          "casual_median": 50.0,
+          "casual_std": 36.903412550797455,
+          "casual_min": 0,
+          "casual_max": 237,
+          "registered_count": 498,
+          "registered_mean": 441.77510040160644,
+          "registered_median": 450.5,
+          "registered_std": 192.38586107021567,
+          "registered_min": 20,
+          "registered_max": 886,
+          "cnt_count": 498,
+          "cnt_mean": 492.2269076305221,
+          "cnt_median": 504.5,
+          "cnt_std": 220.25816825483082,
+          "cnt_min": 26,
+          "cnt_max": 977
+        },
+        {
+          "hr": 19,
+          "workingday": 0,
+          "casual_count": 230,
+          "casual_mean": 65.54782608695652,
+          "casual_median": 53.5,
+          "casual_std": 54.66024372578083,
+          "casual_min": 0,
+          "casual_max": 230,
+          "registered_count": 230,
+          "registered_mean": 166.12608695652173,
+          "registered_median": 169.0,
+          "registered_std": 85.68999023030202,
+          "registered_min": 11,
+          "registered_max": 461,
+          "cnt_count": 230,
+          "cnt_mean": 231.67391304347825,
+          "cnt_median": 232.0,
+          "cnt_std": 130.68887924874753,
+          "cnt_min": 11,
+          "cnt_max": 554
+        },
+        {
+          "hr": 19,
+          "workingday": 1,
+          "casual_count": 498,
+          "casual_mean": 41.02208835341366,
+          "casual_median": 37.0,
+          "casual_std": 32.462972469345715,
+          "casual_min": 0,
+          "casual_max": 213,
+          "registered_count": 498,
+          "registered_mean": 307.37951807228916,
+          "registered_median": 305.5,
+          "registered_std": 135.80973546714023,
+          "registered_min": 14,
+          "registered_max": 662,
+          "cnt_count": 498,
+          "cnt_mean": 348.4016064257028,
+          "cnt_median": 349.5,
+          "cnt_std": 160.49085721287435,
+          "cnt_min": 18,
+          "cnt_max": 743
+        },
+        {
+          "hr": 20,
+          "workingday": 0,
+          "casual_count": 230,
+          "casual_mean": 46.76521739130435,
+          "casual_median": 39.5,
+          "casual_std": 40.567659895888944,
+          "casual_min": 0,
+          "casual_max": 237,
+          "registered_count": 230,
+          "registered_mean": 127.97391304347826,
+          "registered_median": 128.5,
+          "registered_std": 66.55364725382951,
+          "registered_min": 8,
+          "registered_max": 327,
+          "cnt_count": 230,
+          "cnt_mean": 174.7391304347826,
+          "cnt_median": 176.0,
+          "cnt_std": 100.85460908611486,
+          "cnt_min": 11,
+          "cnt_max": 551
+        },
+        {
+          "hr": 20,
+          "workingday": 1,
+          "casual_count": 498,
+          "casual_mean": 31.369477911646587,
+          "casual_median": 26.5,
+          "casual_std": 25.966160305570817,
+          "casual_min": 0,
+          "casual_max": 117,
+          "registered_count": 498,
+          "registered_mean": 218.34939759036143,
+          "registered_median": 221.0,
+          "registered_std": 100.43546237386504,
+          "registered_min": 17,
+          "registered_max": 461,
+          "cnt_count": 498,
+          "cnt_mean": 249.71887550200802,
+          "cnt_median": 248.0,
+          "cnt_std": 120.3406352655547,
+          "cnt_min": 23,
+          "cnt_max": 567
+        },
+        {
+          "hr": 21,
+          "workingday": 0,
+          "casual_count": 230,
+          "casual_mean": 36.14782608695652,
+          "casual_median": 26.0,
+          "casual_std": 33.33349901863767,
+          "casual_min": 0,
+          "casual_max": 222,
+          "registered_count": 230,
+          "registered_mean": 105.91304347826087,
+          "registered_median": 101.5,
+          "registered_std": 57.12371699301911,
+          "registered_min": 6,
+          "registered_max": 362,
+          "cnt_count": 230,
+          "cnt_mean": 142.0608695652174,
+          "cnt_median": 136.5,
+          "cnt_std": 86.64929937518241,
+          "cnt_min": 7,
+          "cnt_max": 584
+        },
+        {
+          "hr": 21,
+          "workingday": 1,
+          "casual_count": 498,
+          "casual_mean": 24.610441767068274,
+          "casual_median": 21.0,
+          "casual_std": 19.697839492943412,
+          "casual_min": 0,
+          "casual_max": 91,
+          "registered_count": 498,
+          "registered_mean": 161.67670682730923,
+          "registered_median": 164.5,
+          "registered_std": 73.07011254736439,
+          "registered_min": 6,
+          "registered_max": 330,
+          "cnt_count": 498,
+          "cnt_mean": 186.2871485943775,
+          "cnt_median": 190.0,
+          "cnt_std": 87.83112039454222,
+          "cnt_min": 6,
+          "cnt_max": 398
+        },
+        {
+          "hr": 22,
+          "workingday": 0,
+          "casual_count": 230,
+          "casual_mean": 28.056521739130435,
+          "casual_median": 19.0,
+          "casual_std": 26.962716067152186,
+          "casual_min": 0,
+          "casual_max": 175,
+          "registered_count": 230,
+          "registered_mean": 88.00434782608696,
+          "registered_median": 85.5,
+          "registered_std": 49.10727032203182,
+          "registered_min": 9,
+          "registered_max": 327,
+          "cnt_count": 230,
+          "cnt_mean": 116.06086956521739,
+          "cnt_median": 106.5,
+          "cnt_std": 72.68281116290059,
+          "cnt_min": 9,
+          "cnt_max": 502
+        },
+        {
+          "hr": 22,
+          "workingday": 1,
+          "casual_count": 498,
+          "casual_mean": 19.572289156626507,
+          "casual_median": 17.0,
+          "casual_std": 15.937118486559948,
+          "casual_min": 0,
+          "casual_max": 79,
+          "registered_count": 498,
+          "registered_mean": 118.81726907630522,
+          "registered_median": 118.0,
+          "registered_std": 55.26261378059371,
+          "registered_min": 5,
+          "registered_max": 262,
+          "cnt_count": 498,
+          "cnt_mean": 138.38955823293173,
+          "cnt_median": 137.0,
+          "cnt_std": 67.54934742416243,
+          "cnt_min": 11,
+          "cnt_max": 321
+        },
+        {
+          "hr": 23,
+          "workingday": 0,
+          "casual_count": 230,
+          "casual_mean": 19.139130434782608,
+          "casual_median": 12.5,
+          "casual_std": 17.527713281115943,
+          "casual_min": 0,
+          "casual_max": 71,
+          "registered_count": 230,
+          "registered_mean": 66.79130434782608,
+          "registered_median": 59.0,
+          "registered_std": 40.4911970921998,
+          "registered_min": 2,
+          "registered_max": 185,
+          "cnt_count": 230,
+          "cnt_mean": 85.9304347826087,
+          "cnt_median": 72.5,
+          "cnt_std": 54.97164362132743,
+          "cnt_min": 2,
+          "cnt_max": 239
+        },
+        {
+          "hr": 23,
+          "workingday": 1,
+          "casual_count": 498,
+          "casual_mean": 13.379518072289157,
+          "casual_median": 11.0,
+          "casual_std": 11.25605324152882,
+          "casual_min": 0,
+          "casual_max": 58,
+          "registered_count": 498,
+          "registered_mean": 75.3293172690763,
+          "registered_median": 71.0,
+          "registered_std": 40.180327728303375,
+          "registered_min": 8,
+          "registered_max": 220,
+          "cnt_count": 498,
+          "cnt_mean": 88.70883534136546,
+          "cnt_median": 81.0,
+          "cnt_std": 48.85746486965872,
+          "cnt_min": 9,
+          "cnt_max": 256
+        }
+      ],
+      "interpretation": "Permite comparar perfiles observados sin ajustar por otras variables."
+    },
+    {
+      "id": "STAT-010",
+      "stage": "E5",
+      "analysis_type": "temporal_aggregation",
+      "title": "Agregación diaria y mensual",
+      "variables": [
+        "dteday",
+        "casual",
+        "registered",
+        "cnt"
+      ],
+      "population": "731 fechas",
+      "method": "Suma horaria diaria y agrupación por año-mes",
+      "result": {
+        "daily_summary": {
+          "n": 731,
+          "mean": 4504.3488372093025,
+          "median": 4548.0,
+          "std": 1937.2114516187676,
+          "min": 22.0,
+          "p01": 689.6,
+          "p05": 1331.0,
+          "p25": 3152.0,
+          "p75": 5956.0,
+          "p95": 7576.0,
+          "p99": 8163.700000000001,
+          "max": 8714.0
+        },
+        "monthly": [
+          {
+            "year": 2011,
+            "month": 1,
+            "days": 31,
+            "rentals": 38189,
+            "mean_daily_rentals": 1231.9032258064517
+          },
+          {
+            "year": 2011,
+            "month": 2,
+            "days": 28,
+            "rentals": 48215,
+            "mean_daily_rentals": 1721.9642857142858
+          },
+          {
+            "year": 2011,
+            "month": 3,
+            "days": 31,
+            "rentals": 64045,
+            "mean_daily_rentals": 2065.967741935484
+          },
+          {
+            "year": 2011,
+            "month": 4,
+            "days": 30,
+            "rentals": 94870,
+            "mean_daily_rentals": 3162.3333333333335
+          },
+          {
+            "year": 2011,
+            "month": 5,
+            "days": 31,
+            "rentals": 135821,
+            "mean_daily_rentals": 4381.322580645161
+          },
+          {
+            "year": 2011,
+            "month": 6,
+            "days": 30,
+            "rentals": 143512,
+            "mean_daily_rentals": 4783.733333333334
+          },
+          {
+            "year": 2011,
+            "month": 7,
+            "days": 31,
+            "rentals": 141341,
+            "mean_daily_rentals": 4559.387096774193
+          },
+          {
+            "year": 2011,
+            "month": 8,
+            "days": 31,
+            "rentals": 136691,
+            "mean_daily_rentals": 4409.387096774193
+          },
+          {
+            "year": 2011,
+            "month": 9,
+            "days": 30,
+            "rentals": 127418,
+            "mean_daily_rentals": 4247.266666666666
+          },
+          {
+            "year": 2011,
+            "month": 10,
+            "days": 31,
+            "rentals": 123511,
+            "mean_daily_rentals": 3984.2258064516127
+          },
+          {
+            "year": 2011,
+            "month": 11,
+            "days": 30,
+            "rentals": 102167,
+            "mean_daily_rentals": 3405.5666666666666
+          },
+          {
+            "year": 2011,
+            "month": 12,
+            "days": 31,
+            "rentals": 87323,
+            "mean_daily_rentals": 2816.8709677419356
+          },
+          {
+            "year": 2012,
+            "month": 1,
+            "days": 31,
+            "rentals": 96744,
+            "mean_daily_rentals": 3120.7741935483873
+          },
+          {
+            "year": 2012,
+            "month": 2,
+            "days": 29,
+            "rentals": 103137,
+            "mean_daily_rentals": 3556.448275862069
+          },
+          {
+            "year": 2012,
+            "month": 3,
+            "days": 31,
+            "rentals": 164875,
+            "mean_daily_rentals": 5318.548387096775
+          },
+          {
+            "year": 2012,
+            "month": 4,
+            "days": 30,
+            "rentals": 174224,
+            "mean_daily_rentals": 5807.466666666666
+          },
+          {
+            "year": 2012,
+            "month": 5,
+            "days": 31,
+            "rentals": 195865,
+            "mean_daily_rentals": 6318.225806451613
+          },
+          {
+            "year": 2012,
+            "month": 6,
+            "days": 30,
+            "rentals": 202830,
+            "mean_daily_rentals": 6761.0
+          },
+          {
+            "year": 2012,
+            "month": 7,
+            "days": 31,
+            "rentals": 203607,
+            "mean_daily_rentals": 6567.967741935484
+          },
+          {
+            "year": 2012,
+            "month": 8,
+            "days": 31,
+            "rentals": 214503,
+            "mean_daily_rentals": 6919.451612903225
+          },
+          {
+            "year": 2012,
+            "month": 9,
+            "days": 30,
+            "rentals": 218573,
+            "mean_daily_rentals": 7285.766666666666
+          },
+          {
+            "year": 2012,
+            "month": 10,
+            "days": 31,
+            "rentals": 198841,
+            "mean_daily_rentals": 6414.225806451613
+          },
+          {
+            "year": 2012,
+            "month": 11,
+            "days": 30,
+            "rentals": 152664,
+            "mean_daily_rentals": 5088.8
+          },
+          {
+            "year": 2012,
+            "month": 12,
+            "days": 31,
+            "rentals": 123713,
+            "mean_daily_rentals": 3990.7419354838707
+          }
+        ],
+        "daily_records_summary": {
+          "n": 731,
+          "mean": 23.774281805745552,
+          "median": 24.0,
+          "std": 1.3506753754295677,
+          "min": 1.0,
+          "p01": 19.2,
+          "p05": 23.0,
+          "p25": 24.0,
+          "p75": 24.0,
+          "p95": 24.0,
+          "p99": 24.0,
+          "max": 24.0
+        }
+      },
+      "interpretation": "Los totales de fechas incompletas pueden estar subestimados."
+    },
+    {
+      "id": "STAT-011",
+      "stage": "E5",
+      "analysis_type": "association",
+      "title": "Asociaciones meteorológicas descriptivas",
+      "variables": [
+        "cnt",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed"
+      ],
+      "population": "17.379 observaciones",
+      "method": "Correlaciones Pearson/Spearman y medias por intervalos de temp",
+      "result": {
+        "pearson": {
+          "cnt": {
+            "cnt": 1.0,
+            "temp": 0.404772,
+            "atemp": 0.400929,
+            "hum": -0.322911,
+            "windspeed": 0.093234
+          },
+          "temp": {
+            "cnt": 0.404772,
+            "temp": 1.0,
+            "atemp": 0.987672,
+            "hum": -0.069881,
+            "windspeed": -0.023125
+          },
+          "atemp": {
+            "cnt": 0.400929,
+            "temp": 0.987672,
+            "atemp": 1.0,
+            "hum": -0.051918,
+            "windspeed": -0.062336
+          },
+          "hum": {
+            "cnt": -0.322911,
+            "temp": -0.069881,
+            "atemp": -0.051918,
+            "hum": 1.0,
+            "windspeed": -0.290105
+          },
+          "windspeed": {
+            "cnt": 0.093234,
+            "temp": -0.023125,
+            "atemp": -0.062336,
+            "hum": -0.290105,
+            "windspeed": 1.0
+          }
+        },
+        "spearman": {
+          "cnt": {
+            "cnt": 1.0,
+            "temp": 0.42333,
+            "atemp": 0.423258,
+            "hum": -0.359614,
+            "windspeed": 0.126629
+          },
+          "temp": {
+            "cnt": 0.42333,
+            "temp": 1.0,
+            "atemp": 0.989633,
+            "hum": -0.055408,
+            "windspeed": -0.009719
+          },
+          "atemp": {
+            "cnt": 0.423258,
+            "temp": 0.989633,
+            "atemp": 1.0,
+            "hum": -0.052617,
+            "windspeed": -0.041091
+          },
+          "hum": {
+            "cnt": -0.359614,
+            "temp": -0.055408,
+            "atemp": -0.052617,
+            "hum": 1.0,
+            "windspeed": -0.293913
+          },
+          "windspeed": {
+            "cnt": 0.126629,
+            "temp": -0.009719,
+            "atemp": -0.041091,
+            "hum": -0.293913,
+            "windspeed": 1.0
+          }
+        },
+        "cnt_by_temp_bin": [
+          {
+            "temp_bin": "(-0.001, 0.1]",
+            "size": 117,
+            "mean": 42.29059829059829,
+            "median": 21.0
+          },
+          {
+            "temp_bin": "(0.1, 0.2]",
+            "size": 953,
+            "mean": 67.86568730325288,
+            "median": 45.0
+          },
+          {
+            "temp_bin": "(0.2, 0.3]",
+            "size": 2444,
+            "mean": 92.83224222585925,
+            "median": 61.0
+          },
+          {
+            "temp_bin": "(0.3, 0.4]",
+            "size": 2913,
+            "mean": 148.4335736354274,
+            "median": 114.0
+          },
+          {
+            "temp_bin": "(0.4, 0.5]",
+            "size": 2433,
+            "mean": 175.88532675709,
+            "median": 137.0
+          },
+          {
+            "temp_bin": "(0.5, 0.6]",
+            "size": 2684,
+            "mean": 211.70007451564828,
+            "median": 171.0
+          },
+          {
+            "temp_bin": "(0.6, 0.7]",
+            "size": 3150,
+            "mean": 225.3336507936508,
+            "median": 181.0
+          },
+          {
+            "temp_bin": "(0.7, 0.8]",
+            "size": 1976,
+            "mean": 317.0662955465587,
+            "median": 287.0
+          },
+          {
+            "temp_bin": "(0.8, 0.9]",
+            "size": 625,
+            "mean": 330.7744,
+            "median": 300.0
+          },
+          {
+            "temp_bin": "(0.9, 1.0]",
+            "size": 84,
+            "mean": 292.8095238095238,
+            "median": 278.0
+          }
+        ]
+      },
+      "interpretation": "Las asociaciones describen co-variación, no efectos causales; temp y atemp pueden ser redundantes."
+    },
+    {
+      "id": "STAT-012",
+      "stage": "E7",
+      "analysis_type": "contextual_extremes",
+      "title": "Extremos diarios contextuales",
+      "variables": [
+        "dteday",
+        "cnt"
+      ],
+      "population": "731 agregados diarios",
+      "method": "|z|>=3 dentro de cada mes-año",
+      "result": {
+        "threshold_abs_z": 3,
+        "n_days_flagged": 8,
+        "flagged_days": [
+          {
+            "dteday": "2011-08-27T00:00:00",
+            "cnt": 1115,
+            "records": 18,
+            "ym": "2011-08",
+            "z": -4.06788581677997
+          },
+          {
+            "dteday": "2012-04-22T00:00:00",
+            "cnt": 1027,
+            "records": 24,
+            "ym": "2012-04",
+            "z": -3.652169409354945
+          },
+          {
+            "dteday": "2012-10-29T00:00:00",
+            "cnt": 22,
+            "records": 1,
+            "ym": "2012-10",
+            "z": -3.291874521278036
+          },
+          {
+            "dteday": "2012-09-18T00:00:00",
+            "cnt": 4073,
+            "records": 24,
+            "ym": "2012-09",
+            "z": -3.2811426459512685
+          },
+          {
+            "dteday": "2012-05-14T00:00:00",
+            "cnt": 2843,
+            "records": 24,
+            "ym": "2012-05",
+            "z": -3.22256391507203
+          },
+          {
+            "dteday": "2011-05-04T00:00:00",
+            "cnt": 2633,
+            "records": 24,
+            "ym": "2011-05",
+            "z": -3.0515578530316336
+          },
+          {
+            "dteday": "2011-10-29T00:00:00",
+            "cnt": 627,
+            "records": 24,
+            "ym": "2011-10",
+            "z": -3.0423933333099042
+          },
+          {
+            "dteday": "2011-02-18T00:00:00",
+            "cnt": 2927,
+            "records": 24,
+            "ym": "2011-02",
+            "z": 3.023861946208451
+          }
+        ]
+      },
+      "interpretation": "Son señales estadísticas y no errores o eventos confirmados."
+    }
+  ],
+  "figures": [
+    {
+      "id": "FIG-001",
+      "file": "figures/fig_001_evolucion_diaria.png",
+      "title": "Alquileres diarios y media móvil",
+      "objective": "Describir evolución temporal diaria.",
+      "variables": [
+        "dteday",
+        "cnt"
+      ],
+      "source_analysis_ids": [
+        "STAT-010"
+      ]
+    },
+    {
+      "id": "FIG-002",
+      "file": "figures/fig_002_perfil_horario_laborable.png",
+      "title": "Promedio horario por tipo de día",
+      "objective": "Comparar perfil según workingday.",
+      "variables": [
+        "hr",
+        "workingday",
+        "cnt"
+      ],
+      "source_analysis_ids": [
+        "STAT-009"
+      ]
+    },
+    {
+      "id": "FIG-003",
+      "file": "figures/fig_003_alquileres_por_clima.png",
+      "title": "Alquileres por clima",
+      "objective": "Mostrar distribución por weathersit.",
+      "variables": [
+        "weathersit",
+        "cnt"
+      ],
+      "source_analysis_ids": [
+        "STAT-008"
+      ]
+    },
+    {
+      "id": "FIG-004",
+      "file": "figures/fig_004_temperatura_y_alquileres.png",
+      "title": "Alquileres por temperatura",
+      "objective": "Mostrar asociación descriptiva con temp.",
+      "variables": [
+        "temp",
+        "cnt"
+      ],
+      "source_analysis_ids": [
+        "STAT-011"
+      ]
+    },
+    {
+      "id": "FIG-005",
+      "file": "figures/fig_005_composicion_horaria.png",
+      "title": "Composición por hora",
+      "objective": "Describir mezcla casual/registered.",
+      "variables": [
+        "hr",
+        "casual",
+        "registered"
+      ],
+      "source_analysis_ids": [
+        "STAT-007",
+        "STAT-009"
+      ]
+    }
+  ],
+  "limitations": [
+    "Datos agregados por hora, sin trayectos, estaciones, disponibilidad ni duración.",
+    "Meteorología normalizada sin conversión a unidades físicas.",
+    "Horas faltantes: agregados que incluyan días incompletos pueden subestimar totales.",
+    "Asociaciones descriptivas sin control simultáneo de factores.",
+    "season es una clasificación provista; no se debe sustituir por bloques rígidos de meses, pues difieren en 3.922 filas."
+  ]
+}
